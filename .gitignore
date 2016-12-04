@@ -1,3 +1,5 @@
 .nuget/
 bin/
 obj/
+Backup/
+UpdateLog.htm
