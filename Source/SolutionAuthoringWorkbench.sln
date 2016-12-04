@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{552381
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPatterns", "MyPatterns.csproj", "{74E197B3-6FA3-45D5-95A0-CC1925214975}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deployer", "Deployer\Deployer.csproj", "{74E197B3-6FA3-45D5-95A0-CC1925214975}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

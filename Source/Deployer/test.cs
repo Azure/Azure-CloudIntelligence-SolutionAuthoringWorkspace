@@ -1,4 +1,3 @@
-//Hello World
 using System;
 using Newtonsoft.Json;
 using Microsoft.Azure;
