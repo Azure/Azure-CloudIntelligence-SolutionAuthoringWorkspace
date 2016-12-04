@@ -1,3 +1,3 @@
-cd Sources
+cd Source
 msbuild
 cd ..
