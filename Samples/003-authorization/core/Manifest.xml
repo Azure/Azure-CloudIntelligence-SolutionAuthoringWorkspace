@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Template>
     <Category>DesignPattern</Category>
-    <Title>Greeting from a function</Title>
+    <Title>Azure Authorization Token Example</Title>
     <Owner displayname="John Doe" email="john.doe@contoso.com"/>
     <PublishedOn>12/31/2016</PublishedOn>
     <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
@@ -9,9 +9,11 @@
     <Summary src="Summary.md" format="markdown"/>
     <EstimatedTime>3 Minutes</EstimatedTime>
     <ProvisioningSteps>
-        <Function name="greet" title="Calling a function" retriable="true">
+        <Function name="performAuthorizedOperation" title="Performing an authorized operation">
             <Parameters>
-                <Parameter name="name" type="string" description="What's your name?" />
+                <Parameter name="accessToken" type="string" hidden="true" defaultValue="{authorization}" />
+                <Parameter name="resourceGroup" type="string" hidden="true" defaultValue="{ResourceGroup.Name}" />
+                <Parameter name="subscriptionId" type="string" hidden="true" defaultValue="{SubscriptionId}" />
             </Parameters>
         </Function>
         <Manual title="Done">
