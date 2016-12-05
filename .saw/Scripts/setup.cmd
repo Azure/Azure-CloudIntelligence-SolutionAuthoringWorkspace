@@ -37,6 +37,6 @@ git init .
 git remote add -t * -f origin https://github.com/wdecay/ciqsauthoring
 git checkout -f master
 
-.saw/Scripts/build.cmd
+call .saw/Scripts/build.cmd
 
 mkdir MySolutions
