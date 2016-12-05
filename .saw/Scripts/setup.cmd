@@ -1,8 +1,7 @@
 @ECHO OFF
-rem
+
 rem               Welcome to
-rem                                         
-rem   ____    _____     ____       _____  
+rem    ____    _____     ____       _____  
 rem   / ___)  (_   _)   / __ \     / ____\ 
 rem  / /        | |    / /  \ \   ( (___   
 rem ( (         | |   ( (    ) )   \___ \  
@@ -10,8 +9,7 @@ rem ( (         | |   ( (  /\) )       ) )
 rem  \ \___    _| |__  \ \_\ \/    ___/ /  
 rem   \____)  /_____(   \___\ \_  /____/   
 rem                          \__)           
-rem 
-rem      Solution Authoring Workbench (SAW)
+rem     Solution Authoring Workbench (SAW)
 rem
 rem
 rem  >> DIRECTIONS
@@ -22,10 +20,18 @@ rem  Service Editor) that is as easy as clicking the ▶ `Run from
 rem  Console` button in the top right corner.
 rem
 rem  Enjoy!
-rem
+
+
+
+
+
+
+
+
+
 
 rem TODO: make this more robust.
-IF EXIST "%~dp0\setup.cmd" EXIT /B 1
+IF EXIST "%~dp0\build.cmd" EXIT /B 1
 
 git init .
 git remote add -t * -f origin https://github.com/wdecay/ciqsauthoring
