@@ -9,6 +9,7 @@
     <Summary src="Summary.md" format="markdown"/>
     <EstimatedTime>3 Minutes</EstimatedTime>
     <ProvisioningSteps>
+        <ArmDeployment source="blank.json" title="Deploying a blank ARM template" />
         <Manual title="Done">
           <Instructions src="Instructions.md" format="markdown" />
         </Manual>
