@@ -36,4 +36,7 @@ IF EXIST "%~dp0\build.cmd" EXIT /B 1
 git init .
 git remote add -t * -f origin https://github.com/wdecay/ciqsauthoring
 git checkout -f master
+
 .saw/Scripts/build.cmd
+
+mkdir MySolutions

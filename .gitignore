@@ -1,3 +1,5 @@
 bin/
+MySolutions/
+/setup.cmd
 *.exe
 *.dll
