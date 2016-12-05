@@ -4,7 +4,7 @@
     <Title>Greeting from a function</Title>
     <Owner displayname="John Doe" email="john.doe@contoso.com"/>
     <PublishedOn>12/31/2016</PublishedOn>
-    <ImageUrl>{PatternAssetBaseUrl}/image.jpg</ImageUrl>
+    <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
     <Description>Something awesome.</Description>
     <Summary src="Summary.md" format="markdown"/>
     <EstimatedTime>3 Minutes</EstimatedTime>

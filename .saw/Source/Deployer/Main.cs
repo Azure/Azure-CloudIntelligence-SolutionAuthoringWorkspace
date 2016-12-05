@@ -19,6 +19,18 @@ class Solution
         CloudStorageAccount account = CloudStorageAccount.Parse(s);
         CloudBlobClient client = account.CreateCloudBlobClient();
 
+        var mySolutionsPath = root + @"\MySolutions";
+        // Replace Unix slashes.
+        mySolutionsPath = mySolutionsPath.Replace(@"/", Path.DirectorySeparatorChar.ToString());
+
+        if (!mySolutionsPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
+        {
+            mySolutionsPath += Path.DirectorySeparatorChar;
+        }
+
+        var core = @"\core";
+        var assets = @"\assets\";
+
         var containers = client.ListContainers();
         foreach (var container in containers)
         {
@@ -48,17 +60,6 @@ class Solution
         } while (true);
 
 
-        var mySolutionsPath = root + @"\MySolutions";
-        var core = @"\core";
-
-        // Replace Unix slashes.
-        mySolutionsPath = mySolutionsPath.Replace(@"/", Path.DirectorySeparatorChar.ToString());
-
-        if (!mySolutionsPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
-        {
-            mySolutionsPath += Path.DirectorySeparatorChar;
-        }
-
         foreach (string folder in Directory.GetDirectories(mySolutionsPath))
         {
             foreach (string file in Directory.EnumerateFiles(folder + core, "*", SearchOption.AllDirectories))
@@ -74,5 +75,32 @@ class Solution
                 }
             }
         }
+
+        // Create asset containers
+        foreach (string folder in Directory.GetDirectories(mySolutionsPath))
+        {
+            var assetsRoot = folder + assets;
+
+            var solutionName = folder.Remove(0, mySolutionsPath.Length);
+            CloudBlobContainer solutionContainer = client.GetContainerReference(solutionName);
+            solutionContainer.Create();
+            var permissions = solutionContainer.GetPermissions();
+            permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
+            solutionContainer.SetPermissions(permissions);
+
+            foreach (string file in Directory.EnumerateFiles(assetsRoot, "*", SearchOption.AllDirectories))
+            {
+                string blobName = file.Remove(0, assetsRoot.Length);
+                Console.WriteLine($"{solutionName} - {blobName}");
+
+                CloudBlockBlob blockBlob = solutionContainer.GetBlockBlobReference(blobName);
+                using (var fileStream = System.IO.File.OpenRead(file))
+                {
+                    blockBlob.UploadFromStream(fileStream);
+                } 
+            }
+        }
+
+
     }
 }
