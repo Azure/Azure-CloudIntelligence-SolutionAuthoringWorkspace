@@ -4,7 +4,7 @@ SET MSBUILD_PATH=D:\Program Files (x86)\MSBuild\14.0\Bin
 SET NUGET_PATH=D:\Program Files (x86)\SiteExtensions\Kudu\59.51202.2583\bin\Scripts
 SET PATH=%cd%;%NUGET_PATH%;%MSBUILD_PATH%;%PATH%
 SET SAW_ROOT=%~dp0..\..
-SET SOURCE_PATH=%SAW_ROOT%\.saw\Source
+SET SOURCE_PATH=%SAW_ROOT%\.saw\src
 
 CALL :verify_command nuget || exit /b 1
 CALL :verify_command msbuild || exit /b 1
@@ -25,3 +25,4 @@ IF %errorlevel%==1 (
 	ECHO ERROR: %~1 could not be found.
 	EXIT /B 1
 )
+GOTO :eof
