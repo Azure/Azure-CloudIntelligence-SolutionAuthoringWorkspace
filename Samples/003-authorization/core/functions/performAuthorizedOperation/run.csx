@@ -19,7 +19,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
     var url = $"https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}?api-version=2016-02-01";
     
-    var response = await client.PostAsync(url, new StringContent(string.Empty));
+    var response = await client.GetAsync(url);
 
     var responseString = await response.Content.ReadAsStringAsync();
     
