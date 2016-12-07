@@ -12,7 +12,7 @@ namespace Microsoft.Ciqs.Saw.Cli
     {
         static void Main(string[] args)
         {
-            var root = @"C:\Users\anivan\Downloads\patterns\MySolutions"; //Environment.GetEnvironmentVariable("SAW_ROOT");
+            var root = Environment.GetEnvironmentVariable("SAW_ROOT") + @"\MySolutions";
 
             Console.WriteLine($"Root: {root}");
 
@@ -21,8 +21,6 @@ namespace Microsoft.Ciqs.Saw.Cli
 
             SolutionDeployer d = new SolutionDeployer(root, account);
             d.Deploy();
-
-            Console.ReadKey();
         }
     }
 }
