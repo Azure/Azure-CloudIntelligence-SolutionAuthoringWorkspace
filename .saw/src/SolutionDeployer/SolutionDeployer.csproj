@@ -44,7 +44,7 @@
     <Compile Include="SolutionDeployer.cs" />
     <Reference Include="Newtonsoft.Json">
       <Private>True</Private>
-      <HintPath>..\..\NugetPackages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\NugetPackages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="WindowsAzure.Storage">

@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Ciqs.Saw.Deployer;
-using Microsoft.WindowsAzure.Storage;
-
-namespace Microsoft.Ciqs.Saw.Cli
+﻿namespace Microsoft.Ciqs.Saw.Cli
 {
+    using System;
+    using System.Configuration;
+    using Microsoft.Ciqs.Saw.Deployer;
+    using Microsoft.WindowsAzure.Storage;
+
     class Program
     {
         static void Main(string[] args)
         {
-            var root = Environment.GetEnvironmentVariable("SAW_ROOT") + @"\MySolutions";
+            var root = Environment.GetEnvironmentVariable("SAW_ROOT");
 
-            Console.WriteLine($"Root: {root}");
+            var solutionsRoot = root + Environment.GetEnvironmentVariable("SolutionsDirectory");
 
-            string s = "DefaultEndpointsProtocol=https;AccountName=myciqspatterns;AccountKey=iFfdstmCl9I9hcfl+cCduGY5/NJbzroHZoZ0LNPUUdK5P7bfBchMdX1DwXTcmVk2Hb16k+q0XX6j2cJUpYeo+Q==;";
-            CloudStorageAccount account = CloudStorageAccount.Parse(s);
+            Console.WriteLine($"Root: {solutionsRoot}");
 
-            SolutionDeployer d = new SolutionDeployer(root, account);
-            d.Deploy();
+            string storageConnectionString = ConfigurationManager.AppSettings["SolutionStorageConnectionString"];
+            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
+
+            SolutionDeployer deployer = new SolutionDeployer(solutionsRoot, account);
+            deployer.Deploy();
         }
     }
 }
