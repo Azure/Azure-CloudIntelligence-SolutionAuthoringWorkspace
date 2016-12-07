@@ -1,5 +1,6 @@
 bin/
 MySolutions/
+.config
 setup.cmd
 .saw/NugetPackages/
 *.exe
