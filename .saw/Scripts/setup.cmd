@@ -1,25 +1,25 @@
 @ECHO OFF
 
-rem               Welcome to
-rem    ____    _____     ____       _____  
-rem   / ___)  (_   _)   / __ \     / ____\ 
-rem  / /        | |    / /  \ \   ( (___   
-rem ( (         | |   ( (    ) )   \___ \  
-rem ( (         | |   ( (  /\) )       ) ) 
-rem  \ \___    _| |__  \ \_\ \/    ___/ /  
-rem   \____)  /_____(   \___\ \_  /____/   
-rem                          \__)           
-rem     Solution Authoring Workbench (SAW)
+rem                    Welcome to
+rem         ____    _____     ____       _____  
+rem        / ___)  (_   _)   / __ \     / ____\ 
+rem       / /        | |    / /  \ \   ( (___   
+rem      ( (         | |   ( (    ) )   \___ \  
+rem      ( (         | |   ( (  /\) )       ) ) 
+rem       \ \___    _| |__  \ \_\ \/    ___/ /  
+rem        \____)  /_____(   \___\ \_  /____/   
+rem                               \__)           
+rem         Solution Authoring Workbench (SAW)
 rem
 rem
-rem  >> DIRECTIONS
+rem     >> DIRECTIONS
 rem  
-rem  If you haven't done so already, run this program to setup
-rem  a new solution authoring environment. In VS Code Web (App
-rem  Service Editor) that is as easy as clicking the ▶ `Run from
-rem  Console` button in the top right corner.
+rem     If you haven't done so already, run this program to setup
+rem     a new solution authoring environment. In VS Code Web (App
+rem     Service Editor) that is as easy as clicking the ▶ `Run from
+rem     Console` button in the top right corner.
 rem
-rem  Enjoy!
+rem     Enjoy!
 
 
 
