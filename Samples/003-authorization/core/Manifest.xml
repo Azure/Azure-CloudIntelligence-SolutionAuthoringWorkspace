@@ -11,7 +11,7 @@
     <ProvisioningSteps>
         <Function name="performAuthorizedOperation" title="Performing an authorized operation">
             <Parameters>
-                <Parameter name="accessToken" type="string" hidden="true" defaultValue="{authorization}" />
+                <Parameter name="accessToken" type="string" hidden="true" defaultValue="{Authorization}" />
                 <Parameter name="resourceGroup" type="string" hidden="true" defaultValue="{ResourceGroup.Name}" />
                 <Parameter name="subscriptionId" type="string" hidden="true" defaultValue="{SubscriptionId}" />
             </Parameters>
