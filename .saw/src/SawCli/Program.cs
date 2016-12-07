@@ -11,7 +11,7 @@
         {
             var root = Environment.GetEnvironmentVariable("SAW_ROOT");
 
-            var solutionsRoot = root + Environment.GetEnvironmentVariable("SolutionsDirectory");
+            var solutionsRoot = root + ConfigurationManager.AppSettings["SolutionsDirectory"];
 
             Console.WriteLine($"Root: {solutionsRoot}");
 
