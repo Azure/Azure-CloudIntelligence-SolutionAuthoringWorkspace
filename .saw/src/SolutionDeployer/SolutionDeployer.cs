@@ -92,10 +92,9 @@ namespace Microsoft.Ciqs.Saw.Deployer
 
         private void PurgeContainer(CloudBlobContainer container)
         {
-            foreach (var blob in container.ListBlobs())
+            foreach (var blob in container.ListBlobs(null, true))
             {
-                var cloudBlob = container.GetBlobReference(blob.Uri.ToString());
-                cloudBlob.DeleteIfExists();
+                ((CloudBlockBlob)blob).Delete();
             }
         }
 
