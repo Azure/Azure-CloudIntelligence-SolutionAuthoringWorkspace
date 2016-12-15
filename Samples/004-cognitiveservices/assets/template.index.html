@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Cognitive Services Solution Demo</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.css">
+
+<style>
+    #main {
+        margin-left: 0px;
+        max-width: 900px;
+        margin-bottom: 30px;
+    }
+    
+    #display {
+        display: none;
+    }
+    
+    #debug-wrapper {
+        display: none;
+    }
+    
+    #debug {
+        margin-top: 32px;
+    }
+    
+    #image-wrapper {
+        position: relative;
+    }
+    
+    .face-rectangle {
+        border: 3px solid yellowgreen;
+        position: absolute;        
+    }
+    
+    .face-rectangle .age {
+        font-size: 2em;
+        font-weight: bold;
+        text-align: right;
+        margin-right: 5px;
+        margin-bottom: -5px;
+        color: yellowgreen;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+</style>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function() {
+            var lastApiResponse = null;
+            
+            function drawFaceRectangles() {
+                var imageWrapper = $('#image-wrapper');
+                var display = $('#display');
+                
+                imageWrapper.find('.face-rectangle').remove();  
+                
+                $.each(lastApiResponse, function(i, face) {                    
+                    var faceRectangle = face.FaceRectangle;
+                    
+                    var age = Math.round(face.FaceAttributes.Age);
+
+                    
+                    var scale =  display.width() / display.prop('naturalWidth');
+                    
+                    var faceRectangleElement = $('<div class="face-rectangle">')
+                        .css({
+                            top: faceRectangle.Top * scale,
+                            left: faceRectangle.Left * scale,
+                            width: faceRectangle.Width * scale,
+                            height: faceRectangle.Height * scale
+                        });
+
+                    var ageElement = $('<div class="age">').text(age);
+                    faceRectangleElement.append(ageElement);
+                    
+                    imageWrapper.append(faceRectangleElement);                    
+                });
+            }
+            
+            function fileSelectListener(event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    var dataUrl = e.target.result;
+                                      
+                    $('#display').attr('src', dataUrl).show();
+                    $('#debug-wrapper').hide();
+                    lastApiResponse = null;
+                    drawFaceRectangles();
+                    
+                    $.ajax({
+                        url: '{apiEndpoint}',
+                        method: 'POST',
+                        data: dataUrl
+                    }).done(function(response) {
+                        console.log(response);
+                        lastApiResponse = response;
+                        drawFaceRectangles();
+                    }).always(function(response) {
+                        var prettyResponse = JSON.stringify(response, null, 2)
+                        $('#debug').text(prettyResponse);
+                        $('#debug-wrapper').show();                                                                                        
+                    });
+                };
+                reader.readAsDataURL(file);
+            }   
+            
+            $( window ).resize(function() {
+                drawFaceRectangles();
+            });
+            
+            document.getElementById('imageFile').addEventListener('change', fileSelectListener, false);
+        });
+        
+        function clickBrowse() {
+            $('#imageFile').click();
+        }
+    </script>
+    <div id="main" class="container">
+        <h2>Microsoft Cognitive Services Face API Demo</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <h5>Please select an image on your hard drive</h5>
+                <input type="file" id="imageFile" name="imageFile" accept="image/*" />
+                <div id="image-wrapper">
+                    <img id="display" class="img-responsive img-thumbnail" />
+                </div>                
+            </div>
+            <div class="col-sm-6">
+                <div id="debug-wrapper">
+                    <h5>Debug output:</h5>
+                    <pre id="debug" class="pre-scrollable"></pre>
+                </div>    
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            <i class="glyphicon glyphicon-info-sign text-info"></i> Build with <a href="https://start.cortanaintelligence.com"> Cortana Intelligence Solutions </a>            
+        </div>
+    </div>
+</body>
+</html>

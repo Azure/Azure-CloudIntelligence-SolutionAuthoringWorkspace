@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+    <Category>DesignPattern</Category>
+    <Title>A viral app.</Title>
+    <Owner displayname="John Doe" email="john.doe@contoso.com"/>
+    <PublishedOn>12/31/2016</PublishedOn>
+    <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
+    <Description>Building a basic website similar to how-old.net using Cognitive APIs.</Description>
+    <Summary src="markdown\Summary.md" format="markdown"/>
+    <EstimatedTime>3 Minutes</EstimatedTime>
+    <ProvisioningSteps>
+        <ArmDeployment source="arm\createCognitiveServicesAccount.json" title="Creating a free Cognitive Services account"/>
+        <Function name="createWebsite" title="Creating a website" retriable="true">
+            <Parameters>
+                <Parameter name="templateUrl" type="string" hidden="true">
+                    <DefaultValue>{PatternAssetBaseUrl}/template.index.html</DefaultValue>
+                </Parameter>
+                <Parameter name="storageAccountName" hidden="true">
+                    <DefaultValue>{Outputs.storageAccountName}</DefaultValue>
+                </Parameter>
+                <Parameter name="storageAccountKey" hidden="true">
+                    <DefaultValue>{Outputs.storageAccountKey}</DefaultValue>
+                 </Parameter>
+                 <Parameter name="apiEndpoint" hidden="true">
+                    <DefaultValue>https://{Outputs.functionAppName}.azurewebsites.net/api/analyzeFaces</DefaultValue>
+                </Parameter>
+            </Parameters>
+        </Function>
+        <ArmDeployment source="arm\publishConnectionStrings.json" title="Adding Cognitive Services account key to FunctionApp's connection strings">
+            <Parameters>
+                <Parameter name="functionAppName" hidden="true">
+                    <DefaultValue>{Outputs.functionAppName}</DefaultValue>
+                </Parameter>
+                <Parameter name="cognitiveServicesAccountKey" hidden="true">
+                    <DefaultValue>{Outputs.cognitiveServicesAccountKey}</DefaultValue>
+                </Parameter>
+            </Parameters>
+        </ArmDeployment>
+        <ArmDeployment source="arm\setupCors.json" title="Modifyng FunctionApp's CORS settings">
+            <Parameters>
+                <Parameter name="functionAppName" hidden="true">
+                    <DefaultValue>{Outputs.functionAppName}</DefaultValue>
+                </Parameter>
+                <Parameter name="websiteDomainName" hidden="true">
+                    <DefaultValue>https://{Outputs.storageAccountName}.blob.core.windows.net</DefaultValue>
+                </Parameter>
+            </Parameters>
+        </ArmDeployment>
+        <Manual title="Done">
+          <Instructions src="markdown\Instructions.md" format="markdown" />
+        </Manual>
+    </ProvisioningSteps>
+</Template>
