@@ -16,7 +16,7 @@ ECHO Done!
 POPD
 
 ECHO Building SAW tools from the source code...
-msbuild %SOURCE_PATH%\SolutionAuthoringWorkbench.sln /p:Configuration=Release
+msbuild %SOURCE_PATH%\SolutionAuthoringWorkspace.sln /p:Configuration=Release
 ECHO Done!
 
 :verify_command
