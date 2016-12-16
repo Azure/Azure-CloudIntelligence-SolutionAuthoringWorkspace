@@ -30,8 +30,9 @@ rem     Enjoy!
 
 
 
-rem TODO: make this more robust.
-IF EXIST "%~dp0\build.cmd" EXIT /B 1
+
+
+
 
 git init .
 git remote add -t * -f origin https://github.com/{gitAccountName}/{sawRepoName}
