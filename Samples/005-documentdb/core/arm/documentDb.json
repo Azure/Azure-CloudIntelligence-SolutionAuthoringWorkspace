@@ -1,0 +1,35 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",    
+    "variables": {        
+        "uniqueNamePrefix": "[toLower(concat(resourceGroup().name, uniqueString(subscription().subscriptionId)))]",
+        "location": "[resourceGroup().location]",                
+        "databaseAccountName": "[concat(variables('uniqueNamePrefix'), 'addb')]"        
+    },
+    "resources": [
+        {
+            "apiVersion": "2015-04-08",
+            "type": "Microsoft.DocumentDb/databaseAccounts",
+            "name": "[variables('databaseAccountName')]",
+            "location": "[variables('location')]",
+            "properties": {
+                "name": "[variables('databaseAccountName')]",
+                "databaseAccountOfferType": "Standard"
+            }
+        }
+    ],
+    "outputs" : {
+        "documentDbAccountName" : {
+            "type": "string",
+            "value": "[variables('databaseAccountName')]"    
+        }, 				
+        "documentDbEndpoint" : {
+            "type" : "string",
+            "value" : "[reference(concat('Microsoft.DocumentDb/databaseAccounts/', variables('databaseAccountName'))).documentEndpoint]"
+        },
+        "documentDbPrimaryKey": {            
+            "type": "string",
+            "value": "[listKeys(resourceId('Microsoft.DocumentDb/databaseAccounts', variables('databaseAccountName')), '2015-04-08').primaryMasterKey]"
+        }
+    }
+}
