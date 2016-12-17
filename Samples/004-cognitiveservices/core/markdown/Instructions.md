@@ -1,4 +1,4 @@
-### You soon-to-be viral APP is ready!
+### Your soon-to-be viral APP is ready!
 
 [Open the web site a new tab]({Outputs.websiteUrl})
 
