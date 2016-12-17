@@ -65,7 +65,7 @@
                     
                     var age = Math.round(face.FaceAttributes.Age);
 
-                    
+                    // TODO: account for padding, border, etc...
                     var scale =  display.width() / display.prop('naturalWidth');
                     
                     var faceRectangleElement = $('<div class="face-rectangle">')
@@ -118,10 +118,6 @@
             
             document.getElementById('imageFile').addEventListener('change', fileSelectListener, false);
         });
-        
-        function clickBrowse() {
-            $('#imageFile').click();
-        }
     </script>
     <div id="main" class="container">
         <h2>Microsoft Cognitive Services Face API Demo</h2>
