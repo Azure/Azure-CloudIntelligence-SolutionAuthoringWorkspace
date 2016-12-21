@@ -39,5 +39,8 @@ git remote add -t * -f origin https://github.com/{gitAccountName}/{sawRepoName}
 git checkout -f master
 
 call .saw/Scripts/build.cmd
+IF NOT %errorlevel%==0 (
+	EXIT /B 1
+)
 
 mkdir MySolutions

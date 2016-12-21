@@ -2,7 +2,12 @@
 
 SET MSBUILD_PATH=D:\Program Files (x86)\MSBuild\14.0\Bin
 SET NUGET_PATH=D:\Program Files (x86)\SiteExtensions\Kudu\59.51202.2583\bin\Scripts
+IF NOT EXIST "%MSBUILD_PATH%" GOTO :not_app_service
+IF NOT EXIST "%NUGET_PATH%" GOTO :not_app_service
+ECHO Looks like this is an App Service environment. Updating PATH appropriately.
 SET PATH=%cd%;%NUGET_PATH%;%MSBUILD_PATH%;%PATH%
+
+:not_app_service
 SET SAW_ROOT=%~dp0..\..
 SET SOURCE_PATH=%SAW_ROOT%\.saw\src
 
@@ -12,11 +17,19 @@ CALL :verify_command msbuild || exit /b 1
 PUSHD %SOURCE_PATH%
 ECHO Running NuGet restore...
 nuget restore >nul
+IF NOT %errorlevel%==0 (
+	ECHO ERROR: NuGet restore failed.
+	EXIT /B 1
+)
 ECHO Done!
 POPD
 
 ECHO Building SAW tools from the source code...
-msbuild %SOURCE_PATH%\SolutionAuthoringWorkspace.sln /p:Configuration=Release
+msbuild %SOURCE_PATH%\SolutionAuthoringWorkspace.sln /p:Configuration=Release >nul
+IF NOT %errorlevel%==0 (
+	ECHO ERROR: Unable to build SAW.
+	EXIT /B 1
+)
 ECHO Done!
 
 :verify_command
