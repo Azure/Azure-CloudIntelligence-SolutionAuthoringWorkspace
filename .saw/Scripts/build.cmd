@@ -32,6 +32,9 @@ IF NOT %errorlevel%==0 (
 )
 ECHO Done!
 
+EXIT /b 0
+GOTO :eof
+
 :verify_command
 where "%~1" >nul 2>nul
 IF %errorlevel%==1 (
