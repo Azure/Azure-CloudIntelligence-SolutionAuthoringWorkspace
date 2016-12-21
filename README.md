@@ -17,7 +17,7 @@ This repository contains a community-driven and constantly expanding collection 
   * Build solution assets from source code
   * Verify solution package and artifacts
   * Test and debug solution provisioning workflow
-  * Deploy solutions into *CIQS* for further testing, sharing and publishing
+  * Deploy solution packages into *CIQS* for further testing, sharing and publishing
 * Source code
   * All *SAW* command-line tools
   * *CIQS Helpers* library
