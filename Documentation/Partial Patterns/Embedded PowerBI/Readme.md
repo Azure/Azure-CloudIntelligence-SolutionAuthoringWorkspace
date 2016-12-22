@@ -4,7 +4,7 @@ Embedded Power BI Partial Pattern enables CIQS solution authors to quickly and s
 
 # Prerequisites
 
-To integrate with Embedded Power BI Dashboard Partial Pattern, the following resources are needed.
+To integrate with Embedded Power BI Dashboard Partial Pattern, your solution needs to have the following.
 
 1. Power BI Desktop file (file extension .pbix) with SQL Server **Direct Query** data source.
 
@@ -18,7 +18,7 @@ A [sample pattern](/Samples/006-epbi-demo) is available which demonstrates how t
 
 The first step is to add your Power BI Desktop to your solution's assets. We recommend that you create `\assets\dashboards\solution` directory and place your PBIX file there.
 
-Next, open the Manifest file of your solution. Add the snippet below to your solution's provisioning steps.
+Next, open your solution's Manifest file. Add the snippet below to your solution's provisioning steps.
 
 ```xml
 <PartialPattern name="embeddedpbi" title="Deploy Solution Dashboard">
