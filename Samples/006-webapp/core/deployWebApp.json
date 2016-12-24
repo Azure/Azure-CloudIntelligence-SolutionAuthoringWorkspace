@@ -1,0 +1,83 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"webAppName": {
+			"type": "string"
+		},
+		"deployPackageUri": {
+			"type": "string"
+		}
+	},
+	"variables": {
+		"webAppSvcPlanName": "WebAppSvcPlan"
+	},
+	"resources": [{
+		"name": "[variables('webAppSvcPlanName')]",
+		"type": "Microsoft.Web/serverfarms",
+		"location": "[resourceGroup().location]",
+		"apiVersion": "2014-06-01",
+		"dependsOn": [],
+		"tags": {
+			"displayName": "AppSvcPlan"
+		},
+		"properties": {
+			"name": "[variables('webAppSvcPlanName')]",
+			"sku": "Basic",
+			"workerSize": 0,
+			"numberOfWorkers": 1
+		}
+	}, {
+		"name": "[parameters('webAppName')]",
+		"type": "Microsoft.Web/sites",
+		"location": "[resourceGroup().location]",
+		"apiVersion": "2015-08-01",
+		"dependsOn": [
+			"[concat('Microsoft.Web/serverfarms/', variables('webAppSvcPlanName'))]"
+		],
+		"tags": {
+			"[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('webAppSvcPlanName'))]": "Resource",
+			"displayName": "WebApp"
+		},
+		"properties": {
+			"name": "[parameters('webAppName')]",
+			"serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', variables('webAppSvcPlanName'))]"
+		},
+		"resources": [{
+			"apiVersion": "2015-08-01",
+			"name": "web",
+			"type": "config",
+			"dependsOn": [
+				"[concat('Microsoft.Web/sites/', parameters('webAppName'))]",
+				"[concat('Microsoft.Web/sites/', parameters('webAppName'), '/extensions/MSDeploy')]"
+			],
+			"tags": {
+				"displayName": "WebAppConfig"
+			},
+			"properties": {
+				"phpVersion": "5.6",
+				"netFrameworkVersion": "v4.6",
+				"use32BitWorkerProcess": false,
+				"webSocketsEnabled": true,
+				"alwaysOn": false,
+				"remoteDebuggingEnabled": true,
+				"remoteDebuggingVersion": "VS2015"
+			}
+		}, {
+			"name": "MSDeploy",
+			"type": "extensions",
+			"location": "[resourceGroup().location]",
+			"apiVersion": "2015-08-01",
+			"dependsOn": [
+				"[concat('Microsoft.Web/sites/', parameters('webAppName'))]"
+			],
+			"tags": {
+				"displayName": "WebAppMSDeploy"
+			},
+			"properties": {
+				"packageUri": "[parameters('deployPackageUri')]"
+			}
+		}]
+	}],
+	"outputs": {}
+}
