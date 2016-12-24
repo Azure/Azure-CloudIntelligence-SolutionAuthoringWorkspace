@@ -24,11 +24,11 @@
             }
             
             var root = Environment.GetEnvironmentVariable("SAW_ROOT");
+            var solutionsRoot = root + ConfigurationManager.AppSettings["SolutionsDirectory"];
             
             switch (args[0])
             {
                 case "deploy":
-                    var solutionsRoot = root + ConfigurationManager.AppSettings["SolutionsDirectory"];
                     string storageConnectionString = ConfigurationManager.AppSettings["SolutionStorageConnectionString"];
                     CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
                     SolutionDeployer deployer = new SolutionDeployer(solutionsRoot, account);

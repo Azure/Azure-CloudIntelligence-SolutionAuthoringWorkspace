@@ -9,11 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{552381
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionBuilder", "SolutionBuilder\SolutionBuilder.csproj", "{6405074E-77A4-415C-9ADF-5F61C1801E1F}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionDeployer", "SolutionDeployer\SolutionDeployer.csproj", "{74E197B3-6FA3-45D5-95A0-CC1925214975}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SawCli", "SawCli\SawCli.csproj", "{37AE2BBD-C412-412E-9B3E-A7BA897A65A7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{74E197B3-6FA3-45D5-95A0-CC1925214975} = {74E197B3-6FA3-45D5-95A0-CC1925214975}
+		{6405074E-77A4-415C-9ADF-5F61C1801E1F} = {6405074E-77A4-415C-9ADF-5F61C1801E1F}
 	EndProjectSection
 EndProject
 Global
@@ -22,6 +25,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6405074E-77A4-415C-9ADF-5F61C1801E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6405074E-77A4-415C-9ADF-5F61C1801E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6405074E-77A4-415C-9ADF-5F61C1801E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6405074E-77A4-415C-9ADF-5F61C1801E1F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74E197B3-6FA3-45D5-95A0-CC1925214975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74E197B3-6FA3-45D5-95A0-CC1925214975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74E197B3-6FA3-45D5-95A0-CC1925214975}.Release|Any CPU.ActiveCfg = Release|Any CPU
