@@ -15,12 +15,14 @@
    		<MSBuild Projects="@(ProjectFile)" Properties="%(ProjectFile.Properties)" Targets="Build"/>
  	</Target>
 
-	<Target Name="Package">
-   		<MSBuild Projects="@(ProjectFile)" Properties="%(ProjectFile.Properties)" Targets="Package"/>
+	<Target Name="CopyAssets">
+   		<MSBuild Projects="@(ProjectFile)" Properties="%(ProjectFile.Properties)" RebaseOutputs ="True" Targets="CopyAssets">
+ 			<Output ItemName="OutputZipFile" TaskParameter="TargetOutputs"/>
+ 		</MSBuild>
+		<Copy  
+            SourceFiles="@(OutputZipFile)"  
+            DestinationFolder="$(MSBuildProjectDirectory)\..\assets"  
+        />
  	</Target>
-	 
-	 <Target Name="CopyAssets">
-		 
-	 </Target>
- </Project>
+</Project>
  

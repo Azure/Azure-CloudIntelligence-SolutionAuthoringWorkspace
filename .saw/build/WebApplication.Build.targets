@@ -6,12 +6,17 @@
 			$(MSBuildAllProjects);$(MSBuildThisFileFullPath)
 		</MSBuildAllProjects>
 		<UseMsdeployExe>True</UseMsdeployExe>
+		<PackageAsSingleFile>True</PackageAsSingleFile>
 	</PropertyGroup>
 
 	<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 	<Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
 
 	<Target Name="CheckAndCleanMSDeployPackageIfNeeded" >
- 	 </Target>
+	</Target>
+	
+	<Target Name="CopyAssets" DependsOnTargets="Package" Outputs="$(PackageFileName)">
+	</Target>
+	  
  </Project>
  
