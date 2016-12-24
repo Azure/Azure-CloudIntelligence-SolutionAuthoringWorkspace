@@ -109,7 +109,6 @@ namespace Microsoft.Ciqs.Saw.Deployer
                     Console.WriteLine($"Uploading {file.Item1}");
                     blockBlob.UploadFromStream(fileStream);
                 }
-
             }
         }
     }
