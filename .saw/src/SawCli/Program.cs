@@ -28,18 +28,29 @@
             var root = Path.GetFullPath(Environment.GetEnvironmentVariable("SAW_ROOT"));
             var solutionsRoot = Path.GetFullPath(Path.Combine(root, ConfigurationManager.AppSettings["SolutionsDirectory"]));
             
+            var command = args[0];
+            
+            Action buildLambda = () => {
+                var packagesDirectory = Path.GetFullPath(Environment.GetEnvironmentVariable("PACKAGES_DIRECTORY"));
+                SolutionBuilder builder = new SolutionBuilder(solutionsRoot, packagesDirectory);
+                builder.Build();                
+            };
+            
+            Action deployLambda = () => {
+                string storageConnectionString = ConfigurationManager.AppSettings["SolutionStorageConnectionString"];
+                CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
+                SolutionDeployer deployer = new SolutionDeployer(solutionsRoot, account);
+                deployer.Deploy();                                    
+            };
+            
             switch (args[0])
             {
                 case "build":
-                    var packagesDirectory = Path.GetFullPath(Environment.GetEnvironmentVariable("PACKAGES_DIRECTORY"));
-                    SolutionBuilder builder = new SolutionBuilder(solutionsRoot, packagesDirectory);
-                    builder.Build();
+                    buildLambda();
                     break;
                 case "deploy":
-                    string storageConnectionString = ConfigurationManager.AppSettings["SolutionStorageConnectionString"];
-                    CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
-                    SolutionDeployer deployer = new SolutionDeployer(solutionsRoot, account);
-                    deployer.Deploy();                    
+                    buildLambda();
+                    deployLambda();
                     break;
                 default:
                     Program.PrintUsage(true);

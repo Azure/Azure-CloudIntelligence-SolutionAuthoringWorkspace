@@ -28,16 +28,24 @@ namespace Microsoft.Ciqs.Saw.Builder
 
         public void Build()
         {
-            Console.WriteLine($"Building solutions in {this.path}");
-            
             foreach (string solutionRoot in Directory.GetDirectories(this.path))
             {
                 var solutionName = solutionRoot.Remove(0, path.Length);
                 var solutionSrc = Path.Combine(solutionRoot, SolutionBuilder.sourceDirectoryName);
+                Console.WriteLine($"Building {solutionName}...");
+                
                 if (Directory.Exists(solutionSrc))
                 {
+                    Console.Write("* running NuGet restore... ");
                     this.RunNuGetRestore(solutionSrc);
+                    Console.WriteLine("done");
+                    Console.Write("* building and copying assets... ");
                     this.RunMsBuild(solutionSrc);
+                    Console.WriteLine("done");
+                }
+                else
+                {
+                    Console.WriteLine("* nothing to build (way to go!)");                    
                 }
             }
         }
@@ -55,7 +63,11 @@ namespace Microsoft.Ciqs.Saw.Builder
         
                 string output = p.StandardOutput.ReadToEnd();
                 p.WaitForExit();
-                Console.WriteLine(output);
+                
+                if (p.ExitCode != 0)
+                {
+                    throw new Exception($"NuGet restore error:\n{output}");
+                }
             }
         }
         
@@ -72,7 +84,11 @@ namespace Microsoft.Ciqs.Saw.Builder
         
                 string output = p.StandardOutput.ReadToEnd();
                 p.WaitForExit();
-                Console.WriteLine(output);
+
+                if (p.ExitCode != 0)
+                {
+                    throw new Exception($"Unable to build solution:\n{output}");
+                }
             }
         }
 
