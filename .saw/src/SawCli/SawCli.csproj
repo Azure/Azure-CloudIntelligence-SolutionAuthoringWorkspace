@@ -60,6 +60,10 @@
       <Project>{74E197B3-6FA3-45D5-95A0-CC1925214975}</Project>
       <Name>SolutionDeployer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SolutionBuilder\SolutionBuilder.csproj">
+      <Project>{6405074E-77A4-415C-9ADF-5F61C1801E1F}</Project>
+      <Name>SolutionBuilder</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

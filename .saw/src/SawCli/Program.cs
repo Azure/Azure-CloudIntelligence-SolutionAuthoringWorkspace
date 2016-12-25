@@ -2,7 +2,9 @@
 {
     using System;
     using System.Configuration;
+    using System.IO;
     using Microsoft.Ciqs.Saw.Deployer;
+    using Microsoft.Ciqs.Saw.Builder;
     using Microsoft.WindowsAzure.Storage;
 
     class Program
@@ -23,11 +25,16 @@
                 return 0;
             }
             
-            var root = Environment.GetEnvironmentVariable("SAW_ROOT");
-            var solutionsRoot = root + ConfigurationManager.AppSettings["SolutionsDirectory"];
+            var root = Path.GetFullPath(Environment.GetEnvironmentVariable("SAW_ROOT"));
+            var solutionsRoot = Path.GetFullPath(Path.Combine(root, ConfigurationManager.AppSettings["SolutionsDirectory"]));
             
             switch (args[0])
             {
+                case "build":
+                    var packagesDirectory = Path.GetFullPath(Environment.GetEnvironmentVariable("PACKAGES_DIRECTORY"));
+                    SolutionBuilder builder = new SolutionBuilder(solutionsRoot, packagesDirectory);
+                    builder.Build();
+                    break;
                 case "deploy":
                     string storageConnectionString = ConfigurationManager.AppSettings["SolutionStorageConnectionString"];
                     CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);

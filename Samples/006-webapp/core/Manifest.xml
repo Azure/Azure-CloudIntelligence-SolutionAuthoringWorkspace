@@ -11,7 +11,7 @@
     <ProvisioningSteps>
         <ArmDeployment source="deployWebApp.json" title="Deploying a Web App">
             <Parameters>
-                <Parameter name="webAppName" hidden="true" defaultValue="testapp89332" />
+                <Parameter name="webAppName" hidden="true" defaultValue="testapp89335" />
                 <Parameter name="deployPackageUri" hidden="true" defaultValue="{PatternAssetBaseUrl}\WebApp.zip" />
             </Parameters>
         </ArmDeployment>
