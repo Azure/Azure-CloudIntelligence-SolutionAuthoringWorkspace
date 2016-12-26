@@ -8,7 +8,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
-    <ProjectGuid>{6405074E-77A4-415C-9ADF-5F61C1801E1F}</ProjectGuid>
+    <ProjectGuid>{529681CB-01C4-40C6-8E10-7A1594CD779D}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,15 +36,11 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>Micosoft.Ciqs.Saw.Builder</AssemblyName>
+    <AssemblyName>Micosoft.Ciqs.Saw.Common</AssemblyName>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{529681CB-01C4-40C6-8E10-7A1594CD779D}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <Compile Include="SolutionBuilder.cs" />
+    <Compile Include="SawException.cs" />
     <Reference Include="System" />
   </ItemGroup>
 </Project>

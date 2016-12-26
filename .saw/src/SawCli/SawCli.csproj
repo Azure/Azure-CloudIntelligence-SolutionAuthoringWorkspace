@@ -56,6 +56,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{529681CB-01C4-40C6-8E10-7A1594CD779D}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SolutionDeployer\SolutionDeployer.csproj">
       <Project>{74E197B3-6FA3-45D5-95A0-CC1925214975}</Project>
       <Name>SolutionDeployer</Name>

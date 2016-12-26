@@ -42,6 +42,10 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="SolutionDeployer.cs" />
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{529681CB-01C4-40C6-8E10-7A1594CD779D}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <Reference Include="Newtonsoft.Json">
       <Private>True</Private>
       <HintPath>..\..\NugetPackages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>

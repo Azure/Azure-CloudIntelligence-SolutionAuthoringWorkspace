@@ -7,11 +7,25 @@ namespace Microsoft.Ciqs.Saw.Builder
     using System.Threading;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Microsoft.Ciqs.Saw.Common;
 
     public class SolutionBuilder
     {
         private string path;
         private string packagesDirectory;
+        private Action<int, string> defaultExitAction = 
+            (exitCode, output) =>
+            {
+                if (exitCode == 0)
+                {
+                    Console.WriteLine("done");
+                }
+                else
+                {
+                    Console.WriteLine("failed");
+                    throw new SawException(output);
+                }
+            };
         
         private const string sourceDirectoryName = "src";
 
@@ -36,12 +50,8 @@ namespace Microsoft.Ciqs.Saw.Builder
                 
                 if (Directory.Exists(solutionSrc))
                 {
-                    Console.Write("* running NuGet restore... ");
                     this.RunNuGetRestore(solutionSrc);
-                    Console.WriteLine("done");
-                    Console.Write("* building and copying assets... ");
-                    this.RunMsBuild(solutionSrc);
-                    Console.WriteLine("done");
+                    this.RunMsBuild(solutionSrc, "/T:CopyAssets /P:Configuration=Release");
                 }
                 else
                 {
@@ -50,47 +60,48 @@ namespace Microsoft.Ciqs.Saw.Builder
             }
         }
         
-        private void RunNuGetRestore(string solutionSrcPath)
+        
+        private int RunProcess(string fileName, string arguments, string workingDirectory = null, Action<int, string> exitAction = null)
         {
-            using (Process p = new Process())
+            using (Process p = new Process()) 
             {
-                p.StartInfo.FileName = "nuget.exe";
-                p.StartInfo.Arguments = $"restore -PackagesDirectory \"{this.packagesDirectory}\"";
+                p.StartInfo.FileName = fileName;
+                p.StartInfo.Arguments = arguments;
                 p.StartInfo.UseShellExecute = false;
                 p.StartInfo.RedirectStandardOutput = true;
-                p.StartInfo.WorkingDirectory = solutionSrcPath;
+                p.StartInfo.WorkingDirectory = workingDirectory;
                 p.Start();
         
                 string output = p.StandardOutput.ReadToEnd();
                 p.WaitForExit();
                 
-                if (p.ExitCode != 0)
+                if (exitAction != null)
                 {
-                    throw new Exception($"NuGet restore error:\n{output}");
+                    exitAction(p.ExitCode, output);
                 }
+                
+                return p.ExitCode;                
             }
         }
         
-        private void RunMsBuild(string solutionSrcPath)
+        private void RunNuGetRestore(string solutionSrcPath)
         {
-            using (Process p = new Process()) 
-            {
-                p.StartInfo.FileName = "msbuild.exe";
-                p.StartInfo.Arguments = "/T:CopyAssets /P:Configuration=Release";
-                p.StartInfo.UseShellExecute = false;
-                p.StartInfo.RedirectStandardOutput = true;
-                p.StartInfo.WorkingDirectory = solutionSrcPath;
-                p.Start();
-        
-                string output = p.StandardOutput.ReadToEnd();
-                p.WaitForExit();
-
-                if (p.ExitCode != 0)
-                {
-                    throw new Exception($"Unable to build solution:\n{output}");
-                }
-            }
+            Console.Write("* running NuGet restore... ");
+            this.RunProcess(
+                "nuget.exe",
+                $"restore -PackagesDirectory \"{this.packagesDirectory}\"",
+                solutionSrcPath,
+                this.defaultExitAction);
         }
-
+        
+        private void RunMsBuild(string solutionSrcPath, string arguments)
+        {
+            Console.Write($"* running MsBuild {arguments}... ");
+            this.RunProcess(
+                "msbuild.exe",
+                arguments,
+                solutionSrcPath,
+                this.defaultExitAction);
+        }
     }
 }
