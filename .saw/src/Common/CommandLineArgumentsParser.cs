@@ -6,6 +6,8 @@ namespace Microsoft.Ciqs.Saw.Common
 
     public class CommandLineArgumentsParser
     {
+        private readonly Regex keyRegex = new Regex(@"^-([A-Z]+)$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+
         public string Command { get; private set; }
         
         private IDictionary<string, string> parameters = new Dictionary<string, string>();
@@ -13,6 +15,14 @@ namespace Microsoft.Ciqs.Saw.Common
         public CommandLineArgumentsParser(string[] args)
         {
             this.Parse(args);
+        }
+        
+        public string GetParameterValueAsString(string parameterName)
+        {
+            parameterName = parameterName.ToLower();
+            string value = null;
+            parameters.TryGetValue(parameterName, out value);
+            return value;
         }
         
         private void Parse(string[] args)
@@ -26,13 +36,10 @@ namespace Microsoft.Ciqs.Saw.Common
                         
             string currentKey = null;
 
-            string pattern = @"^-([A-Z]+)$";
-            Regex keyRegex = new Regex(pattern, RegexOptions.IgnoreCase);
-
             for (int i = 1; i < args.Length; i++)
             {
                 var currentArgument = args[i];
-                Match match = keyRegex.Match(currentArgument);   
+                Match match = this.keyRegex.Match(currentArgument);   
                 if (match.Success)
                 {
                     currentKey = match.Groups[1].Value.ToLower();

@@ -9,7 +9,7 @@ namespace Microsoft.Ciqs.Saw.Builder
     using System.Threading.Tasks;
     using Microsoft.Ciqs.Saw.Common;
 
-    public class SolutionBuilder
+    public class SolutionBuilder: AbstractSawPhase
     {
         private string path;
         private string packagesDirectory;

@@ -1,15 +1,17 @@
 namespace Microsoft.Ciqs.Saw.Deployer
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
     using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Ciqs.Saw.Common;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
 
-    public class SolutionDeployer
+
+    public class SolutionDeployer: AbstractSawPhase
     {
         private string path;
 
