@@ -3,6 +3,7 @@
     using System;
     using System.Configuration;
     using System.IO;
+    using Microsoft.Ciqs.Saw.Common;
     using Microsoft.Ciqs.Saw.Deployer;
     using Microsoft.Ciqs.Saw.Builder;
     using Microsoft.WindowsAzure.Storage;
@@ -18,13 +19,15 @@
         }
         
         static int Main(string[] args)
-        {
+        {            
             if (args.Length == 0)
             {
                 Program.PrintUsage();
                 return 0;
             }
             
+            var cliArgsParser = new CommandLineArgumentsParser(args);
+       
             var root = Path.GetFullPath(Environment.GetEnvironmentVariable("SAW_ROOT"));
             var solutionsRoot = Path.GetFullPath(Path.Combine(root, ConfigurationManager.AppSettings["SolutionsDirectory"]));
             
@@ -43,7 +46,7 @@
                 deployer.Deploy();                                    
             };
             
-            switch (args[0])
+            switch (cliArgsParser.Command)
             {
                 case "build":
                     buildLambda();
