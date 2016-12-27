@@ -50,8 +50,8 @@ IF NOT %errorlevel%==0 (
     EXIT /B 1
 )
 
-git checkout -f master
 ECHO Getting SAW source code.
+git checkout -f master
 IF NOT %errorlevel%==0 (
 	ECHO ERROR: Can't get SAW source code.
 	EXIT /B 1
