@@ -1,4 +1,4 @@
-namespace Microsoft.Ciqs.Saw.Builder
+namespace Microsoft.Ciqs.Saw.Phases
 {
     using System;
     using System.Diagnostics;
@@ -9,10 +9,16 @@ namespace Microsoft.Ciqs.Saw.Builder
     using System.Threading.Tasks;
     using Microsoft.Ciqs.Saw.Common;
 
-    public class SolutionBuilder: AbstractSawPhase
+    [SawPhase("build")]
+    public class SolutionBuilderPhase : ISawPhase
     {
-        private string path;
-        private string packagesDirectory;
+        [Parameter]
+        public string SolutionsDirectory { get; set; }
+        [Parameter]
+        public string PackagesDirectory { get; set; }
+        [Parameter(Required=false)]
+        public string[] Solutions { get; set; }
+
         private Action<int, string> defaultExitAction = 
             (exitCode, output) =>
             {
@@ -29,23 +35,28 @@ namespace Microsoft.Ciqs.Saw.Builder
         
         private const string sourceDirectoryName = "src";
 
-        public SolutionBuilder(string path, string packagesDirectory)
+        public SolutionBuilderPhase(string path, string packagesDirectory)
         {
             if (!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
             {
                 path += Path.DirectorySeparatorChar;
             }
 
-            this.path = path;
-            this.packagesDirectory = packagesDirectory;
+            this.SolutionsDirectory = path;
+            this.PackagesDirectory = packagesDirectory;
+        }
+        
+        public void Run()
+        {
+            
         }
 
         public void Build()
         {
-            foreach (string solutionRoot in Directory.GetDirectories(this.path))
+            foreach (string solutionRoot in Directory.GetDirectories(this.SolutionsDirectory))
             {
-                var solutionName = solutionRoot.Remove(0, path.Length);
-                var solutionSrc = Path.Combine(solutionRoot, SolutionBuilder.sourceDirectoryName);
+                var solutionName = solutionRoot.Remove(0, SolutionsDirectory.Length);
+                var solutionSrc = Path.Combine(solutionRoot, SolutionBuilderPhase.sourceDirectoryName);
                 Console.WriteLine($"Building {solutionName}...");
                 
                 if (Directory.Exists(solutionSrc))
@@ -89,7 +100,7 @@ namespace Microsoft.Ciqs.Saw.Builder
             Console.Write("* running NuGet restore... ");
             this.RunProcess(
                 "nuget.exe",
-                $"restore -PackagesDirectory \"{this.packagesDirectory}\"",
+                $"restore -PackagesDirectory \"{this.PackagesDirectory}\"",
                 solutionSrcPath,
                 this.defaultExitAction);
         }

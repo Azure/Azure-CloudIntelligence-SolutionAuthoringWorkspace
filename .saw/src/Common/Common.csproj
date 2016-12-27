@@ -40,9 +40,11 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="AbstractSawPhase.cs" />
+    <Compile Include="SawPhaseAttribute.cs" />
+    <Compile Include="ISawPhase.cs" />
     <Compile Include="SawException.cs" />
     <Compile Include="CommandLineArgumentsParser.cs" />
+    <Compile Include="ParameterAttribute.cs" />
     <Reference Include="System" />
   </ItemGroup>
 </Project>

@@ -36,12 +36,13 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>Micosoft.Ciqs.Saw.Deployer</AssemblyName>
+    <AssemblyName>Micosoft.Ciqs.Saw.Phases</AssemblyName>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="SolutionDeployer.cs" />
+    <Compile Include="SolutionBuilderPhase.cs" />
+    <Compile Include="SolutionDeployerPhase.cs" />
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{529681CB-01C4-40C6-8E10-7A1594CD779D}</Project>
       <Name>Common</Name>

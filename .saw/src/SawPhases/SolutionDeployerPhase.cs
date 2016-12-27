@@ -1,4 +1,4 @@
-namespace Microsoft.Ciqs.Saw.Deployer
+namespace Microsoft.Ciqs.Saw.Phases
 {
     using System;
     using System.Collections.Generic;
@@ -10,14 +10,14 @@ namespace Microsoft.Ciqs.Saw.Deployer
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
 
-
-    public class SolutionDeployer: AbstractSawPhase
+    [SawPhase("deploy", Dependencies="build")]
+    public class SolutionDeployerPhase : ISawPhase
     {
         private string path;
 
         private CloudBlobClient client;
 
-        public SolutionDeployer(string path, CloudStorageAccount account)
+        public SolutionDeployerPhase(string path, CloudStorageAccount account)
         {
             // replace UNIX slashes
             path = path.Replace(@"/", Path.DirectorySeparatorChar.ToString());
@@ -30,6 +30,11 @@ namespace Microsoft.Ciqs.Saw.Deployer
             this.path = path;
 
             this.client = account.CreateCloudBlobClient();
+        }
+        
+        public void Run()
+        {
+            
         }
 
         public void Deploy()

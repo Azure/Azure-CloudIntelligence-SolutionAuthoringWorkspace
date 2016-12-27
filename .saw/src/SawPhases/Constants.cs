@@ -1,4 +1,4 @@
-namespace Microsoft.Ciqs.Saw.Deployer
+namespace Microsoft.Ciqs.Saw.Phases
 {
     class Constants
     {
