@@ -4,13 +4,13 @@ namespace Microsoft.Ciqs.Saw.Common
     [AttributeUsage(AttributeTargets.Class)]
     public class SawPhaseAttribute : Attribute 
     {
+        public string Name { get; private set; }
+        
         public string Dependencies { get; set; }
-        
-        private string name;
-        
+                
         public SawPhaseAttribute(string name)
         {
-            this.name = name;
+            this.Name = name;
         }
     }
 }

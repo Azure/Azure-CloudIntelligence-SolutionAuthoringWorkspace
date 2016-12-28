@@ -17,34 +17,15 @@
             if (isInvalid)
             {
                 Console.WriteLine("Invalid command.");
-            }    
+            }
         }
         
-        private static IEnumerable<Type> GetTypesWith<TAttribute>(bool inherit) 
-                              where TAttribute: Attribute
-        {
-            return from a in Assembly.GetExecutingAssembly().GetReferencedAssemblies()
-                from t in Assembly.Load(a).GetTypes()
-                where t.IsDefined(typeof(TAttribute), inherit)
-                select t;
-        }
         
         static int Main(string[] args)
-        {    
-            /*     
-            foreach (var t in GetTypesWith<SawPhaseAttribute>(false))
-            {
-                Console.WriteLine(t.Name);
-            }
-            */
-               
-            if (args.Length == 0)
-            {
-                Program.PrintUsage();
-                return 0;
-            }
+        {
+            var phaseList = (new PhaseListProvider(args)).Phases;
             
-            var cliArgsParser = new CommandLineArgumentsParser(args);
+            var clArgsParser = new CommandLineArgumentsParser(args);
        
             var root = Path.GetFullPath(Environment.GetEnvironmentVariable("SAW_ROOT"));
             var solutionsRoot = Path.GetFullPath(Path.Combine(root, ConfigurationManager.AppSettings["SolutionsDirectory"]));
@@ -64,7 +45,7 @@
                 deployer.Deploy();                                    
             };
             
-            switch (cliArgsParser.Command)
+            switch (clArgsParser.Command)
             {
                 case "build":
                     buildLambda();
