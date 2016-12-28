@@ -1,6 +1,6 @@
 namespace Microsoft.Ciqs.Saw.Common
 {
-    public interface ISawPhase
+    public interface IPhase
     {
         void Run();
     }

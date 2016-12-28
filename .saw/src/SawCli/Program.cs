@@ -7,7 +7,6 @@
     using System.Linq;
     using System.Reflection;
     using Microsoft.Ciqs.Saw.Common;
-    using Microsoft.Ciqs.Saw.Phases;
     using Microsoft.WindowsAzure.Storage;
 
     class Program
@@ -16,15 +15,33 @@
         {
             if (isInvalid)
             {
-                Console.WriteLine("Invalid command.");
+                Console.Write("Invalid command. ");
             }
+            
+            Console.WriteLine("Try `saw help`.");
         }
         
         
         static int Main(string[] args)
         {
-            var phaseList = (new PhaseListProvider(args)).Phases;
+            if (args.Length == 0)
+            {
+                Program.PrintUsage();
+                return 1;
+            }
             
+            if (args[0].Equals("help"))
+            {
+                Console.WriteLine("Available SAW commands:\n");
+                foreach (var phase in PhaseListProvider.Phases)
+                {
+                    Console.WriteLine($"{phase.Name}\n\t- {phase.Description}");
+                }
+                Console.WriteLine("\nFor detailed information, try `saw help <command>`.");
+            }
+            
+            return 0;
+            /*
             var clArgsParser = new CommandLineArgumentsParser(args);
        
             var root = Path.GetFullPath(Environment.GetEnvironmentVariable("SAW_ROOT"));
@@ -60,6 +77,7 @@
             }
             
             return 0;
+            */
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Microsoft.Ciqs.Saw.Phases
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
 
-    [SawPhase("deploy", Dependencies="build")]
-    public class SolutionDeployerPhase : ISawPhase
+    [Phase("deploy", "deploy solution(s) into Azure Storage account (CIQS)", Dependencies="build")]
+    public class SolutionDeployerPhase : IPhase
     {
         private string path;
 

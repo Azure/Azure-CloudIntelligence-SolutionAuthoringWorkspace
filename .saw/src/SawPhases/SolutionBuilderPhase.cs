@@ -9,14 +9,14 @@ namespace Microsoft.Ciqs.Saw.Phases
     using System.Threading.Tasks;
     using Microsoft.Ciqs.Saw.Common;
 
-    [SawPhase("build")]
-    public class SolutionBuilderPhase : ISawPhase
+    [Phase("build", "build solution artifacts from source code")]
+    public class SolutionBuilderPhase : IPhase
     {
-        [Parameter]
+        [Parameter("path to the directory containing solutions")]
         public string SolutionsDirectory { get; set; }
-        [Parameter]
+        [Parameter("NuGet packages directory")]
         public string PackagesDirectory { get; set; }
-        [Parameter(Required=false)]
+        [Parameter("solution(s) to act upon", Required=false)]
         public string[] Solutions { get; set; }
 
         private Action<int, string> defaultExitAction = 

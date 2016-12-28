@@ -7,28 +7,34 @@ namespace Microsoft.Ciqs.Saw.Common
     using System.Reflection;
     using Microsoft.Ciqs.Saw.Common;
 
-    public class PhaseListProvider
+    public static class PhaseListProvider
     {
-        public ISawPhase Phases { get; private set; }
+        private static Lazy<IList<PhaseDescriptor>> phases = new Lazy<IList<PhaseDescriptor>>(
+            () => PhaseListProvider.GetAllPhases());
         
-        public PhaseListProvider(string[] args)
+        public static IList<PhaseDescriptor> Phases
         {
-            Console.WriteLine(this.GetAllPhases());   
+            get 
+            {
+                return PhaseListProvider.phases.Value;
+            }
         }
         
-        private IEnumerable<PhaseDescriptor> GetAllPhases() 
+        private static IList<PhaseDescriptor> GetAllPhases() 
         {
             AssemblyName phasesAssembly = AssemblyName.GetAssemblyName(Constants.PhasesAssemblyPath);
             
             return Assembly.Load(phasesAssembly).GetTypes()
-                .Where(t => t.IsDefined(typeof(SawPhaseAttribute), false))
+                .Where(t => t.IsDefined(typeof(PhaseAttribute), false))
                 .Select(t => 
                     {
-                        var phaseAttribute = t.GetCustomAttributes(typeof(SawPhaseAttribute), true)[0] as SawPhaseAttribute;
+                        var phaseAttribute = t.GetCustomAttributes(typeof(PhaseAttribute), false)[0] as PhaseAttribute;
+                        
+                        var parameters = t.GetProperties().Where(p => Attribute.IsDefined(p, typeof(ParameterAttribute))).Select(p => 
+                            new ParameterDescriptor(p, p.GetCustomAttributes(typeof(ParameterAttribute)).First() as ParameterAttribute));
                         
                         return new PhaseDescriptor(t, phaseAttribute);
-                    });
+                    }).ToList();
         }
-        
     }
 }

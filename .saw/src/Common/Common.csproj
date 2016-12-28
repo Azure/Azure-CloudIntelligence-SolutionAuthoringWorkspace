@@ -43,11 +43,12 @@
     <Compile Include="Constants.cs" />
     <Compile Include="SawException.cs" />
     <Compile Include="CommandLineArgumentsParser.cs" />
-    <Compile Include="Phases\ISawPhase.cs" />    
-    <Compile Include="Phases\ParameterAttribute.cs" />
-    <Compile Include="Phases\PhaseDescriptor.cs" />
+    <Compile Include="Phases\IPhase.cs" />    
     <Compile Include="Phases\PhaseListProvider.cs" />
-    <Compile Include="Phases\SawPhaseAttribute.cs" />
+    <Compile Include="Phases\ParameterAttribute.cs" />
+    <Compile Include="Phases\ParameterDescriptor.cs" />
+    <Compile Include="Phases\PhaseAttribute.cs" />
+    <Compile Include="Phases\PhaseDescriptor.cs" />
     <Reference Include="System" />
   </ItemGroup>
 </Project>

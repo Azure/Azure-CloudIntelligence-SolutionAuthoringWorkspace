@@ -7,9 +7,10 @@ namespace Microsoft.Ciqs.Saw.Common
         public bool Required { get; set; }
         public string Description { get; set; }
         
-        public ParameterAttribute()
+        public ParameterAttribute(string description)
         {
             this.Required = true;
+            this.Description = description;
         }
     }
 }
