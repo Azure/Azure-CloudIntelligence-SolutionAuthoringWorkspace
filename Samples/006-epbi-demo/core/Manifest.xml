@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Template>
   <Category>Internal</Category>  
-  <Title>Embedded Power BI Demo</Title>
+  <Title>Contoso Meteorologics</Title>
   <Description>A sample pattern to demonstrate CIQS integration with Embedded Power BI.</Description>
-  <Summary src="Summary.md" format="markdown"/> 
+  <Summary src="Summary.md" format="markdown"/>
   <ProvisioningSteps>
     <ArmDeployment source="sqlserver.json" title="Creating a SQL Server">
       <Parameters>
@@ -19,17 +19,17 @@
         <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Outputs.sqlServerPassword}" />
       </Parameters>
     </Function>
-    <PartialPattern name="embeddedpbi" title="Deploy Solution Dashboard">
+    <SolutionDashboard>
       <Parameters>
-        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/solution/dashboard.pbix" />
+        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/Solution/ContosoMeteorologics-landscape.pbix" />
         <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServer}" />
         <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabase}" />
         <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Outputs.sqlServerUsername}" />
         <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Outputs.sqlServerPassword}" />
       </Parameters>
-    </PartialPattern>
+    </SolutionDashboard>
     <Manual title="Done">
       <Instructions src="Summary.md" format="markdown" />
     </Manual>
-	</ProvisioningSteps>
+  </ProvisioningSteps>
 </Template>
