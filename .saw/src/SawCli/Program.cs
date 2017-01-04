@@ -11,38 +11,35 @@
 
     class Program
     {
-        private static void PrintUsage(bool isInvalid = false)
-        {
-            if (isInvalid)
-            {
-                Console.Write("Invalid command. ");
-            }
-            
-            Console.WriteLine("Try `saw help`.");
-        }
-        
-        
         static int Main(string[] args)
         {
+            InformationPrinter info = new InformationPrinter();   
+            
             if (args.Length == 0)
             {
-                Program.PrintUsage();
+                info.PrintUsage();
                 return 1;
             }
             
-            if (args[0].Equals("help"))
+            if (args[0].Equals("help", StringComparison.InvariantCultureIgnoreCase))
             {
-                Console.WriteLine("Available SAW commands:\n");
-                foreach (var phase in PhaseListProvider.Phases)
+                if (args.Length == 2)
                 {
-                    Console.WriteLine($"{phase.Name}\n\t- {phase.Description}");
+                    info.PrintCommandDescription(args[1]);
                 }
-                Console.WriteLine("\nFor detailed information, try `saw help <command>`.");
+                else
+                {
+                    info.PrintAvailableCommands();
+                }
+                
+                return 0;
             }
+            
+            var clArgsParser = new CommandLineArgumentsParser(args);
             
             return 0;
             /*
-            var clArgsParser = new CommandLineArgumentsParser(args);
+            
        
             var root = Path.GetFullPath(Environment.GetEnvironmentVariable("SAW_ROOT"));
             var solutionsRoot = Path.GetFullPath(Path.Combine(root, ConfigurationManager.AppSettings["SolutionsDirectory"]));

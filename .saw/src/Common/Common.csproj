@@ -49,6 +49,8 @@
     <Compile Include="Phases\ParameterDescriptor.cs" />
     <Compile Include="Phases\PhaseAttribute.cs" />
     <Compile Include="Phases\PhaseDescriptor.cs" />
+    <Compile Include="Phases\SawPhaseException.cs" />
+    <Compile Include="Utilities\TopologicalOrderExtensions.cs" />
     <Reference Include="System" />
   </ItemGroup>
 </Project>
