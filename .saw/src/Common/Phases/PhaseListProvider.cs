@@ -10,10 +10,10 @@ namespace Microsoft.Ciqs.Saw.Common
 
     public static class PhaseListProvider
     {
-        private static Lazy<IList<PhaseDescriptor>> phases = new Lazy<IList<PhaseDescriptor>>(
+        private static Lazy<IEnumerable<PhaseDescriptor>> phases = new Lazy<IEnumerable<PhaseDescriptor>>(
             () => PhaseListProvider.GetAllPhases());
         
-        public static IList<PhaseDescriptor> AllPhases
+        public static IEnumerable<PhaseDescriptor> AllPhases
         {
             get 
             {
@@ -21,22 +21,34 @@ namespace Microsoft.Ciqs.Saw.Common
             }
         }
         
-        public static IList<PhaseDescriptor> GetPhaseSequence(string name)
+        public static IEnumerable<PhaseDescriptor> GetPhaseSequence(string name)
         {
-            var result = PhaseListProvider.AllPhases.Where(ph => ph.Name.Equals(name)).ToList();
-            if (result.Count == 0)
+            var phasesInOrder = PhaseListProvider.AllPhases.SkipWhile(ph => !ph.Name.Equals(name)).ToList();
+            if (phasesInOrder.Count == 0)
             {
                 throw new SawPhaseException($"Unknown phase `{name}`");
             }
+
+            var dependencySet = new HashSet<string>();
+            dependencySet.Add(name);
             
-            return result;
+            return phasesInOrder.Where(ph => {
+                if (!dependencySet.Contains(ph.Name))
+                {
+                    return false;
+                }
+                
+                dependencySet.UnionWith(ph.Dependencies ?? Enumerable.Empty<string>());
+                
+                return true;
+            }).Reverse();
         }
         
-        private static IList<PhaseDescriptor> GetAllPhases() 
+        private static IEnumerable<PhaseDescriptor> GetAllPhases() 
         {
             AssemblyName phasesAssembly = AssemblyName.GetAssemblyName(Constants.PhasesAssemblyPath);
             
-            var phaseDictionary = Assembly.Load(phasesAssembly).GetTypes()
+            return Assembly.Load(phasesAssembly).GetTypes()
                 .Where(t => t.IsDefined(typeof(PhaseAttribute), false))
                 .Select(t => 
                     {
@@ -46,8 +58,7 @@ namespace Microsoft.Ciqs.Saw.Common
                             new ParameterDescriptor(p, p.GetCustomAttributes(typeof(ParameterAttribute)).First() as ParameterAttribute)).ToArray();
                         
                         return new PhaseDescriptor(t, phaseAttribute, parameters);
-                    }).ToDictionary(p => p.Name, p => p).TopologicalOrder();
-            
+                    }).TopologicalOrder(pd => pd.Name, pd => pd.Dependencies).Reverse();
         }
     }
 }

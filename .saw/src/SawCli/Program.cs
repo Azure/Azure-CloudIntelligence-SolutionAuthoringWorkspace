@@ -36,45 +36,12 @@
             }
             
             var clArgsParser = new CommandLineArgumentsParser(args);
+            var command = clArgsParser.Command;            
+            var phaseSequence = PhaseListProvider.GetPhaseSequence(command);
+            var phaseSequenceExecutor = new PhaseSequenceExecutor(phaseSequence, null);            
+            phaseSequenceExecutor.Run();
             
             return 0;
-            /*
-            
-       
-            var root = Path.GetFullPath(Environment.GetEnvironmentVariable("SAW_ROOT"));
-            var solutionsRoot = Path.GetFullPath(Path.Combine(root, ConfigurationManager.AppSettings["SolutionsDirectory"]));
-            
-            var command = args[0];
-            
-            Action buildLambda = () => {
-                var packagesDirectory = Path.GetFullPath(Environment.GetEnvironmentVariable("PACKAGES_DIRECTORY"));
-                SolutionBuilderPhase builder = new SolutionBuilderPhase(solutionsRoot, packagesDirectory);
-                builder.Build();                
-            };
-            
-            Action deployLambda = () => {
-                string storageConnectionString = ConfigurationManager.AppSettings["SolutionStorageConnectionString"];
-                CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
-                SolutionDeployerPhase deployer = new SolutionDeployerPhase(solutionsRoot, account);
-                deployer.Deploy();                                    
-            };
-            
-            switch (clArgsParser.Command)
-            {
-                case "build":
-                    buildLambda();
-                    break;
-                case "deploy":
-                    buildLambda();
-                    deployLambda();
-                    break;
-                default:
-                    Program.PrintUsage(true);
-                    return 1;
-            }
-            
-            return 0;
-            */
         }
     }
 }

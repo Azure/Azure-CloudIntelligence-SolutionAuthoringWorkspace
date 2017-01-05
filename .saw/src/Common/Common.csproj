@@ -50,7 +50,8 @@
     <Compile Include="Phases\PhaseAttribute.cs" />
     <Compile Include="Phases\PhaseDescriptor.cs" />
     <Compile Include="Phases\SawPhaseException.cs" />
-    <Compile Include="Utilities\TopologicalOrderExtensions.cs" />
+    <Compile Include="Phases\PhaseSequenceExecutor.cs" />
+    <Compile Include="Utilities\IEnumerableExtensions.cs" />
     <Reference Include="System" />
   </ItemGroup>
 </Project>
