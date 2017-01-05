@@ -34,6 +34,11 @@ namespace Microsoft.Ciqs.Saw.Phases
             };
         
         private const string sourceDirectoryName = "src";
+        
+        public SolutionBuilderPhase()
+        {
+            
+        }
 
         public SolutionBuilderPhase(string path, string packagesDirectory)
         {
@@ -48,7 +53,7 @@ namespace Microsoft.Ciqs.Saw.Phases
         
         public void Run()
         {
-            
+            Console.WriteLine("builder");   
         }
 
         public void Build()

@@ -16,6 +16,11 @@ namespace Microsoft.Ciqs.Saw.Phases
         private string path;
 
         private CloudBlobClient client;
+        
+        public SolutionDeployerPhase()
+        {
+            
+        }
 
         public SolutionDeployerPhase(string path, CloudStorageAccount account)
         {
@@ -34,7 +39,7 @@ namespace Microsoft.Ciqs.Saw.Phases
         
         public void Run()
         {
-            
+            Console.WriteLine("deployer");   
         }
 
         public void Deploy()
