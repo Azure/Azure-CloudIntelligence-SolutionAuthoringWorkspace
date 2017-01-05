@@ -4,10 +4,11 @@ namespace Microsoft.Ciqs.Saw.Common
     [AttributeUsage(AttributeTargets.Property)]
     public class ParameterAttribute : Attribute 
     {
-        public bool Required { get; set; }
         public string Description { get; set; }
+        public bool Required { get; set; }
+        public bool Secure { get; set; }
         
-        public ParameterAttribute(string description)
+        public ParameterAttribute(string description = null)
         {
             this.Required = true;
             this.Description = description;

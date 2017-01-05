@@ -7,23 +7,23 @@ namespace Microsoft.Ciqs.Saw.Common
     public class CommandLineArgumentsParser
     {
         private readonly Regex keyRegex = new Regex(@"^-([A-Z]+)$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        
+        private IDictionary<string, string> parameters = new Dictionary<string, string>();
 
         public string Command { get; private set; }
         
-        private IDictionary<string, string> parameters = new Dictionary<string, string>();
+        public IDictionary<string, string> Parameters
+        {
+            get
+            {
+                return new Dictionary<string, string>(this.parameters);
+            }            
+        } 
         
         public CommandLineArgumentsParser(string[] args)
         {
             this.Parse(args);
-        }
-        
-        public string GetParameterValueAsString(string parameterName)
-        {
-            parameterName = parameterName.ToLower();
-            string value = null;
-            parameters.TryGetValue(parameterName, out value);
-            return value;
-        }
+        }       
         
         private void Parse(string[] args)
         {

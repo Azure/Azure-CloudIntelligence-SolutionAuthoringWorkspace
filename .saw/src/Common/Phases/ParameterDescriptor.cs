@@ -11,11 +11,17 @@ namespace Microsoft.Ciqs.Saw.Common
         
         public bool Required { get; private set; }
         
+        public bool Secure { get; private set; }
+        
+        public PropertyInfo PropertyInfo { get; private set; }
+        
         public ParameterDescriptor(PropertyInfo propertyInfo, ParameterAttribute parameterAttribute)
         {
             this.Name = propertyInfo.Name;
             this.Description = parameterAttribute.Description;
             this.Required = parameterAttribute.Required;
+            this.Secure = parameterAttribute.Secure;
+            this.PropertyInfo = propertyInfo;
         }
     }
 }

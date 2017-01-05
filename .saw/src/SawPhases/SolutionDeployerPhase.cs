@@ -13,36 +13,25 @@ namespace Microsoft.Ciqs.Saw.Phases
     [Phase("deploy", "deploy solution(s) into Azure Storage account (CIQS)", Dependencies="build")]
     public class SolutionDeployerPhase : IPhase
     {
-        private string path;
-
         private CloudBlobClient client;
+
+        [Parameter]
+        public string SolutionsDirectory { get; set; }
         
-        public SolutionDeployerPhase()
+        [Parameter(Required=false)]
+        public string[] Solutions { get; set; }
+        
+        [Parameter("solution storage account connection string", Secure=true)]
+        public string SolutionStorageConnectionString
         {
-            
-        }
-
-        public SolutionDeployerPhase(string path, CloudStorageAccount account)
-        {
-            // replace UNIX slashes
-            path = path.Replace(@"/", Path.DirectorySeparatorChar.ToString());
-
-            if (!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
+            set
             {
-                path += Path.DirectorySeparatorChar;
+                CloudStorageAccount account = CloudStorageAccount.Parse(value);
+                this.client = account.CreateCloudBlobClient();
             }
-
-            this.path = path;
-
-            this.client = account.CreateCloudBlobClient();
         }
-        
+
         public void Run()
-        {
-            Console.WriteLine("deployer");   
-        }
-
-        public void Deploy()
         {
             var blobs = this.GetBlobs();
 
@@ -65,20 +54,24 @@ namespace Microsoft.Ciqs.Saw.Phases
                 container.SetPermissions(permissions);
 
                 this.UploadFiles(container, blob.Value);
-            }
-
-            
+            }            
         }
 
         private IDictionary<string, IList<Tuple<string, string>>> GetBlobs()
         {
+            var path = this.SolutionsDirectory;
+            
+            if (!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
+            {
+                path += Path.DirectorySeparatorChar;
+            }
             var result = new Dictionary<string, IList<Tuple<string, string>>>();
             result.Add(Constants.SolutionIndexContainerName, new List<Tuple<string, string>>());
 
             var core = @"\core";
             var assets = @"\assets\";
 
-            foreach (string folder in Directory.GetDirectories(this.path))
+            foreach (string folder in Directory.GetDirectories(path))
             {
                 var solutionName = folder.Remove(0, path.Length);
                 result.Add(solutionName, new List<Tuple<string, string>>());
@@ -88,7 +81,7 @@ namespace Microsoft.Ciqs.Saw.Phases
 
                 foreach (string file in Directory.EnumerateFiles(corePath, "*", SearchOption.AllDirectories))
                 {
-                    string blobName = file.Remove(0, this.path.Length).Remove(solutionName.Length, core.Length);
+                    string blobName = file.Remove(0, path.Length).Remove(solutionName.Length, core.Length);
                     result[Constants.SolutionIndexContainerName].Add(new Tuple<string, string>(blobName, file));
                 }
 

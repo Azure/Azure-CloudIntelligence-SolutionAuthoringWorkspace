@@ -34,33 +34,19 @@ namespace Microsoft.Ciqs.Saw.Phases
             };
         
         private const string sourceDirectoryName = "src";
-        
-        public SolutionBuilderPhase()
-        {
-            
-        }
-
-        public SolutionBuilderPhase(string path, string packagesDirectory)
-        {
-            if (!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
-            {
-                path += Path.DirectorySeparatorChar;
-            }
-
-            this.SolutionsDirectory = path;
-            this.PackagesDirectory = packagesDirectory;
-        }
-        
+                
         public void Run()
         {
-            Console.WriteLine("builder");   
-        }
-
-        public void Build()
-        {
-            foreach (string solutionRoot in Directory.GetDirectories(this.SolutionsDirectory))
+            var solutionsRoot = this.SolutionsDirectory;
+            
+            if (!solutionsRoot.EndsWith(Path.DirectorySeparatorChar.ToString()))
             {
-                var solutionName = solutionRoot.Remove(0, SolutionsDirectory.Length);
+                solutionsRoot += Path.DirectorySeparatorChar;
+            }
+
+            foreach (string solutionRoot in Directory.GetDirectories(solutionsRoot))
+            {
+                var solutionName = solutionRoot.Remove(0, solutionsRoot.Length);
                 var solutionSrc = Path.Combine(solutionRoot, SolutionBuilderPhase.sourceDirectoryName);
                 Console.WriteLine($"Building {solutionName}...");
                 

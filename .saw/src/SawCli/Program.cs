@@ -1,8 +1,7 @@
 ﻿namespace Microsoft.Ciqs.Saw.Cli
 {
     using System;
-    using System.Collections.Generic;
-    using System.Configuration;
+    using System.Collections.Generic;    
     using System.IO;
     using System.Linq;
     using System.Reflection;
@@ -13,7 +12,13 @@
     {
         static int Main(string[] args)
         {
-            InformationPrinter info = new InformationPrinter();   
+            var parameterPool = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {
+                {Constants.SolutionsDirectoryParameterName, Constants.SolutionsDirectory},                
+                {Constants.PackagesDirectoryParameterName, Constants.PackagesDirectory},
+                {Constants.SolutionStorageConnectionStringParameterName, Constants.SolutionStorageConnectionString}
+            };
+            
+            InformationPrinter info = new InformationPrinter(parameterPool);   
             
             if (args.Length == 0)
             {
@@ -38,7 +43,11 @@
             var clArgsParser = new CommandLineArgumentsParser(args);
             var command = clArgsParser.Command;            
             var phaseSequence = PhaseListProvider.GetPhaseSequence(command);
-            var phaseSequenceExecutor = new PhaseSequenceExecutor(phaseSequence, null);            
+            
+            clArgsParser.Parameters.ToList().ForEach(p => parameterPool[p.Key] = p.Value);
+            
+            var phaseSequenceExecutor = new PhaseSequenceExecutor(phaseSequence, parameterPool);            
+            
             phaseSequenceExecutor.Run();
             
             return 0;

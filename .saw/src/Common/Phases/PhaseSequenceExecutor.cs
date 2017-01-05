@@ -30,6 +30,22 @@ namespace Microsoft.Ciqs.Saw.Common
         {
             IPhase instance = Activator.CreateInstance(phaseDescriptor.Type) as IPhase;
             
+            foreach (var parameter in phaseDescriptor.Parameters)
+            {
+                if (parameterPool.ContainsKey(parameter.Name))
+                {
+                    var value = parameterPool[parameter.Name];
+                    parameter.PropertyInfo.SetValue(instance, value, null);
+                }
+                else
+                {
+                    if (parameter.Required)
+                    {
+                        throw new SawPhaseException($"Missing required parameter `{parameter.Name}`");
+                    }
+                }
+            }
+            
             return instance;
         }
     }
