@@ -1,1 +1,1 @@
-nothing here.
+This is a Cortana Intelligence Solution SAW (Solution Authoring Workspace) sample that will create a sample web application backed by Microsoft Azure Web Sites

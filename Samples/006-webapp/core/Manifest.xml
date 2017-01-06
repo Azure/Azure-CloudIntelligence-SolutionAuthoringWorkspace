@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Template>
     <Category>DesignPattern</Category>
-    <Title>Web App</Title>
+    <Title>Sample Web App</Title>
     <Owner displayname="John Doe" email="john.doe@contoso.com"/>
     <PublishedOn>12/31/2016</PublishedOn>
     <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
@@ -11,7 +11,6 @@
     <ProvisioningSteps>
         <ArmDeployment source="deployWebApp.json" title="Deploying a Web App">
             <Parameters>
-                <Parameter name="webAppName" hidden="true" defaultValue="testapp89335" />
                 <Parameter name="deployPackageUri" hidden="true" defaultValue="{PatternAssetBaseUrl}\WebApp.zip" />
             </Parameters>
         </ArmDeployment>
