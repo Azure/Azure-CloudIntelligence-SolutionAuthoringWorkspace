@@ -35,7 +35,20 @@ namespace Microsoft.Ciqs.Saw.Common
                 if (parameterPool.ContainsKey(parameter.Name))
                 {
                     var value = parameterPool[parameter.Name];
-                    parameter.PropertyInfo.SetValue(instance, value, null);
+                    var propertyInfo = parameter.PropertyInfo;
+                    
+                    if (propertyInfo.PropertyType == typeof(string))
+                    {
+                        propertyInfo.SetValue(instance, value, null);
+                    }
+                    else if (propertyInfo.PropertyType == typeof(string[]))
+                    {
+                        propertyInfo.SetValue(instance, value.Split( new char[] {' ', ','}, StringSplitOptions.RemoveEmptyEntries), null);
+                    }
+                    else
+                    {
+                        throw new SawPhaseException($"Unable to inject the value for parameter `{parameter.Name}`of phase `{phaseDescriptor.Name}`");
+                    }
                 }
                 else
                 {

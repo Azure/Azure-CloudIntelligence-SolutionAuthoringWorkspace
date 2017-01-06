@@ -43,10 +43,23 @@ namespace Microsoft.Ciqs.Saw.Phases
             {
                 solutionsRoot += Path.DirectorySeparatorChar;
             }
+            
+            var solutionSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            
+            if (this.Solutions != null)
+            {
+                solutionSet.UnionWith(this.Solutions);
+            }
 
             foreach (string solutionRoot in Directory.GetDirectories(solutionsRoot))
             {
-                var solutionName = solutionRoot.Remove(0, solutionsRoot.Length);
+                var solutionName = solutionRoot.Remove(0, solutionsRoot.Length).ToLower();
+                
+                if (this.Solutions != null && !solutionSet.Contains(solutionName))
+                {
+                    continue;
+                }
+                
                 var solutionSrc = Path.Combine(solutionRoot, SolutionBuilderPhase.sourceDirectoryName);
                 Console.WriteLine($"Building {solutionName}...");
                 

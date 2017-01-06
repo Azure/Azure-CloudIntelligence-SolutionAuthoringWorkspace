@@ -72,7 +72,7 @@ namespace Microsoft.Ciqs.Saw.Cli
                     
                 });
             }
-            
+            Console.WriteLine(this.MakeSentence(phaseSequence.Last().Description));
             Console.WriteLine($"Parameters for the `{command}` command: \n");
             
             foreach (var kvp in parameterDescriptions)
@@ -119,6 +119,16 @@ namespace Microsoft.Ciqs.Saw.Cli
             }
             
             return value;
-        } 
+        }
+        
+        private string MakeSentence(string value)
+        {
+        	if (string.IsNullOrEmpty(value))
+        	{
+        	    return string.Empty;
+        	}
+        	
+        	return char.ToUpper(value[0]) + value.Substring(1) + (".!?".IndexOf(value.Last()) == -1 ? "." : string.Empty);
+        }
     }   
 }

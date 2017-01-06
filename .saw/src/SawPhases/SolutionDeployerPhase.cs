@@ -54,17 +54,24 @@ namespace Microsoft.Ciqs.Saw.Phases
                 container.SetPermissions(permissions);
 
                 this.UploadFiles(container, blob.Value);
-            }            
+            }
         }
 
         private IDictionary<string, IList<Tuple<string, string>>> GetBlobs()
         {
             var path = this.SolutionsDirectory;
+            var solutionSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            
+            if (this.Solutions != null)
+            {
+                solutionSet.UnionWith(this.Solutions);
+            }
             
             if (!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
             {
                 path += Path.DirectorySeparatorChar;
             }
+            
             var result = new Dictionary<string, IList<Tuple<string, string>>>();
             result.Add(Constants.SolutionIndexContainerName, new List<Tuple<string, string>>());
 
@@ -73,7 +80,13 @@ namespace Microsoft.Ciqs.Saw.Phases
 
             foreach (string folder in Directory.GetDirectories(path))
             {
-                var solutionName = folder.Remove(0, path.Length);
+                var solutionName = folder.Remove(0, path.Length).ToLower();
+                
+                if (this.Solutions != null && !solutionSet.Contains(solutionName))
+                {
+                    continue;
+                }
+                
                 result.Add(solutionName, new List<Tuple<string, string>>());
 
                 var corePath = folder + core;
@@ -81,7 +94,7 @@ namespace Microsoft.Ciqs.Saw.Phases
 
                 foreach (string file in Directory.EnumerateFiles(corePath, "*", SearchOption.AllDirectories))
                 {
-                    string blobName = file.Remove(0, path.Length).Remove(solutionName.Length, core.Length);
+                    string blobName = solutionName + file.Remove(0, path.Length).Remove(0, solutionName.Length + core.Length);                    
                     result[Constants.SolutionIndexContainerName].Add(new Tuple<string, string>(blobName, file));
                 }
 
@@ -105,7 +118,13 @@ namespace Microsoft.Ciqs.Saw.Phases
 
         private void UploadFiles(CloudBlobContainer container, IList<Tuple<string, string>> files)
         {
+            if (files == null || files.Count == 0)
+            {
+                return;
+            }
+            
             Console.WriteLine($"Populating container {container.Name}:");
+            
             foreach (var file in files)
             {
                 CloudBlockBlob blockBlob = container.GetBlockBlobReference(file.Item1);

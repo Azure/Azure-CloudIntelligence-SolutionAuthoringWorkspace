@@ -56,7 +56,14 @@ namespace Microsoft.Ciqs.Saw.Common
                     }
                     else
                     {
-                        parameters[currentKey] = parameters[currentKey] + " " + currentArgument;
+                        if (parameters[currentKey].Length > 0)
+                        {
+                            parameters[currentKey] += $" {currentArgument}";
+                        }
+                        else
+                        {
+                            parameters[currentKey] = currentArgument;
+                        }
                     }
                 }
             }
