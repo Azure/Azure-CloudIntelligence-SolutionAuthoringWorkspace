@@ -12,8 +12,6 @@ FOR %%A IN (%*) DO (
 	)
 )
 
-:not_app_service
-
 SET SOURCE_PATH=%SAW_ROOT%\.saw\src
 
 CALL :verify_command nuget || exit /b 1

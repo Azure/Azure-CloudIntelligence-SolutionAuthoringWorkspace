@@ -4,5 +4,8 @@ IF NOT EXIST "%MSBUILD_PATH%" GOTO :not_app_service
 IF NOT EXIST "%NUGET_PATH%" GOTO :not_app_service
 ECHO Looks like this is an App Service environment. Updating PATH appropriately.
 SET PATH=%cd%;%NUGET_PATH%;%MSBUILD_PATH%;%PATH%
+
+:not_app_service
 SET SAW_ROOT=%~dp0..\..
+SET PATH=%SAW_ROOT%;%PATH%
 SET PACKAGES_DIRECTORY=%SAW_ROOT%\.saw\NuGetPackages
