@@ -1,5 +1,5 @@
 @ECHO OFF
 
-SET SAW_ROOT=%~dp0
+CALL %~dp0\.saw\scripts\env.cmd >nul
 
-"%SAW_ROOT%.saw\bin\SawCli.exe" %*
+"%SAW_ROOT%\.saw\bin\SawCli.exe" %*

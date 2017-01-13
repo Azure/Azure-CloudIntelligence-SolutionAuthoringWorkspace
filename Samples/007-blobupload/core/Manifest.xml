@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+    <Category>DesignPattern</Category>
+    <Title>Create Blob and uplod files</Title>
+    <Owner displayname="John Doe" email="john.doe@contoso.com"/>
+    <PublishedOn>12/31/2016</PublishedOn>
+    <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
+    <Description>Uploading multiple blobs to a storage container.</Description>
+    <Summary src="Summary.md" format="markdown"/>
+    <EstimatedTime>3 Minutes</EstimatedTime>
+    <ProvisioningSteps>
+        <Function name="PopulateStorageContainer" title="Populating a container">
+            <Parameters>
+                <Parameter name="storageAccountName" hidden="true">
+                    <DefaultValue>{Outputs.storageAccountName}</DefaultValue>
+                </Parameter>
+                <Parameter name="storageAccountKey" hidden="true">
+                    <DefaultValue>{Outputs.storageAccountKey}</DefaultValue>
+                </Parameter>
+                <Parameter name="assets" hidden="true">
+                    <DefaultValue>
+                        {PatternAssetBaseUrl}\blobs\saw.png;
+                        {PatternAssetBaseUrl}\blobs\readme.txt                                              
+                    </DefaultValue>
+                </Parameter>                             
+                <Parameter name="containerName" hidden="true">
+                    <DefaultValue>mycontainer</DefaultValue>
+                </Parameter>
+            </Parameters>
+        </Function>
+        <Manual title="Done">
+          <Instructions src="Instructions.md" format="markdown" />
+        </Manual>
+    </ProvisioningSteps>
+</Template>

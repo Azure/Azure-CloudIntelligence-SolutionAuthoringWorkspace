@@ -7,7 +7,7 @@ rem       / /        | |    / /  \ \   ( (___
 rem      ( (         | |   ( (    ) )   \___ \  
 rem      ( (         | |   ( (  /\) )       ) ) 
 rem       \ \___    _| |__  \ \_\ \/    ___/ /  
-rem        \____)  /_____(   \___\ \_  /____/   
+rem        \____)  /_____/   \___\ \_, /____/   
 rem                               \__)           
 rem         Solution Authoring Workspace (SAW)
 rem
@@ -34,13 +34,30 @@ rem     Enjoy!
 
 
 
-git init .
-git remote add -t * -f origin https://github.com/{gitAccountName}/{sawRepoName}
-git checkout -f master
+SET REMOTE_ORIGIN=https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace
 
-call .saw/scripts/build.cmd
+ECHO Initializing SAW Git repo.
+git init . >nul 2>nul
 IF NOT %errorlevel%==0 (
+	ECHO ERROR: Can't initialize Git repo.
+    EXIT /B 1
+)
+
+ECHO Adding remote origin (%REMOTE_ORIGIN%).
+git remote add -t * -f origin %REMOTE_ORIGIN% >nul 2>nul
+IF NOT %errorlevel%==0 (
+	ECHO ERROR: Can't add remote origin.
+    EXIT /B 1
+)
+
+ECHO Getting SAW source code.
+git checkout -f master
+IF NOT %errorlevel%==0 (
+	ECHO ERROR: Can't get SAW source code.
 	EXIT /B 1
 )
 
+call .saw/scripts/build.cmd
+
 mkdir MySolutions
+

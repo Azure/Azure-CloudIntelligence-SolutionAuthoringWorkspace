@@ -36,8 +36,7 @@
     <Reference Include="Microsoft.WindowsAzure.Storage">
       <HintPath>..\..\NugetPackages\WindowsAzure.Storage.7.2.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.configuration" />
+    <Reference Include="System" />    
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="InformationPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -56,9 +56,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SolutionDeployer\SolutionDeployer.csproj">
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{529681CB-01C4-40C6-8E10-7A1594CD779D}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SawPhases\SawPhases.csproj">
       <Project>{74E197B3-6FA3-45D5-95A0-CC1925214975}</Project>
-      <Name>SolutionDeployer</Name>
+      <Name>SawPhases</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
