@@ -1,0 +1,1 @@
+This will be uploaded as a blob along with the image under the same folder.

@@ -1,0 +1,1 @@
+An example of uploading multiple assets to a storage container as blobs.
