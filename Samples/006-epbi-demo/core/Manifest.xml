@@ -33,5 +33,5 @@
     <Manual title="Done">
       <Instructions src="Summary.md" format="markdown" />
     </Manual>
-	</ProvisioningSteps>
+  </ProvisioningSteps>
 </Template>
