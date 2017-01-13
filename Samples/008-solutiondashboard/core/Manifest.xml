@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Template>
   <Category>Internal</Category>  
-  <Title>Contoso Weather</Title>
+  <Title>Contoso Weather Dashboard</Title>
   <Description>A sample pattern to demonstrate CIQS integration with Embedded Power BI.</Description>
   <Summary src="Summary.md" format="markdown"/> 
   <TryItNow landscapeDashboardPath="{PatternAssetBaseUrl}/dashboards/TryItNow/Landscape.pbix" 

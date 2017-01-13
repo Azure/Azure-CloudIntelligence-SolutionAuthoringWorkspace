@@ -12,7 +12,7 @@ To integrate with Embedded Power BI Dashboard Partial Pattern, your solution nee
 
 # Sample Pattern
 
-A [sample pattern](/Samples/006-epbi-demo) is available which demonstrates how to integrate a CIQS solution with Embedded Power BI partial pattern.
+A [sample pattern](/Samples/008-solutiondashboard) is available which demonstrates how to integrate a CIQS solution with Embedded Power BI partial pattern.
 
 # How to Integrate
 
