@@ -4,7 +4,7 @@ Embedded Power BI Solution Dashboard feature enables CIQS solution authors to qu
 
 # Prerequisites
 
-To integrate with Embedded Power BI Dashboard Partial Pattern, your solution needs to have the following.
+To integrate with Embedded Power BI Dashboard feature, your solution needs to have the following.
 
 1. Power BI Desktop file (file extension .pbix) with SQL Server **Direct Query** data source.
 
@@ -12,24 +12,28 @@ To integrate with Embedded Power BI Dashboard Partial Pattern, your solution nee
 
 # Sample Pattern
 
-A [sample pattern](/Samples/008-solutiondashboard) is available which demonstrates how to integrate a CIQS solution with Embedded Power BI partial pattern.
+A [sample pattern](/Samples/008-solutiondashboard) is available which demonstrates how to integrate a CIQS solution with Embedded Power BI feature.
 
 # How to Integrate
 
-The first step is to add your Power BI Desktop to your solution's assets. We recommend that you create `\assets\dashboards\solution` directory and place your PBIX file there.
+The first step is to add your Power BI Desktop to your solution's assets directory. We recommend that you create `\assets\dashboards\solution` directory within your solution's folder and place your PBIX file there.
 
-Next, open your solution's Manifest file. Add the snippet below to your solution's provisioning steps.
+Next, open your solution's Manifest file. Add the snippet below to your solution's provisioning steps. Note that the SQL Server must be deployed and the tables must be created in the steps preceding the "SolutionDashboard" step.
 
 ```xml
-<SolutionDashboard>
-  <Parameters>
-    <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/solution/dashboard.pbix" />
-    <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServer}" />
-    <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabase}" />
-    <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Outputs.sqlServerUsername}" />
-    <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Outputs.sqlServerPassword}" />
-  </Parameters>
-</SolutionDashboard>
+<ProvisioningSteps>
+  ...
+  <SolutionDashboard>
+    <Parameters>
+      <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/solution/dashboard.pbix" />
+      <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServer}" />
+      <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabase}" />
+      <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Outputs.sqlServerUsername}" />
+      <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Outputs.sqlServerPassword}" />
+    </Parameters>
+  </SolutionDashboard>
+  ...
+</ProvisioningSteps>
 ```
 
 Be sure to set `defaultValue` properties appropriately.
@@ -42,7 +46,7 @@ Be sure to set `defaultValue` properties appropriately.
 | sqlServerUsername   | SQL server username                                        |
 | sqlServerPassword   | SQL database password                                      |
 
-Finally, be sure to display a link to the dashboard on "Deployment Summary" page. Include the snippet below in your solution's `Summary.md` file.
+Finally, be sure to display a link to the dashboard on the "Deployment Summary" page. Include the snippet below in your solution's `Summary.md` file.
 
 ```markdown
 You can see your solutions dashboard [here]({Outputs.solutionDashboardUrl}).
