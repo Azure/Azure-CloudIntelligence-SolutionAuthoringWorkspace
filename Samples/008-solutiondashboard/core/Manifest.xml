@@ -23,7 +23,7 @@
     </Function>
     <SolutionDashboard>
       <Parameters>
-        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/Solution/ContosoMeteorologics-landscape.pbix" />
+        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/solution/dashboard.pbix" />
         <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServer}" />
         <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabase}" />
         <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Outputs.sqlServerUsername}" />
