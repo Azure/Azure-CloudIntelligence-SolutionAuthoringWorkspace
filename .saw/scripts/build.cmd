@@ -28,7 +28,7 @@ ECHO Done!
 POPD
 
 ECHO Building SAW tools from the source code...
-msbuild %SOURCE_PATH%\SolutionAuthoringWorkspace.sln /p:Configuration=Release %OUTPUT_REDIRECT%
+msbuild %SOURCE_PATH%\SolutionAuthoringWorkspace.sln /p:Configuration=Release /p:Platform="Any CPU" %OUTPUT_REDIRECT%
 IF NOT %errorlevel%==0 (
 	ECHO ERROR: Unable to build SAW. %VERBOSE_PROMPT%
 	EXIT /B 1
