@@ -1,0 +1,27 @@
+version: 0.1.{build}-alpha
+
+branches:
+  # whitelist
+  only:
+  - local
+
+image: Visual Studio 2015
+
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  
+before_build:
+  - nuget restore src\SolutionAuthoringWorkspace.sln -SolutionDirectory NuGetPackages\
+  
+platform:
+  - x86
+
+configuration: Release
+
+build:
+  verbosity: normal
+  project: src\SolutionAuthoringWorkspace.sln
+
+test: off
