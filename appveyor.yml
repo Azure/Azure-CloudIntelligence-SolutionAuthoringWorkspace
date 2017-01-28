@@ -20,8 +20,7 @@ platform:
 
 configuration: Release
 
-build:
-  verbosity: normal
-  project: src\SolutionAuthoringWorkspace.sln
+build_script:
+  - devenv src\SolutionAuthoringWorkspace.sln /rebuild Release /Project src\Setup\Setup.vdproj
 
 test: off
