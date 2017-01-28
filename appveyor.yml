@@ -21,6 +21,6 @@ platform:
 configuration: Release
 
 build_script:
-  - '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe src\SolutionAuthoringWorkspace.sln" /rebuild Release /Project src\Setup\Setup.vdproj'
+  - '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe" src\SolutionAuthoringWorkspace.sln /rebuild Release /Project src\Setup\Setup.vdproj'
 
 test: off
