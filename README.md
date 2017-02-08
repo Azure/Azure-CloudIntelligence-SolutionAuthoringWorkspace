@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/ry5nt0ybd59icex1/branch/local?svg=true)](https://ci.appveyor.com/project/wdecay/azure-cortanaintelligence-solutionauthoringworkspa/branch/local)
+
 # Cortana Intelligence Solution Authoring Workspace (SAW)
 
 This repository contains a community-driven and constantly expanding collection of tools and resources that help shape ideas into ready-to-deploy customizable solutions powered by *Azure* and *Cortana Intelligence Services*.

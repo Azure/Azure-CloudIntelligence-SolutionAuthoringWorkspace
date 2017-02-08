@@ -65,8 +65,15 @@ namespace Microsoft.Ciqs.Saw.Phases
                 
                 if (Directory.Exists(solutionSrc))
                 {
-                    this.RunNuGetRestore(solutionSrc);
-                    this.RunMsBuild(solutionSrc, "/T:CopyAssets /P:Configuration=Release");
+                    //this.RunNuGetRestore(solutionSrc);
+                    try
+                    {
+                        this.RunMsBuild(solutionSrc, "/T:CopyAssets /P:Configuration=Release");
+                    }
+                    catch
+                    {
+                        Console.WriteLine("* WARNING: unable to build solution assets");
+                    }
                 }
                 else
                 {
