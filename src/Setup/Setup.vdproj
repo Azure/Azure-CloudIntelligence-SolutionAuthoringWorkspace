@@ -22,13 +22,13 @@
         "Entry"
         {
         "MsmKey" = "8:_0C6F5E106D54E39649B679BE4C968B07"
-        "OwnerKey" = "8:_E84B33F559BB4BF79CE84298100C8D9A"
+        "OwnerKey" = "8:_F7D6CCA406A141CEEBD0890F65737894"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_0C6F5E106D54E39649B679BE4C968B07"
-        "OwnerKey" = "8:_F7D6CCA406A141CEEBD0890F65737894"
+        "OwnerKey" = "8:_E84B33F559BB4BF79CE84298100C8D9A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,7 +70,7 @@
         "Entry"
         {
         "MsmKey" = "8:_993423C7F3E03CCC81442CC4A5E6E02E"
-        "OwnerKey" = "8:_658247803C515EB5139EF705AD61BC59"
+        "OwnerKey" = "8:_D9E83C3F267C5AB43418729811A4DFC0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_993423C7F3E03CCC81442CC4A5E6E02E"
-        "OwnerKey" = "8:_D9E83C3F267C5AB43418729811A4DFC0"
+        "OwnerKey" = "8:_658247803C515EB5139EF705AD61BC59"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,13 +112,13 @@
         "Entry"
         {
         "MsmKey" = "8:_D9E83C3F267C5AB43418729811A4DFC0"
-        "OwnerKey" = "8:_658247803C515EB5139EF705AD61BC59"
+        "OwnerKey" = "8:_F7D6CCA406A141CEEBD0890F65737894"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D9E83C3F267C5AB43418729811A4DFC0"
-        "OwnerKey" = "8:_F7D6CCA406A141CEEBD0890F65737894"
+        "OwnerKey" = "8:_658247803C515EB5139EF705AD61BC59"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -148,49 +148,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_320A7F1EA1A9A82E49325B61DF1B4D45"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A31E30F01D2B7C73BFC7CD17D7E83318"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_658247803C515EB5139EF705AD61BC59"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_43F07D221657B67F5F3DD8E51723E1BB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F7D6CCA406A141CEEBD0890F65737894"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D9E83C3F267C5AB43418729811A4DFC0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0C6F5E106D54E39649B679BE4C968B07"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_993423C7F3E03CCC81442CC4A5E6E02E"
+        "OwnerKey" = "8:_16D82595397AA205A41A6455A16B1E40"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -202,7 +160,49 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_16D82595397AA205A41A6455A16B1E40"
+        "OwnerKey" = "8:_993423C7F3E03CCC81442CC4A5E6E02E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0C6F5E106D54E39649B679BE4C968B07"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D9E83C3F267C5AB43418729811A4DFC0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F7D6CCA406A141CEEBD0890F65737894"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_43F07D221657B67F5F3DD8E51723E1BB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_658247803C515EB5139EF705AD61BC59"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A31E30F01D2B7C73BFC7CD17D7E83318"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_320A7F1EA1A9A82E49325B61DF1B4D45"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -298,7 +298,7 @@
             "Object" = "8:_E84B33F559BB4BF79CE84298100C8D9A"
             "FileType" = "3:2"
             "InstallAction" = "3:2"
-            "Arguments" = "8:configure -SolutionsDirectory \"[SOLUTIONSDIRECTORY]\""
+            "Arguments" = "8:configure -SolutionsDirectory [SOLUTIONSDIRECTORY]"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
             "Identifier" = "8:_DAE8BA23_5AB1_4020_BC42_47D3F24BDF6B"
@@ -335,11 +335,6 @@
             "AssemblyAsmDisplayName" = "8:System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0C6F5E106D54E39649B679BE4C968B07"
-                    {
-                    "Name" = "8:System.Spatial.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Spatial.dll"
             "TargetName" = "8:"
@@ -366,11 +361,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO.Compression, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
                 "ScatterAssemblies"
                 {
-                    "_16D82595397AA205A41A6455A16B1E40"
-                    {
-                    "Name" = "8:System.IO.Compression.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.Compression.dll"
             "TargetName" = "8:"
@@ -397,11 +387,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Ciqs.Saw.Phases, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_320A7F1EA1A9A82E49325B61DF1B4D45"
-                    {
-                    "Name" = "8:Microsoft.Ciqs.Saw.Phases.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Ciqs.Saw.Phases.dll"
             "TargetName" = "8:"
@@ -428,11 +413,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_43F07D221657B67F5F3DD8E51723E1BB"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -459,11 +439,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.WindowsAzure.Storage, Version=7.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_658247803C515EB5139EF705AD61BC59"
-                    {
-                    "Name" = "8:Microsoft.WindowsAzure.Storage.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.WindowsAzure.Storage.dll"
             "TargetName" = "8:"
@@ -490,11 +465,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_993423C7F3E03CCC81442CC4A5E6E02E"
-                    {
-                    "Name" = "8:Microsoft.Data.Edm.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Data.Edm.dll"
             "TargetName" = "8:"
@@ -521,11 +491,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Ciqs.Saw.Common, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A31E30F01D2B7C73BFC7CD17D7E83318"
-                    {
-                    "Name" = "8:Microsoft.Ciqs.Saw.Common.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Ciqs.Saw.Common.dll"
             "TargetName" = "8:"
@@ -552,11 +517,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D9E83C3F267C5AB43418729811A4DFC0"
-                    {
-                    "Name" = "8:Microsoft.Data.OData.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Data.OData.dll"
             "TargetName" = "8:"
@@ -583,11 +543,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F7D6CCA406A141CEEBD0890F65737894"
-                    {
-                    "Name" = "8:Microsoft.Data.Services.Client.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Data.Services.Client.dll"
             "TargetName" = "8:"
