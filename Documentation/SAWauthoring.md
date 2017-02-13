@@ -2,7 +2,7 @@
 
   * Based on a document started by Sharath Malladi sharathm@microsoft.com 
   * Modified by Darwin Schweitzer darsch@microsoft.com 
-  * Last updated on 02/10/2017 by Darwin Schweitzer
+  * Last updated on 02/13/2017 by Darwin Schweitzer
 
 [What Is CIQS](#WhatIsCIQS)
 
@@ -12,7 +12,7 @@
 
 [How to Install SAW](#InstallSAW)
 
-[Next2](#customization)
+[Start Authoring using Solution Authoring Workspace (SAW)](#Start)
 
 [Next3](#visualization)
 
@@ -23,7 +23,7 @@
 
 #<a name="Pattern"></a>What is a CIQS pattern/solution
   * A CIQS pattern consists of ARM templates, webjobs, functions, markdown files, and a Manifest.xml. We sometimes refer to all these three with the generic name of ‘task’ below in this document. Publicly available patterns are located at [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/solutions).
-  * For Custom Solutions which are also referred to as private patterns (i.e. when authoring a pattern), refer to the section on Solution Authoring Workspace (SAW) in this document.
+  * For Custom Solutions which are also referred to as private patterns (i.e. when authoring a pattern), refer to the section on [Start Authoring using Solution Authoring Workspace (SAW)](#Start) in this document.
 
 
 Here is an example of a solution or tutorial that can be authored with SAW.  This architecture demonstrates how to capture, curate, and consume tweets from the Twitter streaming API.  You enter keywords and your oauth tokens to capture tweets, calculate a sentiment score, and then consume the output in embedded Power BI.
@@ -48,7 +48,7 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
   * Select Installation Folder and click **Next**.  The default is C:\Program Files (x86)\Microsoft\Solution Authoring Workspace\
     ![SelectInstallFolder](../Documentation/images/SelectInstallFolder.png)
 
-  * To Confirm Installation click **Next**
+  * To Confirm Installation click **Next**  
     ![Confirm](../Documentation/images/Confirm.png)
 
     Missed a Screen Here since it can’t be capture.   
@@ -56,7 +56,7 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
     Do you want to allow this app to make changes to your device?  
     Click **Yes**
 
-  * The Installation is complete so click **Close**
+  * The Installation is complete so click **Close**  
     ![Complete](../Documentation/images/Complete.png)
 
   * This will add a **SAW Shell** shortcut to your desktop  
@@ -92,7 +92,7 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
 
     ![New1](../Documentation/images/New1.png)
 
-  * Then click the **OK** button
+  * Then click the **OK** button  
     ![New2](../Documentation/images/New2.png)
 
   * Open a Command Prompt and enter ``saw help``
@@ -105,7 +105,7 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
     ![SAWconfigure](../Documentation/images/SAWconfigure.png)
 
 
-## <a name="customization"></a>Customization
+## <a name="Start/"></a>Start Authoring using Solution Authoring Workspace (SAW)
 * More descriptions about customization.
 
 ## <a name="visualization"></a>Enhancing Visualization
