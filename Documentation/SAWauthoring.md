@@ -128,12 +128,54 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
 
 ## <a name="Start"></a>Start Authoring using Solution Authoring Workspace (SAW)
   
-  * 
+  * Open Visual Studio Code and go to **File>Open Folder** and navigate to 
+    ``C:\Users\ENTERALIAS\Documents\Solution Authoring Workspace``  
+    and click **Select Folder**
+
+    ![SelectFolder](../Documentation/images/selectFolder.png)
+
+  * VS Code should look like this
+
+    ![VSCode](../Documentation/images/vsCode.png)
+
+  * Copy 001-helloworld from **Samples** to **My Solutions** and rename it ``helloworld``
+
+    ![HelloWorld](../Documentation/images/helloworld.png)
+
+  * Type **Ctrl+~** to bring up the terminal in VS Code
+
+    ![VSCodeTerminal](../Documentation/images/VSCodeTerminal.png)
+
+  
+  * Type ``saw deploy`` or just ``saw deploy -solutions helloworld``if you have more than one solution in My Solutions and just want to deploy **helloworld**
+
+    ![sawDeploy](../Documentation/images/sawDeploy.png)
+
+  * You are now ready to deploy your [Custom Solutions](https://start.cortanaintelligence.com/CustomSolutions) in the Cortana Intelligence Solutions.
 
 ## <a name="Deploy"></a>Deploy the Custom Solution
-  
-  * 
+
+  * When you open [Custom Solutions](https://start.cortanaintelligence.com/CustomSolutions) you should now ee you helloworld solutin available in the My custom soltuions user interface.
+
+    ![deployMyHelloWorldSolution](../Documentation/images/deployMyHelloWorldSolution.png)
+
+  * Hover over the solution and click on **Deploy**
+
+  * This will bring up the **Create new deployment** page.  Give the deployment a name, choose a subscription and location, click **Create**
+
+    ![CreateNewDeployment](../Documentation/images/createNewDeployment.png)
+
+  * If there are no further parameters needed the **Resources provisioning** begins.
+
+    ![ResourcesProvisioning](../Documentation/images/resourcesProvisioning.png)
+    
+  * In some solutions, you will also need to provide additional configuration parameters like a SQL Server Username and Password or other things then click next.  Here is an Example.
+
+    ![OtherParameters](../Documentation/images/other.png)
+
+  * When the solution completes you get an instructions markdown that let you know what to do next.  In this case you just see hello world.
 
 ## <a name="Uninstall"></a>Uninstall SAW Local
 
   * 
+
