@@ -10,13 +10,13 @@
 
 [Where can CIQS patterns be authored?](#Authored)
 
-[How to Install SAW](#InstallSAW)
+[How to Install SAW Local](#InstallSAW)
 
 [Start Authoring using Solution Authoring Workspace (SAW)](#Start)
 
-[Next3](#visualization)
+[Deploy the Custom Solution](#Deploy)
 
-[Next4](#security)
+[Uninstall SAW Local](#Uninstall)
 
 #<a name="WhatIsCIQS"></a>What Is CIQS
   * CIQS (Cortana Intelligence Quick Start) is a framework/place to host Azure patterns to create Cortana Intelligence Solutions.  It was formerly known as CAQS.
@@ -33,7 +33,7 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
 #<a name="Authored"></a>Where can CIQS patterns be authored?
   * CIQS patterns can currently be authored by navigating to [Deployments](https://start.cortanaintelligence.com/Deployments) and clicking on CUSTOM SOLUTIONS on the Top menu bar.   This authoring capability is currently available to microsoft.com users and selected partners on the allow list (vs deny list) to access the capability.  If you don't see the CUSTOM SOLUTIONS menu item you are not on the allow list.  Please contact Cortana Intelligence Solutions [cisolutions@microsoft.com](<mailto:cisolutions@microsoft.com>) with your justification if you would like access to this feature.  
 
-# <a name="InstallSAW"></a>How to Install SAW
+# <a name="InstallSAW"></a>How to Install SAW Local
 
   * Download and Install the SAW setup.msi (Note SAW setup.msi can only be installed on windows currently, but VS Code also runs on Mac and Linux)
 
@@ -101,15 +101,39 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
     ![CommandPrompt](../Documentation/images/CommandPrompt.png)
 
   * Using either the SAW Shell shortcut on your desktop or the command prompt you just successfully used and tested ``saw help``
-    enter ``saw configure``
-    ![SAWconfigure](../Documentation/images/SAWconfigure.png)
+    enter ``saw configure``  
+    
+    ![SAWconfigure](../Documentation/images/sawConfigure.png)
 
+  * The **SolutionsDirectory** should be configured for you so you can skip this step.  But, if you need to reconfigure this you can edit the line below and cut and paste it to the SAW Shell or command prompt and hit enter (Note that ENTERALIAS in the path below need to be changed to your alias login)
 
-## <a name="Start/"></a>Start Authoring using Solution Authoring Workspace (SAW)
-* More descriptions about customization.
+    ``saw configure -SolutionsDirectory "C:\Users\ENTERALIAS\Documents\Solution Authoring Workspace\My Solutions"``
 
-## <a name="visualization"></a>Enhancing Visualization
-* More descriptions about enhancing visualization.
+  * Open [Custom Solutions](https://start.cortanaintelligence.com/CustomSolutions) in the Cortana Intelligence Solutions.  
+  In the near future we will create this account for you, but for now if you have not already done so configure your Storage Account name and key and click **Use storage account**
 
-## <a name="security"></a>Security
-* More descriptions about security.
+  ![StorageAcctCreds](../Documentation/images/storageAcctCreds.png)
+
+  * At this point you will use the same Storage Account Name and Storage Account Key to configure your **SolutionStorageConnectionString**.  Enter them in the string below and cut and paste it to the SAW Shell or command prompt and hit enter  
+    ``saw configure -SolutionStorageConnectionString "DefaultEndpointsProtocol=https;AccountName=EnterYourAccount;AccountKey=EnterYourAccountKey;"``
+
+    Syntax for storage account is something like this (storage account key has been shortened)  
+    ``saw configure -SolutionStorageConnectionString "DefaultEndpointsProtocol=https;AccountName=stgdam3po23is;AccountKey=7oVPnYzONRk5BwotK4CdC6Y+jT+sotD9lOdFoRKQUaaHOx7AQ==;"``  
+    
+    ![afterConfigStorage](../Documentation/images/afterConfigStorage.png)
+
+  * If you plan to use Git for source control and Visual Studio Code for a code editor you will also want to:
+      - Download and Install Git at https://git-scm.com/downloads
+      - Download and Install VS Code at https://code.visualstudio.com/download
+
+## <a name="Start"></a>Start Authoring using Solution Authoring Workspace (SAW)
+  
+  * 
+
+## <a name="Deploy"></a>Deploy the Custom Solution
+  
+  * 
+
+## <a name="Uninstall"></a>Uninstall SAW Local
+
+  * 
