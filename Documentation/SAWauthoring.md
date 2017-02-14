@@ -2,7 +2,8 @@
 
   * Based on a document started by Sharath Malladi sharathm@microsoft.com 
   * Modified by Darwin Schweitzer darsch@microsoft.com 
-  * Last updated on 02/13/2017 by Darwin Schweitzer
+  * Last updated on 02/13/2017 by Darwin Schweitzer  
+  **If you would like to contact the Cortana Intelligence Solutions team please email us at cisolutions@microsoft.com** 
 
 [What Is CIQS](#WhatIsCIQS)
 
@@ -177,5 +178,26 @@ Here is an example of a solution or tutorial that can be authored with SAW.  Thi
 
 ## <a name="Uninstall"></a>Uninstall SAW Local
 
-  * 
+  * To uninstall SAW go to **Control Panel\Programs\Programs and Features** and find **Solution Authoring Workspace** and click **Uninstall**
+
+    ![Uninstall](../Documentation/images/uninstall.png)
+
+  * Choose **Yes**
+
+    ![YesUninstall](../Documentation/images/yesUninstall.png)
+
+  * When you get a dialog that says:
+    Do you want to allow this app to make changes to your device?  
+    Click **Yes**
+
+  * Go delete the **Solution Authoring Workspace** directory at  
+    ``C:\Program Files (x86)\Microsoft\Solution Authoring Workspace``
+
+    ![sawDir](../Documentation/images/sawDir.png)
+
+  * Delete the Solution Authoring Workspace directory at  
+    ``C:\Users\darsch\Documents\Solution Authoring Workspace``  
+    (note if you have not source controlled your solution files you may just want to rename this directory)
+
+    ![sawDirInDocs](../Documentation/images/sawDirInDocs.png)
 
