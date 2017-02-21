@@ -2,7 +2,7 @@
 
   * Based on a document started by Sharath Malladi sharathm@microsoft.com 
   * Modified by Darwin Schweitzer darsch@microsoft.com 
-  * Last updated on 02/13/2017 by Darwin Schweitzer  
+  * Last updated on 02/21/2017 by Darwin Schweitzer  
   **If you would like to contact the Cortana Intelligence Solutions team please email us at cisolutions@microsoft.com** 
 
 [What Is CIQS](#WhatIsCIQS)
