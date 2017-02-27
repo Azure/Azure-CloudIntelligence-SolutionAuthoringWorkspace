@@ -213,7 +213,7 @@ td {
 /* Header */
 
 header {
-	background-color: #87C8ED;
+	background-color: rgb(78, 173, 228);
 	color: #FDFDFB;
   width:170px;
   float:left;
@@ -260,8 +260,8 @@ header ul {
   padding:0;
 }
 
-header ul li a {
-  display: block;
+header ul li.active {
+  list-style-type: disc;
 }
 
 a.buttons {

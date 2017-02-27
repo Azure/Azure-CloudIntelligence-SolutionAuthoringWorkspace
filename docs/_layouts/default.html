@@ -17,9 +17,9 @@
             {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
             {% for p in navigation_pages %}
               {% if p.navigation_weight %}
-                <li>
+                <li{% if p.url == page.url %}class="active"{% endif %}>
                   {% capture real_page_url %}/{{ site.github.repository_name }}{{ p.url }}{% endcapture %}
-                  <a href="{{ real_page_url }}" {% if p.url == page.url %}class="active"{% endif %}>
+                  <a href="{{ real_page_url }}">
                     {{ p.title }}
                   </a>
                 </li>
@@ -28,11 +28,9 @@
           </ul>
         </nav>
       </header>
-
       <section>
         {{ content }}
       </section>
-
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a></small></p>
       </footer>
