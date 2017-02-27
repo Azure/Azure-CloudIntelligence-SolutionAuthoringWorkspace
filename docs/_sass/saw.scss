@@ -213,7 +213,7 @@ td {
 /* Header */
 
 header {
-	background-color: rgb(78, 173, 228);
+	background-color: rgb(0, 49, 82);
 	color: #FDFDFB;
   width:170px;
   float:left;
@@ -235,7 +235,8 @@ p.header {
 
 h1.header {
 	font-family: Arvo, sans-serif;
-	font-size: 30px;
+	font-size: 24px;
+  color: #fbfbfb;
 	font-weight: 300;
 	line-height: 1.3em;
 	border-bottom: none;
@@ -243,8 +244,8 @@ h1.header {
 }
 
 
-h1.header, a.header, a.name, header a{
-	color: #fff;
+header a{
+	color: #a30000;
 }
 
 a.header {
@@ -261,27 +262,9 @@ header ul {
 }
 
 header ul li.active {
+  color: #a30000;
   list-style-type: disc;
 }
-
-a.buttons {
-	-webkit-font-smoothing: antialiased;
-	background: url(../images/arrow-down.png) no-repeat;
-	font-weight: normal;
-	text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0;
-	padding: 2px 2px 2px 22px;
-	height: 30px;
-}
-
-a.github {
-	background: url(../images/octocat-small.png) no-repeat 1px;
-}
-
-a.buttons:hover {
-	color: #fff;
-	text-decoration: none;
-}
-
 
 /* Section - for main page content */
 
