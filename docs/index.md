@@ -4,122 +4,48 @@ title: Home
 navigation_weight: 1
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+# Hello everybody.
 
-[Link to another page](another-page).
+Some of you may have heard about *CIQS* or *Cortana Intelligence Quick Start*, the deployment engine behind *Cortana Intelligence Solutions*. For those who haven't, *CIQS* is the service that orchestrates solution deployment into a customer's *Azure* subscription by performing a series of provisioning activities that generally fall into such categories as
+- Cloud resource creation (essentially, things that can be achieved with ARM templates)
+- Execution of custom provisioning code (things that are not possible to achieve with ARM)
 
-There should be whitespace between paragraphs.
+The deployment progress is surfaced to the user through a simple and intuitive UX which allows collecting input parameters and displaying customizable and interactive multi-media content such as textual instructions, images, and embedded *Power BI* dashboards with live data visualization.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+In the unlikely event of an error, the UX displays a friendly message and, under certain conditions, allows graceful recovery from the failure.
 
-# [](#header-1)Header 1
+These capabilities make our platform an excellent medium for engaging with the customer, both business and technical decision maker; and also a convenient and powerful educational tool that, through example, helps drive the adoption of new and existing *Microsoft* cloud technology.
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+In order to unlock the full potential of our platform, however, we needed a good set of tools that would enable more teams and individuals to build new Solutions with as little effort as possible. Some of you, the early adopters, may remember how difficult (even painful) it was to create and debug a new solution. The complexity of it is the reason why *SAW* or Solution Authoring Workspace came about as a tool that eliminates most if not all hurdles from the authoring process and lets the developer fully focus on the problem rather than the specifics of our framework.
 
-## [](#header-2)Header 2
+So, what does it take to create a new *Cortana Intelligence* Solution now?
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+The first step is going to the CUSTOM SOLUTIONS page (by the way it now contains an *Overview* section with links to many useful resources) and then click *Setup*. Becoming a solution author takes only a couple mouse clicks, which boil down to selecting the subscription and location for the tool to use when configuring the authoring environment. After selecting those, the setup takes roughly 2 minutes. And then you are all set!
 
-### [](#header-3)Header 3
+We provide 2 options:
+- in-browser authoring environment (It doesn't require any setup and is compatible with literally any host OS.)
+- local installation (Currently works on Windows and requires downloading and installing a tiny MSI package)
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+Both options offer essentially the identical set of features.
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+So let's take a look at the in-browser environment. It comes with a set of Samples that are easy-to-follow simple and ready to be consumed examples of *Cortana Intelligence* solutions. The Samples can serve as building blocks for new customer-facing Solutions. For example:
 
-#### [](#header-4)Header 4
+- [one of the first samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/004-cognitiveservices) demonstrates how to create a solution that would enable anybody with an Azure subscription to create an app similar to Microsoft's viral how-old.net using Azure Cognitive Services APIs and Azure Functions;
+- [another notable example](https://github.com/wdecay/twitterdemo) is stream analytics with ML demonstrating how to perform sentiment analysis of Twitter data. It demonstrates how to write a data ingestion piece (implemented as a WebJob written in *Python* here), send streaming data to an event hub, run it through a *Stream Analytics Job* that in turn calls *Machine Learning Web API* and finally, visualize the results inside an embedded *Power BI* dashboard.
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+Here's are the examples of the end results once the user deploys these solutions into their own subscription.
+(put images here?)
 
-##### [](#header-5)Header 5
+Let's see what it takes to create a new Custom Solution and publish it into CIQS. All that need to be done is putting the source code into the Solution directory (for instance, the cognitive services sample mentioned earlier).
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+Publishing custom solutions into CIQS is a matter of running a shell command from the Windows console. The command is: saw deploy (If local installation is used, it would be available in the regular windows command prompt and the rest is the same.) After it completes, the solutions are immediately available for deployment and can be found in the *My Solutions section*. 
 
-###### [](#header-6)Header 6
+Finally, I would like to call out several cool things about SAW:
+- Full *Git* support in the Web environment (thanks to the *App Service Editor* aka *Visual Studio Online "Monaco"*); this is really great for collaborative solution authoring (example - git clone and then saw deploy)
+- Local SAW environment allows incorporating virtually any tools into the authoring process
+- Self-publishing into *Cortana Intelligence* gallery is going to be available in the near future along with the “Share” feature allowing sharing the solution with a limit audience
+- Fast adoption and lots of new Samples and features coming up
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![](https://guides.github.com/activities/hello-world/branching.png)
+Contact us! Questions?
 
 
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
