@@ -20,7 +20,7 @@ In order to unlock the full potential of our platform, however, we needed a good
 
 So, what does it take to create a new *Cortana Intelligence* Solution now?
 
-The first step is going to the CUSTOM SOLUTIONS page (by the way it now contains an *Overview* section with links to many useful resources) and then click *Setup*. Becoming a solution author takes only a couple mouse clicks, which boil down to selecting the subscription and location for the tool to use when configuring the authoring environment. After selecting those, the setup takes roughly 2 minutes. And then you are all set!
+The first step is going to the CUSTOM SOLUTIONS page (by the way it now contains an *Overview* section with links to many useful resources) and then clicking *Setup*. Becoming a solution author takes only a couple mouse clicks, which boil down to selecting the subscription and location for the tool to use when configuring the authoring environment. After selecting those, the setup takes roughly 2 minutes. And then you are all set!
 
 We provide 2 options:
 - in-browser authoring environment (It doesn't require any setup and is compatible with literally any host OS.)
@@ -30,7 +30,7 @@ Both options offer essentially the identical set of features.
 
 So let's take a look at the in-browser environment. It comes with a set of Samples that are easy-to-follow simple and ready to be consumed examples of *Cortana Intelligence* solutions. The Samples can serve as building blocks for new customer-facing Solutions. For example:
 
-- [one of the first samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/004-cognitiveservices) demonstrates how to create a solution that would enable anybody with an Azure subscription to create an app similar to Microsoft's viral how-old.net using *Azure Cognitive Services APIs* and *Azure Functions*;
+- [one of the samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/004-cognitiveservices) demonstrates how to create a solution that would enable anybody with an Azure subscription to create an app similar to Microsoft's viral how-old.net using *Azure Cognitive Services APIs* and *Azure Functions*;
 - [another notable example](https://github.com/wdecay/twitterdemo) is stream analytics with ML demonstrating how to perform sentiment analysis of Twitter data. It shows how to write a data ingestion piece (implemented as a WebJob written in *Python*), send streaming data to an event hub, run it through a *Stream Analytics Job* that in turn calls *Machine Learning Web API* and finally, visualize the results inside an embedded *Power BI* dashboard.
 
 Here's are the examples of the end results once the user deploys these solutions into their own subscription.
