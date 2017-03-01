@@ -3,7 +3,7 @@
   <metadata>
     <id>SawExtension</id>
     <title>SAW AppService extension</title>
-    <version>0.0.14</version>
+    <version>0.0.45</version>
     <authors>Andrew Ivanov</authors>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace</projectUrl>

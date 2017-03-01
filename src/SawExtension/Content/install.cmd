@@ -21,3 +21,4 @@ rmdir /S /Q .git
 popd
 
 bin\saw configure -SolutionsDirectory "%BASE%\Solutions" -SolutionStorageConnectionString "%CUSTOMCONNSTR_SolutionStorageConnectionString%"
+bin\saw deploy

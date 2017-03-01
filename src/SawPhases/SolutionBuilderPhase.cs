@@ -120,7 +120,7 @@ namespace Microsoft.Ciqs.Saw.Phases
         {
             Console.Write($"* running MsBuild {arguments}... ");
             this.RunProcess(
-                "msbuild.exe",
+                "msbuild",
                 arguments,
                 solutionSrcPath,
                 this.defaultExitAction);

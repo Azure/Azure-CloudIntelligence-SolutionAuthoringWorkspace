@@ -2,18 +2,18 @@ namespace Microsoft.Ciqs.Saw.Phases
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using System.Threading.Tasks;
+    using System.IO;    
     using Microsoft.Ciqs.Saw.Common;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage.Shared.Protocol;
+    using Newtonsoft.Json;
 
     [Phase("deploy", "deploy solution(s) into Azure Storage account (CIQS)", Dependencies="build")]
     public class SolutionDeployerPhase : IPhase
     {
         public const string SolutionIndexContainerName = @"caqs-patterns";
+        public const string SawDataPublicContainer = @"saw-data-public";
 
         private CloudBlobClient client;
 
@@ -35,7 +35,19 @@ namespace Microsoft.Ciqs.Saw.Phases
 
         public void Run()
         {
+            this.UpdateCorsSettings();
             var blobs = this.GetBlobs();
+
+            var tmpFile = Path.GetTempFileName();
+            blobs.Add(SawDataPublicContainer, new List<Tuple<string, string>> {
+                new Tuple<string, string>("lastUpload", tmpFile)
+            });            
+            using (StreamWriter streamWriter = File.AppendText(tmpFile)) {
+                streamWriter.WriteLine(JsonConvert.SerializeObject(
+                    new {
+                        datetime = DateTime.UtcNow
+                    }));
+            }
 
             foreach (var blob in blobs)
             {
@@ -56,6 +68,31 @@ namespace Microsoft.Ciqs.Saw.Phases
                 container.SetPermissions(permissions);
 
                 this.UploadFiles(container, blob.Value);
+            }
+            
+            if (File.Exists(tmpFile))
+            {
+                File.Delete(tmpFile);                
+            }
+        }
+
+        private void UpdateCorsSettings()
+        {
+            var corsProperties = this.client.GetServiceProperties();
+            
+            if (corsProperties.Cors.CorsRules.Count == 0) 
+            {
+                var allowCiqs = new CorsRule()
+                {
+                    AllowedHeaders = { "*" },
+                    AllowedOrigins = { "https://localhost:44302", "https://caqsint.azure.net", "https://start.cortanaintelligence.com" },
+                    AllowedMethods = CorsHttpMethods.Get,
+                    ExposedHeaders = { "*" },
+                    MaxAgeInSeconds = 1
+                };
+                corsProperties.Cors.CorsRules.Add(allowCiqs);
+                this.client.SetServiceProperties(corsProperties);
+                Console.WriteLine("CORS settings for the Blob Storage successfully updated.");
             }
         }
 
