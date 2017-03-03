@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Stream Analysis with Azure Machine Learning (aka ProjectHudson)</Title>
+  <Owner displayname="Darwin Schweitzer" email="darsch@microsoft.com"/>
+  <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
+  <ProvisioningSteps>
+    <Manual parameterSource="CreateResourcesArm.json" title="Setup SQL server account">
+      <Parameters>
+        <Credential type="sql" username="sqlServerUsername" password="sqlServerPassword" />
+        <Parameter name="webServiceApiUrl" hidden="true" />
+        <Parameter name="webServiceApiKey" hidden="true" />
+        <Parameter name="transformQuery" hidden="true">
+          <DefaultValue>
+            SELECT Text, Topic, CreatedAt, Result.[Score] as Score INTO [SQLOutput] FROM
+            (SELECT Text, Topic, DATEADD(ms, timestamp_ms, '1970-01-01') as CreatedAt, sentiment(text) as Result FROM [TwitterStream]) TwitterStream;
+          </DefaultValue>
+        </Parameter>
+      </Parameters>
+    </Manual>
+    <Manual title="Configure Twitter listener">
+      <Parameters>
+        <Parameter name="twitterKeywords" description="Twitter topics"
+          type="string" defaultValue="@MicrosoftR,@OpenAtMicrosoft,@Azure,#Azure,#Microsoft,@MSAdvAnalytics,#CortanaIntelligence">
+          <ExtraDescription>
+            Comma-separated list of words, phrases, #hashtags and @mentions
+          </ExtraDescription>
+        </Parameter>
+        <Parameter name="oauthConsumerKey" description="Consumer key (API key)" type="string" />
+        <Parameter name="oauthConsumerSecret" description="Consumer secret (API secret)" type="string" />
+        <Parameter name="oauthToken" description="Access token" type="string" />
+        <Parameter name="oauthTokenSecret" description="Access token secret" type="string" />
+      </Parameters>
+    </Manual>
+    <AzureMlWebService hiddenParameters ="true">
+      <PackageUrl>https://storage.azureml.net/directories/5067590f26d5412ebf2220a1dacb0f22/items</PackageUrl>
+      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/predictive-mini-twitter-sentiment-analysis-experiment-1</GalleryUrl>
+      <EntityId>Predictive-Experiment-Mini-Twitter-sentiment-analysis-2</EntityId>
+    </AzureMlWebService>
+    <ArmDeployment source="CreateResourcesArm.json" title="Creating solution's Azure resources" autoResolveParameters="true" />
+    <Function name="executeSqlQuery" title="Preparing SQL database">
+      <Parameters>
+        <Parameter hidden="true" name="sqlConnectionString" defaultValue="{Outputs.sqlConnectionString}" />
+        <Parameter hidden="true" name="sqlQuery">
+          <DefaultValue>
+            CREATE TABLE [dbo].[TweetScore]
+            (
+	            [text] [varchar](200) NOT NULL,
+	            [topic] [varchar](100) NOT NULL,
+	            [createdAt] [datetime] NOT NULL,
+	            [score] [float] NOT NULL
+            )
+          </DefaultValue>    
+        </Parameter>
+      </Parameters>
+    </Function>
+    <SolutionDashboard>
+      <Parameters>
+        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/StreamingTweetsEmbedded.pbix" />
+        <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServerName}" />
+        <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabaseName}" />
+        <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Inputs.sqlServerUsername}" />
+        <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Inputs.sqlServerPassword}" />
+      </Parameters>
+    </SolutionDashboard>
+    <WebJobDeployment title="Starting data ingress" name="twitterClient" source="{PatternAssetBaseUrl}\TwitterClient.zip" type="continuous">
+      <AppSettings>
+        <Add key="TWITTER_KEYWORDS" value="{Inputs.twitterKeywords}" />
+        <Add key="TWITTER_OAUTH_CONSUMER_KEY" value="{Inputs.oauthConsumerKey}" />
+        <Add key="TWITTER_OAUTH_CONSUMER_SECRET" value="{Inputs.oauthConsumerSecret}" />
+        <Add key="TWITTER_OAUTH_TOKEN" value="{Inputs.oauthToken}" />
+        <Add key="TWITTER_OAUTH_TOKEN_SECRET" value="{Inputs.oauthTokenSecret}" />
+      </AppSettings>
+      <ConnectionStrings>
+        <Add name="EventHubConnectionString" connectionString="{Outputs.eventHubConnectionString}" />
+      </ConnectionStrings>
+    </WebJobDeployment>
+    <Function name="startStreamingJob" title="Starting Stream Analytics job">
+      <Parameters>
+        <Parameter hidden="true" name="accessToken" type="string" defaultValue="{Authorization}" /> 
+        <Parameter hidden="true" name="resourceGroupName" type="string" defaultValue="{ResourceGroup.Name}" />
+        <Parameter hidden="true" name="subscriptionId" type="string" defaultValue="{SubscriptionId}" /> 
+        <Parameter hidden="true" name="saJobName" type="string" defaultValue="{Outputs.saName}" /> 
+      </Parameters>
+    </Function>
+    <Manual title="Done">
+      <Instructions src="Instructions.md" format="markdown" />
+    </Manual>
+  </ProvisioningSteps>
+</Template>
