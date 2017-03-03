@@ -1,0 +1,9 @@
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.Azure.Management.StreamAnalytics": "1.8.1"
+      }
+    }
+  }
+}
