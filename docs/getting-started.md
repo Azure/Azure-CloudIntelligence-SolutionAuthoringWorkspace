@@ -12,6 +12,6 @@ navigation_weight: 2
 ## SAW Local (Windows only)
 > **Alpha** version. It works, but the installer isn't signed, so expect some turbulence during the installation. Stable builds will be available soon.
 
-[Download](https://ci.appveyor.com/project/wdecay/azure-cortanaintelligence-solutionauthoringworkspa/build/0.1.51-alpha/artifacts) the latest build. Don't forget the configuration command from the Setup tab!
+[Download](https://ci.appveyor.com/project/wdecay/azure-cortanaintelligence-solutionauthoringworkspa/branch/local/artifacts) the latest build. Don't forget the configuration command from the Setup tab!
 
 [back](./)
