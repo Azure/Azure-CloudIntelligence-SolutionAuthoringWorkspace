@@ -1,5 +1,0 @@
-.nuget/Packages
-.vs/
-bin/
-obj/
-*.csproj.*

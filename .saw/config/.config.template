@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
-<appSettings>
-    <add key="SolutionStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName={storageAccountName};AccountKey={storageAccountKey};" />
-    <add key="FunctionAppStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName={storageAccountName};AccountKey={storageAccountKey};" />
-    <add key="FunctionAppName" value="{functionAppName}" />
-    <add key="SolutionsDirectory" value="MySolutions" />
-</appSettings>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SawExtension</id>
+    <title>SAW AppService extension</title>
+    <version>0.0.45</version>
+    <authors>Andrew Ivanov</authors>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SAW command line</description>
+    <iconUrl>https://www.siteextensions.net/Content/Images/packageDefaultIcon.png</iconUrl>
+    <tags>saw cortana intelligence solution authoring</tags>
+  </metadata>
+  <files>
+    <file src="Content\**\*.*" target="Content" />
+    <file src="..\SawCli\bin\Release\**\*.*" target="Content\bin" />
+  </files>
+</package>
