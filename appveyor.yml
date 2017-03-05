@@ -3,7 +3,7 @@ version: 0.1.{build}-alpha
 branches:
   # whitelist
   only:
-  - local
+  - master
 
 image: Visual Studio 2015
 
