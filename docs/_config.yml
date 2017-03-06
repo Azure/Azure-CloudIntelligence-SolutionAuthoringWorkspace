@@ -1,2 +1,10 @@
 title: Solution Authoring
 description: Resources on using SAW to create Cortana Intelligence Solutions.
+excerpt_separator: <!--more-->
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+

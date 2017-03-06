@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  {% include head.html %}
+  <body>
+    <div class="wrapper">
+      {% include header.html root_path= './../../..' %}
+      <section>
+        <h1>{{ page.title }} from {{ page.date | date: "%m/%d/%Y, %r (%Z)" }} </h1>        
+        {{ content }}
+      </section>
+      {% include footer.html %}
+    </div>
+  </body>
+</html>
