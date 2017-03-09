@@ -1,0 +1,1 @@
+A basic sample/tutorial that creates an Azure SQL Database.

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Azure SQL Database</Title>
+  <Owner displayname="Darwin Schweitzer" email="darsch@microsoft.com"/>
+  <ImageUrl>{PatternAssetBaseUrl}/azuresqldatabase.png</ImageUrl>
+  <Description>This sample creates an Azure SQL Database using the SQL Credential and provides connection outputs to connect to the database in the Instructions</Description>
+  <Summary src="Summary.md" format="markdown"/>
+  <ProvisioningSteps>
+    <ArmDeployment source="CreateSQLdatabaseArm.json" title="Creating a SQL Server">
+      <Parameters>
+        <Credential type="sql" username="sqlServerUsername" password="sqlServerPassword" />
+      </Parameters>
+    </ArmDeployment>
+    <Manual title="Done">
+      <Instructions src="Instructions.md" format="markdown" />
+    </Manual>
+  </ProvisioningSteps>
+</Template>
