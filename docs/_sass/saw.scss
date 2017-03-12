@@ -73,7 +73,7 @@ h4, h5, h6 {
 	font-weight: 700;
 }
 
-a {
+a, a:visited {
   color:#C30000;
   font-weight:200;
   text-decoration:none;
@@ -207,6 +207,9 @@ td {
 /* Wrapper */
 .wrapper {
   width:960px;
+  margin: 0;
+  padding: 0;
+  max-width: none;
 }
 
 
@@ -244,8 +247,8 @@ h1.header {
 }
 
 
-header a{
-	color: #fbfbfb;
+header a, header a:visited{
+       color: #fbfbfb;
 }
 
 a.header {
