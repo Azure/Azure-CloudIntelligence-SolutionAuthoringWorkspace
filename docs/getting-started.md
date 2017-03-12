@@ -22,7 +22,7 @@ Parameter name: connectionString
 
 Run the ``saw configure`` command from the SAW Web console.  The command is available to cut and paste (and click Enter) from CUSTOM SOLUTIONS > Setup and it should look something like this:
 
-![Setup](../images/CustomSolutionSetup.JPG) 
+![Setup](images/CustomSolutionSetup.JPG) 
 
 Example:
 
@@ -52,7 +52,7 @@ Run the saw configure command from the SAW Web console. Cut and paste the follow
 
 * This will add a **SAW Shell** shortcut to your desktop
 
-   ![SAWshell](../images/SAWshell.png)
+   ![SAWshell](images/SAWshell.png)
 
 * Double click on SAW Shell  
 
@@ -60,7 +60,7 @@ Run the saw configure command from the SAW Web console. Cut and paste the follow
 
 * Run the ``saw configure`` command from the SAW Shell console.  The command is available to cut and paste (and click Enter) from CUSTOM SOLUTIONS > Setup and it should look something like this:
 
-   ![Setup](../images/CustomSolutionSetup.JPG) 
+   ![Setup](images/CustomSolutionSetup.JPG) 
 
    Example:
 
@@ -73,15 +73,15 @@ Run the saw configure command from the SAW Web console. Cut and paste the follow
    You also need to add the path to MSBuild (**C:\Program Files (x86)\MSBuild\14.0\Bin**)
     
     Navigate to **Control Panel\System and Security\System** and click on **Advanced system settings**
-    ![Advanced](../images/Advanced.png)
+    ![Advanced](images/Advanced.png)
 
 * Click on **Environment Variables**
 
-   ![EnvVar](../images/EnvVar.png)
+   ![EnvVar](images/EnvVar.png)
 
 * Click on the Path variable under User variables and click on the **Edit** button
 
-   ![Path](../images/Path.png)
+   ![Path](images/Path.png)
 
 * Click on the **New** button and add the following path for SAW
 
@@ -91,11 +91,11 @@ Run the saw configure command from the SAW Web console. Cut and paste the follow
     
     ``C:\Program Files (x86)\MSBuild\14.0\Bin``
 
-   ![New1](../images/New1.png)
+   ![New1](images/New1.png)
 
 * Then click the **OK** button  
 
-   ![New2](../images/New2.png)
+   ![New2](images/New2.png)
 
 * Open a Command Prompt and enter ``saw help``
   
@@ -108,24 +108,24 @@ Run the saw configure command from the SAW Web console. Cut and paste the follow
 * Open Visual Studio Code and go to **File>Open Folder** and navigate to 
     ``C:\Users\ENTERALIAS\Documents\Solution Authoring Workspace`` and click **Select Folder**
 
-    ![SelectFolder](../images/selectFolder.png)
+    ![SelectFolder](images/selectFolder.png)
 
 * VS Code should look like this
 
-    ![VSCode](../images/vsCode.png)
+    ![VSCode](images/vsCode.png)
 
 * Copy 001-helloworld from **Samples** to **My Solutions** and rename it ``helloworld``
 
-    ![HelloWorld](../images/helloworld.png)
+    ![HelloWorld](images/helloworld.png)
 
 * Type **Ctrl+~** to bring up the terminal in VS Code
 
-    ![VSCodeTerminal](../images/vsCodeTerminal.png)
+    ![VSCodeTerminal](images/vsCodeTerminal.png)
 
   
 * Type ``saw deploy`` or just ``saw deploy -solutions helloworld``if you have more than one solution in My Solutions and just want to deploy **helloworld**
 
-    ![sawDeploy](../images/sawDeploy.png)
+    ![sawDeploy](images/sawDeploy.png)
 
 * You are now ready to deploy your [Custom Solutions](https://start.cortanaintelligence.com/CustomSolutions) in the Cortana Intelligence Solutions.
 
@@ -133,17 +133,17 @@ Run the saw configure command from the SAW Web console. Cut and paste the follow
 
 * When you open [Custom Solutions](https://start.cortanaintelligence.com/CustomSolutions) you should now see the helloworld custom solution available in My soltuion.
 
-    ![deployMyHelloWorldSolution](../images/deployMyHelloWorldSolution.png)
+    ![deployMyHelloWorldSolution](images/deployMyHelloWorldSolution.png)
 
 * Hover over the solution and click on **Deploy**
 
 * This will bring up the **Create new deployment** page.  Give the deployment a name, choose a subscription and location, click **Create**
 
-    ![CreateNewDeployment](../images/createNewDeployment.png)
+    ![CreateNewDeployment](images/createNewDeployment.png)
 
 * If there are no further parameters needed the **Resources provisioning** begins.
 
-    ![ResourcesProvisioning](../images/resourcesProvisioning.png)
+    ![ResourcesProvisioning](images/resourcesProvisioning.png)
     
 * When the solution completes you get an instructions markdown that let you know what to do next.  In this case you just see hello world.
 
