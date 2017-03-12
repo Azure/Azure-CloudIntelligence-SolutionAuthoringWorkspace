@@ -237,9 +237,9 @@ p.header {
 }
 
 h1.header {
-	font-family: Arvo, sans-serif;
-	font-size: 24px;
-  color: #fbfbfb;
+        font-family: Arvo, sans-serif;
+        font-size: 24px;
+        color: #fbfbfb;
 	font-weight: 300;
 	line-height: 1.3em;
 	border-bottom: none;
@@ -247,8 +247,8 @@ h1.header {
 }
 
 
-header a, header a:visited{
-       color: #fbfbfb;
+header a, header a:visited, header a:hover {
+    color: #fbfbfb;
 }
 
 a.header {
