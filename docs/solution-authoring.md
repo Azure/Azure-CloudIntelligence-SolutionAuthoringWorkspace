@@ -51,7 +51,7 @@ Finally, if all parameters required to perform an ARM deployment are already pre
 <ArmDeployment source="armTemplate.json" autoResolveParameters="true" title="Deploying..." />
 ```
 
-An demonstration of this technique can be found in the [twitterstreaming SAW sample](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/009-twitterstreaming)
+A demonstration of this technique can be found in the [twitterstreaming](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/009-twitterstreaming) SAW sample.
 
 ### Function
 ### WebJob
