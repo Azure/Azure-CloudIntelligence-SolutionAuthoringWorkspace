@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Machine Learning Web Service 2</Title>
+  <Owner displayname="Bolun Huang" email="bohuan@microsoft.com"/>
+  <PublishedOn>02/28/2017</PublishedOn>
+  <ImageUrl>{PatternAssetBaseUrl}/MlWebSvcPattern.JPG</ImageUrl>
+  <Description>Create a Machine Learning Workspace, copy multiple Experiment from Cortana Intelligence Gallery to the workspace and deploy as Web services. It show-cases the syntax of: 0) provisioning a default ML Web service endpoint; 1) provisioning multiple ML Web services; 2) overwriting default outputs; and 3) provisioning a high-throughput ML Web service endpoint.</Description>
+  <Summary src="MlWebSvcSummary.md" format="markdown"/>
+  <EstimatedTime>6 Minutes</EstimatedTime>
+  <Ingredients>
+    <Ingredient>Web</Ingredient>
+    <Ingredient>StorageAccount</Ingredient>
+    <Ingredient>MachineLearning</Ingredient>
+  </Ingredients>
+  <ProvisioningSteps>
+    <Manual title="Enter gallery urls">
+      <Parameters>
+        <Parameter name="galleryUrl1" description="Gallery Url 1" type="string" defaultValue="https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2" />
+        <Parameter name="galleryUrl2" description="Gallery Url 2" type="string" defaultValue="https://gallery.cortanaintelligence.com/Details/connected-cars-aml-v2-noreader-scoring-exp-2" />
+        <Parameter name="galleryUrl3" description="Gallery Url 3" type="string" defaultValue="https://gallery.cortanaintelligence.com/Details/bcae226bc74a4cbbb0ff700ac97448bf" />
+      </Parameters>
+    </Manual>
+    <AzureMlWebService title="Copying the first Experiment from Gallery and deploy as a high-throughput Web Service" hiddenParameters ="true">
+      <GalleryUrl>{Inputs.galleryUrl1}</GalleryUrl>
+      <HighThroughputEndpoint endpointName="HighThroughputEndpoint" throttleLevel="High" maxConcurrentCalls="200" />
+      <Outputs experimentUrl="mlFunctionEndpoint1" webServiceApiUrl="mlFunctionApiUrl1" webServiceApiKey="mlFunctionApiKey1" />
+    </AzureMlWebService>
+    <AzureMlWebService title="Copying the second Experiment from Gallery and deploy as a high-throughput Web Service" hiddenParameters ="true">
+      <GalleryUrl>{Inputs.galleryUrl2}</GalleryUrl>
+      <HighThroughputEndpoint>
+        <EndpointName>HighThroughputEndpoint</EndpointName>
+        <ThrottleLevel>High</ThrottleLevel>
+        <MaxConcurrentCalls>100</MaxConcurrentCalls>
+      </HighThroughputEndpoint>
+      <Outputs>
+        <ExperimentUrl>mlFunctionEndpoint2</ExperimentUrl>
+        <WebServiceApiUrl>mlFunctionApiUrl2</WebServiceApiUrl>
+        <WebServiceApiKey>mlFunctionApiKey2</WebServiceApiKey>
+        <WebServiceHelpUrl>mlFunctionHelpUrl2</WebServiceHelpUrl>
+      </Outputs>
+    </AzureMlWebService>
+    <AzureMlWebService title="Copying the third Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
+      <GalleryUrl>{Inputs.galleryUrl3}</GalleryUrl>
+    </AzureMlWebService>
+    <Manual title="Done">
+      <Instructions src="MlWebSvcInstructions.md" format="markdown"/>
+    </Manual>
+  </ProvisioningSteps>
+</Template>
