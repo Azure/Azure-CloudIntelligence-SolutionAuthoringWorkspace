@@ -1,1 +1,1 @@
-A basic solution with a custom function.
+A sample solution that demonstrates how to use **&lt;AzureFunctions&gt;**.
