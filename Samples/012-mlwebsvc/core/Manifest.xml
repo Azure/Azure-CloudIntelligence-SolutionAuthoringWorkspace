@@ -2,9 +2,9 @@
 <Template>
   <Title>Machine Learning Web Service 2</Title>
   <Owner displayname="Bolun Huang" email="bohuan@microsoft.com"/>
-  <PublishedOn>12/28/2016</PublishedOn>
+  <PublishedOn>02/28/2017</PublishedOn>
   <ImageUrl>{PatternAssetBaseUrl}/MlWebSvcPattern.JPG</ImageUrl>
-  <Description>Create a Machine Learning Workspace, copy an Experiment from Cortana Intelligence Gallery to the workspace and deploy a Web service.</Description>
+  <Description>Create a Machine Learning Workspace, copy multiple Experiment from Cortana Intelligence Gallery to the workspace and deploy as Web services. It show-cases the syntax of: 0) provisioning a default ML Web service endpoint; 1) provisioning multiple ML Web services; 2) overwriting default outputs; and 3) provisioning a high-throughput ML Web service endpoint.</Description>
   <Summary src="MlWebSvcSummary.md" format="markdown"/>
   <EstimatedTime>6 Minutes</EstimatedTime>
   <Ingredients>
@@ -27,8 +27,17 @@
     </AzureMlWebService>
     <AzureMlWebService title="Copying the second Experiment from Gallery and deploy as a high-throughput Web Service" hiddenParameters ="true">
       <GalleryUrl>{Inputs.galleryUrl2}</GalleryUrl>
-      <HighThroughputEndpoint endpointName="HighThroughputEndpoint" throttleLevel="High" maxConcurrentCalls="100" />
-      <Outputs experimentUrl="mlFunctionEndpoint2" webServiceApiUrl="mlFunctionApiUrl2" webServiceApiKey="mlFunctionApiKey2" webServiceHelpUrl="mlFunctionHelpUrl2"/>
+      <HighThroughputEndpoint>
+        <EndpointName>HighThroughputEndpoint</EndpointName>
+        <ThrottleLevel>High</ThrottleLevel>
+        <MaxConcurrentCalls>100</MaxConcurrentCalls>
+      </HighThroughputEndpoint>
+      <Outputs>
+        <ExperimentUrl>mlFunctionEndpoint2</ExperimentUrl>
+        <WebServiceApiUrl>mlFunctionApiUrl2</WebServiceApiUrl>
+        <WebServiceApiKey>mlFunctionApiKey2</WebServiceApiKey>
+        <WebServiceHelpUrl>mlFunctionHelpUrl2</WebServiceHelpUrl>
+      </Outputs>
     </AzureMlWebService>
     <AzureMlWebService title="Copying the third Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
       <GalleryUrl>{Inputs.galleryUrl3}</GalleryUrl>
