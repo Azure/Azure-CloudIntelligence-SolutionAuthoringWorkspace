@@ -99,6 +99,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/012-mlwebsvc/core/Manifest.xml).
 
         **Properties**
+        
         | Name | Description |
         | ------------ | ------------- |
         | *ExperimentUrl*: `string` | Overwriting the output name of the Azure ML experiment url |
@@ -115,6 +116,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/012-mlwebsvc/core/Manifest.xml).
 
         **Properties**
+        
         | Name | Description |
         | ------------ | ------------- |
         | *EndpointName*: `string` | Endpoint names must be 24 character or less in length, and must be made up of lower-case letters or numbers; If not specified, the default value is "*secondep*" |
@@ -126,11 +128,13 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         This tag is used to plug-in a customized function to modify the experiment graph of the provisioned experiment.
 
         **Attributes**
+        
         | Name | Description |
         | ------------ | ------------- |
         | *name*: `string` | **The name of** the customized function to modify the ML experiment graph |
 
         **Properties**
+        
         | Name | Description |
         | ------------ | ------------- |
         | *Parameters*: `array` | Array of __&lt;Parameter/&gt;__ that is used in the customized function |
