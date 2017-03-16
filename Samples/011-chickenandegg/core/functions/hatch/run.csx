@@ -1,5 +1,6 @@
 using System;
 using System.Configuration;
+using System.Net;
 
 public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -16,7 +17,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     }
     catch (Exception)
     {
-        throw new Exception($"Invalid sex ratio provided: {sexRatioString}");
+        return req.CreateResponse(HttpStatusCode.BadRequest, $"Invalid sex ratio provided: {sexRatioString}");
     }         
     
     var roosterCount = 0;

@@ -10,21 +10,21 @@
             <Parameters>
                 <Parameter name="eggCount" defaultValue="500" description="How many fertilized chicken eggs to you have?" />                
                 <Parameter name="sexRatio" defaultValue="1:1" description="What's the sex ratio (rooster:hen) of this chicken breed?" />
-            </Parameters>
+            </Parameters>            
         </Manual>
-        <AzureFunctions>
+        <AzureFunctions alwaysOn="false" use32BitWorkerProcess="false" servicePlanSku="S1" servicePlanTier="Standard" createStorageAccount="false">
             <AppSettings>
                 <Add key="EggCount" value="{Inputs.eggCount}" />
                 <Add key="SexRatio" value="{Inputs.sexRatio}" />
-            </AppSettings>
+            </AppSettings>            
         </AzureFunctions>
         <Function name="hatch" title="Hatching the eggs" retriable="true" />
-        <AzureFunctions title="Updating hatched chicken headcount in the AppSettings">
+        <AzureFunctions title="Updating chicken headcount in the AppSettings">
             <AppSettings>
                 <Add key="Roosters" value="{Outputs.roosters}" />
                 <Add key="Hens" value="{Outputs.hens}" />
                 <Remove key="EggCount" />
-            </AppSettings>
+            </AppSettings>            
         </AzureFunctions>
         <Manual title="Done">
           <Instructions src="Instructions.md" format="markdown" />
