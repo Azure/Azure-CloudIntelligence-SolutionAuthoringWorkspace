@@ -6,9 +6,52 @@ navigation_weight: 3
 # Solution authoring
 ## Solution manifest
 ### LocationToExclude
+__&lt;LocationToExclude/&gt;__ tag allows pattern authors to hide locations from CIQS location dropdown. This is very useful especially when some region(s) is known to cause deployment failures.
+
+To use this feature, please specify `<LocationToExclude/>` within `<Template/>` in your solution **Manifest.xml**.
+
+Here is an example of how it is used:
+```xml
+<Template>
+  <LocationsToExclude>
+    <Location>Japan East</Location>
+  </LocationsToExclude>
+</Template>
+```
+
 ### Parameters
 #### Parameter
 #### Credential
+`Credential` tag in CIQS wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
+
+In order to use this feature,  please specify `<Credential/>` within `<Parameters/>` in your pattern **Manifest.xml**.
+
+* **Documentation**
+
+  * **Attributes**
+
+    | Name | Description |
+    | ------------ | ------------- |
+    | *type*: `string` | The credential type. The current supported types are: **`sql`**, **`linuxvm`**, **`windowsvm`**, **`hdi`** **AND** any combination of them seperated by `,` |
+    | *username*: `string` | **The name of** the username parameter defined in the provision step |
+    | *password*: `string` | **The name of** the password parameter defined in the provision step |
+
+* **Examples**
+
+  A simple use case would be specifying the credential with a single type:
+  ```xml
+  <Parameters>
+   <Credential type="sql" username="sqlServerUserName" password="sqlServerPassword" />
+  </Parameters>
+  ```
+
+  A more complex use case is to combine multiple type of credentials together; It is used when the credential is applied to more than one Azure resources:
+  ```xml
+  <Parameters>
+   <Credential type="sql,linuxvm,hdi" username="userName" password="password" />
+  </Parameters>
+  ```
+
 ## Provisioning steps
 ### ArmDeployment
 ### Manual
@@ -64,10 +107,14 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
 * **Summary**
 
   AzureMlWebService is a first-party provisioning step that empowers solution authors provisioning an Azure Machine Learning experiment from gallery and then deploying as a web service easily. This feature empowers pattern authors to:
+  
   1) Provision an Azure ML experiment from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/experiments) by only providing the `GalleryUrl`;
+  
   2) Modify the **Experiment Graph** of the provisioned Azure ML experiment with a customized funciton plug-in;
-  3) Provisioning multiple Azure ML web services;
-  4) Create high-throughput Azure ML web service.
+  
+  3) Deploy multiple Azure ML web services;
+  
+  4) Create high-throughput Azure ML web service as an option.
 
 * **Documentation**
   * __&lt;AzureMlWebService/&gt;__
@@ -121,7 +168,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         | ------------ | ------------- |
         | *EndpointName*: `string` | Endpoint names must be 24 character or less in length, and must be made up of lower-case letters or numbers; If not specified, the default value is "*secondep*" |
         | *ThrottleLevel*: `string` | Allowed values: `High` or `Low`; If not specified, the default value is `Low` |
-        | *MaxConcurrentCalls*: `string` | The maximum concurrent calls for Azure ML Web service is between 1 and 200. See [here](https://github.com/hning86/azuremlps#new-amlwebservice) for details; If not specified, the default value is `4` |
+        | *MaxConcurrentCalls*: `int` | The maximum concurrent calls for Azure ML Web service is between 1 and 200. See [here](https://github.com/hning86/azuremlps#new-amlwebservice) for details; If not specified, the default value is `4` |
 
       * __&lt;ModifyExperimentGraph/&gt;__ (*Optional*)
 
@@ -145,7 +192,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         ```xml
         <AzureMlWebService title="Creating Energy Forecasting ML Web service" hiddenParameter="true">
           <GalleryUrl>https://gallery.cortanaintelligence.com/Details/975ed028d71b490b9268d35094138358</GalleryUrl>
-          <ModifyExperimentGraph name="UpdateDatabaseInfoInExperiment">
+          <ModifyExperimentGraph name="<Custom_function_name>">
             <Parameters>
               <Parameter type="string" name="sqlServer" defaultValue="{Outputs.sqlServerName}" description="SQL Server Name"/>
               <Parameter type="string" name="sqlUser" defaultValue="{Outputs.sqlServerUserName}" description="SQL Server User Name"/>
@@ -156,7 +203,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         </AzureMlWebService>
         ```
 
-        A custom function named "**UpdateDatabaseInfoInExperiment**" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "**graphJsonObject**" parameter and then return the modified value as the function output.
+        A custom function named "**<Custom_function_name>**" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "**graphJsonObject**" parameter and then return the modified value as the function output.
         ```c#
         #load "..\CiqsHelpers\All.csx"
 
