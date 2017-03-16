@@ -32,7 +32,7 @@ In order to use this feature,  please specify `<Credential/>` within `<Parameter
 
     | Name | Description |
     | ------------ | ------------- |
-    | *type*: `string` | The credential type. The current supported types are: **`sql`**, **`linuxvm`**, **`windowsvm`**, **`hdi`** **AND** any combination of them seperated by `,` |
+    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi` **AND** any combination of them seperated by `,` |
     | *username*: `string` | **The name of** the username parameter defined in the provision step |
     | *password*: `string` | **The name of** the password parameter defined in the provision step |
 
@@ -203,7 +203,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         </AzureMlWebService>
         ```
 
-        A custom function named "**<Custom_function_name>**" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "**graphJsonObject**" parameter and then return the modified value as the function output.
+        A custom function named "*<Custom_function_name>*" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "*graphJsonObject*" parameter and then return the modified value as the function output.
         ```c#
         #load "..\CiqsHelpers\All.csx"
 
