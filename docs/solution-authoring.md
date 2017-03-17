@@ -5,10 +5,10 @@ navigation_weight: 3
 ---
 # Solution authoring
 ## Solution manifest
-### LocationToExclude
-__&lt;LocationToExclude/&gt;__ tag allows pattern authors to hide locations from CIQS location dropdown. This is very useful especially when some region(s) is known to cause deployment failures.
+### LocationsToExclude
+__&lt;LocationsToExclude/&gt;__ tag allows pattern authors to hide locations from CIQS location dropdown. This is very useful especially when some region(**s**) is known to cause deployment failures.
 
-To use this feature, please specify `<LocationToExclude/>` within `<Template/>` in your solution **Manifest.xml**.
+To use this feature, please specify `<LocationsToExclude/>` within `<Template/>` in your solution **Manifest.xml**.
 
 Here is an example of how it is used:
 ```xml
@@ -22,9 +22,11 @@ Here is an example of how it is used:
 ### Parameters
 #### Parameter
 #### Credential
-`Credential` tag in CIQS wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
+`Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
 
-In order to use this feature,  please specify `<Credential/>` within `<Parameters/>` in your pattern **Manifest.xml**.
+Solutions that ask for user name and password inputs are **highly recommended** to use `Credential` to wrap the credential inputs.
+
+To use this feature,  please specify `<Credential/>` within `<Parameters/>` in your pattern **Manifest.xml**.
 
 * **Documentation**
 
@@ -32,7 +34,7 @@ In order to use this feature,  please specify `<Credential/>` within `<Parameter
 
     | Name | Description |
     | ------------ | ------------- |
-    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi` **AND** any combination of them seperated by `,` |
+    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi`, **AND** any combination of them seperated by "`,`" |
     | *username*: `string` | **The name of** the username parameter defined in the provision step |
     | *password*: `string` | **The name of** the password parameter defined in the provision step |
 
@@ -108,7 +110,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
 
   AzureMlWebService is a first-party provisioning step that empowers solution authors provisioning an Azure Machine Learning experiment from gallery and then deploying as a web service easily. This feature empowers pattern authors to:
   
-  1) Provision an Azure ML experiment from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/experiments) by only providing the `GalleryUrl`;
+  1) Provision an Azure ML experiment from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/experiments) by simply providing the `GalleryUrl`;
   
   2) Modify the **Experiment Graph** of the provisioned Azure ML experiment with a customized funciton plug-in;
   
@@ -166,7 +168,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         
         | Name | Description |
         | ------------ | ------------- |
-        | *EndpointName*: `string` | Endpoint names must be 24 character or less in length, and must be made up of lower-case letters or numbers; If not specified, the default value is "*secondep*" |
+        | *EndpointName*: `string` | Endpoint names must be 24 character or less in length, and must be made up of lower-case letters or numbers; If not specified, the default value is "`secondep`" |
         | *ThrottleLevel*: `string` | Allowed values: `High` or `Low`; If not specified, the default value is `Low` |
         | *MaxConcurrentCalls*: `int` | The maximum concurrent calls for Azure ML Web service is between 1 and 200. See [here](https://github.com/hning86/azuremlps#new-amlwebservice) for details; If not specified, the default value is `4` |
 
@@ -184,7 +186,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         
         | Name | Description |
         | ------------ | ------------- |
-        | *Parameters*: `array` | Array of __&lt;Parameter/&gt;__ that is used in the customized function |
+        | *Parameters*: `array` | Array of __&lt;Parameter/&gt;__s that are used to modify the ML experiment graph in the customized function |
 
         **Examples**
 
@@ -203,7 +205,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
         </AzureMlWebService>
         ```
 
-        A custom function named "*<Custom_function_name>*" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "*graphJsonObject*" parameter and then return the modified value as the function output.
+        Besides, a custom function named "_Custom_function_name_" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "_graphJsonObject_" parameter and then return the modified value as the function output.
         ```c#
         #load "..\CiqsHelpers\All.csx"
 
