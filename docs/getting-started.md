@@ -40,7 +40,7 @@ Unhandled Exception: System.IO.DirectoryNotFoundException: Could not find a part
 
 Run the saw configure command from the SAW Web console. Cut and paste the following and click Enter.
 
-```saw configure -SolutionDirectory "d:\home\saw\workspace\Solutions"```
+```saw configure -SolutionsDirectory "d:\home\saw\workspace\Solutions"``` 
 
 ## SAW Local (Windows only)
 > **Alpha** version. It works, but the installer isn't signed, so expect some turbulence during the installation. Stable builds will be available soon.
