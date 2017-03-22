@@ -24,7 +24,7 @@ Here is an example of how it is used:
 #### Credential
 `Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
 
-Solutions that ask for user name and password inputs are **highly recommended** to use `Credential` to wrap the credential inputs.
+> Solutions that ask for user name and password inputs are **highly recommended** to use `Credential` to wrap the credential inputs.
 
 To use this feature,  please specify `<Credential/>` within `<Parameters/>` in your pattern **Manifest.xml**.
 
@@ -34,12 +34,11 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
     | Name | Description |
     | ------------ | ------------- |
-    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi`, `odbc`[1], **AND** any combination of them seperated by "`,`" |
+    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi`, `odbc`, **AND** any combination of them seperated by "`,`" |
     | *username*: `string` | **The name of** the username parameter defined in the provision step |
     | *password*: `string` | **The name of** the password parameter defined in the provision step |
 
-    ---
-    [1] According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[] {}() , ; ? * ! @` are not permitted in OLE DB or ODBC connection strings; If, **bcp.exe** or **sqlcmd.exe** is used in the solution, please include `odbc` type alongside with `sql` to opt out these special characters in credential input.
+    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[] {}() , ; ? * ! @` are not permitted in OLE DB or ODBC connection strings; If, **bcp.exe** or **sqlcmd.exe** is used in the solution, please include `odbc` type alongside with `sql` to opt out these special characters in credential input.
 
 * **Examples**
 
