@@ -34,9 +34,12 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
     | Name | Description |
     | ------------ | ------------- |
-    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi`, **AND** any combination of them seperated by "`,`" |
+    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi`, `odbc`[1], **AND** any combination of them seperated by "`,`" |
     | *username*: `string` | **The name of** the username parameter defined in the provision step |
     | *password*: `string` | **The name of** the password parameter defined in the provision step |
+
+    ---
+    [1] According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[] {}() , ; ? * ! @` are not permitted in OLE DB or ODBC connection strings; If, **bcp.exe** or **sqlcmd.exe** is used in the solution, please include `odbc` type alongside with `sql` to opt out these special characters in credential input.
 
 * **Examples**
 
