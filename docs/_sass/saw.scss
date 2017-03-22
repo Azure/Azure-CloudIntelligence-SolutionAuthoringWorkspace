@@ -108,9 +108,12 @@ ol {
 }
 
 blockquote {
-  margin: 0;
+  margin-bottom: 10px;
   padding: 0 0 0 20px;
-  font-style: italic;
+  color: #232323;
+  border-left: 4px solid #BDBDBD;
+  background-color: #EEEEEE;
+  letter-spacing: 0px;
 }
 
 dl, dt, dd, dl p {
