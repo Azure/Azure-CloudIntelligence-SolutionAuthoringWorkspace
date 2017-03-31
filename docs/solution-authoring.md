@@ -42,6 +42,7 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 | _{Constants.LinuxMachineNameRegexDescription}_ | Linux machine host name regex description |
 | _{Constants.WindowsMachineNameRegex}_ | Windows machine name regex |
 | _{Constants.WindowsMachineNameRegexDescription}_ | Windows machine name regex description |
+
 > Authors are **highly recommended** to use `{Constants.LinuxMachineNameRegex}` or `{Constants.WindowsMachineNameRegex}` to enforce validation on the VM name input. For example:
 > ```xml
 > <Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
