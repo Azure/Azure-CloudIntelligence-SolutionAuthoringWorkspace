@@ -44,11 +44,12 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 | _{Constants.WindowsMachineNameRegexDescription}_ | Windows machine name regex description |
 
 > Authors are **highly recommended** to use `{Constants.LinuxMachineNameRegex}` or `{Constants.WindowsMachineNameRegex}` to enforce validation on the VM name input. For example:
-> ```xml
-> <Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
->   <ExtraDescription>{Constants.LinuxMachineNameRegexDescription}</ExtraDescription>
-> </Parameter>
-> ```
+
+```xml
+<Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
+  <ExtraDescription>{Constants.LinuxMachineNameRegexDescription}</ExtraDescription>
+</Parameter>
+```
 
 #### Credential
 `Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
