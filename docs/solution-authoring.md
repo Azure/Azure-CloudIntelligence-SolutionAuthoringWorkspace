@@ -51,6 +51,8 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 </Parameter>
 ```
 
+> **Note**: It is **NOT** recommended to relay an input parameter as an output parameter without changing in an ARM template; _{Inputs.`ParameterName`}_ variable offers you the flexibility to use any input values in subsequent steps within the solutions.
+
 #### Credential
 `Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
 
