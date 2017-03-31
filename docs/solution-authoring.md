@@ -21,6 +21,28 @@ Here is an example of how it is used:
 
 ### Parameters
 #### Parameter
+
+#### Parameter Resolver
+Parameter resolver in CIQS allows solution authors to specify parameters as variable in solution source files (e.g. **Manifest.xml**, markdown files, etc.), of which values can be resolved as input, output or constant strings.
+
+In CIQS solution source files, text enclosed with `{` and `}` will be interpreted as parameter variables, and will be resolved as the corresponding values **if** available. Table below shows all parameter variables available in CIQS.
+
+| Variable Name | Description |
+| ------------ | ------------- |
+| _{PatternAssetBaseUrl}_ | Base URL for asset files |
+| _{ResourceGroup.Name}_ | Resource group name |
+| _{ProjectName}_ | Project name |
+| _{UserId}_ | User ID, e.g. johnjames@contoso.com |
+| _{UserDisplayName}_ | User displayed name, e.g. John James |
+| _{SubscriptionId}_ | Subscription ID |
+| _{Location}_ | Location as string, e.g. West US |
+| _{Inputs.`ParameterName`}_ | Resolved as the value of the input parameter named `ParameterName` from previous provisioning steps |
+| _{Outputs.`ParameterName`}_ | Resolved as the value of the output parameter named `ParameterName` from previous provisioning steps |
+| _{Constants.LinuxMachineNameRegex}_ | Linux machine host name regex |
+| _{Constants.LinuxMachineNameRegexDescription}_ | Linux machine host name regex description |
+| _{Constants.WindowsMachineNameRegex}_ | Windows machine name regex |
+| _{Constants.WindowsMachineNameRegexDescription}_ | Windows machine name regex description |
+
 #### Credential
 `Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
 
