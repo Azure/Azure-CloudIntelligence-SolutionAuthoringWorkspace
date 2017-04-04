@@ -1,8 +1,14 @@
+---
+layout: default
+title: Solution Publishing
+navigation_weight: 3
+---
+# Solution Publishing
 As part of the effort to make solution authoring and publishing self-service, we are introducing a few changes in the way you get your solutions onto our platform.
 
 _We now offer a self-service way to publish your patterns onto the CIS Gallery. This means that you can publish your authored solution & upload the associated 'Try It Now' dashboards all directly from the CIS 'Custom Solutions' view with no interaction with the CIS development team. This will allow you to publish your solutions per your desired schedule._
 
-**What is in place today ?**
+## What is in place today ?
 
 Today, as authors, a typical workflow to move solutions into
 CIS would be as follows:
@@ -29,7 +35,7 @@ Deploying this solution onto CIS would involve us moving all patterns in this so
 
 To mitigate this, we are introducing a few changes to this process.
 
-**What's changing ?**
+## What's changing ?
 - You will now be able to publish your solutions directly from the _"Custom Solutions" _tab on CIS (provided you are registered as an author for the solution).
 - New solutions will require the authors to get in touch with the CIS team to have them issued a _Solution ID_ and registered as a valid author for the new solution. 
 - Once this is done, he/she is free to publish at their own will. 
@@ -38,7 +44,7 @@ To mitigate this, we are introducing a few changes to this process.
 - As an author, you will continue to check in the source of your patterns into git into our CIQS repository. This is required as you will need the solution source to update it at a later time. 
 - **It is required that all solution updates undergo code review via pull requests into this repository before any publishing can be done. This code review must be a pull request with the intent of merging the solution source into CIQS under the Product/Source/Patterns/Data folder. Do not publish solutions without checking the source in. Any ad-hoc publishing without a backing source check-in will be at the author’s risk.**
 
-**So what has changed for authors ?**
+## So what has changed for authors ?
 
 You now publish your solutions as and when you choose to do so. We will set up a set of designated
 contributors for a solution and as long as you are one of them, you can go ahead and do it on CIS! Here’s how you do it:
