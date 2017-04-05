@@ -72,12 +72,22 @@ contributors for a solution and as long as you are one of them, you can go ahead
 * Install [git-lfs](https://git-lfs.github.com/) client on your desktop.
 
 ### Clone the CIQS Source
-* Open up a command prompt and create a directory where you would like the source code to be checked out : 
+* Open up a command prompt.
 * Create a directory where you would like to clone to source (eg. **E:\mygitrepo**).
 * cd to the directory 
 ```bash
 cd E:\mygitrepo
 ```
+* Ensure you have git lfs installed by typing:
+```bash
+git lfs
+```
+* You should see details of the installed version of git lfs like so:
+  ```bash
+  git-lfs/1.5.5 (GitHub; windows amd64; go 1.7.4; git c2dcd6f5)
+  git lfs <command> [<args>]    
+  ```
+* If you don't see the above, go to [Environment set up](#environment-set-up) and install git lfs.
 * Clone the repository
 ```bash
 git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataScience/_git/CIQS
