@@ -76,7 +76,7 @@ git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataSci
 ```bash
   git push -u origin users/<YOUR MICROSOFT ALIAS HERE>/myfeature
 ```
-* Go to [Pull Request Dashboard on MSData](https://msdata.visualstudio.com/AlgorithmsAndDataScience/CIQS%20Platform/_git/CIQS/pullrequests).
+* Go to <a href="https://msdata.visualstudio.com/AlgorithmsAndDataScience/CIQS%20Platform/_git/CIQS/pullrequests" target="_blank">Pull Request Dashboard on MSData</a>.
 * Select **New Pull Request**.
 * Set "Review changes in Select a Branch" to:```users/<YOUR MICROSOFT ALIAS HERE>/myfeature```
 * Keep the target branch as master and create the pull request. 
