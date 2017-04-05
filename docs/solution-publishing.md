@@ -61,7 +61,7 @@ git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataSci
 * Add the assets/ and core/ folders for your pattern here. 
 * When you are ready with your changes, create a new branch for your pull request:
 ```bash 
-  git branch -b users/<YOUR MICROSOFT ALIAS HERE>/myfeature
+  git checkout -b users/<YOUR MICROSOFT ALIAS HERE>/myfeature
 ```
 * Add your changes to staging:
   * Added or edited files: ```git add file1.cs file2.cs folder\folder\file3.cs```
