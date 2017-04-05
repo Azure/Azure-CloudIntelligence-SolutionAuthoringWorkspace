@@ -87,7 +87,7 @@ git lfs
   git-lfs/1.5.5 (GitHub; windows amd64; go 1.7.4; git c2dcd6f5)
   git lfs <command> [<args>]    
   ```
-* If you don't see the above, go to [Environment set up](#environment-set-up) and install git lfs.
+* If you don't see the above, **stop here** and go to [Environment set up](#environment-set-up) and install git lfs.
 * Clone the repository
 ```bash
 git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataScience/_git/CIQS
