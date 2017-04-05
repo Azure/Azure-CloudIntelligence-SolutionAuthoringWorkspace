@@ -15,8 +15,8 @@ contributors for a solution and as long as you are one of them, you can go ahead
 
 1. Create your solution in your workspace. 
 2. Test the solution by deploying it using SAW (Solution Authoring Workbench) into 'Custom Solutions'.
-3. Check the solution into CIS source code. 
-4. Publish the solution.
+3. [Check the solution into CIS source code](#checking-in-solution-source-code) 
+4. [Publish the solution](#publishing-your-solution-to-cis).
 
 ## Checking in Solution Source Code
 ### Environment set up
