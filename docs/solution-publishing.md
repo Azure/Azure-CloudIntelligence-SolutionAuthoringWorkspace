@@ -101,7 +101,7 @@ Once reviewers have signed off and policies are met, [complete the pull request]
 3. Run tests against your solution. 
 4. Iterate on the solution based on your tests and re-deploy if necessary. 
 5. Once you are confident of these changes, submit a Pull Request of the files you deployed via SAW to the CIQS team under the patterns folder (Note that as far as source control goes, nothing has changed. You still need to add your pattern source to the Product/Source/Patterns/Data folder.)
-6. [Refer here for details on making a change and submitting a pull request]().
+6. [Refer here for details on making a change and submitting a pull request](#checking-in-solution-source-code).
 7. Once you have the required approvals on the pull request, hover over the solution in 'Custom Solutions' and click the 'Publish' button. 
 
 1. This will now check if your logged in account has the necessary permissions to publish to this solution (Note: The solution name you use while publishing via SAW must match the solution id used in CIS e.g. Campaign Optimization with Spark has the id: _campaignhdi_).
