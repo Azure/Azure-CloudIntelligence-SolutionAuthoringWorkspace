@@ -65,4 +65,28 @@ contributors for a solution and as long as you are one of them, you can go ahead
 
  All current authors have been registered as designated contributors to their respective solution. However, if you lack the required permissions to publish your solution, contact us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com). Should you have any issues while publishing do not hesitate to reach out to us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com).
 
+## Checking in Solution Source Code
+### Environment set up
+* Install [git for windows](https://git-for-windows.github.io/).
+* Install [git credential manager](https://github.com/Microsoft/Git-Credential-Manager-for-Windows). [This typically comes installed as part of git for windows, but might require explicit install].
+* Install [git-lfs](https://git-lfs.github.com/) client on your desktop.
+
+### Clone the CIQS Source
+* Open up a command prompt and create a directory where you would like the source code to be checked out : 
+* Create a directory where you would like to clone to source (eg. **E:\mygitrepo**).
+* cd to the directory 
+```bash
+cd E:\mygitrepo
+```
+* Clone the repository
+```bash
+git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataScience/_git/CIQS
+```
+* The above clone command will take ~20-30 minutes to complete (pulling down the Pattern files from GIT LFS takes a while).
+
+### Submit a Pull Request
+To submit a codeflow/pull request, follow the steps outlined here: 
+- [Making A Code Change](https://www.1eswiki.com/wiki/Making_a_code_change)
+- [Getting a Code Change Checked in](https://www.1eswiki.com/wiki/Getting_a_code_change_into_the_product)
+
 -CIS Team 
