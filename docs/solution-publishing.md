@@ -57,8 +57,6 @@ git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataSci
 ```
 * The above clone command will take ~20-30 minutes to complete (pulling down the Pattern files from GIT LFS takes a while).
 
-### Checking in a Solution
-
 ### Submit a Pull Request
 * Ensure you have the CIQS source code cloned from git. If not go to [Clone the CIQS Source](#clone-the-ciqs-source) and do so now.
 * cd to the CIQS directory where your source is cloned. 
