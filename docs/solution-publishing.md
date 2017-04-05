@@ -11,22 +11,12 @@ _We now offer a self-service way to publish your patterns onto the CIS Gallery. 
 You now publish your solutions as and when you choose to do so. We will set up a set of designated
 contributors for a solution and as long as you are one of them, you can go ahead and do it on CIS! Here’s how you do it:
 
-1. Create your solution assets either on your desktop or on SAW web. 
-2. Use SAW to deploy the solution assets onto CIS so that your solution will now be visible on "Custom Solutions". 
-3. Run tests against your solution. 
-4. Iterate on the solution based on your tests and re-deploy if necessary. 
-5. Once you are confident of these changes, submit a Pull Request of the files you deployed via SAW to the CIQS team under the patterns folder (Note that as far as source control goes, nothing has changed. You still need to add your pattern source to the Product/Source/Patterns/Data folder.)
-6. [Refer here for details on making a change and submitting a pull request]().
-7. Once you have the required approvals on the pull request, hover over the solution in 'Custom Solutions' and click the 'Publish' button. 
+## Steps
 
-1. This will now check if your logged in account has the necessary permissions to publish to this solution (Note: The solution name you use while publishing via SAW must match the solution id used in CIS e.g. Campaign Optimization with Spark has the id: _campaignhdi_).
-
-1. If you lack the required permissions, contact [caqseng@microsoft.com](mailto:caqseng@microsoft.com) to get access.
-1. Hit _'Publish'_ and wait for the publish to complete. 
-1. Once complete, the gallery will refresh with your new pattern changes in _5 minutes_. 
-2. Head over to the gallery and you should see your changes! 
-
- All current authors have been registered as designated contributors to their respective solution. However, if you lack the required permissions to publish your solution, contact us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com). Should you have any issues while publishing do not hesitate to reach out to us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com).
+1. Create your solution in your workspace. 
+2. Test the solution by deploying it using SAW (Solution Authoring Workbench) into 'Custom Solutions'.
+3. Check the solution into CIS source code. 
+4. Publish the solution.
 
 ## Checking in Solution Source Code
 ### Environment set up
@@ -104,6 +94,24 @@ To submit a codeflow/pull request, follow the steps outlined here:
 
 ### Finishing the PR
 Once reviewers have signed off and policies are met, [complete the pull request](https://www.visualstudio.com/en-us/docs/git/pull-requests#complete-the-pull-request). If other changes have happened in your mainline branch, you may again have to deal with merge conflicts.
+
+## Publishing your solution to CIS
+1. Create your solution assets either on your desktop or on SAW web. 
+2. Use SAW to deploy the solution assets onto CIS so that your solution will now be visible on "Custom Solutions". 
+3. Run tests against your solution. 
+4. Iterate on the solution based on your tests and re-deploy if necessary. 
+5. Once you are confident of these changes, submit a Pull Request of the files you deployed via SAW to the CIQS team under the patterns folder (Note that as far as source control goes, nothing has changed. You still need to add your pattern source to the Product/Source/Patterns/Data folder.)
+6. [Refer here for details on making a change and submitting a pull request]().
+7. Once you have the required approvals on the pull request, hover over the solution in 'Custom Solutions' and click the 'Publish' button. 
+
+1. This will now check if your logged in account has the necessary permissions to publish to this solution (Note: The solution name you use while publishing via SAW must match the solution id used in CIS e.g. Campaign Optimization with Spark has the id: _campaignhdi_).
+
+1. If you lack the required permissions, contact [caqseng@microsoft.com](mailto:caqseng@microsoft.com) to get access.
+1. Hit _'Publish'_ and wait for the publish to complete. 
+1. Once complete, the gallery will refresh with your new pattern changes in _5 minutes_. 
+2. Head over to the gallery and you should see your changes! 
+
+ All current authors have been registered as designated contributors to their respective solution. However, if you lack the required permissions to publish your solution, contact us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com). Should you have any issues while publishing do not hesitate to reach out to us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com).
 
 ## Notes
 - You will now be able to publish your solutions directly from the _"Custom Solutions" _tab on CIS (provided you are registered as an author for the solution).
