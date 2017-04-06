@@ -88,7 +88,7 @@ People will leave feedback on your PR. In this case, you'll need to update your 
 * Push your changes: ```git push```
 * If others are working in your branch with you, you might have to [resolve merge conflicts](https://www.visualstudio.com/en-us/docs/git/tutorial/merging) before the push will complete.
 
-To submit a codeflow/pull request, follow the steps outlined here: 
+High level details on making code changes on MS Data: 
 - [Making A Code Change](https://www.1eswiki.com/wiki/Making_a_code_change)
 - [Getting a Code Change Checked in](https://www.1eswiki.com/wiki/Getting_a_code_change_into_the_product)
 
