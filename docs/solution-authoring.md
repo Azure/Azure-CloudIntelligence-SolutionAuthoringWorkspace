@@ -46,9 +46,9 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 > Authors are **highly recommended** to use `{Constants.LinuxMachineNameRegex}` or `{Constants.WindowsMachineNameRegex}` to enforce validation on the VM name input. For example:
 
 ```xml
-<Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
-  <ExtraDescription>{Constants.LinuxMachineNameRegexDescription}</ExtraDescription>
-</Parameter>
+  <Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
+    <ExtraDescription>{Constants.LinuxMachineNameRegexDescription}</ExtraDescription>
+  </Parameter>
 ```
 
 > **Note**: It is **NOT** recommended to relay an input parameter as an output without any change in ARM templates; _**{Inputs.`ParameterName`}**_ variable offers you the flexibility to use any input value in subsequent steps within the solution.
@@ -117,7 +117,6 @@ If no **parameterSource** attribute is provided, all parameters need to be defin
   <Parameters>
     <Parameter name="twitterKeywords" description="Twitter topics" type="string"
       defaultValue="@MicrosoftR,@OpenAtMicrosoft,@Azure,#CortanaIntelligence">
-
       <ExtraDescription>
         Comma-separated list of words, phrases, #hashtags and @mentions
       </ExtraDescription>

@@ -1,16 +1,8 @@
 ﻿## Instructions
 
-1. Your [Machine Learning Web Services]({Outputs.mlListExperimentsUrl}) has been successfully deployed.
+1. Your [Machine Learning Web Service]({Outputs.webServiceHelpUrl}) has been successfully deployed.
 
-_Web Service API key 1_
-```
-{Outputs.mlFunctionApiKey1}
-```
-_Web Service API key 2_
-```
-{Outputs.mlFunctionApiKey2}
-```
-_Web Service API key 3_
+_Web Service API key_
 ```
 {Outputs.webServiceApiKey}
 ```
