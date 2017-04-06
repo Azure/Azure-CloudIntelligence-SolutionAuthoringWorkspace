@@ -12,8 +12,8 @@ You now publish your solutions as and when you choose to do so. We will set up a
 contributors for a solution and as long as you are one of them, you can go ahead and do it on CIS! Here’s how you do it:
 
 ## Steps
-
-1. Create your solution in your workspace. 
+1. Contact the CIS team to have a solution ID issued for you at [caqseng@microsoft.com](mailto:caqseng@microsoft.com). 
+2. Create your solution in your workspace. 
 2. Test the solution by deploying it using SAW (Solution Authoring Workbench) into 'Custom Solutions'.
 3. [Check the solution into CIS source code](#checking-in-solution-source-code) 
 4. [Publish the solution](#publishing-your-solution-to-cis).
