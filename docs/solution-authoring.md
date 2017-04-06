@@ -178,7 +178,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
 
         **Attributes**
 
-        All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/012-mlwebsvc/core/Manifest.xml).
+        All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
 
         **Properties**
         
@@ -195,7 +195,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
 
         **Attributes**
 
-        All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/012-mlwebsvc/core/Manifest.xml).
+        All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
 
         **Properties**
         
@@ -265,7 +265,7 @@ A demonstration of this technique can be found in the [twitterstreaming](https:/
 
 * **Examples**
   
-  Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/012-mlwebsvc).
+  Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/013-mlwebsvcs).
   
   The simplest use case would be provisioning a single Azure ML experiment and deploying a default Web service endpoint:
     ```xml
