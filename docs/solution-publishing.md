@@ -126,6 +126,14 @@ On the right pane,
 - The Tags section is added to using the ["Tags" keyword](https://msdata.visualstudio.com/AlgorithmsAndDataScience/_git/CIQS?path=%2FProduct%2FSource%2FPatterns%2FData%2Fopportunityscoringcrm%2Fsrc%2FCiqsInstaller%2FManifest.xml&version=GBmaster&_a=contents&line=20&lineStyle=plain&lineEnd=23&lineStartColumn=4&lineEndColumn=10) -- [transform code block](https://msdata.visualstudio.com/AlgorithmsAndDataScience/CIQS%20Platform/_git/CIQS?path=%2FProduct%2FSource%2FCaqs%2FUX%2FUtilities%2FCIGalleryConverter.cs&version=GBmaster&_a=contents&line=212&lineStyle=plain&lineEnd=218&lineStartColumn=1&lineEndColumn=14).
 - The Related Items section is generated and we do not control it on gallery publish.
 
+## Troubleshooting
+### Try It Now Upload Failures
+To begin, check the following:
+- Ensure that the PBIX files that you are trying to upload are not corrupt. Are you able to open them on your local Power BI desktop ? 
+- Does the path you specified in Manifest.xml to the Try It Now PBIX dashboards (You specify this under the ```<TryItNow>``` tag) match exactly (paths are case-sensitive) the relative path in your solution folder ? 
+
+If you still see issues, contact [caqseng@microsoft.com](mailto:caqseng@microsoft.com).
+
 ## Notes
 - You will now be able to publish your solutions directly from the _"Custom Solutions" _tab on CIS (provided you are registered as an author for the solution).
 - New solutions will require the authors to get in touch with the CIS team to have them issued a _Solution ID_ and registered as a valid author for the new solution. 
