@@ -12,14 +12,14 @@ Passing the Azure authorization token to functions and using it for calling Azur
 ### [Building a solution powered by Microsoft Cognitive Services](004-cognitiveservices)
 This Serverless-Architecture-based sample demonstrates how to harness Microsoft Cognitive Services API and build a solution that enables the end user to deploy a customizable website similar to how-old.net into their subscription within less than 5 minutes.
 
-### [Uploading a blob into a Storage account](005-blobupload)
-Creating a blob in a Storage account with Azure Functions.
-
-### [Using DocumentDB](006-documentdb)
+### [Using DocumentDB](005-documentdb)
 A demonstration of how to create an Azure DocumentDB account and database.
 
-### [Deploying a Web site](007-webapp)
+### [Deploying a Web site](006-webapp)
 A simple Web App is being deploying into a newly created instsance of the Azure App Service.
+
+### [Uploading a blob into a Storage account](007-blobupload)
+Creating a blob in a Storage account with Azure Functions.
 
 ### [Embedded Power BI dashboard](008-solutiondashboard)
 Embedding a Power BI dashboard into a solution to monitor most important data, at a glance.
