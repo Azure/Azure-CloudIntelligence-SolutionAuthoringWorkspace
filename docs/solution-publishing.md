@@ -4,6 +4,11 @@ title: Solution Publishing
 navigation_weight: 3
 ---
 # Solution Publishing
+
+<div class="alert alert-danger">
+This is a test This is a test
+</div>
+
 As part of the effort to make solution authoring and publishing self-service, we are introducing a few changes in the way you get your solutions onto our platform.
 
 _We now offer a self-service way to publish your patterns onto the CIS Gallery. This means that you can publish your authored solution & upload the associated 'Try It Now' dashboards all directly from the CIS 'Custom Solutions' view with no interaction with the CIS development team. This will allow you to publish your solutions per your desired schedule._
