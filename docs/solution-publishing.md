@@ -4,10 +4,7 @@ title: Solution Publishing
 navigation_weight: 3
 ---
 # Solution Publishing
-
-<div class="alert alert-danger">
-This is a test This is a test
-</div>
+**Update: We are temporarily disabling the publish feature on production in our next release due to issues with handling stale gallery loads & high gallery load latencies. We apologize for the inconvenience. Please contact caqseng@microsoft.com if you wish to publish your templates. If you need to share your templates with other users, please use the "Share" feature.**
 
 As part of the effort to make solution authoring and publishing self-service, we are introducing a few changes in the way you get your solutions onto our platform.
 
