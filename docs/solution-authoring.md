@@ -70,7 +70,7 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
     | *username*: `string` | **The name of** the username parameter defined in the provision step |
     | *password*: `string` | **The name of** the password parameter defined in the provision step |
 
-    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[] {}() , ; ? * ! @` are not permitted in OLE DB or ODBC connection strings; If **bcp.exe** or **sqlcmd.exe** is used in the solution, please include `odbc` type alongside with `sql` to opt out these special characters in credential input.
+    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[] {}() , ; ? * ! @` are not permitted in OLE DB or ODBC connection strings; By default, `odbc` rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions.
 
 * **Examples**
 
