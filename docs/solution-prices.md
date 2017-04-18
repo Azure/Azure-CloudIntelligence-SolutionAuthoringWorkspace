@@ -30,7 +30,7 @@ Service Bus |	Service Bus |	South Central US |	Standard tier, 0 million operatio
  | | | **Annual Total** | **$2,555.87**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Demand Forecasting
