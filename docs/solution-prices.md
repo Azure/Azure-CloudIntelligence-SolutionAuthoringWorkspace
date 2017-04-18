@@ -234,6 +234,24 @@ App Service | App Service | South Central US | 2 instance(s), 744 hours, size: s
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
 
 
+### Real-Time Featurization and Prediction using DocumentDB and AzureML
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage |	South Central US |	1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.03
+App Service |	App Service |	South Central US |	3 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$223.20
+DocumentDB |	DocumentDB |	South Central US |	1 DocumentDB(s) s1 level, 744 hours |	$595.45
+Machine Learning |	Machine Learning |	South Central US | 	1 studio seats, 0 experiment hours per seat. |	$9.99
+Machine Learning |	Machine Learning |	South Central US |	200000 transactions, 0 hours |	$100.00
+ | | | | **Monthly Total** | **$928.67**
+ | | | | **Daily Estimate** | **$30.96**
+ | | | | **Annual Total** | **$11,144.01**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
 ### Twitter Stream Analysis with Azure Machine Learning
 Estimated (mimimun) cost for running this technical pattern
 
