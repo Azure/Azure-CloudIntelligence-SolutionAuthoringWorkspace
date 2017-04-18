@@ -54,6 +54,46 @@ Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours s
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
 
 
+### Demand Forecasting and Price Optimization
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage |	West US |	1 TB storage block type. Basic tier, LRS redundancy, 10000 x100,000 transactions |	$60.58
+HDInsight |	HDInsight |	East US |	Type: linux, cluster type: spark. Head node: D3 size, 2 instances x 744 hours. Worker node: D3 size, 2 instances x 744 hours. |	$1,851.07
+Data Lake Store |	Data Lake Store |	East US 2 |	1000GB stored, 10000 read transaction units (10,000 transactions per unit) and 100 write transaction units (10,000 transactions per unit) |	$84.00
+App Service |	App Service |	West US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
+Data Factory |	Data Factory |	West US |	Cloud: 0 low frequency, 4 high frequency, 0 re runs, 0 data movement. On Premises: 0 low frequency, 0 high frequency, 0 re runs, 0 data movement. |	$4.00
+Functions |	Functions |	West US |	128 MB Memory Size, 10 second(s) Execution time, 30 Execution(s)/month |	$0.00
+ | | | | **Monthly Total** | **$2,074.05**
+ | | | | **Daily Estimate** | **$69.13**
+ | | | | **Annual Total** | **$24,888.58**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
+### Personalized Offers
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage |	West US |	1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.03
+Machine Learning |	Machine Learning |	South Central US |	2678400 transactions, 100 hours |	$1,539.50
+Redis Cache |	Redis Cache |	South Central US |	standard tier, 1 instance(s) x 744 hours, size: c2 |	$167.40
+Event Hubs |	Event Hubs |	East US |	1 million events, 1 thoughput units(s) x 744 hours, standard tier. Archive added: false |	$22.35
+DocumentDB |	DocumentDB |	South Central US |	20 DocumentDB(s) s3 level, 744 hours |	$3,586.20
+Stream Analytics |	Stream Analytics |	East US |	43 unit(s) x 744 hours streaming units |	$3,519.12
+Functions |	Functions |	West US |	128 MB Memory Size, 0 second(s) Execution time, 0 Execution(s)/month |	$0.00
+App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s3, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$297.60
+ | | | | **Monthly Total** | **$9,132.20**
+ | | | | **Daily Estimate** | **$304.41**
+ | | | | **Annual Total** | **$109,586.35**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
 ### Predictive Maintenance
 Estimated (mimimun) cost for running this technical pattern
 
@@ -70,6 +110,25 @@ Stream Analytics |	Stream Analytics |	South Central US |	2 unit(s) x 744 hours s
  | | | | **Monthly Total** | **$280.43**
  | | | | **Daily Estimate** | **$9.35**
  | | | | **Annual Total** | **$3,365.16**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
+### Quality Assurance
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Stream Analytics |	Stream Analytics |	East US |	1 unit(s) x 744 hours streaming units |	$81.84
+Machine Learning |	Machine Learning |	South Central US |	2592000 transactions, 0 hours |	$1,296.00
+SQL Data Warehouse |	SQL Data Warehouse |	East US |	1 x100 DWU blocks x 744 hours, 0 TB storage |	$1,125.00
+Storage |	Storage	| West US |	10 GB storage block type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.24
+App Service |	App Service |	West US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
+Event Hubs |	Event Hubs |	East US |	1 million events, 1 thoughput units(s) x 744 hours, basic tier. Archive added: false |	$11.19
+ | | | | **Monthly Total** | **$2,588.67**
+ | | | | **Daily Estimate** | **$86.29**
+ | | | | **Annual Total** | **$31,064.09**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
