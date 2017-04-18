@@ -51,7 +51,7 @@ Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours s
  | | | **Annual Total** | **$2,467.08**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Demand Forecasting and Price Optimization
@@ -70,7 +70,7 @@ Functions |	Functions |	West US |	128 MB Memory Size, 10 second(s) Execution tim
  | | | **Annual Total** | **$24,888.58**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Personalized Offers
@@ -91,7 +91,7 @@ App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s
  | | | **Annual Total** | **$109,586.35**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Predictive Maintenance
@@ -112,7 +112,7 @@ Stream Analytics |	Stream Analytics |	South Central US |	2 unit(s) x 744 hours s
  | | | **Annual Total** | **$3,365.16**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Quality Assurance
@@ -131,7 +131,7 @@ Event Hubs |	Event Hubs |	East US |	1 million events, 1 thoughput units(s) x 744
  | | | **Annual Total** | **$31,064.09**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Telemetry Analytics
@@ -152,7 +152,7 @@ Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours s
  | | | **Annual Total** | **$2,455.08**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ## [Tutorials](https://aka.ms/citutorials)
@@ -176,7 +176,7 @@ Data Factory |	Data Factory |	North Europe |	Cloud: 0 low frequency, 10 high fre
  | | | **Annual Total** | **$2,340.76**
  
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Data Virtualization Techniques Using SQL Server 2016 and HDInsight
@@ -192,7 +192,7 @@ Virtual Machines |	Virtual Machines |	South Central US |	1 Standard virtual mach
  | | | **Annual Total** | **$54,998.81**
  
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Data Warehousing and Data Science with SQL Data Warehouse and Spark
@@ -210,7 +210,7 @@ App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s
  | | | **Annual Total** | **$38,104.58**
  
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Data Warehousing and Modern BI on Azure
@@ -231,7 +231,7 @@ App Service | App Service | South Central US | 2 instance(s), 744 hours, size: s
  | | | **Annual Total** | **$47,336.77**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Real-Time Featurization and Prediction using DocumentDB and AzureML
@@ -249,7 +249,7 @@ Machine Learning |	Machine Learning |	South Central US |	200000 transactions, 0 
  | | | **Annual Total** | **$11,144.01**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
 ### Twitter Stream Analysis with Azure Machine Learning
@@ -270,4 +270,4 @@ SQL Database |	SQL Database |	South Central US |	1 standard database(s) x 744 ho
  | | | **Annual Total** | **$2,220.41**
 
 **Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
