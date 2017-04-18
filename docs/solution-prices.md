@@ -46,9 +46,9 @@ App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s
 SQL Database |	SQL Database |	South Central US |	1 basic database(s) x 744 hours, size: b |	$4.98
 Machine Learning |	Machine Learning |	South Central US |	1 studio seats, 0 experiment hours per seat. |	$9.99
 Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours streaming units |	$81.84
- | | | | **Monthly Total** | **$215.59**
- | | | | **Daily Estimate** | **$6.85**
- | | | | **Annual Total** | **$2,467.08**
+ | | | **Monthly Total** | **$215.59**
+ | | | **Daily Estimate** | **$6.85**
+ | | | **Annual Total** | **$2,467.08**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -65,9 +65,9 @@ Data Lake Store |	Data Lake Store |	East US 2 |	1000GB stored, 10000 read transa
 App Service |	App Service |	West US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
 Data Factory |	Data Factory |	West US |	Cloud: 0 low frequency, 4 high frequency, 0 re runs, 0 data movement. On Premises: 0 low frequency, 0 high frequency, 0 re runs, 0 data movement. |	$4.00
 Functions |	Functions |	West US |	128 MB Memory Size, 10 second(s) Execution time, 30 Execution(s)/month |	$0.00
- | | | | **Monthly Total** | **$2,074.05**
- | | | | **Daily Estimate** | **$69.13**
- | | | | **Annual Total** | **$24,888.58**
+ | | | **Monthly Total** | **$2,074.05**
+ | | | **Daily Estimate** | **$69.13**
+ | | | **Annual Total** | **$24,888.58**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -86,9 +86,9 @@ DocumentDB |	DocumentDB |	South Central US |	20 DocumentDB(s) s3 level, 744 hour
 Stream Analytics |	Stream Analytics |	East US |	43 unit(s) x 744 hours streaming units |	$3,519.12
 Functions |	Functions |	West US |	128 MB Memory Size, 0 second(s) Execution time, 0 Execution(s)/month |	$0.00
 App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s3, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$297.60
- | | | | **Monthly Total** | **$9,132.20**
- | | | | **Daily Estimate** | **$304.41**
- | | | | **Annual Total** | **$109,586.35**
+ | | | **Monthly Total** | **$9,132.20**
+ | | | **Daily Estimate** | **$304.41**
+ | | | **Annual Total** | **$109,586.35**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -107,9 +107,9 @@ App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s
 SQL Database |	SQL Database |	South Central US |	1 basic database(s) x 744 hours, size: b |	$4.98
 Machine Learning |	Machine Learning |	South Central US |	1 studio seats, 0 experiment hours per seat. |	$9.99
 Stream Analytics |	Stream Analytics |	South Central US |	2 unit(s) x 744 hours streaming units |	$163.68
- | | | | **Monthly Total** | **$280.43**
- | | | | **Daily Estimate** | **$9.35**
- | | | | **Annual Total** | **$3,365.16**
+ | | | **Monthly Total** | **$280.43**
+ | | | **Daily Estimate** | **$9.35**
+ | | | **Annual Total** | **$3,365.16**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -126,9 +126,9 @@ SQL Data Warehouse |	SQL Data Warehouse |	East US |	1 x100 DWU blocks x 744 hour
 Storage |	Storage	| West US |	10 GB storage block type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.24
 App Service |	App Service |	West US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
 Event Hubs |	Event Hubs |	East US |	1 million events, 1 thoughput units(s) x 744 hours, basic tier. Archive added: false |	$11.19
- | | | | **Monthly Total** | **$2,588.67**
- | | | | **Daily Estimate** | **$86.29**
- | | | | **Annual Total** | **$31,064.09**
+ | | | **Monthly Total** | **$2,588.67**
+ | | | **Daily Estimate** | **$86.29**
+ | | | **Annual Total** | **$31,064.09**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -147,9 +147,9 @@ App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s
 SQL Database |	SQL Database |	South Central US |	1 basic database(s) x 744 hours, size: b |	$4.98
 Machine Learning |	Machine Learning |	South Central US |	1 studio seats, 0 experiment hours per seat. |	$9.99
 Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours streaming units |	$81.84
- | | | | **Monthly Total** | **$204.59**
- | | | | **Daily Estimate** | **$6.82**
- | | | | **Annual Total** | **$2,455.08**
+ | | | **Monthly Total** | **$204.59**
+ | | | **Daily Estimate** | **$6.82**
+ | | | **Annual Total** | **$2,455.08**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -171,9 +171,9 @@ Functions |	Functions |	West US |	128 MB Memory Size, 0 second(s) Execution time
 Power BI Embedded |	Power BI Embedded |	South Central US |	0 sessions in the us-south-central region. |	$0.00
 SQL Database |	SQL Database |	South Central US |	1 standard database(s) x 744 hours, size: s0 |	$15.03
 Data Factory |	Data Factory |	North Europe |	Cloud: 0 low frequency, 10 high frequency, 0 re runs, 0 data movement. On Premises: 0 low frequency, 0 high frequency, 0 re runs, 0 data movement. |	$10.00
- | | | | **Monthly Total** | **$195.06**
- | | | | **Daily Estimate** | **$6.50**
- | | | | **Annual Total** | **$2,340.76**
+ | | | **Monthly Total** | **$195.06**
+ | | | **Daily Estimate** | **$6.50**
+ | | | **Annual Total** | **$2,340.76**
  
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -187,9 +187,9 @@ Estimated (mimimun) cost for running this technical pattern
 HDInsight |	HDInsight |	South Central US |	Type: linux, cluster type: spark. Head node: D3V2 size, 2 instances x 744 hours. Worker node: D3V2 size, 2 instances x 744 hours. |	$1,851.07
 SQL Data Warehouse |	SQL Data Warehouse |	South Central US |	1 x100 DWU blocks x 744 hours, 1 TB storage |	$1,247.88
 Virtual Machines |	Virtual Machines |	South Central US |	1 Standard virtual machine(s), D12 v2 Promo (4 cores, 28 GB RAM, 200 GB disk) size: 744 hours, SQL Enterprise license |	$1,484.28
- | | | | **Monthly Total** | **$4,583.23**
- | | | | **Daily Estimate** | **$152.77**
- | | | | **Annual Total** | **$54,998.81**
+ | | | **Monthly Total** | **$4,583.23**
+ | | | **Daily Estimate** | **$152.77**
+ | | | **Annual Total** | **$54,998.81**
  
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -205,9 +205,9 @@ HDInsight |	HDInsight |	South Central US |	Type: linux, cluster type: spark. Hea
 Data Factory |	Data Factory |	North Europe |	Cloud: 0 low frequency, 2 high frequency, 0 re runs, 0 data movement. On Premises: 0 low frequency, 0 high frequency, 0 re runs, 0 data movement. |	$2.00
 SQL Data Warehouse |	SQL Data Warehouse |	South Central US |	1 x100 DWU blocks x 744 hours, 1 TB storage |	$1,247.88
 App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
- | | | | **Monthly Total** | **$3,175.38**
- | | | | **Daily Estimate** | **$105.85**
- | | | | **Annual Total** | **$38,104.58**
+ | | | **Monthly Total** | **$3,175.38**
+ | | | **Daily Estimate** | **$105.85**
+ | | | **Annual Total** | **$38,104.58**
  
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -226,9 +226,9 @@ Data Factory | Data Factory | West US | Cloud: 0 low frequency, 55 high frequenc
 SQL Data Warehouse | SQL Data Warehouse | South Central US | 1 x100 DWU blocks x 744 hours, 1 TB storage | $1,247.88
 SQL Database | SQL Database | South Central US | 1 basic database(s) x 744 hours, size: b | $4.98
 App Service | App Service | South Central US | 2 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) | $148.80
- | | | | **Monthly Total** | **$3,944.73**
- | | | | **Daily Estimate** | **$131.49**
- | | | | **Annual Total** | **$47,336.77**
+ | | | **Monthly Total** | **$3,944.73**
+ | | | **Daily Estimate** | **$131.49**
+ | | | **Annual Total** | **$47,336.77**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -244,9 +244,9 @@ App Service |	App Service |	South Central US |	3 instance(s), 744 hours, size: s
 DocumentDB |	DocumentDB |	South Central US |	1 DocumentDB(s) s1 level, 744 hours |	$595.45
 Machine Learning |	Machine Learning |	South Central US | 	1 studio seats, 0 experiment hours per seat. |	$9.99
 Machine Learning |	Machine Learning |	South Central US |	200000 transactions, 0 hours |	$100.00
- | | | | **Monthly Total** | **$928.67**
- | | | | **Daily Estimate** | **$30.96**
- | | | | **Annual Total** | **$11,144.01**
+ | | | **Monthly Total** | **$928.67**
+ | | | **Daily Estimate** | **$30.96**
+ | | | **Annual Total** | **$11,144.01**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
@@ -265,9 +265,9 @@ Event Hubs |	Event Hubs |	South Central US |	1 million events, 1 thoughput units
 Functions |	Functions |	West US |	128 MB Memory Size, 0 second(s) Execution time, 0 Execution(s)/month |	$0.00
 Power BI Embedded |	Power BI Embedded |	South Central US |	0 sessions in the us-south-central region. |	$0.00
 SQL Database |	SQL Database |	South Central US |	1 standard database(s) x 744 hours, size: s0 |	$15.03
- | | | | **Monthly Total** | **$185.03**
- | | | | **Daily Estimate** | **$6.17**
- | | | | **Annual Total** | **$2,220.41**
+ | | | **Monthly Total** | **$185.03**
+ | | | **Daily Estimate** | **$6.17**
+ | | | **Annual Total** | **$2,220.41**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
