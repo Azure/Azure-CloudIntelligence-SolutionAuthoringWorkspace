@@ -33,6 +33,69 @@ Service Bus |	Service Bus |	South Central US |	Standard tier, 0 million operatio
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
 
 
+### Demand Forecasting
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Functions |	Functions |	South Central US |	128 MB Memory Size, 10 second(s) Execution time, 30 Execution(s)/month |	$0.00
+Storage |	Storage |	South Central US |	1 GB storage block type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.03
+Data Factory |	Data Factory |	North Europe |	Cloud: 0 low frequency, 12 high frequency, 0 re runs, 0 data movement. On Premises: 0 low frequency, 0 high frequency, 0 re runs, 0 data movement. |	$12.00
+Event Hubs |	Event Hubs |	South Central US |	1 million events, 1 thoughput units(s) x 744 hours, standard tier. Archive added: false |	$22.35
+App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
+SQL Database |	SQL Database |	South Central US |	1 basic database(s) x 744 hours, size: b |	$4.98
+Machine Learning |	Machine Learning |	South Central US |	1 studio seats, 0 experiment hours per seat. |	$9.99
+Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours streaming units |	$81.84
+ | | | | **Monthly Total** | **$215.59**
+ | | | | **Daily Estimate** | **$6.85**
+ | | | | **Annual Total** | **$2,467.08**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
+### Predictive Maintenance
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Functions |	Functions |	South Central US |	128 MB Memory Size, 10 second(s) Execution time, 30 Execution(s)/month |	$0.00
+Storage |	Storage |	South Central US |	1 GB storage block type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.03
+Data Factory |	Data Factory |	North Europe |	Cloud: 0 low frequency, 5 high frequency, 0 re runs, 0 data movement. On Premises: 0 low frequency, 0 high frequency, 0 re runs, 0 data movement. |	$5.00
+Event Hubs |	Event Hubs |	South Central US |	1 million events, 1 thoughput units(s) x 744 hours, standard tier. Archive added: false |	$22.35
+App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
+SQL Database |	SQL Database |	South Central US |	1 basic database(s) x 744 hours, size: b |	$4.98
+Machine Learning |	Machine Learning |	South Central US |	1 studio seats, 0 experiment hours per seat. |	$9.99
+Stream Analytics |	Stream Analytics |	South Central US |	2 unit(s) x 744 hours streaming units |	$163.68
+ | | | | **Monthly Total** | **$280.43**
+ | | | | **Daily Estimate** | **$9.35**
+ | | | | **Annual Total** | **$3,365.16**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
+### Telemetry Analytics
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Functions |	Functions |	South Central US |	128 MB Memory Size, 10 second(s) Execution time, 30 Execution(s)/month |	$0.00
+Storage |	Storage |	South Central US |	1 GB storage block type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.03
+Data Factory |	Data Factory |	North Europe |	Cloud: 0 low frequency, 11 high frequency, 0 re runs, 0 data movement. On Premises: 0 low frequency, 0 high frequency, 0 re runs, 0 data movement. |	$11.00
+Event Hubs |	Event Hubs |	South Central US |	1 million events, 1 thoughput units(s) x 744 hours, standard tier. Archive added: false |	$22.35
+App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$74.40
+SQL Database |	SQL Database |	South Central US |	1 basic database(s) x 744 hours, size: b |	$4.98
+Machine Learning |	Machine Learning |	South Central US |	1 studio seats, 0 experiment hours per seat. |	$9.99
+Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours streaming units |	$81.84
+ | | | | **Monthly Total** | **$204.59**
+ | | | | **Daily Estimate** | **$6.82**
+ | | | | **Annual Total** | **$2,455.08**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
 ## [Tutorials](https://aka.ms/citutorials)
 
 ### Customer Churn and Real-time Analytics
@@ -107,6 +170,27 @@ App Service | App Service | South Central US | 2 instance(s), 744 hours, size: s
  | | | | **Monthly Total** | **$3,944.73**
  | | | | **Daily Estimate** | **$131.49**
  | | | | **Annual Total** | **$47,336.77**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
+
+
+### Twitter Stream Analysis with Azure Machine Learning
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage	| West US |	1 GB storage block type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.03
+App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: b1, basic tier, 0 SNI connection(s), 0 IP connection(s) |	$55.80
+Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours streaming units |	$81.84
+Machine Learning |	Machine Learning |	South Central US |	1 studio seats, 0 experiment hours per seat. |	$9.99
+Event Hubs |	Event Hubs |	South Central US |	1 million events, 1 thoughput units(s) x 744 hours, standard tier. Archive added: false |	$22.35
+Functions |	Functions |	West US |	128 MB Memory Size, 0 second(s) Execution time, 0 Execution(s)/month |	$0.00
+Power BI Embedded |	Power BI Embedded |	South Central US |	0 sessions in the us-south-central region. |	$0.00
+SQL Database |	SQL Database |	South Central US |	1 standard database(s) x 744 hours, size: s0 |	$15.03
+ | | | | **Monthly Total** | **$185.03**
+ | | | | **Daily Estimate** | **$6.17**
+ | | | | **Annual Total** | **$2,220.41**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
