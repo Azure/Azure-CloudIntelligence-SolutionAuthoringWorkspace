@@ -25,9 +25,9 @@ Data Factory |	Data Factory |	North Europe |	Cloud: 0 low frequency, 3 high freq
 Application Insights |	Application Insights |	South Central US |	basic tier in us-south-central region with 1 GBs and 0 multi-step web test(s). |	$0.00
 SQL Database | SQL Database | South Central US | 1 standard database(s) x 744 hours, size: s1 | $29.98
 Service Bus |	Service Bus |	South Central US |	Standard tier, 0 million operations, 1000 connections, 0 relay hours, 0 thousand relay messages, 0 listeners with 0 GB of data overages. |	$10.00
- | | | | **Monthly Total** | **$212.99**
- | | | | **Daily Estimate** | **$7.10**
- | | | | **Annual Total** | **$2,555.87**
+ | | | **Monthly Total** | **$212.99**
+ | | | **Daily Estimate** | **$7.10**
+ | | | **Annual Total** | **$2,555.87**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit https://azure.microsoft.com/pricing/calculator/
