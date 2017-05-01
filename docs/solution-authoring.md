@@ -66,11 +66,11 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
     | Name | Description |
     | ------------ | ------------- |
-    | *type*: `string` | The credential type. The current supported types are: `sql`, `linuxvm`, `windowsvm`, `hdi`, `odbc`, **AND** any combination of them seperated by "`,`" |
+    | *type*: `string` | The credential type. The current supported types are: `sql`, `sqlwithoutodbc`, `linuxvm`, `windowsvm`, `hdi`, **AND** any combination of them seperated by "`,`" |
     | *username*: `string` | **The name of** the username parameter defined in the provision step |
     | *password*: `string` | **The name of** the password parameter defined in the provision step |
 
-    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[] {}() , ; ? * ! @` are not permitted in OLE DB or ODBC connection strings; By default, `odbc` rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions.
+    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[] {}() , ; ? * ! @` are not permitted in OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
 
 * **Examples**
 
