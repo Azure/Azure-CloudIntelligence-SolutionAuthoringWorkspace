@@ -245,7 +245,7 @@ SQL Database	| SQL Database	| West Europe	| 1 standard database(s) x 744 hours, 
 Stream Analytics	| Stream Analytics	| West Europe	| 1 unit(s) x 744 hours streaming units	| $89.28
  | | | **Monthly Total** | **$373.54**
  | | | **Daily Estimate** | **$12.45**
- | | | **Annual Total** | **$4,482.51*
+ | | | **Annual Total** | **$4,482.51**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
