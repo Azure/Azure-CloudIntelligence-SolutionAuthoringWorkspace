@@ -1,0 +1,1 @@
+The NodeJS function said: **{Outputs.message}**
