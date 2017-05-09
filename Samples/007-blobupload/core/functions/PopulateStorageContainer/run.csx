@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Threading;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
@@ -40,7 +41,18 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
         log.Info($"Copying {assetUrl} as {blobName}");
         
         CloudBlockBlob target = container.GetBlockBlobReference(blobName);
-        target.StartCopy(uri);
+        
+        try
+        {
+            target.StartCopy(uri);
+        }
+        catch (Exception e)
+        {
+            return req.CreateResponse(HttpStatusCode.BadRequest, 
+                new {
+                    Message = $"Unable to copy blob {blobName}. \n\n{e.ToString()}"
+                });
+        }
 
         while (target.CopyState.Status == CopyStatus.Pending)
         {
