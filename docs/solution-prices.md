@@ -57,7 +57,7 @@ Storage |	Storage |	West US |	1 GB storage Block blob type. Basic tier, LRS redu
 Machine Learning |	Machine Learning |	South Central US |	2678400 transactions, 100 hours |	$1,539.50
 Redis Cache |	Redis Cache |	South Central US |	standard tier, 1 instance(s) x 744 hours, size: c2 |	$167.40
 Event Hubs |	Event Hubs |	East US |	1 million events, 1 thoughput units(s) x 744 hours, standard tier. Archive added: false |	$22.35
-DocumentDB |	DocumentDB |	South Central US |	20 DocumentDB(s) s3 level, 744 hours |	$3,586.20
+Azure Cosmos DB |	Azure Cosmos DB |	South Central US |	20 DocumentDB(s) s3 level, 744 hours |	$3,586.20
 Stream Analytics |	Stream Analytics |	East US |	43 unit(s) x 744 hours streaming units |	$3,519.12
 Functions |	Functions |	West US |	128 MB Memory Size, 0 second(s) Execution time, 0 Execution(s)/month |	$0.00
 App Service |	App Service |	South Central US |	1 instance(s), 744 hours, size: s3, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$297.60
@@ -216,7 +216,7 @@ Estimated (mimimun) cost for running this technical pattern
 --------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
 Storage |	Storage |	South Central US |	1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x100,000 transactions |	$0.03
 App Service |	App Service |	South Central US |	3 instance(s), 744 hours, size: s1, standard tier, 0 SNI connection(s), 0 IP connection(s) |	$223.20
-DocumentDB |	DocumentDB |	South Central US |	1 DocumentDB(s) s1 level, 744 hours |	$595.45
+Azure Cosmos DB |	Azure Cosmos DB |	South Central US |	1 DocumentDB(s) s1 level, 744 hours |	$595.45
 Machine Learning |	Machine Learning |	South Central US | 	1 studio seats, 0 experiment hours per seat. |	$9.99
 Machine Learning |	Machine Learning |	South Central US |	200000 transactions, 0 hours |	$100.00
  | | | **Monthly Total** | **$928.67**
