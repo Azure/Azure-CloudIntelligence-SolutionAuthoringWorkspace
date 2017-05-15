@@ -137,6 +137,14 @@ Finally, if all parameters required to perform an ARM deployment are already pre
 A demonstration of this technique can be found in the [twitterstreaming](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/009-twitterstreaming) SAW sample.
 
 ### Functions
+Below is a quick overview on things you need to do in order to move your web-jobs into Azure functions on CIS. The high-level steps are as follows: 
+- Create a ```functions``` folder in ```core``` folder of your solution.
+- Create an individual folder for each function that can be invoked. 
+- Each function folder will contain a projects.json & a run.csx (for C#).
+	- The ```projects.json``` is used to indicate Nuget packages that you will be consuming as part of the function. 
+	- The ```run.csx``` file will be the entry point when your function is invoked and will contain all your source. 
+The next few sections highlight typical scenarios to consider while migrating your source over to functions.
+
 #### Referencing Resource files from your function
 If you have files stored as resources within your webjob, you can safely migrate these over to functions by moving the files/folders contained in your webjob project to the root of your function's folder. For eg. if you had files a.txt, b.csv & c.dat under a Resources folder in your webjob project for webjob "A", the path would like the following: 
 ```
