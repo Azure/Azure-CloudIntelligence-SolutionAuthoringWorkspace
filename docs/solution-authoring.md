@@ -188,6 +188,28 @@ would map to:
   }
 }
 ```
+#### FAQs
+##### How do I view logs for function invocations ? 
+- Go to your function app under the resource group.
+- Select the function you wish to debug. 
+- Go to ```Monitor``` to view past HTTP requests and their trace logs. 
+
+##### How do I debug a function ? 
+- Go to your function app under the resource group.
+- Select the function you wish to debug. 
+- On the right pane, select ```Test``` and enter a ```Request Body```. The request body is a json object holding parameters for your function. For eg. invoking function A with parameters : 
+```
+A(string v, string t, string m);
+```
+will have a request body of:
+```
+{
+    "v" : "xxxxx",
+    "t" : "yyyyy",
+    "m" : "zzzzz",
+}
+```
+[More details here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-test-a-function).
 
 ### WebJob
 ### AzureMLWebService
