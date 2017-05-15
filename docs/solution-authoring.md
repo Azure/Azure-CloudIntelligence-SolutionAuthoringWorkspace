@@ -206,7 +206,7 @@ will have a request body of:
 {
     "v" : "xxxxx",
     "t" : "yyyyy",
-    "m" : "zzzzz",
+    "m" : "zzzzz"
 }
 ```
 [More details here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-test-a-function).
