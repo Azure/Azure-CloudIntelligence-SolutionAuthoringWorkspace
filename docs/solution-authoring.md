@@ -136,7 +136,41 @@ Finally, if all parameters required to perform an ARM deployment are already pre
 
 A demonstration of this technique can be found in the [twitterstreaming](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/009-twitterstreaming) SAW sample.
 
-### Function
+### Functions
+#### Referencing Resource files from your function
+If you have files stored as resources within your webjob, you can safely migrate these over to functions by moving the files/folders contained in your webjob project to the root of your function's folder. For eg. if you had files a.txt, b.csv & c.dat under a Resources folder in your webjob project for webjob "A", the path would like the following: 
+```
+A\Resources\a.txt
+A\Resources\b.csv
+A\Resources\c.dat
+```
+To migrate these to functions, simply move this entire folder over to the folder for your specific function. i.e. 
+```
+core\functions\A\Resources\a.txt
+core\functions\A\Resources\b.csv
+core\functions\A\Resources\c.dat
+```
+
+To access these files from your function, use the ```CiqsWebHostHelper.GetFunctionWebHostPath()``` utility function to access the root folder of the specific function. For eg. to get a path reference to ```a.txt```:
+
+```
+    var fileName = "a.txt";
+    var functionRootPath = CiqsWebHostHelper.GetFunctionWebHostPath("CreateBlob");
+    var filePath = string.Format(@"{0}\resources\{1}", functionRootPath, fileName);
+```
+#### Add Reference to Storage Account in Function App Declaration
+```
+    <AzureFunctionApp alwaysOn="true">
+      <AppSettings>
+        <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+        <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+      </AppSettings>
+    </AzureFunctionApp>
+```
+
+#### Remove Unused Storage Accounts
+Adding a function app will create a storage account for you. Consider referencing this storage account for your solution to avoid additional costs and reduce solution complexity.
+
 ### WebJob
 ### AzureMLWebService
 * **Summary**
