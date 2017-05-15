@@ -171,6 +171,24 @@ To access these files from your function, use the ```CiqsWebHostHelper.GetFuncti
 #### Remove Unused Storage Accounts
 Adding a function app will create a storage account for you. Consider referencing this storage account for your solution to avoid additional costs and reduce solution complexity.
 
+#### Migrate Package References
+Ensure you move any package references you may have in your webjob from ```packages.config``` to a new ```projects.json``` file in the function root. For eg. the following line in ```packages.config```
+```
+  <package id="Microsoft.Azure.KeyVault.Core" version="1.0.0" targetFramework="net45" />
+```
+would map to:
+```
+{
+  "frameworks": {
+    "net45":{
+      "dependencies": {
+        "Microsoft.Azure.KeyVault.Core": "1.0.0"
+      }
+    }
+  }
+}
+```
+
 ### WebJob
 ### AzureMLWebService
 * **Summary**
