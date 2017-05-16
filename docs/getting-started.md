@@ -26,6 +26,8 @@ Good question!
 
 They come in two packages. Pick whichever you like, or both!
 
+But first, with the flip of a switch, become a Solution Author:
+![Enabling authoring features]({{ site.baseurl }}\images\switch.png)
 ### Package 1: In-browser solution development (any OS)
 
 ### Package 2: Local development (Windows)
