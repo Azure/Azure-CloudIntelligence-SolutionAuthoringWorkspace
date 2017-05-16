@@ -1,4 +1,4 @@
-: ---
+---
 layout: default
 title: Getting started
 navigation_weight: 2
