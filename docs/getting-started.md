@@ -42,11 +42,11 @@ No configuration or installation is required.
 Launch *SAW CLI* and build Solutions on your PC.
 <table>
 <tr>
-<td>![]({{ site.baseurl }}/images/saw-stable.png)</td>
+<td><img src="{{ site.baseurl }}/images/saw-stable.png" /></td>
 <td>Latest stable release</td>
 </tr>
 <tr>
-<td>![]({{ site.baseurl }}/images/saw-unstable.png)</td>
+<td><img src="{{ site.baseurl }}/images/saw-unstable.png" /></td>
 <td>Latest build (may be unstable)</td>
 </tr>
 </table>
