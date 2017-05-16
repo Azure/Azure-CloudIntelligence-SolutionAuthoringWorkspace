@@ -33,22 +33,19 @@ But first, with the flip of a switch, become a Solution Author:
 
 Now come the packages.
 
-### Package 1: In-browser solution development (any OS)
+### Package 1: In-browser Solution authoring environment
 
-Build Solutions using Web-based *Visual Studio Code* and essential tools like *SAW CLI*, *Git*, *MSBuild*, *Python*, *npm* and many more.
-No configuration or installation is required.
+Works on any host OS and features Web-based *Visual Studio Code*, the Samples, and essential tools like *SAW CLI*, *Git*, *MSBuild*, *Python*, *npm* and many more. No configuration or installation is required.
+![SAW Web]({{ site.baseurl }}\images\sawweb.png)
 
-### Package 2: Local development (Windows)
+### Package 2: Local Solution development on Windows
+
 Launch *SAW CLI* and build Solutions on your PC.
-<table>
-<tr>
-<td><img src="{{ site.baseurl }}/images/saw-stable.png" /></td>
-<td>Latest stable release</td>
-</tr>
-<tr>
-<td><img src="{{ site.baseurl }}/images/saw-unstable.png" /></td>
-<td>Latest build (may be unstable)</td>
-</tr>
-</table>
+
+#### Latest stable release
+![]({{ site.baseurl }}/images/saw-stable.png)
+
+#### Latest build 
+![]({{ site.baseurl }}/images/saw-unstable.png)
 
 #### One-time setup for Chrome and Firefox
