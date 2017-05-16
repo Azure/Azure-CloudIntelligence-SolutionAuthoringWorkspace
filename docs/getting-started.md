@@ -40,10 +40,15 @@ No configuration or installation is required.
 
 ### Package 2: Local development (Windows)
 Launch *SAW CLI* and build Solutions on your PC.
-
-|||
---- | ---
-![]({{ site.baseurl }}/images/saw-stable.png) | Latest stable release.
-![]({{ site.baseurl }}/images/saw-unstable.png) | Latest build.
+<table>
+<tr>
+<td>![]({{ site.baseurl }}/images/saw-stable.png)</td>
+<td>Latest stable release</td>
+</tr>
+<tr>
+<td>![]({{ site.baseurl }}/images/saw-unstable.png)</td>
+<td>Latest build (may be unstable)</td>
+</tr>
+</table>
 
 #### One-time setup for Chrome and Firefox
