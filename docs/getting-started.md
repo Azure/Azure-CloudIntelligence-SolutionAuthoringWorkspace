@@ -42,7 +42,7 @@ Works on any host OS and features Web-based *Visual Studio Code*, the Samples, a
 
 We provide two options: latest stable release and latest build. The latter may be unstable at times, but it's the latest and the greatest!
 
-Launch either one directly from the Setup page. (If you use Chrome or Firefox, make sure to follow the instructions from the [section below](#one-time-setup-for-chrome-and-firefox).) A working shortcut will also be created on your Desktop.
+Launch either one directly from the Setup page. (If you use *Chrome* or *Firefox*, make sure to follow the instructions from the [section below](#one-time-setup-for-chrome-and-firefox).) A working shortcut will also be created on your Desktop.
 
 ![]({{ site.baseurl }}/images/sawlocal.png)
 
