@@ -48,7 +48,7 @@ Launch either one directly from the Setup page. (If you use *Chrome* or *Firefox
 
 #### One-time setup for Chrome and Firefox
 
-SAW local is implemented as a ClickOnce Windows application. This means you will automatically get latests updates.
+SAW local is implemented as a ClickOnce Windows application. This means you will automatically get latest updates.
 
 To make sure the application receives all necessarly configuration upon its initial launch, proper ClickOnce support needs to be enabled in *Chrome* and *Firefox*. (It works out of the box in *Edge* and *IE*.)
 
