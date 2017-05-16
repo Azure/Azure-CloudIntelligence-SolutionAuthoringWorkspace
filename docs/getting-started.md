@@ -1,4 +1,4 @@
----
+: ---
 layout: default
 title: Getting started
 navigation_weight: 2
@@ -14,16 +14,13 @@ Good question!
 *Solution Authoring Workspace* (SAW) has three ingredients:
 
 - Documentation
+  <br>You are reading it now. It will be getting better. We promise.
   
-  You are reading it now. It will be getting better. We promise.
-  
-- [Samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/Samples)
-
-  They are simple and immediately deployable. Samples can serve as building blocks for the real stuff you have in mind.
+- [Samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples)
+  <br>They are simple and immediately deployable. Samples can serve as building blocks for the real stuff you have in mind.
   
 - Tools
-
-  We got some tools to help you build new Solutions and get them into CIQS for testing, sharing and publishing.
+  <br>We got some tools to help you build new Solutions and get them into CIQS for testing, sharing and publishing.
   
 
 ## In-browser solution development (any OS)
