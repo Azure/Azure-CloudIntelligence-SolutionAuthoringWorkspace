@@ -20,7 +20,7 @@ Good question!
   <br>They are simple and immediately deployable. Samples can serve as building blocks for the real stuff you have in mind.
   
 - Tools
-  <br>We got some tools to help you build new Solutions and get them into CIQS for testing, sharing and publishing.
+  <br>We got some tools to help you build new Solutions and get them into CIQS for testing, sharing and publishing. (Not sure what CIQS is? Check [this]({{ site.baseurl }}) out!)
   
 
 ## In-browser solution development (any OS)
