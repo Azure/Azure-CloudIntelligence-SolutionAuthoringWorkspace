@@ -42,7 +42,7 @@ Works on any host OS and features Web-based *Visual Studio Code*, the Samples, a
 
 We provide two options: latest stable release and latest build. The latter may be unstable at times, but it's the latest and the greatest!
 
-Launch either one directly from the Setup page. (If you use Chrome or Firefox, make sure to follow the instructions from the section below.) A shortcut will also be created on your Desktop.
+Launch either one directly from the Setup page. (If you use Chrome or Firefox, make sure to follow the instructions from the [section below](#one-time-setup-for-chrome-and-firefox).) A working shortcut will also be created on your Desktop.
 
 ![]({{ site.baseurl }}/images/sawlocal.png)
 
@@ -52,4 +52,8 @@ SAW local is implemented as a ClickOnce Windows application. This means you will
 
 To make sure the application receives all necessarly configuration upon its initial launch, proper ClickOnce support needs to be enabled in *Chrome* and *Firefox*. (It works out of the box in *Edge* and *IE*.)
 
-There are various third-party plugins that add ClickOnce support to these Browsers. We had success with [Meta4 ClickOnce Launcher](https://chrome.google.com/webstore/detail/meta4-clickonce-launcher/jkncabbipkgbconhaajbapbhokpbgkdc) (Chrome) and [FxClickOnce](https://addons.mozilla.org/en-US/firefox/addon/fxclickonce/) (Firefox)
+There are various third-party plugins that add ClickOnce support to these Browsers. We had success with [Meta4 ClickOnce Launcher](https://chrome.google.com/webstore/detail/meta4-clickonce-launcher/jkncabbipkgbconhaajbapbhokpbgkdc) (*Chrome*) and [FxClickOnce](https://addons.mozilla.org/en-US/firefox/addon/fxclickonce/) (*Firefox*)
+
+## Configuration
+
+Just kidding! You are now all set.
