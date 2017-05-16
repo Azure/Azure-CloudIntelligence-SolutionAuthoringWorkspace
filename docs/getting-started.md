@@ -40,7 +40,9 @@ Works on any host OS and features Web-based *Visual Studio Code*, the Samples, a
 
 ### Package 2: Local Solution development on Windows
 
-We provide two options: latest stable release and latest build. The latter may be unstable at times, but it's the latest and the greatest! Launch either one directly from the Setup page (if you use Chrome or Firefox, make sure to follow the instructions the section below). A shortcut will also be created on your Desktop.
+We provide two options: latest stable release and latest build. The latter may be unstable at times, but it's the latest and the greatest!
+
+Launch either one directly from the Setup page. (If you use Chrome or Firefox, make sure to follow the instructions from the section below.) A shortcut will also be created on your Desktop.
 
 ![]({{ site.baseurl }}/images/sawlocal.png)
 
