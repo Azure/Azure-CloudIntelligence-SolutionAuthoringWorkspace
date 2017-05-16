@@ -20,10 +20,13 @@ Good question!
   <br>They are simple and immediately deployable. Samples can serve as building blocks for the real stuff you have in mind.
   
 - Tools
-  <br>We got some tools to help you build new Solutions and get them into CIQS for testing, sharing and publishing. (Not sure what CIQS is? Check [this]({{ site.baseurl }}) out!)
+  <br>We got some tools to help you build new Solutions and get them into CIQS for testing, sharing and publishing. (Not sure what CIQS is? Check [this]({{ site.baseurl }}) out, maybe!)
   
+## Hmm... Okay. And what are those tools?
 
-## In-browser solution development (any OS)
+They come in two packages. Pick whichever you like, or both!
 
-## Local development (Windows)
-### One-time setup for Chrome and Firefox
+### Package 1: In-browser solution development (any OS)
+
+### Package 2: Local development (Windows)
+#### One-time setup for Chrome and Firefox
