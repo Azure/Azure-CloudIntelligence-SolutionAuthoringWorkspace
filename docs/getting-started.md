@@ -1,4 +1,4 @@
----
+.---
 layout: default
 title: Getting started
 navigation_weight: 2
@@ -52,7 +52,7 @@ SAW local is implemented as a ClickOnce Windows application. This means you will
 
 To make sure the application receives all necessarly configuration upon its initial launch, proper ClickOnce support needs to be enabled in *Chrome* and *Firefox*. (It works out of the box in *Edge* and *IE*.)
 
-There are various third-party plugins that add ClickOnce support to these Browsers. We had success with [Meta4 ClickOnce Launcher](https://chrome.google.com/webstore/detail/meta4-clickonce-launcher/jkncabbipkgbconhaajbapbhokpbgkdc) (*Chrome*) and [FxClickOnce](https://addons.mozilla.org/en-US/firefox/addon/fxclickonce/) (*Firefox*)
+There are various third-party plugins that add ClickOnce support to these browsers. We had success with [Meta4 ClickOnce Launcher](https://chrome.google.com/webstore/detail/meta4-clickonce-launcher/jkncabbipkgbconhaajbapbhokpbgkdc) (*Chrome*) and [FxClickOnce](https://addons.mozilla.org/en-US/firefox/addon/fxclickonce/) (*Firefox*).
 
 ## Configuration
 
