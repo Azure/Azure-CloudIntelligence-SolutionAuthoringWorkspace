@@ -14,6 +14,11 @@
         </Manual>
         <AzureFunctionApp alwaysOn="false" use32BitWorkerProcess="false" servicePlanSku="B2" servicePlanTier="Basic" createStorageAccount="false">
             <AppSettings>
+            <!-- Uncomment the below settings and set createStorageAccount to true to enable Azure Functions debugging features -->
+            <!--            
+                <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+                <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+            -->
                 <Add key="EggCount" value="{Inputs.eggCount}" />
                 <Add key="SexRatio" value="{Inputs.sexRatio}" />
             </AppSettings>            

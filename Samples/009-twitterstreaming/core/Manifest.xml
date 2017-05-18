@@ -31,6 +31,15 @@
         <Parameter name="oauthTokenSecret" description="Access token secret" type="string" />
       </Parameters>
     </Manual>
+    <AzureFunctionApp alwaysOn="true">
+      <AppSettings>
+        <Add key="TWITTER_KEYWORDS" value="{Inputs.twitterKeywords}" />
+        <Add key="TWITTER_OAUTH_CONSUMER_KEY" value="{Inputs.oauthConsumerKey}" />
+        <Add key="TWITTER_OAUTH_CONSUMER_SECRET" value="{Inputs.oauthConsumerSecret}" />
+        <Add key="TWITTER_OAUTH_TOKEN" value="{Inputs.oauthToken}" />
+        <Add key="TWITTER_OAUTH_TOKEN_SECRET" value="{Inputs.oauthTokenSecret}" />
+      </AppSettings>
+    </AzureFunctionApp>
     <AzureMlWebService hiddenParameters ="true">
       <PackageUrl>https://storage.azureml.net/directories/5067590f26d5412ebf2220a1dacb0f22/items</PackageUrl>
       <GalleryUrl>https://gallery.cortanaintelligence.com/Details/predictive-mini-twitter-sentiment-analysis-experiment-1</GalleryUrl>
@@ -62,18 +71,12 @@
         <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Inputs.sqlServerPassword}" />
       </Parameters>
     </SolutionDashboard>
-    <WebJobDeployment title="Starting data ingress" name="twitterClient" source="{PatternAssetBaseUrl}\TwitterClient.zip" type="continuous">
-      <AppSettings>
-        <Add key="TWITTER_KEYWORDS" value="{Inputs.twitterKeywords}" />
-        <Add key="TWITTER_OAUTH_CONSUMER_KEY" value="{Inputs.oauthConsumerKey}" />
-        <Add key="TWITTER_OAUTH_CONSUMER_SECRET" value="{Inputs.oauthConsumerSecret}" />
-        <Add key="TWITTER_OAUTH_TOKEN" value="{Inputs.oauthToken}" />
-        <Add key="TWITTER_OAUTH_TOKEN_SECRET" value="{Inputs.oauthTokenSecret}" />
-      </AppSettings>
+    <AzureFunctionApp title="Starting data ingress">
       <ConnectionStrings>
         <Add name="EventHubConnectionString" connectionString="{Outputs.eventHubConnectionString}" />
       </ConnectionStrings>
-    </WebJobDeployment>
+      <DeployWebJobs src="{PatternAssetBaseUrl}/WebJobs.zip" />
+    </AzureFunctionApp>
     <Function name="startStreamingJob" title="Starting Stream Analytics job">
       <Parameters>
         <Parameter hidden="true" name="accessToken" type="string" defaultValue="{Authorization}" /> 
