@@ -189,6 +189,7 @@ To access these files from your function, use the ```CiqsWebHostHelper.GetFuncti
 ```
 #### Add Reference to Storage Account in Function App Declaration
 ** This step is crucial to ensure you can view logs on the function app. Without this, the logs tab on the functions app will be effectively useless.**
+
 ```xml
     <AzureFunctionApp alwaysOn="true">
       <AppSettings>
