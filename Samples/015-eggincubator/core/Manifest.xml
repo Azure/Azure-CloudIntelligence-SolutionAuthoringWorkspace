@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+    <Title>Egg incubator simulation from local</Title>    
+    <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
+    <Description>Generating fictitious data and visualizing it with Power BI.</Description>
+    <Summary src="Summary.md" format="markdown"/>
+    <EstimatedTime>5 Minutes</EstimatedTime>
+    <ProvisioningSteps>
+        <Manual title="Count your eggs">
+            <Instructions src="Incubator.md" format="markdown" />
+            <Parameters>
+                <Parameter name="eggCount" defaultValue="500" description="How many fertilized chicken eggs do you get per day?" />
+                <Parameter name="sexRatio" defaultValue="1:1" description="What's the sex ratio (rooster:hen) of your chicken breed?" />
+                <Parameter name="experimentCount" defaultValue="10000" description="How long have you been running this business?">
+                    <ExtraDescription>
+                        (expressed in days)
+                    </ExtraDescription>
+                </Parameter>                
+            </Parameters>            
+        </Manual>
+
+        <ArmDeployment source="CreateSQLdatabaseArm.json" title="Creating a SQL Database">
+            <Credential type="sql" username="sqlServerUsername" password="sqlServerPassword" />
+        </ArmDeployment>
+
+        <AzureFunctionApp alwaysOn="false" use32BitWorkerProcess="false" servicePlanSku="B2" servicePlanTier="Basic" createStorageAccount="false">
+            <AppSettings>
+            <!-- Uncomment the below settings and set createStorageAccount to true to enable Azure Functions debugging features -->
+            <!--
+                <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+                <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+            -->
+                <Add key="EggCount" value="{Inputs.eggCount}" />
+                <Add key="SexRatio" value="{Inputs.sexRatio}" />
+            </AppSettings>            
+        </AzureFunctionApp>
+                
+        <Function name="prepsql" title="Preparing the database" retriable="true">
+            <Parameters>                
+                <Parameter name="sqlConnectionString" hidden="true" defaultValue="{Outputs.sqlConnectionString}" />
+            </Parameters>
+        </Function>
+        
+        <Function name="hatch" title="Hatching the eggs" retriable="true">
+            <Parameters>
+                <Parameter name="experimentCount" hidden="true" defaultValue="{Inputs.experimentCount}" />
+                <Parameter name="sqlConnectionString" hidden="true" defaultValue="{Outputs.sqlConnectionString}" />
+            </Parameters>
+        </Function>
+
+        <SolutionDashboard>
+            <Parameters>
+                <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboard.pbix" />
+                <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServerName}" />
+                <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabaseName}" />
+                <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Outputs.sqlServerUsername}" />
+                <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Outputs.sqlServerPassword}" />
+            </Parameters>
+        </SolutionDashboard>
+        <Manual title="Done">
+          <Instructions src="FinalResults.md" format="markdown" />
+        </Manual>
+    </ProvisioningSteps>
+</Template>

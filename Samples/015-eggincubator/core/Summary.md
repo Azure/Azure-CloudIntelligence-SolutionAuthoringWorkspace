@@ -1,0 +1,1 @@
+A sample solution that demonstrates how to visualize data with a PowerBI dashboard.
