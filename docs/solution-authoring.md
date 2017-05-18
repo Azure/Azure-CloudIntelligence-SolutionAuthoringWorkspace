@@ -168,13 +168,13 @@ You might need to surface the relevant parameters up as an ARM output if these a
 
 #### Referencing Resource files from your function
 If you have files stored as resources within your webjob, you can safely migrate these over to functions by moving the files/folders contained in your webjob project to the root of your function's folder. For eg. if you had files a.txt, b.csv & c.dat under a Resources folder in your webjob project for webjob "A", the path would like the following: 
-```
+```bash
 A\Resources\a.txt
 A\Resources\b.csv
 A\Resources\c.dat
 ```
 To migrate these to functions, simply move this entire folder over to the folder for your specific function. i.e. 
-```
+```bash
 core\functions\A\Resources\a.txt
 core\functions\A\Resources\b.csv
 core\functions\A\Resources\c.dat
@@ -182,13 +182,13 @@ core\functions\A\Resources\c.dat
 
 To access these files from your function, use the ```CiqsWebHostHelper.GetFunctionWebHostPath()``` utility function to access the root folder of the specific function. For eg. to get a path reference to ```a.txt```:
 
-```
+```csharp
     var fileName = "a.txt";
     var functionRootPath = CiqsWebHostHelper.GetFunctionWebHostPath("CreateBlob");
     var filePath = string.Format(@"{0}\resources\{1}", functionRootPath, fileName);
 ```
 #### Add Reference to Storage Account in Function App Declaration
-```
+```xml
     <AzureFunctionApp alwaysOn="true">
       <AppSettings>
         <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
@@ -206,7 +206,7 @@ Ensure you move any package references you may have in your webjob from ```packa
   <package id="Microsoft.Azure.KeyVault.Core" version="1.0.0" targetFramework="net45" />
 ```
 would map to:
-```
+```json
 {
   "frameworks": {
     "net45":{
@@ -227,11 +227,11 @@ would map to:
 - Go to your function app under the resource group.
 - Select the function you wish to debug. 
 - On the right pane, select ```Test``` and enter a ```Request Body```. The request body is a json object holding parameters for your function. For eg. invoking function A with parameters : 
-```
+```chsarp
 A(string v, string t, string m);
 ```
 will have a request body of:
-```
+```json
 {
     "v" : "xxxxx",
     "t" : "yyyyy",
