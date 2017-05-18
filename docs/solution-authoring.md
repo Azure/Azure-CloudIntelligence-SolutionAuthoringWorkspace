@@ -222,6 +222,7 @@ would map to:
 - Go to your function app under the resource group.
 - Select the function you wish to debug. 
 - Go to ```Monitor``` to view past HTTP requests and their trace logs. 
+- **Note that none of this will be visible until you pass the storage account into the AzureFunctionApp tag in the Manifest**. [Refer here for details on settings this up](#add-reference-to-storage-account-in-function-app-declaration).
 
 ##### How do I debug a function ? 
 - Go to your function app under the resource group.
