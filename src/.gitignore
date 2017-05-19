@@ -1,8 +1,0 @@
-.nuget/Packages
-.vs/
-bin/
-obj/
-*.csproj.*
-*.nupkg
-UpgradeLog*
-*.msi
