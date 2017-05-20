@@ -3,6 +3,9 @@ MySolutions/
 NugetPackages/
 *.exe
 *.dll
+*.zip
+obj/
+packages/
 docs/Gemfile.lock
 docs/.sass-cache
 docs/_site
