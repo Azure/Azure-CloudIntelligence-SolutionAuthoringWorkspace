@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Known Issues
-navigation_weight: 3
+title: Known issues
+navigation_weight: 6
 ---
 
 # Known Issues

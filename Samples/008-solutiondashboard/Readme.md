@@ -52,11 +52,5 @@ Finally, be sure to display a link to the dashboard on the "Deployment Summary" 
 You can see your solutions dashboard [here]({Outputs.solutionDashboardUrl}).
 ```
 
-Opionally, you can also include a preview of the dashboard in the Deployment Summary page by adding the snippet below to your `Summary.md` file.
-
-```html
-<iframe width="780" height="480" src="{Outputs.solutionDashboardUrl}" frameborder="0" allowfullscreen></iframe>
-```
-
 # References
 [Embedded Power BI](https://docs.microsoft.com/en-us/azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded)

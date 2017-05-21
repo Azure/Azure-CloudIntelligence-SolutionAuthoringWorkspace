@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Release notes
-navigation_weight: 4
+navigation_weight: 7
 ---
 # Release notes
   

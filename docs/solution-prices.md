@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Solution Prices
-navigation_weight: 3
+title: Solution prices
+navigation_weight: 5
 ---
 # Solution Pricing Estimates
 **To provide you with an estimate of the price/cost of running a provisioned solution or tutorial please review the table below.  Please contact cisolutions@microsoft.com if you have feedback.**

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Solution Publishing
-navigation_weight: 3
+title: Solution publishing
+navigation_weight: 4
 ---
 # Solution Publishing
 **Update: We are temporarily disabling the publish feature on production in our next release due to issues with handling stale gallery loads & high gallery load latencies. We apologize for the inconvenience. Please contact caqseng@microsoft.com if you wish to publish your templates. If you need to share your templates with other users, please use the "Share" feature.**

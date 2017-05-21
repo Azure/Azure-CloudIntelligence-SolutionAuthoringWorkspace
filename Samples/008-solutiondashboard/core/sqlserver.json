@@ -81,14 +81,6 @@
         "sqlDatabase": {
             "type": "string",
             "value": "[variables('sqlDatabase')]"
-        },
-        "sqlServerUsername": {
-            "type": "string",
-            "value": "[variables('sqlServerUsername')]"
-        },
-        "sqlServerPassword": {
-            "type": "string",
-            "value": "[variables('sqlServerPassword')]"
         }
     }
 }
