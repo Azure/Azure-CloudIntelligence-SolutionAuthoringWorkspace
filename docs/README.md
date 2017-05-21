@@ -11,19 +11,22 @@ The website automatically created from the sources files found in this directory
 ### 2. Update GitHub Pages repository settings
 Set **Source** to **master branch /docs folder**:
 
-![](images/github-pages-settings.jpg)
+![](images/github-pages-settings.jpg){: width="500px"}
 
 This will result in the creation of a private SAW Documentation website (e.g., https://wdecay.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/).
 
 ### 3. Edit existing or add new Markdown files
 
-This can be done either directly on GitHub by using the [rich file management features](https://help.github.com/categories/managing-files-in-a-repository/), or by cloning your private repo and making the changes locally.
+This can be done either directly on GitHub by using its [rich file management features](https://help.github.com/categories/managing-files-in-a-repository/), or by cloning your private repo and making the changes locally.
 
 Changes pushed into the master branch of your private repo are immediately reflected in the GitHub Pages website created earlier.
 
-### 4. Open a pull request across forks
+### 4. Create a new pull request
 
-![](images/github-pull-request.jpg)
+![](images/github-pages-settings.jpg)
+{: width="500px"}
+
+Read the official GitHub help page on [creating a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) for additional guidance. 
 
 ## Advanced editing
 
