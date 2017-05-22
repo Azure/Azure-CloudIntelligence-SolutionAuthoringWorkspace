@@ -8,7 +8,7 @@ Please refer to [our documentation](https://azure.github.io/Azure-CortanaIntelli
 
 ## Contribute Code or Provide Feedback
 
-We welcome and highly encourage contributions to the [Samples](Samples) and [Documentation](docs).
+We welcome and highly encourage contributions to the [Samples](Samples) and [Documentation](docs#how-to-contribute).
 
 * * *
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
