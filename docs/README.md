@@ -80,4 +80,8 @@ Once the steps above are completed, you can launch SAW Documentation website loc
 $ bundle exec jekyll serve
 ```
 
+![](images/bash-jekyll-local.jpg)
+
 Edit the website (content and layout) using your favorite editor on Windows. Jekyll will automatically detect the changes you make and regenerate the pages on the fly.
+
+The URL to access the local documentation website is ```http://localhost:4000```.
