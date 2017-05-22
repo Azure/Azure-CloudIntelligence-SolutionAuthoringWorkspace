@@ -82,6 +82,6 @@ $ bundle exec jekyll serve
 
 ![](images/bash-jekyll-local.jpg)
 
-Edit the website (content and layout) using your favorite editor on Windows. Jekyll will automatically detect the changes you make and regenerate the pages on the fly.
+Edit the website (content or layout) using your favorite editor on Windows (we recommend *Visual Studio Code*). Jekyll will automatically detect the changes you make and regenerate the pages on the fly.
 
 The URL to access the local documentation website is ```http://localhost:4000```.
