@@ -26,7 +26,10 @@ Good question!
 
 They come in two packages. Pick whichever you like, or both!
 
-But first, with the flip of a switch, become a Solution Author:
+But first, with the flip of a switch, become a Solution Author. 
+
+First, navigate to the tool at https://start.cortanaintelligence.com/. Then it's as easy as 1...2...3:
+
 ![Enabling authoring features]({{ site.baseurl }}\images\switch.png)
 
 ## That was easy! Now what?
