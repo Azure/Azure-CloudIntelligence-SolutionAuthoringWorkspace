@@ -12,8 +12,9 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
     var eggCount = int.Parse(ConfigurationManager.AppSettings.Get("EggCount"));
     var sexRatioString = ConfigurationManager.AppSettings.Get("SexRatio");
-    var experimentCount = int.Parse(ConfigurationManager.AppSettings.Get("ExperimentCount")); 
-
+    
+    var experimentCount = int.Parse(parametersReader.GetParameter<string>("experimentCount")); 
+ 
     double sexRatio = 0;
     
     var parts = sexRatioString.Split(':');
@@ -27,11 +28,12 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
         return req.CreateResponse(HttpStatusCode.BadRequest, $"Invalid sex ratio provided: {sexRatioString}");
     }         
     
+ 
     var dataTable = new SolutionDataTable(sqlConnectionString);
-    var now = DateTime.Now;
+    var now = DateTime.Now;   
     
     Random rnd = new Random();
-
+    
     while (experimentCount-- > 0)
     {
         var roosterCount = 0;        
@@ -43,16 +45,16 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
             {
                 roosterCount++;
             }
-        }
+        } 
         
         var henCount = eggCount - roosterCount;        
         var metricTimestamp = now.AddDays(-experimentCount);
         
         dataTable.AddMetric(metricTimestamp, "Hens", henCount);
-        dataTable.AddMetric(metricTimestamp, "Roosters", roosterCount);        
+        dataTable.AddMetric(metricTimestamp, "Roosters", roosterCount);
     }
-
-    dataTable.Commit();
     
+    dataTable.Commit();
+        
     return null;
 }
