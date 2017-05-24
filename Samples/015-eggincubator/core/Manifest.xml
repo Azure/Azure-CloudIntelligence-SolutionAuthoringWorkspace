@@ -23,16 +23,17 @@
             <Credential type="sql" username="sqlServerUsername" password="sqlServerPassword" />
         </ArmDeployment>
 
-        <AzureFunctionApp alwaysOn="false" use32BitWorkerProcess="false" servicePlanSku="B2" servicePlanTier="Basic" createStorageAccount="false">
+        <AzureFunctionApp alwaysOn="false" use32BitWorkerProcess="false" servicePlanSku="B2" servicePlanTier="Basic" createStorageAccount="true">
             <AppSettings>
             <!-- Uncomment the below settings and set createStorageAccount to true to enable Azure Functions debugging features -->
-            <!--
+            
                 <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
                 <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
-            -->
+            
                 <Add key="EggCount" value="{Inputs.eggCount}" />
                 <Add key="SexRatio" value="{Inputs.sexRatio}" />
-            </AppSettings>            
+                <Add key="ExperimentCount" value="{Inputs.experimentCount}" />
+            </AppSettings>
         </AzureFunctionApp>
                 
         <Function name="prepsql" title="Preparing the database" retriable="true">
@@ -43,7 +44,6 @@
         
         <Function name="hatch" title="Hatching the eggs" retriable="true">
             <Parameters>
-                <Parameter name="experimentCount" hidden="true" defaultValue="{Inputs.experimentCount}" />
                 <Parameter name="sqlConnectionString" hidden="true" defaultValue="{Outputs.sqlConnectionString}" />
             </Parameters>
         </Function>
