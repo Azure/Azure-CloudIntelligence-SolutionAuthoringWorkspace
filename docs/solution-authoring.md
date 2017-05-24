@@ -70,7 +70,7 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
     | *username*: `string` | **The name of** the username parameter defined in the provision step |
     | *password*: `string` | **The name of** the password parameter defined in the provision step |
 
-    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { }( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
+    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
 
 * **Examples**
 
