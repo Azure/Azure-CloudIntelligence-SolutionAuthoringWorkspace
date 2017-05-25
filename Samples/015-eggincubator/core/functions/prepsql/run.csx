@@ -12,7 +12,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 {
 
     var parametersReader = await CiqsInputParametersReader.FromHttpRequestMessage(req);
-    
+
     string sqlConnectionString = parametersReader.GetParameter<string>("sqlConnectionString"); 
 
     string script = File.ReadAllText(@"d:\home\site\wwwroot\prepsql\prepareDatabase.sql");
