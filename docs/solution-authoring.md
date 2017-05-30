@@ -88,6 +88,53 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
   </Parameters>
   ```
 
+### Guide
+`<Guide>` tag allows pattern authors to use the content in their "Solution How To Guide" without duplicating the same information in the  `Manifest.xml` and `Summary.md`.
+
+* **Usage**
+
+  A typical use case would be specifying the raw markdown url in the "Solution How To Guide":
+  ```xml
+  <Guide src="https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/raw/master/Automated%20Deployment%20Guide/README.md" format="markdown"/>
+  ```
+
+  It's also possible to specify a markdown file in the `core` folder in case the content in the "Solution How To Guide" has not yet been published:
+  ```xml
+  <Guide src="README.md" format="markdown"/>
+  ```
+
+* **Supported types in README.md**
+
+  In Main README.md – *tags around sections*:
+
+   | Type | Required? | Tag | Counterpart in `Manifest.xml`  |
+   | ---- | -------- | --- | ----------- |
+   | Prerequisites | N – will default to manifest (Not required in manifest as well) | `<Guide type="Prerequisites"></Guide>` | `<Prerequisites src="Prereqs.md" format="markdown"/>` |
+   | EstimatedTime | Y | `<Guide type="EstimatedTime"></Guide>` | `<EstimatedTime>10 Minutes</Estimates>` |
+   | Summary | Y | `<Guide type="Summary"></Guide>` | `<Summary src="Summary.md" format="markdown"/>` |
+   | Description | Y | `<Guide type="Description"></Guide>` | `<Description>Short description of the solution.</Description>` |
+   | PostDeploymentGuidance | N | `<Guide type=”PostDeploymentGuidance” url=”[POST_DEPLOYMENT_GUIDANCE_URL]”/>` | N/A |
+   | Disclaimer | N – will default to standard disclaimer | `<Guide type="Disclaimer"></Guide>` | N/A |
+
+* **Supported sections in Post Deployment Guidance md file**
+
+  In Post Deployment Guidance md file – *tags around sections*:
+
+   | Section | Required? | Heading |
+   | ---- | -------- | --- |
+   | Visualization | N | `# Visualization` |
+   | Customization | N | `# Customization` |
+   | Scaling | N | `# Scaling` |
+   | Security | N | `# Security` |
+> Post Deployment Guidance will be generated as links in the deployment "Done" step.
+
+* **Examples**
+
+  Main README.md: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md)
+
+  Post-Deployment Guidance: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md)
+
+
 ## Provisioning steps
 ### ArmDeployment
 ### Manual
