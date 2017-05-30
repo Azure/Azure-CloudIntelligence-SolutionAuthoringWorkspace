@@ -89,9 +89,9 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
   ```
 
 ### Guide
-`<Guide>` tag allows pattern authors to use the content in their "Solution How To Guide" without duplicating the same information in the  `Manifest.xml` and `Summary.md`.
+`<Guide>` tag allows pattern authors to use the content (`README.md`) in their "Solution How To Guide" without duplicating the same information in the  `Manifest.xml` and `Summary.md`. When using `<Guide>` tag in the Manifest.xml, CIQS will parse the pre-defined tags in the md file (specified by “src” attribute) to grab the content that used to be grabbed from the Prerequisites \ EstimatedTime \ Summary …etc. tags in the `Manifest.xml`. That is to say, `<Guide>` tag is used in both `Manifest.xml` and markdown files for different purposes with different syntaxes.
 
-* **Usage**
+* **Usage in Manifest.xml**
 
   A typical use case would be specifying the raw markdown url in the "Solution How To Guide":
   ```xml
@@ -103,9 +103,9 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
   <Guide src="README.md" format="markdown"/>
   ```
 
-* **Supported types in README.md**
+* **Supported types in markdown file (README.md)**
 
-  In Main README.md – *tags around sections*:
+  In markdown file (README.md) – *tags around sections*:
 
    | Type | Required? | Tag | Counterpart in `Manifest.xml`  |
    | ---- | -------- | --- | ----------- |
