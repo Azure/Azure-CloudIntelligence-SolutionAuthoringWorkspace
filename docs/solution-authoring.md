@@ -118,6 +118,8 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
 * **Supported sections in Post Deployment Guidance md file**
 
+  > Post Deployment Guidance will be generated as links in the deployment "Done" step.
+
   In Post Deployment Guidance md file – *tags around sections*:
 
    | Section | Required? | Heading |
@@ -126,7 +128,6 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
    | Customization | N | `# Customization` |
    | Scaling | N | `# Scaling` |
    | Security | N | `# Security` |
-> Post Deployment Guidance will be generated as links in the deployment "Done" step.
 
 * **Examples**
 
