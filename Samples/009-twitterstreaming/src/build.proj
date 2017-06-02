@@ -4,7 +4,7 @@
         <Delete Files="..\assets\WebJobs.zip" />
         <ZipDir ZipFileName="..\assets\WebJobs.zip" DirectoryName="jobs" />
     </Target>
-  <UsingTask TaskName="ZipDir" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v12.0.dll">
+  <UsingTask TaskName="ZipDir" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
     <ParameterGroup>
       <ZipFileName ParameterType="System.String" Required="true" />
       <DirectoryName ParameterType="System.String" Required="true" />
