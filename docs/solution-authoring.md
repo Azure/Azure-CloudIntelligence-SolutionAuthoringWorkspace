@@ -189,8 +189,8 @@ Below is a quick overview on things you need to do in order to move your web-job
 - Create a ```functions``` folder in ```core``` folder of your solution.
 - Create an individual folder for each function that can be invoked. 
 - Each function folder will contain a projects.json & a run.csx (for C#).
-	- The ```projects.json``` is used to indicate Nuget packages that you will be consuming as part of the function. 
-	- The ```run.csx``` file will be the entry point when your function is invoked and will contain all your source. 
+    - The ```projects.json``` is used to indicate Nuget packages that you will be consuming as part of the function. 
+    - The ```run.csx``` file will be the entry point when your function is invoked and will contain all your source. 
 The next few sections highlight typical scenarios to consider while migrating your source over to functions.
 
 #### Referencing App Settings or Passing Arguments to your Function
@@ -202,7 +202,7 @@ When migrating the web job source over, you might find blocks like the following
 ```
 Instead of reading these arguments from the app settings, read them from the incoming ```HttpRequestMessage``` passed in as part of invoking the function. i.e. 
 ```csharp
-	string sqlServer = parametersReader.GetParameter<string>("SqlDwServerName");
+    string sqlServer = parametersReader.GetParameter<string>("SqlDwServerName");
 ```
 Also, be sure to pass in the relevant string as an argument when invoking the function in your ```Manifest.xml```:
 ```xml
@@ -318,8 +318,8 @@ will have a request body of:
       | *title*: `string` | The title to be displayed in CIQS deployment page |
       | *hiddenParameters*: `boolean` | Set to `true` if this step is supposed to be automated; otherwise `false` | 
 
-	* **Properties**
-	
+    * **Properties**
+    
       | Name | Description |
       | ------------ | ------------- |
       | *GalleryUrl*: `string` | The url of the experiment to be provisioned on Gallery, such as: https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2 |
@@ -395,58 +395,58 @@ will have a request body of:
 
         Besides, a custom function named "_Custom_function_name_" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "_graphJsonObject_" parameter and then return the modified value as the function output.
         ```c#
-		/* Kudos to Richin Jain <rijai@microsoft.com> for contributing the sample code */
-		
+        /* Kudos to Richin Jain <rijai@microsoft.com> for contributing the sample code */
+        
         #load "..\CiqsHelpers\All.csx"
-		#r "System.Web"
-		#r "System.Web.Extensions"
-		
-		using System.Text;
-		using System.Web.Script.Serialization;
+        #r "System.Web"
+        #r "System.Web.Extensions"
+        
+        using System.Text;
+        using System.Web.Script.Serialization;
 
         public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
         {
             var parametersReader = await CiqsInputParametersReader.FromHttpRequestMessage(req);
-			JavaScriptSerializer serializer = new JavaScriptSerializer();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
             dynamic graphJsonObject = serializer.Deserialize<object>(parametersReader.GetParameter<string>("graphJsonObject"));
 
             /* Do whatever is needed on the graph JsonObject and return the graph JsonObject */
-			string sqlServerName = parametersReader.GetParameter<string>("sqlServer") + ".database.windows.net,1433"; 
-			string sqlServerUserName = parametersReader.GetParameter<string>("sqlUser"); 
-			string sqlServerPassword = parametersReader.GetParameter<string>("sqlPassword"); 
-			string databaseName = parametersReader.GetParameter<string>("sqlDatabase"); 
-			var moduleNodes = graphJsonObject["ModuleNodes"];
-			foreach (var moduleNode in moduleNodes)
-			{
-				var moduleParameters = moduleNode["ModuleParameters"];
-				foreach (var moduleParameter in moduleParameters)
-				{
-					string parameterName = moduleParameter["Name"];
-					switch (parameterName)
-					{
-						case "Database Server Name":
-							moduleParameter["Value"] = sqlServerName;
-							break;
-						case "Server User Account Name":
-							moduleParameter["Value"] = sqlServerUserName;
-							break;
-						case "Server User Account Password":
-							moduleParameter["Value"] = sqlServerPassword;
-							break;
-						case "Database Name":
-							moduleParameter["Value"] = databaseName;
-							break;
-					}
-				}
-			}
-			
-			/* Return the modified graph JsonObject as the function output */
+            string sqlServerName = parametersReader.GetParameter<string>("sqlServer") + ".database.windows.net,1433"; 
+            string sqlServerUserName = parametersReader.GetParameter<string>("sqlUser"); 
+            string sqlServerPassword = parametersReader.GetParameter<string>("sqlPassword"); 
+            string databaseName = parametersReader.GetParameter<string>("sqlDatabase"); 
+            var moduleNodes = graphJsonObject["ModuleNodes"];
+            foreach (var moduleNode in moduleNodes)
+            {
+                var moduleParameters = moduleNode["ModuleParameters"];
+                foreach (var moduleParameter in moduleParameters)
+                {
+                    string parameterName = moduleParameter["Name"];
+                    switch (parameterName)
+                    {
+                        case "Database Server Name":
+                            moduleParameter["Value"] = sqlServerName;
+                            break;
+                        case "Server User Account Name":
+                            moduleParameter["Value"] = sqlServerUserName;
+                            break;
+                        case "Server User Account Password":
+                            moduleParameter["Value"] = sqlServerPassword;
+                            break;
+                        case "Database Name":
+                            moduleParameter["Value"] = databaseName;
+                            break;
+                    }
+                }
+            }
+            
+            /* Return the modified graph JsonObject as the function output */
             return graphJsonObject;
         }
         ```
 
-	* **Default Outputs**
-	
+    * **Default Outputs**
+    
       | Name | Description
       | ------------ | ------------- |
       | *experimentUrl*: `string` | The Azure ML experiment url |
