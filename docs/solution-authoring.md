@@ -395,15 +395,52 @@ will have a request body of:
 
         Besides, a custom function named "_Custom_function_name_" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "_graphJsonObject_" parameter and then return the modified value as the function output.
         ```c#
+		/* Kudos to Richin Jain <rijai@microsoft.com> for contributing the sample code */
+		
         #load "..\CiqsHelpers\All.csx"
+		#r "System.Web"
+		#r "System.Web.Extensions"
+		
+		using System.Text;
+		using System.Web.Script.Serialization;
 
         public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
         {
             var parametersReader = await CiqsInputParametersReader.FromHttpRequestMessage(req);
+			JavaScriptSerializer serializer = new JavaScriptSerializer();
             dynamic graphJsonObject = serializer.Deserialize<object>(parametersReader.GetParameter<string>("graphJsonObject"));
 
-            /*do whatever is needed on the graph JsonObject and return the graph JsonObject*/
-
+            /* Do whatever is needed on the graph JsonObject and return the graph JsonObject */
+			string sqlServerName = parametersReader.GetParameter<string>("sqlServer") + ".database.windows.net,1433"; 
+			string sqlServerUserName = parametersReader.GetParameter<string>("sqlUser"); 
+			string sqlServerPassword = parametersReader.GetParameter<string>("sqlPassword"); 
+			string databaseName = parametersReader.GetParameter<string>("sqlDatabase"); 
+			var moduleNodes = graphJsonObject["ModuleNodes"];
+			foreach (var moduleNode in moduleNodes)
+			{
+				var moduleParameters = moduleNode["ModuleParameters"];
+				foreach (var moduleParameter in moduleParameters)
+				{
+					string parameterName = moduleParameter["Name"];
+					switch (parameterName)
+					{
+						case "Database Server Name":
+							moduleParameter["Value"] = sqlServerName;
+							break;
+						case "Server User Account Name":
+							moduleParameter["Value"] = sqlServerUserName;
+							break;
+						case "Server User Account Password":
+							moduleParameter["Value"] = sqlServerPassword;
+							break;
+						case "Database Name":
+							moduleParameter["Value"] = databaseName;
+							break;
+					}
+				}
+			}
+			
+			/* Return the modified graph JsonObject as the function output */
             return graphJsonObject;
         }
         ```
