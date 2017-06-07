@@ -12,7 +12,7 @@ $storageKey = (Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceG
 $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageKey
 
 New-AzureStorageContainer -Name "`$root" -Context $storageContext -Permission Container
-Set-AzureStorageBlobContent -Context $storageContext -Container "`$root" -File $env:HOME\site\wwwroot\greet\index.html -Blob index.html
+Set-AzureStorageBlobContent -Context $storageContext -Container "`$root" -File $env:HOME\site\wwwroot\createWebsite\index.html -Blob index.html
 
 # return output values
 $output = @{
