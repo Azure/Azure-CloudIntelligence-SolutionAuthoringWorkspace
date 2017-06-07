@@ -16,7 +16,7 @@
                 <Add key="SubscriptionId" value="{SubscriptionId}" />                
             </AppSettings>      
         </AzureFunctionApp>
-        <Function name="greet" title="Calling a PowerShell function to create a website" retriable="true">
+        <Function name="createWebsite" title="Calling a PowerShell function to create a website" retriable="true">
             <Parameters>
                 <!-- Passing accessToken as a parameter. It is required for Azure Resource Manager authentication. -->
                 <Parameter name="accessToken" type="string" defaultValue="{Authorization}" hidden="true" />
