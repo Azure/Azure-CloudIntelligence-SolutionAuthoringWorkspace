@@ -4,8 +4,6 @@ title: Solution publishing
 navigation_weight: 4
 ---
 # Solution Publishing
-**Update: We are temporarily disabling the publish feature on production in our next release due to issues with handling stale gallery loads & high gallery load latencies. We apologize for the inconvenience. Please contact caqseng@microsoft.com if you wish to publish your templates. If you need to share your templates with other users, please use the "Share" feature.**
-
 As part of the effort to make solution authoring and publishing self-service, we are introducing a few changes in the way you get your solutions onto our platform.
 
 _We now offer a self-service way to publish your patterns onto the CIS Gallery. This means that you can publish your authored solution & upload the associated 'Try It Now' dashboards all directly from the CIS 'Custom Solutions' view with no interaction with the CIS development team. This will allow you to publish your solutions per your desired schedule._
