@@ -43,16 +43,16 @@ git lfs
 * If you don't see the above, **stop here** and go to [Environment set up](#environment-set-up) and install git lfs.
 * Clone the repository
 ```bash
-git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataScience/_git/CIQS
+git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataScience/_git/CIQS-Solutions
 ```
 * The above clone command will take ~20-30 minutes to complete (pulling down the Pattern files from GIT LFS takes a while).
 
 ### Submit a Pull Request
 * Ensure you have the CIQS source code cloned from git. If not go to [Clone the CIQS Source](#clone-the-ciqs-source) and do so now.
 * cd to the CIQS directory where your source is cloned. 
-* cd to the *Patterns Data* directory.
+* cd to the *Data* directory.
 ```bash
-  cd Product\Source\Patterns\Data 
+  cd Data 
 ```
 * Create or cd into the folder for your pattern.
 ```bash
@@ -76,7 +76,7 @@ git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataSci
 ```bash
   git push -u origin users/<YOUR MICROSOFT ALIAS HERE>/myfeature
 ```
-* Go to <a href="https://msdata.visualstudio.com/AlgorithmsAndDataScience/CIQS%20Platform/_git/CIQS/pullrequests" target="_blank">Pull Request Dashboard on MSData</a>.
+* Go to <a href="https://msdata.visualstudio.com/AlgorithmsAndDataScience/CIQS%20Platform/_git/CIQS-Solutions/pullrequests" target="_blank">Pull Request Dashboard on MSData</a>.
 * Select **New Pull Request**.
 * Set "Review changes in Select a Branch" to:```users/<YOUR MICROSOFT ALIAS HERE>/myfeature```
 * Keep the target branch as master and create the pull request. 
