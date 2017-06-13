@@ -114,7 +114,7 @@ Once reviewers have signed off and policies are met, [complete the pull request]
  All current authors have been registered as designated contributors to their respective solution. However, if you lack the required permissions to publish your solution, contact us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com). Should you have any issues while publishing do not hesitate to reach out to us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com).
 
 ## Gallery Publish Details
-You can publish and update your solution to [CI Gallery](https://start.cortanaintelligence.com/) by checking the checkbox before hitting the "Publish" button. Before doing so, please ensure you are already in ***CI Gallery “Microsoft Contributors list”.***
+You can publish and update your solution to [CI Gallery](https://gallery.cortanaintelligence.com/) by checking the checkbox before hitting the "Publish" button. Before doing so, please ensure you are already in ***CI Gallery “Microsoft Contributors list”.***
 
 You can follow below instruction to join CI Gallery “Microsoft Contributors list”:
 1. Login to https://gallery.cortanaanalytics.com with your @microsoft.com account 
