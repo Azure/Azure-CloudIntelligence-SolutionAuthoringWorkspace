@@ -4,8 +4,6 @@ title: Solution publishing
 navigation_weight: 4
 ---
 # Solution Publishing
-**Update: We are temporarily disabling the publish feature on production in our next release due to issues with handling stale gallery loads & high gallery load latencies. We apologize for the inconvenience. Please contact caqseng@microsoft.com if you wish to publish your templates. If you need to share your templates with other users, please use the "Share" feature.**
-
 As part of the effort to make solution authoring and publishing self-service, we are introducing a few changes in the way you get your solutions onto our platform.
 
 _We now offer a self-service way to publish your patterns onto the CIS Gallery. This means that you can publish your authored solution & upload the associated 'Try It Now' dashboards all directly from the CIS 'Custom Solutions' view with no interaction with the CIS development team. This will allow you to publish your solutions per your desired schedule._
@@ -45,16 +43,16 @@ git lfs
 * If you don't see the above, **stop here** and go to [Environment set up](#environment-set-up) and install git lfs.
 * Clone the repository
 ```bash
-git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataScience/_git/CIQS
+git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataScience/_git/CIQS-Solutions
 ```
 * The above clone command will take ~20-30 minutes to complete (pulling down the Pattern files from GIT LFS takes a while).
 
 ### Submit a Pull Request
 * Ensure you have the CIQS source code cloned from git. If not go to [Clone the CIQS Source](#clone-the-ciqs-source) and do so now.
 * cd to the CIQS directory where your source is cloned. 
-* cd to the *Patterns Data* directory.
+* cd to the *Data* directory.
 ```bash
-  cd Product\Source\Patterns\Data 
+  cd Data 
 ```
 * Create or cd into the folder for your pattern.
 ```bash
@@ -78,7 +76,7 @@ git clone https://msdata.visualstudio.com/DefaultCollection/AlgorithmsAndDataSci
 ```bash
   git push -u origin users/<YOUR MICROSOFT ALIAS HERE>/myfeature
 ```
-* Go to <a href="https://msdata.visualstudio.com/AlgorithmsAndDataScience/CIQS%20Platform/_git/CIQS/pullrequests" target="_blank">Pull Request Dashboard on MSData</a>.
+* Go to <a href="https://msdata.visualstudio.com/AlgorithmsAndDataScience/CIQS%20Platform/_git/CIQS-Solutions/pullrequests" target="_blank">Pull Request Dashboard on MSData</a>.
 * Select **New Pull Request**.
 * Set "Review changes in Select a Branch" to:```users/<YOUR MICROSOFT ALIAS HERE>/myfeature```
 * Keep the target branch as master and create the pull request. 
@@ -116,7 +114,14 @@ Once reviewers have signed off and policies are met, [complete the pull request]
  All current authors have been registered as designated contributors to their respective solution. However, if you lack the required permissions to publish your solution, contact us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com). Should you have any issues while publishing do not hesitate to reach out to us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com).
 
 ## Gallery Publish Details
-The gallery publishing as of now **will still be a manual publish run by CIS team.** This is because we are waiting on a dependency from the Gallery team before we can include it into the publishing process. However, almost all the elements of a Gallery page are controlled by the author via the Manifest.xml file in your solution
+You can publish and update your solution to [CI Gallery](https://gallery.cortanaintelligence.com/) by checking the checkbox before hitting the "Publish" button. Before doing so, please ensure you are already in ***CI Gallery “Microsoft Contributors list”.***
+
+You can follow below instruction to join CI Gallery “Microsoft Contributors list”:
+1. Login to https://gallery.cortanaanalytics.com with your @microsoft.com account 
+2. Go to “My Gallery page” under the user menu at top-right. Provide the URL it navigates to (similar to the one below) to amitarteam@microsoft.com, and request to be added to the Microsoft Contributors list.
+```https://gallery.azureml.net/Home/Author?authorId=C975B475F5A1ECCFE9235F512480AC0DFE5612AA1A50BC9CD138B985DF008055```
+
+Permissions take 1 week to get set up and ready to use, because they require a code change and deployments in INT and PROD. 
 
 ### What Elements are parsed from Manifest.xml ? 
 Taking [Vehicle Telemetry solution](https://gallery.cortanaintelligence.com/Solution/Vehicle-Telemetry-Analytics-9) as an example:
