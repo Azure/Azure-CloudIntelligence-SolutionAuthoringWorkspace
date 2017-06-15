@@ -114,12 +114,16 @@ Once reviewers have signed off and policies are met, [complete the pull request]
  All current authors have been registered as designated contributors to their respective solution. However, if you lack the required permissions to publish your solution, contact us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com). Should you have any issues while publishing do not hesitate to reach out to us at [caqseng@microsoft.com](mailto:caqseng@microsoft.com).
 
 ## Gallery Publish Details
-You can publish and update your solution to [CI Gallery](https://gallery.cortanaintelligence.com/) by checking the checkbox before hitting the "Publish" button. Before doing so, please ensure you are already in ***CI Gallery “Microsoft Contributors list”.***
+You can publish and update your solution to [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) by checking the checkbox before hitting the "Publish" button. Before doing so, please ensure you are already in ***Cortana Intelligence Gallery “Microsoft Contributors list”.***
 
-You can follow below instruction to join CI Gallery “Microsoft Contributors list”:
-1. Login to https://gallery.cortanaanalytics.com with your @microsoft.com account 
-2. Go to “My Gallery page” under the user menu at top-right. Provide the URL it navigates to (similar to the one below) to amitarteam@microsoft.com, and request to be added to the Microsoft Contributors list.
-```https://gallery.azureml.net/Home/Author?authorId=C975B475F5A1ECCFE9235F512480AC0DFE5612AA1A50BC9CD138B985DF008055```
+Please follow the instruction to join Cortana Intelligence Gallery “Microsoft Contributors list”:
+1.	Access [https://gallery.cortanaintelligence.com/](https://gallery.cortanaintelligence.com/) with your microsoft domain account
+2.	Then Sign In
+![Sign in CI Gallery]({{ site.baseurl }}\images\CIG1-e.PNG)
+3.	Once you are logged in Click on your name
+![Click on name]({{ site.baseurl }}\images\CIG2-e.PNG)
+4.	That will take you to your profile author page. Copy and send that URL to [amitarteam@microsoft.com](mailto:amitarteam@microsoft.com), and request to become Cortana Intelligence Gallery Microsoft Contributors.
+![Send url]({{ site.baseurl }}\images\CIG3-e.PNG)
 
 Permissions take 1 week to get set up and ready to use, because they require a code change and deployments in INT and PROD. 
 
