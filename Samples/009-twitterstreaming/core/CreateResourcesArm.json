@@ -29,6 +29,7 @@
         "sqlVersion": "2014-04-01",
         "sqlServerName": "[concat(variables('uniqueNamePrefix'),'srv')]",
         "sqlDatabaseName": "[concat(variables('uniqueNamePrefix'),'db')]",
+        "sqlServerUsername": "[parameters('sqlServerUsername')]",
         "sqlServerVersion": "12.0",
         "startIpAddress": "0.0.0.0",
         "endIpAddress": "255.255.255.255",
@@ -199,7 +200,7 @@
                                 "endpoint": "[concat(parameters('webServiceApiUrl'), '/execute?api-version=2.0&details=true')]",
                                 "apiKey": "[parameters('webServiceApiKey')]",
                                 "inputs": {
-                                    "name": "data",
+                                    "name": "input1",
                                     "columnNames": [{
                                         "name": "tweet_text",
                                         "dataType": "string",
@@ -241,6 +242,10 @@
         "sqlDatabaseName": {
             "type": "string",
             "value": "[variables('sqlDatabaseName')]"
+        },
+        "sqlServerUsername": {
+            "type": "string",
+            "value": "[variables('sqlServerUsername')]"
         },
         "sqlConnectionString": {
             "type": "string",
