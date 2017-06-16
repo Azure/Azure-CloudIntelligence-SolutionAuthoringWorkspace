@@ -155,6 +155,7 @@ It will be rendered as below in the CI Gallery:
 ![]({{ site.baseurl }}/images/ingredient-in-ci-gallery.png)
 
 #### Available Ingredients
+
 | Ingredient | Full service name | Link |
 | --- | --- | --- |
 | EventHub | Azure Event Hubs | https://azure.microsoft.com/en-us/services/event-hubs/ |
