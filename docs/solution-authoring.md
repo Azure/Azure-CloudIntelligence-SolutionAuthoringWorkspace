@@ -136,6 +136,51 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
   Post-Deployment Guidance: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md)
 
 
+### Ingredients
+`<Ingredients>` tag allows pattern authors to specify Azure services they are using in the pattern. Ingredients will be translated to both "SERVICE USED" and "TAGS" sections on the CI Gallery page.
+For example:
+  ```xml
+  <Ingredients>
+    <Ingredient>Web</Ingredient>
+    <Ingredient>EventHub</Ingredient>
+    <Ingredient>StreamAnalytics</Ingredient>
+    <Ingredient>Sql</Ingredient>
+    <Ingredient>StorageAccount</Ingredient>
+    <Ingredient>MachineLearning</Ingredient>
+    <Ingredient>DataFactory</Ingredient>
+    <Ingredient>PowerBi</Ingredient>
+  </Ingredients>
+  ```
+It will be rendered as below in the CI Gallery:
+![]({{ site.baseurl }}/images/ingredient-in-ci-gallery.png)
+
+#### Available Ingredients
+| Ingredient | Full service name | Link |
+| --- | --- | --- |
+| EventHub | Azure Event Hubs | https://azure.microsoft.com/en-us/services/event-hubs/ |
+| StreamAnalytics | Azure Stream Analytics | https://azure.microsoft.com/en-us/services/stream-analytics/ |
+| MachineLearning | Azure Machine Learning | https://azure.microsoft.com/en-us/services/machine-learning/ |
+| DataFactory | Azure Data Factory | https://azure.microsoft.com/en-us/services/data-factory/ |
+| HDInsight | Azure HDInsight | https://azure.microsoft.com/en-us/services/hdinsight/ |
+| StorageAccount | Azure Blob Storage | https://azure.microsoft.com/en-us/services/storage/ |
+| Sql | Azure Sql | https://azure.microsoft.com/en-us/services/sql-database/ |
+| PowerBi | PowerBI | https://powerbi.microsoft.com/ |
+| CognitiveServicesLuis | Azure Cognitive Service - LUIS | https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligence-service/ |
+| CognitiveServicesSpeech | Azure Bing Speech API | https://azure.microsoft.com/en-us/services/cognitive-services/speech/ |
+| DataLakeAnalytics | Azure Data Lake Analytics | https://azure.microsoft.com/en-us/services/data-lake-analytics/ |
+| DataLakeStore | Azure Data Lake Store | https://azure.microsoft.com/en-us/services/data-lake-store/ |
+| DocumentDb | Azure Document DB | https://azure.microsoft.com/en-us/services/documentdb/ |
+| Search | Azure Search Service | https://azure.microsoft.com/en-us/services/search/ |
+| SqlDw | Azure SQL DataWarehouse | https://azure.microsoft.com/en-us/services/sql-data-warehouse/ |
+| VirtualMachine | Azure Virtual Machine | https://azure.microsoft.com/en-us/services/virtual-machines/ |
+| Web | Azure App Service | https://azure.microsoft.com/en-us/services/app-service/ |
+| AppInsights | Application Insights | https://azure.microsoft.com/en-us/services/application-insights/ |
+| Batch | Azure Batch | https://azure.microsoft.com/en-us/services/batch/ |
+| AnalysisServices | Azure Analysis Services | https://azure.microsoft.com/en-us/services/analysis-services/ |
+| TimeSeriesInsights | Time Series Insights | https://azure.microsoft.com/en-us/services/time-series-insights/ |
+
+Please contact [CIQS On-Call](mailto:ciqsoncall@microsoft.com) if you want to put any Azure service that is not covered in the table above.
+
 ## Provisioning steps
 ### ArmDeployment
 ### Manual
