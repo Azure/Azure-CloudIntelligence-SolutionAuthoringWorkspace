@@ -6,31 +6,18 @@ navigation_weight: 3
 # Solution authoring
 ## Solution manifest
 ### LocationProvidedFor
-<<<<<<< HEAD
 In CIQS deployment creation page, users are asked to select one location/region for each deployment as shown below.
 
 ![Select location for CIQS deployment]({{ site.baseurl }}\images\location.png)
-=======
-In CIQS deployment creation page, users are asked to select one location/region for each deployment as shown below. 
-
-[Select location for CIQS deployment]({{ site.baseurl }}\images\location.png)
->>>>>>> 460416d2bbba8dc91e174a4c05590e6da8b1adef
 
 The selected location is used by the Resource Group provisioning and most of the time, is also used for underlying Azure resources provisionings accessed with `[resourceGroup().location]` signature in ARM templates. For example:
 
 ```json
 {
-<<<<<<< HEAD
 	"name": "[variables('adlStoreName')]",
 	"apiVersion": "[variables('adlsApiVersion')]",
 	"type": "Microsoft.DataLakeStore/accounts",
 	"location": "[resourceGroup().location]"
-=======
-"name": "[variables('adlStoreName')]",
-"apiVersion": "[variables('adlsApiVersion')]"
-"type": "Microsoft.DataLakeStore/accounts",
-"location": "[resourceGroup().location]"
->>>>>>> 460416d2bbba8dc91e174a4c05590e6da8b1adef
 }
 ```
 
