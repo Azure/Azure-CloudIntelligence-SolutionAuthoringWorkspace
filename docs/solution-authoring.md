@@ -10,7 +10,9 @@ In CIQS deployment creation page, users are asked to select one location/region 
 
 ![Select location for CIQS deployment]({{ site.baseurl }}\images\location.png)
 
-The selected location is used by the Resource Group provisioning and most of the time, is also used for underlying Azure resources provisionings accessed with `[resourceGroup().location]` signature in ARM templates. For example:
+> **Note**: The set of locations for a particular solution is computed as the **intersection** of available regions for each comprised Azure resources. 
+
+The selected location is used by the Resource Group creation and most of the time, is also used for underlying Azure resources provisionings with `[resourceGroup().location]` signature in ARM templates. For example:
 
 ```json
 {
@@ -21,7 +23,7 @@ The selected location is used by the Resource Group provisioning and most of the
 }
 ```
 
-Given [limited regional availability](https://azure.microsoft.com/en-us/regions/services/) of Azure, some Azure services, such as **Data Factory** (microsoft.datafactory/datafactories), **Application Insights** (microsoft.insights/components) or **Data Lake Store** (microsoft.datalakestore/accounts), have very limited regions available. In this case, hardcoding the region in ARM template would be the **recommended** way to ensure better user experience. For example:
+Given [limited regional availability](https://azure.microsoft.com/en-us/regions/services/) of Azure services, some services, such as **Data Factory** (microsoft.datafactory/datafactories), **Application Insights** (microsoft.insights/components) or **Data Lake Store** (microsoft.datalakestore/accounts), have very limited regions available. In this case, hardcoding the region in ARM template is **strongly recommended** to ensure better user experience; otherwise, the location intersection will be small or even empty. For example:
 
 ```json
 {
@@ -32,7 +34,9 @@ Given [limited regional availability](https://azure.microsoft.com/en-us/regions/
 }
 ```
 
-At the meantime, **LocationProvidedFor** must be specified in that particular ARM deployment step in the **Manifest.xml**, so that CIQS will **stop checking** the regional availability for those service(s). For example below, it signifies the CIQS deployment engine that, "_location has been **hardcoded** for 'microsoft.datalakestore/accounts', and please ignore 'microsoft.datalakestore/accounts' when rendering the location dropdown list_":
+> **Note**: Given backward compatibility concern, CIQS will not check the regional availability of **Data Factory** (microsoft.datafactory/datafactories) so as to compute the available locations for your solution. Therefore, you **MUST** hardcode the region for **Data Factory** in your ARM template as the above example shows.
+
+In the meantime, **LocationProvidedFor** **MUST** be specified in that particular ARM deployment step in the **Manifest.xml**, so that CIQS will **skip** checking the regional availability for those service(s). For example below, it signifies the CIQS deployment engine that, "_location has been **hardcoded** for 'microsoft.datalakestore/accounts', and please ignore 'microsoft.datalakestore/accounts' when rendering the location dropdown list_":
 
 ```xml
 <ArmDeployment source="arm\CreateADLS.json" title="Create ADLS" >
