@@ -25,7 +25,7 @@
 				  {% if p.indexes %}
 					<ul>
 					  {% for index in p.indexes %}
-					    <li style="padding-left: {{% if index.level == 1 %}} 5px {{% elseif index.level == 2 %}} 10px {{% elseif index.level == 3 %}} 15px {{% else %}} 20px {{% endif %}};">
+					    <li {% if index.level == 1 %}style="padding-left: 10px;"{% elsif index.level == 2 %}style="padding-left: 20px;"{% elsif index.level == 3 %}style="padding-left: 30px;"{% else %}style="padding-left: 40px;"{% endif %}">
 						  <a href="{{ real_page_url }}#{{ index.urlSuffix}}">
 							{{ index.name }}
 						  </a>

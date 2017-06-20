@@ -3,58 +3,58 @@ layout: default
 title: Solution authoring
 navigation_weight: 3
 indexes:
-	- 	name: "Solution manifest"
-		urlSuffix: "solution-manifest"
-		level: 1
-		- 	name: "LocationProvidedFor"
-			urlSuffix: "locationprovidedfor"
-			level: 2
-		- 	name: "LocationsToExclude"
-			urlSuffix: "locationstoexclude"
-			level: 2
-		- 	name: "Parameters"
-			urlSuffix: "parameters"
-			level: 2
-			- 	name: "Parameter"
-				urlSuffix: "parameter"
-				level: 3
-			- 	name: "Parameter resolver"
-				urlSuffix: "parameter-resolver"
-				level: 3
-			- 	name: "Credential"
-				urlSuffix: "credential"
-				level: 3
-		- 	name: "Guide"
-			urlSuffix: "guide"
-			level: 2
-		- 	name: "Ingredients"
-			urlSuffix: "ingredients"
-			level: 2
-		- 	name: "Provisioning steps"
-			urlSuffix: "provisioning-steps"
-			level: 2
-			- 	name: "ArmDeployment"
-				urlSuffix: "armdeployment"
-				level: 3
-			- 	name: "Manual"
-				urlSuffix: "manual"
-				level: 3
-			- 	name: "Functions"
-				urlSuffix: "functions"
-				level: 3
-			- 	name: "WebJob"
-				urlSuffix: "webjob"
-				level: 3
-			- 	name: "AzureMLWebService"
-				urlSuffix: "azuremlwebservice"
-				level: 3
-			- 	name: "SolutionDashboard"
-				urlSuffix: "solutiondashboard"
-				level: 3
-			- 	name: "WebJobDeployment"
-				urlSuffix: "webjobdeployment"
-				level: 3
-		
+  - name: "Solution manifest"
+    urlSuffix: "solution-manifest"
+    level: 1
+  - name: "LocationProvidedFor"
+    urlSuffix: "locationprovidedfor"
+    level: 2
+  - name: "LocationsToExclude"
+    urlSuffix: "locationstoexclude"
+    level: 2
+  - name: "Parameters"
+    urlSuffix: "parameters"
+    level: 2
+  - name: "Parameter"
+    urlSuffix: "parameter"
+    level: 3
+  - name: "Parameter resolver"
+    urlSuffix: "parameter-resolver"
+    level: 3
+  - name: "Credential"
+    urlSuffix: "credential"
+    level: 3
+  - name: "Guide"
+    urlSuffix: "guide"
+    level: 2
+  - name: "Ingredients"
+    urlSuffix: "ingredients"
+    level: 2
+  - name: "Provisioning steps"
+    urlSuffix: "provisioning-steps"
+    level: 2
+  - name: "ArmDeployment"
+    urlSuffix: "armdeployment"
+    level: 3
+  - name: "Manual"
+    urlSuffix: "manual"
+    level: 3
+  - name: "Function"
+    urlSuffix: "function"
+    level: 3
+  - name: "WebJob"
+    urlSuffix: "webjob"
+    level: 3
+  - name: "Azure ML Web Service"
+    urlSuffix: "azuremlwebservice"
+    level: 3
+  - name: "Solution Dashboard"
+    urlSuffix: "solutiondashboard"
+    level: 3
+  - name: "WebJob Deployment"
+    urlSuffix: "webjobdeployment"
+    level: 3
+        
 ---
 # Solution authoring
 ## Solution manifest
@@ -69,10 +69,10 @@ The selected location is used by the Resource Group creation and most of the tim
 
 ```json
 {
-	"name": "[variables('adlStoreName')]",
-	"apiVersion": "[variables('adlsApiVersion')]",
-	"type": "Microsoft.DataLakeStore/accounts",
-	"location": "[resourceGroup().location]"
+    "name": "[variables('adlStoreName')]",
+    "apiVersion": "[variables('adlsApiVersion')]",
+    "type": "Microsoft.DataLakeStore/accounts",
+    "location": "[resourceGroup().location]"
 }
 ```
 
@@ -80,10 +80,10 @@ Given [limited regional availability](https://azure.microsoft.com/en-us/regions/
 
 ```json
 {
-	"name": "[variables('adlStoreName')]",
-	"apiVersion": "[variables('adlsApiVersion')]",
-	"type": "Microsoft.DataLakeStore/accounts",
-	"location": "East US 2"
+    "name": "[variables('adlStoreName')]",
+    "apiVersion": "[variables('adlsApiVersion')]",
+    "type": "Microsoft.DataLakeStore/accounts",
+    "location": "East US 2"
 }
 ```
 
@@ -93,9 +93,9 @@ In the meantime, **LocationProvidedFor** **MUST** be specified in that particula
 
 ```xml
 <ArmDeployment source="arm\CreateADLS.json" title="Create ADLS" >
-	<LocationProvidedFor>
-		<ResourceType>microsoft.datalakestore/accounts</ResourceType>
-	</LocationProvidedFor>
+  <LocationProvidedFor>
+    <ResourceType>microsoft.datalakestore/accounts</ResourceType>
+  </LocationProvidedFor>
 </ArmDeployment>
 ```
 
@@ -140,9 +140,9 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 > Authors are **highly recommended** to use `{Constants.LinuxMachineNameRegex}` or `{Constants.WindowsMachineNameRegex}` to enforce validation on the VM name input. For example:
 
 ```xml
-  <Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
-    <ExtraDescription>{Constants.LinuxMachineNameRegexDescription}</ExtraDescription>
-  </Parameter>
+<Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
+  <ExtraDescription>{Constants.LinuxMachineNameRegexDescription}</ExtraDescription>
+</Parameter>
 ```
 
 > **Note**: It is **NOT** recommended to relay an input parameter as an output without any change in ARM templates; _**{Inputs.`ParameterName`}**_ variable offers you the flexibility to use any input value in subsequent steps within the solution.
@@ -154,101 +154,101 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 
 To use this feature,  please specify `<Credential/>` within `<Parameters/>` in your pattern **Manifest.xml**.
 
-* **Documentation**
+##### **Documentation**
 
-  * **Attributes**
+**Attributes**
 
-    | Name | Description |
-    | ------------ | ------------- |
-    | *type*: `string` | The credential type. The current supported types are: `sql`, `sqlwithoutodbc`, `linuxvm`, `windowsvm`, `hdi`, **AND** any combination of them seperated by "`,`" |
-    | *username*: `string` | **The name of** the username parameter defined in the provision step |
-    | *password*: `string` | **The name of** the password parameter defined in the provision step |
+| Name | Description |
+| ------------ | ------------- |
+| *type*: `string` | The credential type. The current supported types are: `sql`, `sqlwithoutodbc`, `linuxvm`, `windowsvm`, `hdi`, **AND** any combination of them seperated by "`,`" |
+| *username*: `string` | **The name of** the username parameter defined in the provision step |
+| *password*: `string` | **The name of** the password parameter defined in the provision step |
 
-    > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
+> According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
 
-* **Examples**
+**Examples**
 
-  A simple use case would be specifying the credential with a single type:
-  ```xml
-  <Parameters>
-   <Credential type="sql" username="sqlServerUserName" password="sqlServerPassword" />
-  </Parameters>
-  ```
+A simple use case would be specifying the credential with a single type:
+```xml
+<Parameters>
+  <Credential type="sql" username="sqlServerUserName" password="sqlServerPassword" />
+</Parameters>
+```
 
-  A more complex use case is to combine multiple type of credentials together; It is used when the credential is applied to more than one Azure resources:
-  ```xml
-  <Parameters>
-   <Credential type="sql,linuxvm,hdi" username="userName" password="password" />
-  </Parameters>
-  ```
+A more complex use case is to combine multiple type of credentials together; It is used when the credential is applied to more than one Azure resources:
+```xml
+<Parameters>
+  <Credential type="sql,linuxvm,hdi" username="userName" password="password" />
+</Parameters>
+```
 
 ### Guide
 `<Guide>` tag allows pattern authors to use the content (`README.md`) in their "Solution How To Guide" without duplicating the same information in the  `Manifest.xml` and `Summary.md`. When using `<Guide>` tag in the Manifest.xml, CIQS will parse the pre-defined tags in the md file (specified by “src” attribute) to grab the content that used to be grabbed from the Prerequisites \ EstimatedTime \ Summary …etc. tags in the `Manifest.xml`. That is to say, `<Guide>` tag is used in both `Manifest.xml` and markdown files for different purposes with different syntaxes.
 
-* **Usage in Manifest.xml**
+##### **Usage in Manifest.xml**
 
-  A typical use case would be specifying the raw markdown url in the "Solution How To Guide":
-  ```xml
-  <Guide src="https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/raw/master/Automated%20Deployment%20Guide/README.md" format="markdown"/>
-  ```
+A typical use case would be specifying the raw markdown url in the "Solution How To Guide":
+```xml
+<Guide src="https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/raw/master/Automated%20Deployment%20Guide/README.md" format="markdown"/>
+```
 
-  It's also possible to specify a markdown file in the `core` folder in case the content in the "Solution How To Guide" has not yet been published:
-  ```xml
-  <Guide src="README.md" format="markdown"/>
-  ```
+It's also possible to specify a markdown file in the `core` folder in case the content in the "Solution How To Guide" has not yet been published:
+```xml
+<Guide src="README.md" format="markdown"/>
+```
 
-* **Supported types in markdown file (README.md)**
+##### **Supported types in markdown file (README.md)**
 
-  In markdown file (README.md) – *tags around sections*:
+In markdown file (README.md) – *tags around sections*:
 
-   | Type | Required? | Tag | Counterpart in `Manifest.xml`  |
-   | ---- | -------- | --- | ----------- |
-   | Prerequisites | N – will default to manifest (Not required in manifest as well) | `<Guide type="Prerequisites"></Guide>` | `<Prerequisites src="Prereqs.md" format="markdown"/>` |
-   | EstimatedTime | Y | `<Guide type="EstimatedTime"></Guide>` | `<EstimatedTime>10 Minutes</Estimates>` |
-   | Summary | Y | `<Guide type="Summary"></Guide>` | `<Summary src="Summary.md" format="markdown"/>` |
-   | Description | Y | `<Guide type="Description"></Guide>` | `<Description>Short description of the solution.</Description>` |
-   | PostDeploymentGuidance | N | `<Guide type=”PostDeploymentGuidance” url=”[POST_DEPLOYMENT_GUIDANCE_URL]”/>` | N/A |
-   | Disclaimer | N – will default to standard disclaimer | `<Guide type="Disclaimer"></Guide>` | N/A |
+| Type | Required? | Tag | Counterpart in `Manifest.xml`  |
+| ---- | -------- | --- | ----------- |
+| Prerequisites | N – will default to manifest (Not required in manifest as well) | `<Guide type="Prerequisites"></Guide>` | `<Prerequisites src="Prereqs.md" format="markdown"/>` |
+| EstimatedTime | Y | `<Guide type="EstimatedTime"></Guide>` | `<EstimatedTime>10 Minutes</Estimates>` |
+| Summary | Y | `<Guide type="Summary"></Guide>` | `<Summary src="Summary.md" format="markdown"/>` |
+| Description | Y | `<Guide type="Description"></Guide>` | `<Description>Short description of the solution.</Description>` |
+| PostDeploymentGuidance | N | `<Guide type=”PostDeploymentGuidance” url=”[POST_DEPLOYMENT_GUIDANCE_URL]”/>` | N/A |
+| Disclaimer | N – will default to standard disclaimer | `<Guide type="Disclaimer"></Guide>` | N/A |
 
-* **Supported sections in Post Deployment Guidance md file**
+##### **Supported sections in Post Deployment Guidance md file**
 
-  > Post Deployment Guidance will be generated as links in the deployment "Done" step.
+> Post Deployment Guidance will be generated as links in the deployment "Done" step.
 
-  In Post Deployment Guidance md file – *tags around sections*:
+In Post Deployment Guidance md file – *tags around sections*:
 
-   | Section | Required? | Heading |
-   | ---- | -------- | --- |
-   | Visualization | N | `# Visualization` |
-   | Customization | N | `# Customization` |
-   | Scaling | N | `# Scaling` |
-   | Security | N | `# Security` |
+| Section | Required? | Heading |
+| ---- | -------- | --- |
+| Visualization | N | `# Visualization` |
+| Customization | N | `# Customization` |
+| Scaling | N | `# Scaling` |
+| Security | N | `# Security` |
 
-* **Examples**
+##### **Examples**
 
-  Main README.md: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md)
+Main README.md: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md)
 
-  Post-Deployment Guidance: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md)
+Post-Deployment Guidance: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md)
 
 
 ### Ingredients
 `<Ingredients>` tag allows pattern authors to specify Azure services they are using in the pattern. Ingredients will be translated to both "SERVICE USED" and "TAGS" sections on the CI Gallery page.
 For example:
-  ```xml
-  <Ingredients>
-    <Ingredient>Web</Ingredient>
-    <Ingredient>EventHub</Ingredient>
-    <Ingredient>StreamAnalytics</Ingredient>
-    <Ingredient>Sql</Ingredient>
-    <Ingredient>StorageAccount</Ingredient>
-    <Ingredient>MachineLearning</Ingredient>
-    <Ingredient>DataFactory</Ingredient>
-    <Ingredient>PowerBi</Ingredient>
-  </Ingredients>
-  ```
+```xml
+<Ingredients>
+  <Ingredient>Web</Ingredient>
+  <Ingredient>EventHub</Ingredient>
+  <Ingredient>StreamAnalytics</Ingredient>
+  <Ingredient>Sql</Ingredient>
+  <Ingredient>StorageAccount</Ingredient>
+  <Ingredient>MachineLearning</Ingredient>
+  <Ingredient>DataFactory</Ingredient>
+  <Ingredient>PowerBi</Ingredient>
+</Ingredients>
+```
 It will be rendered as below in the CI Gallery:
 ![]({{ site.baseurl }}/images/ingredient-in-ci-gallery.png)
 
-#### Available Ingredients
+##### Available Ingredients
 
 | Ingredient | Full service name | Link |
 | --- | --- | --- |
@@ -324,7 +324,7 @@ Finally, if all parameters required to perform an ARM deployment are already pre
 
 A demonstration of this technique can be found in the [twitterstreaming](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/009-twitterstreaming) SAW sample.
 
-### Functions
+### Function
 Below is a quick overview on things you need to do in order to move your web-jobs into Azure functions on CIS. The high-level steps are as follows: 
 - Create a ```functions``` folder in ```core``` folder of your solution.
 - Create an individual folder for each function that can be invoked. 
@@ -338,19 +338,19 @@ You might have parts of your webjob that references app settings that you loaded
 
 When migrating the web job source over, you might find blocks like the following: 
 ```csharp
-        string sqlServer = ConfigurationManager.AppSettings["SqlDwServerName"];
+string sqlServer = ConfigurationManager.AppSettings["SqlDwServerName"];
 ```
 Instead of reading these arguments from the app settings, read them from the incoming ```HttpRequestMessage``` passed in as part of invoking the function. i.e. 
 ```csharp
-    string sqlServer = parametersReader.GetParameter<string>("SqlDwServerName");
+string sqlServer = parametersReader.GetParameter<string>("SqlDwServerName");
 ```
 Also, be sure to pass in the relevant string as an argument when invoking the function in your ```Manifest.xml```:
 ```xml
-    <Function name="initStoredProcs" title="Initialize stored procedures">
-      <Parameters>
-        <Parameter hidden="true" name="SqlDwServerName" type="string" defaultValue="{Outputs.SqlDwServerName}" /> 
-      </Parameters>
-    </Function>
+<Function name="initStoredProcs" title="Initialize stored procedures">
+  <Parameters>
+    <Parameter hidden="true" name="SqlDwServerName" type="string" defaultValue="{Outputs.SqlDwServerName}" /> 
+  </Parameters>
+</Function>
 ```
 You might need to surface the relevant parameters up as an ARM output if these are generated by a previous ARM template. 
 
@@ -371,21 +371,21 @@ core\functions\A\Resources\c.dat
 To access these files from your function, use the ```CiqsWebHostHelper.GetFunctionWebHostPath()``` utility function to access the root folder of the specific function. For eg. to get a path reference to ```a.txt```:
 
 ```csharp
-    var fileName = "a.txt";
-    var functionRootPath = CiqsWebHostHelper.GetFunctionWebHostPath("CreateBlob");
-    var filePath = string.Format(@"{0}\resources\{1}", functionRootPath, fileName);
+var fileName = "a.txt";
+var functionRootPath = CiqsWebHostHelper.GetFunctionWebHostPath("CreateBlob");
+var filePath = string.Format(@"{0}\resources\{1}", functionRootPath, fileName);
 ```
 #### Add Reference to Storage Account in Function App Declaration
 
 This step is crucial to ensure you can view logs on the function app. Without this, the logs tab on the functions app will be effectively useless.
 
 ```xml
-    <AzureFunctionApp alwaysOn="true">
-      <AppSettings>
-        <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
-        <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
-      </AppSettings>
-    </AzureFunctionApp>
+<AzureFunctionApp alwaysOn="true">
+  <AppSettings>
+    <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+    <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+  </AppSettings>
+</AzureFunctionApp>
 ```
 
 #### Remove Unused Storage Accounts
@@ -393,8 +393,8 @@ Adding a function app will create a storage account for you. Consider referencin
 
 #### Migrate Package References
 Ensure you move any package references you may have in your webjob from ```packages.config``` to a new ```projects.json``` file in the function root. For eg. the following line in ```packages.config```
-```
-  <package id="Microsoft.Azure.KeyVault.Core" version="1.0.0" targetFramework="net45" />
+```xml
+<package id="Microsoft.Azure.KeyVault.Core" version="1.0.0" targetFramework="net45" />
 ```
 would map to:
 ```json
@@ -434,207 +434,207 @@ will have a request body of:
 
 ### WebJob
 ### AzureMLWebService
-* **Summary**
+#### Summary
 
-  AzureMlWebService is a first-party provisioning step that empowers solution authors provisioning an Azure Machine Learning experiment from gallery and then deploying as a web service easily. This feature empowers pattern authors to:
-  
-  1) Provision an Azure ML experiment from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/experiments) by simply providing the `GalleryUrl`;
-  
-  2) Modify the **Experiment Graph** of the provisioned Azure ML experiment with a customized funciton plug-in;
-  
-  3) Deploy multiple Azure ML web services;
-  
-  4) Create high-throughput Azure ML web service as an option.
+AzureMlWebService is a first-party provisioning step that empowers solution authors provisioning an Azure Machine Learning experiment from gallery and then deploying as a web service easily. This feature empowers pattern authors to:
 
-* **Documentation**
-  * __&lt;AzureMlWebService/&gt;__
-    
-    To use this feature, please specify `<AzureMlWebService/>` within `<ProvisioningSteps/>` in your solution **Manifest.xml**.
-    
-    * **Attributes**
-    
-      | Name    | Description |
-      | ------------ | -------------|
-      | *title*: `string` | The title to be displayed in CIQS deployment page |
-      | *hiddenParameters*: `boolean` | Set to `true` if this step is supposed to be automated; otherwise `false` | 
+- Provision an Azure ML experiment from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/experiments) by simply providing the `GalleryUrl`;
 
-    * **Properties**
-    
-      | Name | Description |
-      | ------------ | ------------- |
-      | *GalleryUrl*: `string` | The url of the experiment to be provisioned on Gallery, such as: https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2 |
-      | *Outputs*: `object` | Allows users to overwrite the outputs; This is useful when provisioning more than one Azure ML experiments so that the outputs of each other will not collide |
-      | *HighThroughputEndpoint*: `object` | Allows users to create a high-throughput Web service endpoint |
-      | *ModifyExperimentGraph*: `object` | Allows users to plug-in a custom function to modify the experiment graph of the provisioned experiment |
-      
-      * __&lt;Outputs/&gt;__ (*Optional*)
+- Modify the **Experiment Graph** of the provisioned Azure ML experiment with a customized funciton plug-in;
 
-        This tag is used to **overwrite** the default output names, so that outputs from multiple *AzureMlWebService* provisionings will not overwrite each other.
+- Deploy multiple Azure ML web services;
 
-        **Attributes**
+- Create high-throughput Azure ML web service as an option.
 
-        All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
+#### Documentation
+##### __&lt;AzureMlWebService/&gt;__
 
-        **Properties**
-        
-        | Name | Description |
-        | ------------ | ------------- |
-        | *ExperimentUrl*: `string` | Overwriting the output name of the Azure ML experiment url |
-        | *WebServiceApiUrl*: `string` | Overwriting the output name of the Azure ML web service api url |
-        | *WebServiceApiKey*: `string` | Overwriting the output name of the Azure ML web service api key |
-        | *WebServiceHelpUrl*: `string` | Overwriting the output name of the Azure ML web service help url |
+To use this feature, please specify `<AzureMlWebService/>` within `<ProvisioningSteps/>` in your solution **Manifest.xml**.
 
-      * __&lt;HighThroughputEndpoint/&gt;__ (*Optional*)
+**Attributes**
 
-        This tag is used to create a high-throughput Web service endpoint as a result of this provisioning step.
+| Name    | Description |
+| ------------ | -------------|
+| *title*: `string` | The title to be displayed in CIQS deployment page |
+| *hiddenParameters*: `boolean` | Set to `true` if this step is supposed to be automated; otherwise `false` | 
 
-        **Attributes**
+**Properties**
 
-        All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
+| Name | Description |
+| ------------ | ------------- |
+| *GalleryUrl*: `string` | The url of the experiment to be provisioned on Gallery, such as: https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2 |
+| *Outputs (Optional)*: `object` | Allows users to overwrite the outputs; This is useful when provisioning more than one Azure ML experiments so that the outputs of each other will not collide |
+| *HighThroughputEndpoint (Optional)*: `object` | Allows users to create a high-throughput Web service endpoint |
+| *ModifyExperimentGraph (Optional)*: `object` | Allows users to plug-in a custom function to modify the experiment graph of the provisioned experiment |
 
-        **Properties**
-        
-        | Name | Description |
-        | ------------ | ------------- |
-        | *EndpointName*: `string` | Endpoint names must be 24 character or less in length, and must be made up of lower-case letters or numbers; If not specified, the default value is "`secondep`" |
-        | *ThrottleLevel*: `string` | Allowed values: `High` or `Low`; If not specified, the default value is `Low` |
-        | *MaxConcurrentCalls*: `int` | The maximum concurrent calls for Azure ML Web service is between 1 and 200. See [here](https://github.com/hning86/azuremlps#new-amlwebservice) for details; If not specified, the default value is `4` |
+##### __&lt;Outputs/&gt;__ (*Optional*)
 
-      * __&lt;ModifyExperimentGraph/&gt;__ (*Optional*)
+This tag is used to **overwrite** the default output names, so that outputs from multiple *AzureMlWebService* provisionings will not overwrite each other.
 
-        This tag is used to plug-in a customized function to modify the experiment graph of the provisioned experiment.
+**Attributes**
 
-        **Attributes**
-        
-        | Name | Description |
-        | ------------ | ------------- |
-        | *name*: `string` | **The name of** the customized function to modify the ML experiment graph |
+All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
 
-        **Properties**
-        
-        | Name | Description |
-        | ------------ | ------------- |
-        | *Parameters*: `array` | Array of &lt;Parameter/&gt;s that are used to modify the ML experiment graph in the customized function |
+**Properties**
 
-        **Examples**
+| Name | Description |
+| ------------ | ------------- |
+| *ExperimentUrl*: `string` | Overwriting the output name of the Azure ML experiment url |
+| *WebServiceApiUrl*: `string` | Overwriting the output name of the Azure ML web service api url |
+| *WebServiceApiKey*: `string` | Overwriting the output name of the Azure ML web service api key |
+| *WebServiceHelpUrl*: `string` | Overwriting the output name of the Azure ML web service help url |
 
-        The sample code in **Manifest.xml**:
-        ```xml
-        <AzureMlWebService title="Creating Energy Forecasting ML Web service" hiddenParameter="true">
-          <GalleryUrl>https://gallery.cortanaintelligence.com/Details/975ed028d71b490b9268d35094138358</GalleryUrl>
-          <ModifyExperimentGraph name="<Custom_function_name>">
-            <Parameters>
-              <Parameter type="string" name="sqlServer" defaultValue="{Outputs.sqlServerName}" description="SQL Server Name"/>
-              <Parameter type="string" name="sqlUser" defaultValue="{Outputs.sqlServerUserName}" description="SQL Server User Name"/>
-              <Parameter type="string" name="sqlPassword" defaultValue="{Outputs.sqlServerPassword}" description="SQL Server Password"/>
-              <Parameter type="string" name="sqlDatabase" defaultValue="{Outputs.databaseName}" description="SQL Server Database Name"/>
-            </Parameters>
-          </ModifyExperimentGraph>
-        </AzureMlWebService>
-        ```
+##### __&lt;HighThroughputEndpoint/&gt;__ (*Optional*)
 
-        Besides, a custom function named "_Custom_function_name_" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "_graphJsonObject_" parameter and then return the modified value as the function output.
-        ```c#
-        /* Kudos to Richin Jain <rijai@microsoft.com> for contributing the sample code */
-        
-        #load "..\CiqsHelpers\All.csx"
-        #r "System.Web"
-        #r "System.Web.Extensions"
-        
-        using System.Text;
-        using System.Web.Script.Serialization;
+This tag is used to create a high-throughput Web service endpoint as a result of this provisioning step.
 
-        public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
+**Attributes**
+
+All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
+
+**Properties**
+
+| Name | Description |
+| ------------ | ------------- |
+| *EndpointName*: `string` | Endpoint names must be 24 character or less in length, and must be made up of lower-case letters or numbers; If not specified, the default value is "`secondep`" |
+| *ThrottleLevel*: `string` | Allowed values: `High` or `Low`; If not specified, the default value is `Low` |
+| *MaxConcurrentCalls*: `int` | The maximum concurrent calls for Azure ML Web service is between 1 and 200. See [here](https://github.com/hning86/azuremlps#new-amlwebservice) for details; If not specified, the default value is `4` |
+
+##### __&lt;ModifyExperimentGraph/&gt;__ (*Optional*)
+
+This tag is used to plug-in a customized function to modify the experiment graph of the provisioned experiment.
+
+**Attributes**
+
+| Name | Description |
+| ------------ | ------------- |
+| *name*: `string` | **The name of** the customized function to modify the ML experiment graph |
+
+**Properties**
+
+| Name | Description |
+| ------------ | ------------- |
+| *Parameters*: `array` | Array of &lt;Parameter/&gt;s that are used to modify the ML experiment graph in the customized function |
+
+**Examples**
+
+The sample code in **Manifest.xml**:
+```xml
+<AzureMlWebService title="Creating Energy Forecasting ML Web service" hiddenParameter="true">
+  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/975ed028d71b490b9268d35094138358</GalleryUrl>
+  <ModifyExperimentGraph name="<Custom_function_name>">
+    <Parameters>
+      <Parameter type="string" name="sqlServer" defaultValue="{Outputs.sqlServerName}" description="SQL Server Name"/>
+      <Parameter type="string" name="sqlUser" defaultValue="{Outputs.sqlServerUserName}" description="SQL Server User Name"/>
+      <Parameter type="string" name="sqlPassword" defaultValue="{Outputs.sqlServerPassword}" description="SQL Server Password"/>
+      <Parameter type="string" name="sqlDatabase" defaultValue="{Outputs.databaseName}" description="SQL Server Database Name"/>
+    </Parameters>
+  </ModifyExperimentGraph>
+</AzureMlWebService>
+```
+
+Besides, a custom function named "_Custom_function_name_" need to be added into the solution alongside with the above code snippet. In this custom function, all you need to do is to get the "_graphJsonObject_" parameter and then return the modified value as the function output.
+```c#
+/* Kudos to Richin Jain <rijai@microsoft.com> for contributing the sample code */
+
+#load "..\CiqsHelpers\All.csx"
+#r "System.Web"
+#r "System.Web.Extensions"
+
+using System.Text;
+using System.Web.Script.Serialization;
+
+public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
+{
+    var parametersReader = await CiqsInputParametersReader.FromHttpRequestMessage(req);
+    JavaScriptSerializer serializer = new JavaScriptSerializer();
+    dynamic graphJsonObject = serializer.Deserialize<object>(parametersReader.GetParameter<string>("graphJsonObject"));
+
+    /* Do whatever is needed on the graph JsonObject and return the graph JsonObject */
+    string sqlServerName = parametersReader.GetParameter<string>("sqlServer") + ".database.windows.net,1433"; 
+    string sqlServerUserName = parametersReader.GetParameter<string>("sqlUser"); 
+    string sqlServerPassword = parametersReader.GetParameter<string>("sqlPassword"); 
+    string databaseName = parametersReader.GetParameter<string>("sqlDatabase"); 
+    var moduleNodes = graphJsonObject["ModuleNodes"];
+    foreach (var moduleNode in moduleNodes)
+    {
+        var moduleParameters = moduleNode["ModuleParameters"];
+        foreach (var moduleParameter in moduleParameters)
         {
-            var parametersReader = await CiqsInputParametersReader.FromHttpRequestMessage(req);
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            dynamic graphJsonObject = serializer.Deserialize<object>(parametersReader.GetParameter<string>("graphJsonObject"));
-
-            /* Do whatever is needed on the graph JsonObject and return the graph JsonObject */
-            string sqlServerName = parametersReader.GetParameter<string>("sqlServer") + ".database.windows.net,1433"; 
-            string sqlServerUserName = parametersReader.GetParameter<string>("sqlUser"); 
-            string sqlServerPassword = parametersReader.GetParameter<string>("sqlPassword"); 
-            string databaseName = parametersReader.GetParameter<string>("sqlDatabase"); 
-            var moduleNodes = graphJsonObject["ModuleNodes"];
-            foreach (var moduleNode in moduleNodes)
+            string parameterName = moduleParameter["Name"];
+            switch (parameterName)
             {
-                var moduleParameters = moduleNode["ModuleParameters"];
-                foreach (var moduleParameter in moduleParameters)
-                {
-                    string parameterName = moduleParameter["Name"];
-                    switch (parameterName)
-                    {
-                        case "Database Server Name":
-                            moduleParameter["Value"] = sqlServerName;
-                            break;
-                        case "Server User Account Name":
-                            moduleParameter["Value"] = sqlServerUserName;
-                            break;
-                        case "Server User Account Password":
-                            moduleParameter["Value"] = sqlServerPassword;
-                            break;
-                        case "Database Name":
-                            moduleParameter["Value"] = databaseName;
-                            break;
-                    }
-                }
+                case "Database Server Name":
+                    moduleParameter["Value"] = sqlServerName;
+                    break;
+                case "Server User Account Name":
+                    moduleParameter["Value"] = sqlServerUserName;
+                    break;
+                case "Server User Account Password":
+                    moduleParameter["Value"] = sqlServerPassword;
+                    break;
+                case "Database Name":
+                    moduleParameter["Value"] = databaseName;
+                    break;
             }
-            
-            /* Return the modified graph JsonObject as the function output */
-            return graphJsonObject;
         }
-        ```
-
-    * **Default Outputs**
+    }
     
-      | Name | Description
-      | ------------ | ------------- |
-      | *experimentUrl*: `string` | The Azure ML experiment url |
-      | *webServiceApiUrl*: `string` | The Azure ML web service api url |
-      | *webServiceApiKey*: `string` | The Azure ML web service api key |
-      | *webServiceHelpUrl*: `string` | The Azure ML web service help url |
-      | *mlListExperimentsUrl*: `string` | The Azure ML experiments list url |
+    /* Return the modified graph JsonObject as the function output */
+    return graphJsonObject;
+}
+```
 
-* **Examples**
+#### Default Outputs
+
+  | Name | Description
+  | ------------ | ------------- |
+  | *experimentUrl*: `string` | The Azure ML experiment url |
+  | *webServiceApiUrl*: `string` | The Azure ML web service api url |
+  | *webServiceApiKey*: `string` | The Azure ML web service api key |
+  | *webServiceHelpUrl*: `string` | The Azure ML web service help url |
+  | *mlListExperimentsUrl*: `string` | The Azure ML experiments list url |
+
+#### Examples
   
-  Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/013-mlwebsvcs).
-  
-  The simplest use case would be provisioning a single Azure ML experiment and deploying a default Web service endpoint:
-    ```xml
-    <AzureMlWebService title="Copying and experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
-    </AzureMlWebService>
-    ```
-  A slightly more complex use case would be creating a high-throughput Web service endpoint for the experiment:
-    ```xml
-    <AzureMlWebService title="Copying and experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
-      <HighThroughputEndpoint>
-        <EndpointName>HighThroughputEndpoint</EndpointName>
-        <ThrottleLevel>High</ThrottleLevel>
-        <MaxConcurrentCalls>100</MaxConcurrentCalls>
-      </HighThroughputEndpoint>
-    </AzureMlWebService>
-    ```
-  Another common use case would be provisioning multiple Azure ML experiments, with output overwritten to avoid conflicts:
-  ```xml
-  <AzureMlWebService title="Copying NYC taxi xperiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
-      <Outputs experimentUrl="mlFunctionEndpoint1" webServiceApiUrl="mlFunctionApiUrl1" webServiceApiKey="mlFunctionApiKey1" />
-    </AzureMlWebService>
-    <AzureMlWebService title="Copying connected car Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/connected-cars-aml-v2-noreader-scoring-exp-2</GalleryUrl>
-      <Outputs>
-        <ExperimentUrl>mlFunctionEndpoint2</ExperimentUrl>
-        <WebServiceApiUrl>mlFunctionApiUrl2</WebServiceApiUrl>
-        <WebServiceApiKey>mlFunctionApiKey2</WebServiceApiKey>
-        <WebServiceHelpUrl>mlFunctionHelpUrl2</WebServiceHelpUrl>
-      </Outputs>
-    </AzureMlWebService>
-    <AzureMlWebService title="Copying predictive maintenance Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/bcae226bc74a4cbbb0ff700ac97448bf</GalleryUrl>
-    </AzureMlWebService>
-  ```
+Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/013-mlwebsvcs).
+
+The simplest use case would be provisioning a single Azure ML experiment and deploying a default Web service endpoint:
+```xml
+<AzureMlWebService title="Copying and experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
+  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
+</AzureMlWebService>
+```
+A slightly more complex use case would be creating a high-throughput Web service endpoint for the experiment:
+```xml
+<AzureMlWebService title="Copying and experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
+  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
+  <HighThroughputEndpoint>
+    <EndpointName>HighThroughputEndpoint</EndpointName>
+    <ThrottleLevel>High</ThrottleLevel>
+    <MaxConcurrentCalls>100</MaxConcurrentCalls>
+  </HighThroughputEndpoint>
+</AzureMlWebService>
+```
+Another common use case would be provisioning multiple Azure ML experiments, with output overwritten to avoid conflicts:
+```xml
+<AzureMlWebService title="Copying NYC taxi xperiment from Gallery and deploy as Web Service" hiddenParameters ="true">
+  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
+  <Outputs experimentUrl="mlFunctionEndpoint1" webServiceApiUrl="mlFunctionApiUrl1" webServiceApiKey="mlFunctionApiKey1" />
+</AzureMlWebService>
+<AzureMlWebService title="Copying connected car Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
+  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/connected-cars-aml-v2-noreader-scoring-exp-2</GalleryUrl>
+  <Outputs>
+    <ExperimentUrl>mlFunctionEndpoint2</ExperimentUrl>
+    <WebServiceApiUrl>mlFunctionApiUrl2</WebServiceApiUrl>
+    <WebServiceApiKey>mlFunctionApiKey2</WebServiceApiKey>
+    <WebServiceHelpUrl>mlFunctionHelpUrl2</WebServiceHelpUrl>
+  </Outputs>
+</AzureMlWebService>
+<AzureMlWebService title="Copying predictive maintenance Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
+  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/bcae226bc74a4cbbb0ff700ac97448bf</GalleryUrl>
+</AzureMlWebService>
+```
 
 ### SolutionDashboard
 ### WebJobDeployment
