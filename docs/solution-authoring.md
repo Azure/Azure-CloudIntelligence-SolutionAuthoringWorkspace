@@ -2,6 +2,59 @@
 layout: default
 title: Solution authoring
 navigation_weight: 3
+indexes:
+	- 	name: "Solution manifest"
+		urlSuffix: "solution-manifest"
+		level: 1
+		- 	name: "LocationProvidedFor"
+			urlSuffix: "locationprovidedfor"
+			level: 2
+		- 	name: "LocationsToExclude"
+			urlSuffix: "locationstoexclude"
+			level: 2
+		- 	name: "Parameters"
+			urlSuffix: "parameters"
+			level: 2
+			- 	name: "Parameter"
+				urlSuffix: "parameter"
+				level: 3
+			- 	name: "Parameter resolver"
+				urlSuffix: "parameter-resolver"
+				level: 3
+			- 	name: "Credential"
+				urlSuffix: "credential"
+				level: 3
+		- 	name: "Guide"
+			urlSuffix: "guide"
+			level: 2
+		- 	name: "Ingredients"
+			urlSuffix: "ingredients"
+			level: 2
+		- 	name: "Provisioning steps"
+			urlSuffix: "provisioning-steps"
+			level: 2
+			- 	name: "ArmDeployment"
+				urlSuffix: "armdeployment"
+				level: 3
+			- 	name: "Manual"
+				urlSuffix: "manual"
+				level: 3
+			- 	name: "Functions"
+				urlSuffix: "functions"
+				level: 3
+			- 	name: "WebJob"
+				urlSuffix: "webjob"
+				level: 3
+			- 	name: "AzureMLWebService"
+				urlSuffix: "azuremlwebservice"
+				level: 3
+			- 	name: "SolutionDashboard"
+				urlSuffix: "solutiondashboard"
+				level: 3
+			- 	name: "WebJobDeployment"
+				urlSuffix: "webjobdeployment"
+				level: 3
+		
 ---
 # Solution authoring
 ## Solution manifest
