@@ -5,6 +5,43 @@ navigation_weight: 3
 ---
 # Solution authoring
 ## Solution manifest
+### LocationProvidedFor
+In CIQS deployment creation page, users are asked to select one location/region for each deployment as shown below.
+
+![Select location for CIQS deployment]({{ site.baseurl }}\images\location.png)
+
+The selected location is used by the Resource Group provisioning and most of the time, is also used for underlying Azure resources provisionings accessed with `[resourceGroup().location]` signature in ARM templates. For example:
+
+```json
+{
+	"name": "[variables('adlStoreName')]",
+	"apiVersion": "[variables('adlsApiVersion')]",
+	"type": "Microsoft.DataLakeStore/accounts",
+	"location": "[resourceGroup().location]"
+}
+```
+
+Given [limited regional availability](https://azure.microsoft.com/en-us/regions/services/) of Azure, some Azure services, such as **Data Factory** (microsoft.datafactory/datafactories), **Application Insights** (microsoft.insights/components) or **Data Lake Store** (microsoft.datalakestore/accounts), have very limited regions available. In this case, hardcoding the region in ARM template would be the **recommended** way to ensure better user experience. For example:
+
+```json
+{
+	"name": "[variables('adlStoreName')]",
+	"apiVersion": "[variables('adlsApiVersion')]",
+	"type": "Microsoft.DataLakeStore/accounts",
+	"location": "East US 2"
+}
+```
+
+At the meantime, **LocationProvidedFor** must be specified in that particular ARM deployment step in the **Manifest.xml**, so that CIQS will **stop checking** the regional availability for those service(s). For example below, it signifies the CIQS deployment engine that, "_location has been **hardcoded** for 'microsoft.datalakestore/accounts', and please ignore 'microsoft.datalakestore/accounts' when rendering the location dropdown list_":
+
+```xml
+<ArmDeployment source="arm\CreateADLS.json" title="Create ADLS" >
+	<LocationProvidedFor>
+		<ResourceType>microsoft.datalakestore/accounts</ResourceType>
+	</LocationProvidedFor>
+</ArmDeployment>
+```
+
 ### LocationsToExclude
 __&lt;LocationsToExclude/&gt;__ tag allows pattern authors to hide locations from CIQS location dropdown. This is very useful especially when some region(**s**) is known to cause deployment failures.
 
