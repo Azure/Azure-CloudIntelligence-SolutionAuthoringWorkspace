@@ -6,9 +6,6 @@ indexes:
   - name: "Solution manifest"
     urlSuffix: "solution-manifest"
     level: 1
-  - name: "LocationProvidedFor"
-    urlSuffix: "locationprovidedfor"
-    level: 2
   - name: "LocationsToExclude"
     urlSuffix: "locationstoexclude"
     level: 2
@@ -36,6 +33,9 @@ indexes:
   - name: "ArmDeployment"
     urlSuffix: "armdeployment"
     level: 3
+  - name: "LocationProvidedFor"
+    urlSuffix: "locationprovidedfor"
+    level: 4
   - name: "Manual"
     urlSuffix: "manual"
     level: 3
@@ -58,46 +58,6 @@ indexes:
 ---
 # Solution authoring
 ## Solution manifest
-### LocationProvidedFor
-In CIQS deployment creation page, users are asked to select one location/region for each deployment as shown below.
-
-![Select location for CIQS deployment]({{ site.baseurl }}\images\location.png)
-
-> **Note**: The set of locations for a particular solution is computed as the **intersection** of available regions for each comprised Azure resources. 
-
-The selected location is used by the Resource Group creation and most of the time, is also used for underlying Azure resources provisionings with `[resourceGroup().location]` signature in ARM templates. For example:
-
-```json
-{
-    "name": "[variables('adlStoreName')]",
-    "apiVersion": "[variables('adlsApiVersion')]",
-    "type": "Microsoft.DataLakeStore/accounts",
-    "location": "[resourceGroup().location]"
-}
-```
-
-Given [limited regional availability](https://azure.microsoft.com/en-us/regions/services/) of Azure services, some services, such as **Data Factory** (microsoft.datafactory/datafactories), **Application Insights** (microsoft.insights/components) or **Data Lake Store** (microsoft.datalakestore/accounts), have very limited regions available. In this case, hardcoding the region in ARM template is **strongly recommended** to ensure better user experience; otherwise, the location intersection will be small or even empty. For example:
-
-```json
-{
-    "name": "[variables('adlStoreName')]",
-    "apiVersion": "[variables('adlsApiVersion')]",
-    "type": "Microsoft.DataLakeStore/accounts",
-    "location": "East US 2"
-}
-```
-
-> **Note**: Given backward compatibility concern, CIQS will not check the regional availability of **Data Factory** (microsoft.datafactory/datafactories) so as to compute the available locations for your solution. Therefore, you **MUST** hardcode the region for **Data Factory** in your ARM template as the above example shows.
-
-In the meantime, **LocationProvidedFor** **MUST** be specified in that particular ARM deployment step in the **Manifest.xml**, so that CIQS will **skip** checking the regional availability for those service(s). For example below, it signifies the CIQS deployment engine that, "_location has been **hardcoded** for 'microsoft.datalakestore/accounts', and please ignore 'microsoft.datalakestore/accounts' when rendering the location dropdown list_":
-
-```xml
-<ArmDeployment source="arm\CreateADLS.json" title="Create ADLS" >
-  <LocationProvidedFor>
-    <ResourceType>microsoft.datalakestore/accounts</ResourceType>
-  </LocationProvidedFor>
-</ArmDeployment>
-```
 
 ### LocationsToExclude
 __&lt;LocationsToExclude/&gt;__ tag allows pattern authors to hide locations from CIQS location dropdown. This is very useful especially when some region(**s**) is known to cause deployment failures.
@@ -166,7 +126,7 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
 > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
 
-**Examples**
+##### **Examples**
 
 A simple use case would be specifying the credential with a single type:
 ```xml
@@ -278,6 +238,114 @@ Please contact [CIQS On-Call](mailto:ciqsoncall@microsoft.com) if you want to pu
 
 ## Provisioning steps
 ### ArmDeployment
+CIQS relies on ARM (Azure Resource Management) to provision Azure resources into users' private subscription on behalf of the user. ArmDeployment steps enable solution authors to easily deploy an ARM template (json) with a set of input parameters.
+
+##### **Documentation**
+
+**Attributes**
+
+| Name | Description |
+| ------------ | ------------- |
+| *source*: `string` | The relative path of an ARM template under "**core**" folder of solution source codes |
+| *title*: `string` | The title which will be displayed in the deployment UX |
+| *autoResolveParameters (Optional)*: `string` | When this attribute is set to true, parameters in the target ARM template will be automatically resolved from either Inputs or Outputs from previous steps; this is a best effort resolving, which means that if the value of a parameter is not detected or not set, it won't get resolved correctly |
+| *retriable*: `bool` | `True` if the ARM deployment is retriable; otherwise, `False`. By default, all ArmDeployment steps are **retriable**. |
+
+**Properties**
+
+| Name | Description |
+| ------------ | ------------- |
+| *Parameters*: `array` | An array of `Parameters` consumed by the target ARM template. See details [here]({{ page.url }}#parameters). |
+| *LocationProvidedFor*: `array` | An array of **resourceType** that is provided in the ARM template. This signifies CIQS that these **resourceType** has hardcoded locations. See details [here]({{ page.url }}#locationprovidedfor). |
+
+##### **Examples**
+
+Here is one comprehensive exmaple showcasing some of the snippets:
+
+```xml
+<ArmDeployment source="arm\RetailOptimizationVmStage.json" title="Deploying Virtual Machine (Estimated time : 20 Minutes)">
+  <LocationProvidedFor>
+    <ResourceType>microsoft.datalakestore/accounts</ResourceType>
+  </LocationProvidedFor>
+  <Parameters>
+    <Parameter name="userName" defaultValue="{Inputs.userName}" hidden="true" />
+    <Parameter name="password" defaultValue="{Inputs.password}"  hidden="true" />
+    <Parameter name="baseUrl" defaultValue="{PatternAssetBaseUrl}" hidden="true" />
+    <Parameter name="storageAccountName" defaultValue="{Outputs.storageAccountName}"  hidden="true" />
+    <Parameter name="storageAccountKey" defaultValue="{Outputs.storageAccountKey}"  hidden="true"/>
+  </Parameters>
+</ArmDeployment>
+```
+
+Please also explore Github samples [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples).
+
+##### How do I draft ARM template?
+
+Please discover plenty of Azure quickstart templates [here](https://github.com/Azure/azure-quickstart-templates).
+
+Noteably, here are some examples commonly used in a solution:
+
+- Create a Storage Account [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)]
+
+- Create a Stream Analytics service [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-streamanalytics-create)]
+
+- Linux Virtual Machine [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)]
+
+- Data Factory blob to sql copy [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)]
+
+- HDInsight Spark Cluster [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux)]
+
+In addition, please explore more composite solution samples [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples), to explore how these services are wired together in ARM templates.
+
+References
+
+[Azure Resource Manager Documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/)
+
+[Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/)
+
+[Azure Quickstart Templates - Github](https://github.com/Azure/azure-quickstart-templates)
+
+#### LocationProvidedFor
+In CIQS deployment creation page, users are asked to select one location/region for each deployment as shown below.
+
+![Select location for CIQS deployment]({{ site.baseurl }}\images\location.png)
+
+> **Note**: The set of locations for a particular solution is computed as the **intersection** of available regions for each comprised Azure resources. 
+
+The selected location is used by the Resource Group creation and most of the time, is also used for underlying Azure resources provisionings with `[resourceGroup().location]` signature in ARM templates. For example:
+
+```json
+{
+    "name": "[variables('adlStoreName')]",
+    "apiVersion": "[variables('adlsApiVersion')]",
+    "type": "Microsoft.DataLakeStore/accounts",
+    "location": "[resourceGroup().location]"
+}
+```
+
+Given [limited regional availability](https://azure.microsoft.com/en-us/regions/services/) of Azure services, some services, such as **Data Factory** (microsoft.datafactory/datafactories), **Application Insights** (microsoft.insights/components) or **Data Lake Store** (microsoft.datalakestore/accounts), have very limited regions available. In this case, hardcoding the region in ARM template is **strongly recommended** to ensure better user experience; otherwise, the location intersection will be small or even empty. For example:
+
+```json
+{
+    "name": "[variables('adlStoreName')]",
+    "apiVersion": "[variables('adlsApiVersion')]",
+    "type": "Microsoft.DataLakeStore/accounts",
+    "location": "East US 2"
+}
+```
+
+> **Note**: Given backward compatibility concern, CIQS will not check the regional availability of **Data Factory** (microsoft.datafactory/datafactories) so as to compute the available locations for your solution. Therefore, you **MUST** hardcode the region for **Data Factory** in your ARM template as the above example shows.
+
+In the meantime, **LocationProvidedFor** **MUST** be specified in that particular ARM deployment step in the **Manifest.xml**, so that CIQS will **skip** checking the regional availability for those service(s). For example below, it signifies the CIQS deployment engine that, "_location has been **hardcoded** for 'microsoft.datalakestore/accounts', and please ignore 'microsoft.datalakestore/accounts' when rendering the location dropdown list_":
+
+```xml
+<ArmDeployment source="arm\CreateADLS.json" title="Create ADLS" >
+  <LocationProvidedFor>
+    <ResourceType>microsoft.datalakestore/accounts</ResourceType>
+  </LocationProvidedFor>
+</ArmDeployment>
+```
+
 ### Manual
 Manual steps are most typically used to display post-deployment instructions. For example:
 ```xml
