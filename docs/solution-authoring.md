@@ -241,9 +241,9 @@ In Post Deployment Guidance md file – *tags around sections*:
 
 ##### **Examples**
 
-Main README.md: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md)
+[Main README.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md)
 
-Post-Deployment Guidance: [https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md)
+[Post-Deployment Guidance](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/Energy%20Forecast%20Solution%20Post%20Deployment%20Instructions.md)
 
 
 ### Ingredients
