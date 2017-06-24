@@ -74,7 +74,61 @@ Here is an example of how it is used:
 ```
 
 ### Parameters
+
+Parameters is a property of [ProvisioningStep]({{ page.url }}#provisioning-steps). There are two types of parameters in CIQS: [Parameter]({{ page.url }}#parameter) and [Credential]({{ page.url }}#credential).
+
+[Parameter]({{ page.url }}#parameter) provides an easy interface for CIQS solutions to _define_, _collect_ and _resolve_ parameter values, either defined in the solution template by the authors or entered by the end users through CIQS deployment UX. This section will also cover the parameter resolving capability in solution authors, enabling flexible variant consumption of parameters.
+
+[Credential]({{ page.url }}#credential) is a special type of parameter, which internally will be interpreted as the same as other parameters. It offers a ready-to-use interface for solutions to easily collect user credential inputs, such as usernames and passwords for underlying Azure resources.
+
 #### Parameter
+
+##### **Documentation**
+
+**Attributes**
+
+| Name | Description |
+| ------------ | ------------- |
+| *name*: `string` | The name of the parameter. This field is essentially important because [Parameter Resolver]({{ page.url }}#parameter-resolver) uses the name to automatically resolve corresponding parameter. |
+| *type*: `string` | The type of the parameter |
+| *description*: `string` | Descriptions which will be displayed on the deployment UX |
+| *defaultValue*: `string` | Default value of the parameter |
+| *regex*: `string` | A single regular expression for parameter input validation |
+| *hidden*: `bool` | "true" if the parameter is correctly resolved or assigned, therefore user input is needed; "false" if the parameter should be a user input value. |
+
+> **Note**: Currently, only `string` typed parameters are recognized; integer and boolean type are specificied as string format.
+
+**Properties**
+
+| Name | Description |
+| ------------ | ------------- |
+| *DefaultValue*: `string` | Default value of the parameter |
+| *ExtraDescription*: `string` | Extra Description which will be displayed on the deployment UX |
+
+##### **Example**
+
+A sample parameter with *defaultValue* and and *hidden* properties set in a [Function]({{ page.url }}#function) step:
+```xml
+<Function name="hatch" title="Hatching the eggs" retriable="true">
+  <Parameters>
+    <Parameter hidden="true" name="experimentCount" defaultValue="{Inputs.experimentCount}" />
+  </Parameters>
+</Function>
+```
+
+A sample parameter with *description* and *ExtraDescription* properties set in a [Manual]({{ page.url }}#manual) step.
+```xml
+<Manual title="Count your eggs">
+  <Parameters>
+    <Parameter name="experimentCount" defaultValue="10000" description="How long have you been running this business?">
+      <ExtraDescription>
+         (in days)
+      </ExtraDescription>
+    </Parameter>
+  </Parameters>
+</Manual>
+```
+
 
 #### Parameter Resolver
 Parameter resolver in CIQS allows solution authors to specify parameters as variable in solution source files (e.g. **Manifest.xml**, markdown files, etc.), of which values can be resolved as input, output or constant strings.
@@ -125,6 +179,8 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 | *password*: `string` | **The name of** the password parameter defined in the provision step |
 
 > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
+
+> **Note**: Depending on the osType of underlying clusters, `hdi` **MUST** comes with either `windowsvm` or `linuxvm`. Otherwise, some invalid usernames/passwords will be overlooked.
 
 ##### **Examples**
 
@@ -255,8 +311,8 @@ CIQS relies on ARM (Azure Resource Management) to provision Azure resources into
 
 | Name | Description |
 | ------------ | ------------- |
-| *Parameters*: `array` | An array of `Parameters` consumed by the target ARM template. See details [here]({{ page.url }}#parameters). |
-| *LocationProvidedFor*: `array` | An array of **resourceType** that is provided in the ARM template. This signifies CIQS that these **resourceType** has hardcoded locations. See details [here]({{ page.url }}#locationprovidedfor). |
+| *Parameters*: `array` | An array of `Parameter`s consumed by the target ARM template. See details [here]({{ page.url }}#parameters). |
+| *LocationProvidedFor*: `array` | An array of **ResourceType**s whose locations are _provided_ in the ARM template. This signifies CIQS that these **resourceType** has hardcoded locations. See details [here]({{ page.url }}#locationprovidedfor). |
 
 ##### **Examples**
 
@@ -279,11 +335,11 @@ Here is one comprehensive exmaple showcasing some of the snippets:
 
 Please also explore Github samples [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples).
 
-##### How do I draft ARM template?
+##### How do I get started with my first ARM template?
 
-Please discover plenty of Azure quickstart templates [here](https://github.com/Azure/azure-quickstart-templates).
+There are plenty of Azure quickstart templates available [here](https://github.com/Azure/azure-quickstart-templates).
 
-Noteably, here are some examples commonly used in a solution:
+Noteably, here are some sample patterns commonly seen in a Cortana Intelligence solution:
 
 - Create a Storage Account [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)]
 
@@ -295,9 +351,9 @@ Noteably, here are some examples commonly used in a solution:
 
 - HDInsight Spark Cluster [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux)]
 
-In addition, please explore more composite solution samples [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples), to explore how these services are wired together in ARM templates.
+In addition, you may want to discover more composite solution samples [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples), to explore how these services are wired together in ARM templates.
 
-References
+##### References
 
 [Azure Resource Manager Documentation](https://docs.microsoft.com/en-us/azure/azure-resource-manager/)
 
