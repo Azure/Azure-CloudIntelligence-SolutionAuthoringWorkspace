@@ -6,6 +6,8 @@ navigation_weight: 1
 *This is based on my 5 minute CIQS/SAW infomercial at the All Hands on February, 24th. Putting it here as a placeholder for now.* -andrew
 # Hello everybody.
 
+Go to solution authoring in [INT](https://caqsint.azure.net/CustomSolutions) or [PROD](https://start.cortanaintelligence.com/CustomSolutions).
+
 Some of you may have heard about *CIQS* or *Cortana Intelligence Quick Start*, the deployment engine behind *Cortana Intelligence Solutions*. For those who haven't, *CIQS* is the service that orchestrates solution deployment into a customer's *Azure* subscription by performing a series of provisioning activities that generally fall into such categories as
 - Cloud resource creation (essentially, things that can be achieved with ARM templates)
 - Execution of custom provisioning code (things that are not possible to achieve with ARM)
