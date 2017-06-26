@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+    <Title>Using Azure PowerShell cmdlets.</Title>
+    <Owner displayname="John Doe" email="john.doe@contoso.com"/>
+    <ImageUrl>{PatternAssetBaseUrl}/KeepCalmPowerShell.jpg</ImageUrl>
+    <Description>PowerShell + CIQS.</Description>
+    <Summary src="Summary.md" format="markdown"/>
+    <EstimatedTime>2 Minutes</EstimatedTime>
+    <ProvisioningSteps>
+        <AzureFunctionApp alwaysOn="true">
+            <AppSettings>
+                <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+                <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+                <!-- Putting AccountId and SubsriptionId into AppSettings since they are static -->
+                <Add key="AccountId" value="{UserId}" />
+                <Add key="SubscriptionId" value="{SubscriptionId}" />                
+            </AppSettings>      
+        </AzureFunctionApp>
+        <Function name="createWebsite" title="Calling a PowerShell function to create a website" retriable="true">
+            <Parameters>
+                <!-- Passing accessToken as a parameter. It is required for Azure Resource Manager authentication. -->
+                <Parameter name="accessToken" type="string" defaultValue="{Authorization}" hidden="true" />
+                <!-- The two parameters below are not required for authentication and are specific to this function. -->
+                <Parameter name="resourceGroupName" type="string" defaultValue="{ResourceGroup.Name}" hidden="true" />                
+                <Parameter name="storageAccountName" type="string" defaultValue="{Outputs.storageAccountName}" hidden="true" />
+            </Parameters>
+        </Function>
+        <Manual title="Done">
+          <Instructions src="Instructions.md" format="markdown" />
+        </Manual>
+    </ProvisioningSteps>
+</Template>

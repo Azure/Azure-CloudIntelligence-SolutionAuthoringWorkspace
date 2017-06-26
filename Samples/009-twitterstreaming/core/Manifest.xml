@@ -11,8 +11,8 @@
         <Parameter name="webServiceApiKey" hidden="true" />
         <Parameter name="transformQuery" hidden="true">
           <DefaultValue>
-            SELECT Text, Topic, CreatedAt, Result.[Score] as Score INTO [SQLOutput] FROM
-            (SELECT Text, Topic, DATEADD(ms, timestamp_ms, '1970-01-01') as CreatedAt, sentiment(text) as Result FROM [TwitterStream]) TwitterStream;
+            SELECT timestamp, topic, Result.[Score] as score, Result.[Sentiment] as sentiment, text, id, retweet_count, time_zone, lang INTO [SQLOutput] FROM
+            (SELECT DATEADD(ms, timestamp_ms, '1970-01-01') as timestamp, Topic as topic, sentiment(text) as Result, Text, id, retweet_count, time_zone, lang FROM [TwitterStream]) TwitterStream;
           </DefaultValue>
         </Parameter>
       </Parameters>
@@ -53,10 +53,15 @@
           <DefaultValue>
             CREATE TABLE [dbo].[TweetScore]
             (
+	            [timestamp] [datetime] NOT NULL,
+	            [topic] [varchar](100) NOT NULL,	
+	            [score] [float] NOT NULL,
+	            [sentiment] [char](8) NOT NULL,
 	            [text] [varchar](200) NOT NULL,
-	            [topic] [varchar](100) NOT NULL,
-	            [createdAt] [datetime] NOT NULL,
-	            [score] [float] NOT NULL
+              [id] [bigint] NOT NULL,
+	            [retweet_count] [int] NULL,
+	            [time_zone] [varchar](100) NULL,
+	            [lang] [varchar](100) NULL
             )
           </DefaultValue>    
         </Parameter>

@@ -8,7 +8,8 @@ navigation_weight: 6
 ## Authoring
 - Allow Comments in JSON (ARM template) ([PRODUCT BACKLOG ITEM 47300](https://msdata.visualstudio.com/AlgorithmsAndDataScience/_workitems/edit/47300))
 - Surface function logs to the author (or make them easily accessible) ([PRODUCT BACKLOG ITEM 50462](https://msdata.visualstudio.com/AlgorithmsAndDataScience/_workitems/edit/50462))
- 
+- Multiple GIT repositories is NOT supported in "In-browser SAW environment". It's because the environment is based on VS Code which has the [known issue](https://github.com/Microsoft/vscode/issues/12564). The workaround is to use SAW CLI and build Solutions on your PC. You can find SAW CLI in the "Setup" tab of "CUSTOM SOLUTIONS".
+
 ## Platform
 - Increase the length of deployment name ([TASK 50439](https://msdata.visualstudio.com/AlgorithmsAndDataScience/_workitems/edit/50439))
 - Auto remove non-existing deployments ([PRODUCT BACKLOG ITEM 51844](https://msdata.visualstudio.com/AlgorithmsAndDataScience/_workitems/edit/51844))

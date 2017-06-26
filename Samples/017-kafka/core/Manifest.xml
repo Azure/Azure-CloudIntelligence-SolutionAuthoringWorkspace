@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Apache Kafka for HDInsight</Title>
+  <Owner displayname="Darwin Schweitzer" email="darsch@microsoft.com"/>
+  <ImageUrl>{PatternAssetBaseUrl}/kafka.jpg</ImageUrl>
+  <Description>Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.</Description>
+  <Summary src="Summary.md" format="markdown"/>
+  <EstimatedTime>20 Minutes</EstimatedTime>
+  <ProvisioningSteps>
+    <ArmDeployment source="create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" title="Creating solution's Azure resources" >
+      <Parameters>
+        <Parameter name="baseUrl" hidden="true">
+          <DefaultValue>{PatternAssetBaseUrl}</DefaultValue>
+        </Parameter>
+        <Credential type="hdi" username="hdiUserName" password="hdiPassword" />
+      </Parameters>
+    </ArmDeployment>
+    <Manual title="Done">
+      <Instructions src="Instructions.md" format="markdown" />
+    </Manual>
+  </ProvisioningSteps>
+</Template>
