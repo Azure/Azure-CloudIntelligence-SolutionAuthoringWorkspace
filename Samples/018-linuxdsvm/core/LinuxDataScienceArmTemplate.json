@@ -1,0 +1,217 @@
+﻿{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "Username for the Virtual Machine."
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine."
+            }
+        },
+        "numberOfInstances": {
+            "type": "string",
+            "defaultValue": "1",
+            "metadata": {
+                "description": "Number of VMs to deploy - Recommended Maximum is 10"
+            }
+        },
+        "vmName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name for the Virtual Machine."
+            }
+        },
+        "vmSize": {
+            "type": "string",
+            "metadata": {
+                "description": "Size for the Virtual Machine."
+            },
+            "defaultValue": "Standard_D3_v2",
+            "allowedValues": [
+                "Standard_A4",
+                "Standard_D2_v2",
+                "Standard_D3_v2",
+                "Standard_D4_v2",
+                "Standard_D5_v2",
+                "Standard_D12_v2",
+                "Standard_D13_v2",
+                "Standard_D14_v2",
+                "Standard_DS2_v2",
+                "Standard_DS3_v2",
+                "Standard_DS4_v2",
+                "Standard_DS5_v2"
+            ]  
+        }
+    },
+    "variables": {
+        "namePrefix": "[resourceGroup().name]",
+        "location": "[resourceGroup().location]",
+        "storageVersion": "2015-06-15",
+        "publicIPAddressesVersion": "2015-06-15",
+        "virtualNetworksVersion": "2015-06-15",
+        "networkInterfacesVersion": "2015-06-15",
+        "numberOfInstances": "[int(parameters('numberOfInstances'))]",
+        "imagePublisher": "microsoft-ads",
+        "imageOffer": "linux-data-science-vm-ubuntu",
+        "OSDiskName": "osdiskforlinuxsimple",
+        "DataDiskName": "datadiskforlinuxsimple",
+        "sku": "linuxdsvmubuntu",
+        "nicName": "[concat(variables('namePrefix'),'vmnic')]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
+        "publicIPAddressType": "Dynamic",
+        "publicIPAddressName": "[concat('a', uniqueString(subscription().subscriptionId),'pubip')]",
+        "vmName": "[parameters('vmName')]",
+        "vmSize": "[parameters('vmSize')]",
+        "virtualNetworkName": "[concat(variables('namePrefix'),'vnet')]",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "[variables('publicIPAddressesVersion')]",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[concat(variables('publicIPAddressName'), copyindex())]",
+            "location": "[variables('location')]",
+            "copy": {
+                "name": "publicIPLoop",
+                "count": "[variables('numberOfInstances')]"
+            },
+            "properties": {
+                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[concat(variables('publicIPAddressName'), copyindex())]"
+                }
+            }
+        },
+        {
+            "apiVersion": "[variables('virtualNetworksVersion')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('virtualNetworkName')]",
+            "location": "[variables('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('subnetName')]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnetPrefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "[variables('networkInterfacesVersion')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[concat(variables('nicName'), copyindex())]",
+            "location": "[variables('location')]",
+            "copy": {
+                "name": "nicLoop",
+                "count": "[variables('numberOfInstances')]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Network/publicIPAddresses/', concat(variables('publicIPAddressName'),copyindex()))]",
+                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(variables('publicIPAddressName'),copyindex()))]"
+                            },
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2016-04-30-preview",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[concat(variables('vmName'), copyIndex())]",
+            "location": "[variables('location')]",
+            "copy": {
+                "name": "virtualMachineLoop",
+                "count": "[variables('numberOfInstances')]"
+            },
+            "plan": {                
+                "name": "[variables('sku')]",
+                "publisher": "[variables('imagePublisher')]",
+                "product": "[variables('imageOffer')]"
+            },
+            "tags": {
+                "Application": "DataScience"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'), copyindex())]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('vmSize')]"
+                },
+                "osProfile": {
+                    "computerName": "[concat(variables('vmName'), copyIndex())]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('imagePublisher')]",
+                        "offer": "[variables('imageOffer')]",
+                        "sku": "[variables('sku')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "osdisk",
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage"
+                    },
+                    "dataDisks": [
+                        {
+                            "name": "data0",
+                            "createOption": "FromImage",
+                            "lun": 0
+                        }
+                    ]
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(variables('nicName'), copyindex()))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": false
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "firstDataScienceVmUrl": { "type": "string", "value": "[concat('https://portal.azure.com/#resource/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachines/', variables('vmName'), '0')]" },
+        "numInstances": { "type": "string", "value": "[parameters('numberOfInstances')]" },
+        "vmName": { "type": "string", "value": "[variables('vmName')]" },
+        "adminUsername": { "type": "string", "value": "[parameters('adminUsername')]" },
+        "dnsName": {"type": "string", "value": "[concat(variables('publicIPAddressName'), '0.', variables('location'), '.cloudapp.azure.com')]"},
+        "sshConnection": { "type": "string", "value": "[concat('ssh ', parameters('adminUsername'), '@', variables('publicIPAddressName'), '0.', variables('location'), '.cloudapp.azure.com')]" }
+    }
+}
