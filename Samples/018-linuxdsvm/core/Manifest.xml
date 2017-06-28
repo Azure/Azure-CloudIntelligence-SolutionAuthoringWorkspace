@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Data Science Virtual Machine for Linux</Title>
+  <Owner displayname="Gopi Kumar" email="gokuma@microsoft.com"/>
+  <PublishedOn>05/12/2016</PublishedOn>
+  <ImageUrl>{PatternAssetBaseUrl}/linuxdatasciencevm.png</ImageUrl>
+  <Description>Provision the Data Science Virtual Machine for Linux (Ubuntu), a custom virtual machine image pre-installed and configured with a host of popular tools commonly used for data science and machine learning.</Description>
+  <Summary src="LinuxDataScienceSummary.md" format="markdown"/>
+  <Prerequisites src="PreReqs.md" format="markdown"/>
+  <EstimatedTime>3 Minutes</EstimatedTime>
+  <Ingredients>
+    <Ingredient>StorageAccount</Ingredient>
+    <Ingredient>VirtualMachine</Ingredient>
+  </Ingredients>
+  <ProvisioningSteps>
+    <ArmDeployment source="LinuxDataScienceArmTemplate.json" title="Create Linux Data Science VM">
+      <Parameters>
+        <Credential type="linuxvm" username="adminUsername" password="adminPassword" />
+        <Parameter name="vmName" regex="{Constants.LinuxMachineNameRegex}">
+          <ExtraDescription>{Constants.LinuxMachineNameRegexDescription}</ExtraDescription>
+        </Parameter>
+      </Parameters>
+    </ArmDeployment>
+    <Manual title="Done">
+      <Instructions src="LinuxDataScienceInstructions.md" format="markdown"/>
+    </Manual>
+  </ProvisioningSteps>
+</Template>
