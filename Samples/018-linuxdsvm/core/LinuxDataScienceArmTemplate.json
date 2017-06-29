@@ -51,6 +51,7 @@
     },
     "variables": {
         "namePrefix": "[resourceGroup().name]",
+        "uniqueNamePrefix": "[toLower(concat(resourceGroup().name, uniqueString(subscription().subscriptionId)))]",
         "location": "[resourceGroup().location]",
         "storageVersion": "2015-06-15",
         "publicIPAddressesVersion": "2015-06-15",
@@ -67,7 +68,7 @@
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "publicIPAddressType": "Dynamic",
-        "publicIPAddressName": "[concat('a', uniqueString(subscription().subscriptionId),'pubip')]",
+        "publicIPAddressName": "[concat(variables('uniqueNamePrefix'),'pubip')]",
         "vmName": "[parameters('vmName')]",
         "vmSize": "[parameters('vmSize')]",
         "virtualNetworkName": "[concat(variables('namePrefix'),'vnet')]",
@@ -179,13 +180,13 @@
                         "version": "latest"
                     },
                     "osDisk": {
-                        "name": "osdisk",
+                        "name": "[concat(variables('vmName'), 'osdisk', copyIndex())]",
                         "caching": "ReadWrite",
                         "createOption": "FromImage"
                     },
                     "dataDisks": [
                         {
-                            "name": "data0",
+                            "name": "[concat(variables('vmName'), 'data', copyIndex())]",
                             "createOption": "FromImage",
                             "lun": 0
                         }
