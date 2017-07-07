@@ -227,6 +227,26 @@ Machine Learning |	Machine Learning |	South Central US |	200000 transactions, 0 
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
+### Spark with Kafka (preview) on HDInsight
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage	| West US	| 1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x10,000 transactions |	$0.02
+Storage	| Storage	| West US	| 1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x10,000 transactions	| $0.02
+Functions	| Functions	| West US	| 128 MB Memory Size, 0 second(s) Execution time, 0 Execution(s)/month	| $0.00
+App Service	| App Service	| West US	| 1 instance(s), 744 hours, size: b1, basic tier, 0 SNI connection(s), 0 IP connection(s)	| $55.80
+HDInsight	| HDInsight	| West US	| Type: linux, cluster type: hadoop. Head node: A3 size, 2 instances x 744 hours. Worker node: A3 size, 3 instances x 744 hours.	| $1,190.40
+HDInsight	| HDInsight	| West US	| Type: linux, cluster type: spark. Head node: D3 size, 2 instances x 744 hours. Worker node: D3 size, 3 instances x 744 hours.	| $2,313.84
+ | | | **Monthly Total** | **$3,560.09**
+	| | | **Daily Estimate** |	**$118.67**
+	| | | **Annual Total** |	**$42,721.06**
+
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
 ### Time Series Insights using Twitter
 Estimated (mimimun) cost for running this technical pattern
 
