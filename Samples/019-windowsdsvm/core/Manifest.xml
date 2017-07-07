@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Windows Data Science Virtual Machine</Title>
+  <Owner displayname="Lixun Zhang" email="lixzhang@microsoft.com"/>
+  <PublishedOn>07/07/2017</PublishedOn>
+  <ImageUrl>{PatternAssetBaseUrl}/datasciencevm.png</ImageUrl>
+  <Description>Provision the Windows Data Science Virtual Machine and run a sample Python script on it.</Description>
+  <Summary src="DataScienceSummary.md" format="markdown"/>
+  <Prerequisites src="PreReqs.md" format="markdown"/>
+  <EstimatedTime>10 Minutes</EstimatedTime>
+  <Ingredients>
+    <Ingredient>StorageAccount</Ingredient>
+    <Ingredient>VirtualMachine</Ingredient>
+  </Ingredients>
+  <ProvisioningSteps>
+    <ArmDeployment source="DataScienceArmTemplate.json">
+      <Parameters>
+        <Credential type="windowsvm" username="adminUsername" password="adminPassword" />
+      <Parameter name="vmName" regex="{Constants.WindowsMachineNameRegex}">
+        <ExtraDescription>{Constants.WindowsMachineNameRegexDescription}</ExtraDescription>
+      </Parameter>
+    </Parameters>
+    </ArmDeployment>
+    <Manual title="Done">
+      <Instructions src="DataScienceInstructions.md" format="markdown"/>
+    </Manual>
+  </ProvisioningSteps>
+</Template>
