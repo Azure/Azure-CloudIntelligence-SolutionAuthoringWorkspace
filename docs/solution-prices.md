@@ -239,8 +239,8 @@ App Service	| App Service	| West US	| 1 instance(s), 744 hours, size: b1, basic 
 HDInsight	| HDInsight	| West US	| Type: linux, cluster type: hadoop. Head node: A3 size, 2 instances x 744 hours. Worker node: A3 size, 3 instances x 744 hours.	| $1,190.40
 HDInsight	| HDInsight	| West US	| Type: linux, cluster type: spark. Head node: D3 size, 2 instances x 744 hours. Worker node: D3 size, 3 instances x 744 hours.	| $2,313.84
  | | | **Monthly Total** | **$3,560.09**
-	| | | **Daily Estimate** |	**$118.67**
-	| | | **Annual Total** |	**$42,721.06**
+ | | | **Daily Estimate** | **$118.67**
+ | | | **Annual Total** | **$42,721.06**
 
 
 **Disclaimer**
