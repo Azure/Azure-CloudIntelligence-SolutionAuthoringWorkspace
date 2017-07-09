@@ -5,7 +5,7 @@
   <Feedback email="lixzhang@microsoft.com" />
   <PublishedOn>07/07/2017</PublishedOn>
   <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
-  <Description>A demo website using Flask.</Description>
+  <Description>Deploy a website using the Flask framework onto Azure Web App.</Description>
   <Summary src="Summary.md" format="markdown"/>
   <EstimatedTime>3 Minutes</EstimatedTime>
   <EstimatedCost daily="$2.48"/>

@@ -49,19 +49,6 @@
       },
       "resources": [
         {
-          "type": "extensions",
-          "name": "MSDeploy",
-          "apiVersion": "[variables('web-site-version')]",
-          "dependsOn": [ 
-            "[variables('web-site-id')]"
-          ],
-          "properties": {
-            "packageUri": "[variables('web-app-url')]",
-            "dbType": "None",
-            "connectionString": ""
-          }
-        },
-        {
           "type": "siteextensions", 
           "name": "python353x64",          
           "apiVersion": "[variables('web-site-version')]",
@@ -76,7 +63,7 @@
           "apiVersion": "[variables('web-site-version')]",
           "dependsOn": [ 
             "[variables('web-site-id')]",
-            "[resourceId('Microsoft.Web/sites/extensions', variables('web-site-name'), 'MSDeploy')]"
+            "[resourceId('Microsoft.Web/sites/extensions', variables('web-site-name'), 'MSDeploy')]"      
           ],
           "properties": {
             "use32BitWorkerProcess": false,
@@ -100,7 +87,22 @@
             "BLOB_ACCOUNT": "[variables('storage-name')]",
             "BLOB_KEY": "[listKeys(variables('storage-id'), variables('storage-version')).keys[0].value]"
           }
-        }
+        },        
+        {
+          "type": "extensions",
+          "name": "MSDeploy",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [ 
+            "[variables('web-site-id')]",
+            "[concat('Microsoft.Web/sites/', variables('web-site-name'), '/siteextensions/python353x64')]"        
+          ],
+          "properties": {
+            "packageUri": "[variables('web-app-url')]",
+            "dbType": "None",
+            "connectionString": ""
+          }
+        }      
+
       ]
     }
   ],

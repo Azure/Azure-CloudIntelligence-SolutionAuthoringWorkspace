@@ -43,4 +43,4 @@ Similar to the previous sample, but with multiple Machine Learning Web services.
 This example shows how to provision a Windows Data Science Virtual Machine and configure it using PowerShell.
 
 ### [Deploying a Flask Web App](020-pythonflask)
-This example shows how to deploy a Web site that's based on the Python Flask framework.
+This example shows how to deploy a website that's based on the Python Flask framework onto Azure Web App.
