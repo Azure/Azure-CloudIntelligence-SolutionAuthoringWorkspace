@@ -48,6 +48,24 @@ Functions |	Functions |	West US |	128 MB Memory Size, 10 second(s) Execution tim
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
+### Inventory Optimization
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage |   East US |	1/GB storage: Block blob type, Basic tier, LRS redundancy, cool access tier. , 1 x10,000 put/create container transactions , 1 x10,000 others transactions (except delete which is free), 1/GB data retrieval, 1/GB data write, 1/GB data geo-replication.  |	$0.03
+Functions   |	Functions   |	East US |	1536 MB Memory Size, 1800 second(s) Execution time, 720 Execution(s)/month  |	$24.70
+Batch   |	Batch   |	West US |	Free tier   |	$0.00
+Data Lake Store |	Data Lake Store |	East US 2 |		   | $39.27
+Data Lake Analytics	|   Data Lake Analytics	|   East US 2	|   paygo pay type, 208 analytic unit(s) x 5 hours(s)	|   $2,080.00
+ | | | **Monthly Total** | **$2,144.00**
+ | | | **Daily Estimate** | **$69.16**
+ | | | **Annual Total** | **$25,728.02**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
 ### Personalized Offers
 Estimated (mimimun) cost for running this technical pattern
 
@@ -104,6 +122,24 @@ Event Hubs |	Event Hubs |	East US |	1 million events, 1 thoughput units(s) x 744
  | | | **Monthly Total** | **$2,588.67**
  | | | **Daily Estimate** | **$86.29**
  | | | **Annual Total** | **$31,064.09**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
+### Resource Optimization
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Batch |	Batch |	West US |	Free tier |	$0.00
+SQL Database    |	SQL Database    |	East US	| 3 basic database(s) x 744 hours, size: b    |	$14.95
+Storage	|   Storage |	West US |	1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x10,000 transactions    |	$0.02
+Virtual Machines    |  	Virtual Machines    |	West US	| 3 Standard virtual machine(s), D3 (4 cores, 14 GB RAM, 200 GB disk) size: 186 hours |	$312.48
+App Service |	App Service |	West US	| 1 instance(s), 744 hours, size: b1, basic tier, 0 SNI connection(s), 0 IP connection(s) |	 $55.80
+ | | | **Monthly Total** | **$383.26**
+ | | | **Daily Estimate** | **$12.36**
+ | | | **Annual Total** | **$4,599.11**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
@@ -287,42 +323,6 @@ SQL Database |	SQL Database |	South Central US |	1 standard database(s) x 744 ho
  | | | **Monthly Total** | **$185.03**
  | | | **Daily Estimate** | **$6.17**
  | | | **Annual Total** | **$2,220.41**
-
-**Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
-
-
-### Resource Optimization
-Estimated (mimimun) cost for running this technical pattern
-
-**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
---------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
-Batch |	Batch |	West US |	Free tier |	$0.00
-SQL Database    |	SQL Database    |	East US	| 3 basic database(s) x 744 hours, size: b    |	$14.95
-Storage	|   Storage |	West US |	1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x10,000 transactions    |	$0.02
-Virtual Machines    |  	Virtual Machines    |	West US	| 3 Standard virtual machine(s), D3 (4 cores, 14 GB RAM, 200 GB disk) size: 186 hours |	$312.48
-App Service |	App Service |	West US	| 1 instance(s), 744 hours, size: b1, basic tier, 0 SNI connection(s), 0 IP connection(s) |	 $55.80
- | | | **Monthly Total** | **$383.26**
- | | | **Daily Estimate** | **$12.36**
- | | | **Annual Total** | **$4,599.11**
-
-**Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
-
-
-### Inventory Optimization
-Estimated (mimimun) cost for running this technical pattern
-
-**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
---------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
-Storage |	Storage |   East US |	1/GB storage: Block blob type, Basic tier, LRS redundancy, cool access tier. , 1 x10,000 put/create container transactions , 1 x10,000 others transactions (except delete which is free), 1/GB data retrieval, 1/GB data write, 1/GB data geo-replication.  |	$0.03
-Functions   |	Functions   |	East US |	1536 MB Memory Size, 1800 second(s) Execution time, 720 Execution(s)/month  |	$24.70
-Batch   |	Batch   |	West US |	Free tier   |	$0.00
-Data Lake Store |	Data Lake Store |	East US 2 |		   | $39.27
-Data Lake Analytics	|   Data Lake Analytics	|   East US 2	|   paygo pay type, 208 analytic unit(s) x 5 hours(s)	|   $2,080.00
- | | | **Monthly Total** | **$2,144.00**
- | | | **Daily Estimate** | **$69.16**
- | | | **Annual Total** | **$25,728.02**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
