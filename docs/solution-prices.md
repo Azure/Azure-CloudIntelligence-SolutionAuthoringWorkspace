@@ -147,6 +147,25 @@ App Service |	App Service |	West US	| 1 instance(s), 744 hours, size: b1, basic 
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
+### Shipping and Distribution Demand Forecasting
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+SQL Database | SQL Database | South Central US |	Single Database,  Standard tier, S1 level, 20 DTUs, 250 GB storage per DB |	$29.98
+Machine Learning | Machine Learning |	South Central US |	Web API: s1 tier, 0 overage transactions, 0 overage hours |	$100.00
+Data Factory | Data Factory	|	North Europe |	Cloud: 5 low frequency and 0 high frequency activities, 0 re-run activities, 0 data movement hour(s) |	$0.00
+Storage	| Storage | South Central US |	Block blob type, LRS redundancy, Standard - General purpose storage account tier |	$0.02
+Functions |	Functions	 | South Central US |	128 GB memory, 10 sec execution time, 100 executions/mo |	$0.00
+App Service	 |	App Service |	South Central US |	1 instance(s), 744 hours, size: d1, shared tier |	$9.67
+ | | |	**Monthly Total** |	**$139.68**
+ | | |	**Daily Estimate** | **$4.66**
+ | | |	**Annual Total** |	**$1,676.15**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
 ### Telemetry Analytics
 Estimated (mimimun) cost for running this technical pattern
 
@@ -163,26 +182,6 @@ Stream Analytics |	Stream Analytics |	South Central US |	1 unit(s) x 744 hours s
  | | | **Monthly Total** | **$204.59**
  | | | **Daily Estimate** | **$6.82**
  | | | **Annual Total** | **$2,455.08**
-
-**Disclaimer**
-* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
-
-
-### Shipping and Distribution Demand Forecasting
-Estimated (mimimun) cost for running this technical pattern
-
-**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
---------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
-SQL Database | SQL Database | South Central US |	Single Database,  Standard tier, S1 level, 20 DTUs, 250 GB storage per DB |	$29.98
-Machine Learning | Machine Learning |	South Central US |	Web API: s1 tier, 0 overage transactions, 0 overage hours |	$100.00
-Data Factory | Data Factory	|	North Europe |	Cloud: 5 low frequency and 0 high frequency activities, 0 re-run activities, 0 data movement hour(s) |	$0.00
-Storage	| Storage | South Central US |	Block blob type, LRS redundancy, Standard - General purpose storage account tier |	$0.02
-Functions |	Functions	 | South Central US |	128 GB memory, 10 sec execution time, 100 executions/mo |	$0.00
-App Service	 |	App Service |	South Central US |	1 instance(s), 744 hours, size: d1, shared tier |	$9.67
- | | |	**Monthly Total** |	**$139.68**
- | | |	**Daily Estimate** | **$4.66**
- | | |	**Annual Total** |	**$1,676.15**
-
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
