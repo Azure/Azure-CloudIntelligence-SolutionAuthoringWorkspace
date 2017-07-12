@@ -51,8 +51,8 @@ indexes:
   - name: "Solution Dashboard"
     urlSuffix: "solutiondashboard"
     level: 3
-  - name: "WebJob Deployment"
-    urlSuffix: "webjobdeployment"
+  - name: "AzureFunctionApp"
+    urlSuffix: "azurefunctionapp"
     level: 3
         
 ---
@@ -761,4 +761,4 @@ Another common use case would be provisioning multiple Azure ML experiments, wit
 ```
 
 ### SolutionDashboard
-### WebJobDeployment
+### AzureFunctionApp
