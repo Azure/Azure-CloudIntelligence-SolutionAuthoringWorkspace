@@ -51,8 +51,8 @@ indexes:
   - name: "Solution Dashboard"
     urlSuffix: "solutiondashboard"
     level: 3
-  - name: "WebJob Deployment"
-    urlSuffix: "webjobdeployment"
+  - name: "AzureFunctionApp"
+    urlSuffix: "AzureFunctionApp"
     level: 3
         
 ---
