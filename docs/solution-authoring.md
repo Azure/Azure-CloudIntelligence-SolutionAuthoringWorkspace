@@ -761,4 +761,4 @@ Another common use case would be provisioning multiple Azure ML experiments, wit
 ```
 
 ### SolutionDashboard
-### WebJobDeployment
+### AzureFunctionApp
