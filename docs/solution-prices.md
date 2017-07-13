@@ -56,11 +56,12 @@ Estimated (mimimun) cost for running this technical pattern
 Storage |	Storage |   East US |	1/GB storage: Block blob type, Basic tier, LRS redundancy, cool access tier. , 1 x10,000 put/create container transactions , 1 x10,000 others transactions (except delete which is free), 1/GB data retrieval, 1/GB data write, 1/GB data geo-replication.  |	$0.03
 Functions   |	Functions   |	East US |	1536 MB Memory Size, 1800 second(s) Execution time, 720 Execution(s)/month  |	$24.70
 Batch   |	Batch   |	West US |	Free tier   |	$0.00
+Virtual Machines  |	Virtual Machines   |	West US |	5 Standard virtual machine(s), D3 (4 cores, 14 GB RAM, 200 GB disk) size: 30 hours  |	$40.20
 Data Lake Store |	Data Lake Store |	East US 2 |		   | $39.27
-Data Lake Analytics	|   Data Lake Analytics	|   East US 2	|   paygo pay type, 208 analytic unit(s) x 5 hours(s)	|   $2,080.00
- | | | **Monthly Total** | **$2,144.00**
- | | | **Daily Estimate** | **$69.16**
- | | | **Annual Total** | **$25,728.02**
+Data Lake Analytics	|   Data Lake Analytics	|   East US 2	|   paygo pay type, 208 analytic unit(s) x 5 hours(s)	|   $400.00
+ | | | **Monthly Total** | **$504.20**
+ | | | **Daily Estimate** | **$16.26**
+ | | | **Annual Total** | **$6,050.42**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
