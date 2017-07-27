@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template> 
+  <Title>Polar Bear Data</Title>
+  <Description>This tutorial demonstrates the use of U.S. Geological Survey Polar Bear Mark-Recapture Records, for the Alaska Portion of the Southern Beaufort Sea, from 2001-2010</Description>
+  <Summary src="Summary.md" format="markdown"/> 
+  <ImageUrl>{PatternAssetBaseUrl}/polarcubs.jpg</ImageUrl>
+  <ProvisioningSteps>
+    <Manual parameterSource="sqlserver.json" title="Login for SQL Server" >
+      <Parameters>
+        <Credential type="sql" username="sqlServerUsername" password="sqlServerPassword" />
+      </Parameters>
+    </Manual>
+    <ArmDeployment source="sqlserver.json" title="Creating a SQL Server" autoResolveParameters="true" />
+    <Function name="prepsql" title="Preparing the SQL Database">
+      <Parameters>
+        <Parameter hidden="true" name="sqlConnectionString" 
+          defaultValue="Server=tcp:{Outputs.sqlServer}.database.windows.net,1433;Database={Outputs.sqlDatabase};User ID={Inputs.sqlServerUsername};Password={Inputs.sqlServerPassword};Trusted_Connection=False;Encrypt=True;Connection Timeout=30" />
+      </Parameters>
+    </Function>
+    <SolutionDashboard>
+      <Parameters>
+        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/PolarBearEmbedded.pbix" />
+        <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServer}" />
+        <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabase}" />
+        <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Inputs.sqlServerUsername}" />
+        <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Inputs.sqlServerPassword}" />
+      </Parameters>
+    </SolutionDashboard>
+    <Manual title="Done">
+      <Instructions src="Instructions.md" format="markdown" />
+    </Manual>
+  </ProvisioningSteps>
+</Template>
