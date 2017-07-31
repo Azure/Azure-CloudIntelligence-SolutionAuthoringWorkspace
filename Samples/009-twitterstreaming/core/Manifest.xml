@@ -54,14 +54,14 @@
             CREATE TABLE [dbo].[TweetScore]
             (
 	            [timestamp] [datetime] NOT NULL,
-	            [topic] [varchar](100) NOT NULL,	
+	            [topic] [nvarchar](100) NOT NULL,	
 	            [score] [float] NOT NULL,
 	            [sentiment] [char](8) NOT NULL,
-	            [text] [varchar](200) NOT NULL,
-              [id] [bigint] NOT NULL,
+	            [text] [nvarchar](200) NOT NULL,
+                    [id] [bigint] NOT NULL,
 	            [retweet_count] [int] NULL,
-	            [time_zone] [varchar](100) NULL,
-	            [lang] [varchar](100) NULL
+	            [time_zone] [nvarchar](100) NULL,
+	            [lang] [nvarchar](100) NULL
             )
           </DefaultValue>    
         </Parameter>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <Title>Flask Web App</Title>
+  <Owner displayname="Lixun Zhang" email="lixzhang@microsoft.com"/>
+  <Feedback email="lixzhang@microsoft.com" />
+  <PublishedOn>07/07/2017</PublishedOn>
+  <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
+  <Description>Deploy a website using the Flask framework onto Azure Web App.</Description>
+  <Summary src="Summary.md" format="markdown"/>
+  <EstimatedTime>3 Minutes</EstimatedTime>
+  <EstimatedCost daily="$2.48"/>
+  <ProvisioningSteps>
+    <ArmDeployment source="azuredeploy.json" title="Deploy Azure image resources"/>
+    <Manual title="Complete">
+      <Instructions src="Instructions.md" format="markdown" />
+    </Manual>
+  </ProvisioningSteps>
+</Template>

@@ -1,0 +1,90 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerUsername": {
+      "metadata": {
+        "description": "Username for SQL Server that will be created for results database (minimum 3 characters)"
+      },
+      "type": "string",
+      "minLength": 3
+    },
+    "sqlServerPassword": {
+      "metadata": {
+        "description": "Password for SQL Server that will be created for results database"
+      },
+      "type": "securestring",
+      "minLength": 8
+    }
+  },
+  "variables": {
+    "uniqueString": "[uniqueString(concat(subscription().subscriptionId, resourceGroup().name))]",
+
+    "sqlServer": "[concat(variables('uniqueString'),'srv')]",
+    "sqlDatabase": "[concat(variables('uniqueString'),'db')]",
+    "sqlServerUsername": "[parameters('sqlServerUsername')]",
+    "sqlServerPassword": "[parameters('sqlServerPassword')]",
+    "startIpAddress": "0.0.0.0",
+    "endIpAddress": "255.255.255.255",
+    "sqlServerVersion": "12.0",
+    "edition": "Standard",
+    "databaseTier": "S1",
+    "collation": "SQL_Latin1_General_CP1_CI_AS",
+    "maxSizeBytes": "2147483648",
+    "sqlSvrResourceId": "[resourceId('Microsoft.Sql/servers', variables('sqlServer'))]",
+    "sqlDbResourceId": "[resourceId('Microsoft.Sql/servers/databases', variables('sqlServer'), variables('sqlDatabase'))]"
+  },
+  "resources": [
+      {
+          "name": "[variables('sqlServer')]",
+          "type": "Microsoft.Sql/servers",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2014-04-01-preview",
+          "properties": {
+              "administratorLogin": "[variables('sqlServerUsername')]",
+              "administratorLoginPassword": "[variables('sqlServerPassword')]",
+              "version": "[variables('sqlServerVersion')]"
+            },
+            "resources": [
+                {
+                    "name": "[variables('sqlDatabase')]",
+                    "type": "databases",
+                    "location": "[resourceGroup().location]",
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [ "[concat('Microsoft.Sql/servers/', variables('sqlServer'))]" ],
+                    "properties": {
+                        "edition": "[variables('edition')]",
+                        "requestedServiceObjectiveName": "[variables('databaseTier')]",
+                        "collation": "[variables('collation')]",
+                        "maxSizeBytes": "[variables('maxSizeBytes')]"
+                    }
+                },
+                {
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [ "[concat('Microsoft.Sql/servers/', variables('sqlServer'))]" ],
+                    "location": "[resourceGroup().location]",
+                    "name": "AllowAllWindowsAzureIps",
+                    "properties": {
+                        "startIpAddress": "[variables('startIpAddress')]",
+                        "endIpAddress": "[variables('endIpAddress')]"
+                    },
+                    "type": "firewallrules"
+                }
+            ]
+        }
+  ],
+  "outputs": {
+        "sqlServer": {
+            "type": "string",
+            "value": "[variables('sqlServer')]"
+        },
+        "sqlDatabase": {
+            "type": "string",
+            "value": "[variables('sqlDatabase')]"
+        },
+        "sqlServerUsername": {
+            "type": "string",
+            "value": "[variables('sqlServerUsername')]"
+        }
+    }
+}

@@ -48,6 +48,25 @@ Functions |	Functions |	West US |	128 MB Memory Size, 10 second(s) Execution tim
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
 
 
+### Inventory Optimization
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage |   East US |	1/GB storage: Block blob type, Basic tier, LRS redundancy, cool access tier. , 1 x10,000 put/create container transactions , 1 x10,000 others transactions (except delete which is free), 1/GB data retrieval, 1/GB data write, 1/GB data geo-replication.  |	$0.03
+Functions   |	Functions   |	East US |	1536 MB Memory Size, 1800 second(s) Execution time, 720 Execution(s)/month  |	$24.70
+Batch   |	Batch   |	West US |	Free tier   |	$0.00
+Virtual Machines  |	Virtual Machines   |	West US |	5 Standard virtual machine(s), D3 (4 cores, 14 GB RAM, 200 GB disk) size: 30 hours  |	$40.20
+Data Lake Store |	Data Lake Store |	East US 2 |		   | $39.27
+Data Lake Analytics	|   Data Lake Analytics	|   East US 2	|   paygo pay type, 208 analytic unit(s) x 5 hours(s)	|   $400.00
+ | | | **Monthly Total** | **$504.20**
+ | | | **Daily Estimate** | **$16.26**
+ | | | **Annual Total** | **$6,050.42**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
 ### Personalized Offers
 Estimated (mimimun) cost for running this technical pattern
 
@@ -104,6 +123,45 @@ Event Hubs |	Event Hubs |	East US |	1 million events, 1 thoughput units(s) x 744
  | | | **Monthly Total** | **$2,588.67**
  | | | **Daily Estimate** | **$86.29**
  | | | **Annual Total** | **$31,064.09**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
+
+### Resource Optimization
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Batch |	Batch |	West US |	Free tier |	$0.00
+SQL Database    |	SQL Database    |	East US	| 3 basic database(s) x 744 hours, size: b    |	$14.95
+Storage	|   Storage |	West US |	1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x10,000 transactions    |	$0.02
+
+Virtual Machines    |  	Virtual Machines    |	West US	| 3 Standard virtual machine(s), D3 (4 cores, 14 GB RAM, 200 GB disk) size: 186 hours |	$312.48
+App Service |	App Service |	West US	| 1 instance(s), 744 hours, size: b1, basic tier, 0 SNI connection(s), 0 IP connection(s) |	 $55.80
+ | | | **Monthly Total** | **$383.26**
+ | | | **Daily Estimate** | **$12.36**
+ | | | **Annual Total** | **$4,599.11**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
+### Shipping and Distribution Demand Forecasting
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+SQL Database | SQL Database | South Central US |	Single Database,  Standard tier, S1 level, 20 DTUs, 250 GB storage per DB |	$29.98
+Machine Learning | Machine Learning |	South Central US |	Web API: s1 tier, 0 overage transactions, 0 overage hours |	$100.00
+Data Factory | Data Factory	|	North Europe |	Cloud: 5 low frequency and 0 high frequency activities, 0 re-run activities, 0 data movement hour(s) |	$0.00
+Storage	| Storage | South Central US |	Block blob type, LRS redundancy, Standard - General purpose storage account tier |	$0.02
+Functions |	Functions	 | South Central US |	128 GB memory, 10 sec execution time, 100 executions/mo |	$0.00
+App Service	 |	App Service |	South Central US |	1 instance(s), 744 hours, size: d1, shared tier |	$9.67
+ | | |	**Monthly Total** |	**$139.68**
+ | | |	**Daily Estimate** | **$4.66**
+ | | |	**Annual Total** |	**$1,676.15**
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
@@ -222,6 +280,26 @@ Machine Learning |	Machine Learning |	South Central US |	200000 transactions, 0 
  | | | **Monthly Total** | **$928.67**
  | | | **Daily Estimate** | **$30.96**
  | | | **Annual Total** | **$11,144.01**
+
+**Disclaimer**
+* All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)
+
+
+### Spark with Kafka (preview) on HDInsight
+Estimated (mimimun) cost for running this technical pattern
+
+**Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
+--------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
+Storage |	Storage	| West US	| 1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x10,000 transactions |	$0.02
+Storage	| Storage	| West US	| 1 GB storage Block blob type. Basic tier, LRS redundancy, 1 x10,000 transactions	| $0.02
+Functions	| Functions	| West US	| 128 MB Memory Size, 0 second(s) Execution time, 0 Execution(s)/month	| $0.00
+App Service	| App Service	| West US	| 1 instance(s), 744 hours, size: b1, basic tier, 0 SNI connection(s), 0 IP connection(s)	| $55.80
+HDInsight	| HDInsight	| West US	| Type: linux, cluster type: hadoop. Head node: A3 size, 2 instances x 744 hours. Worker node: A3 size, 3 instances x 744 hours.	| $1,190.40
+HDInsight	| HDInsight	| West US	| Type: linux, cluster type: spark. Head node: D3 size, 2 instances x 744 hours. Worker node: D3 size, 3 instances x 744 hours.	| $2,313.84
+ | | | **Monthly Total** | **$3,560.09**
+ | | | **Daily Estimate** | **$118.67**
+ | | | **Annual Total** | **$42,721.06**
+
 
 **Disclaimer**
 * All prices shown are in US Dollar ($). This is a summary estimate, not a quote. For up to date pricing information please visit [https://azure.microsoft.com/pricing/calculator/](https://azure.microsoft.com/pricing/calculator/)

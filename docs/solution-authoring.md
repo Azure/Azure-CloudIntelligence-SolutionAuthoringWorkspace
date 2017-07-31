@@ -180,7 +180,7 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
 > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
 
-> **Note**: Depending on the osType of underlying clusters, `hdi` **MUST** comes with either `windowsvm` or `linuxvm`. Otherwise, some invalid usernames/passwords will be overlooked.
+> **Note**: Depending on the osType of underlying clusters, `hdi` **MUST** come with either `windowsvm` or `linuxvm`. Otherwise, some invalid usernames/passwords will be overlooked.
 
 ##### **Examples**
 
@@ -368,7 +368,7 @@ In CIQS deployment creation page, users are asked to select one location/region 
 
 > **Note**: The set of locations for a particular solution is computed as the **intersection** of available regions for each comprised Azure resources. 
 
-The selected location is used by the Resource Group creation and most of the time, is also used for underlying Azure resources provisionings with `[resourceGroup().location]` signature in ARM templates. For example:
+The selected location is used by the Resource Group creation and most of the time, is also used for underlying Azure resources provisioned with `[resourceGroup().location]` signature in ARM templates. For example:
 
 ```json
 {

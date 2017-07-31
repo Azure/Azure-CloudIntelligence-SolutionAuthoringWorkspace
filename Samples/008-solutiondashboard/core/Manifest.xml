@@ -5,8 +5,8 @@
   <Description>A sample pattern to demonstrate CIQS integration with Embedded Power BI.</Description>
   <Summary src="Summary.md" format="markdown"/> 
   <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
-  <TryItNow landscapeDashboardPath="{PatternAssetBaseUrl}/TryItNow/Landscape.pbix" 
-            portraitDashboardPath="{PatternAssetBaseUrl}/TryItNow/Portrait.pbix" />
+  <TryItNow landscapeDashboardPath="{PatternAssetBaseUrl}/tryitnow/Landscape.pbix" 
+            portraitDashboardPath="{PatternAssetBaseUrl}/tryitnow/Portrait.pbix" />
   <ProvisioningSteps>
     <ArmDeployment source="sqlserver.json" title="Creating a SQL Server">
       <Parameters>

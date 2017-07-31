@@ -1,0 +1,123 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+  },
+  "variables": {
+    "storage-version": "2017-06-01",
+    "web-farm-version": "2016-09-01",
+    "web-site-version": "2016-08-01",
+    "prefix": "image",
+    "unique": "[uniqueString(resourceGroup().id)]",
+    "location": "[resourceGroup().location]",
+    "web-app-url": "https://publicdata.blob.core.windows.net/cntkciqs/pythonflaskweb.zip", 
+    "storage-name": "[concat(variables('prefix'), 'stor', variables('unique'))]",
+    "web-farm-name": "[concat(variables('prefix'), 'webplan', variables('unique'))]",
+    "web-site-name": "[concat(variables('prefix'), 'web', variables('unique'))]",
+    "storage-id": "[resourceId('Microsoft.Storage/storageAccounts', variables('storage-name'))]",
+    "web-farm-id": "[resourceId('Microsoft.Web/serverfarms', variables('web-farm-name'))]",
+    "web-site-id": "[resourceId('Microsoft.Web/sites', variables('web-site-name'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storage-name')]",
+      "apiVersion": "[variables('storage-version')]",
+      "location": "[variables('location')]",
+      "sku": { "name": "Standard_LRS" },
+      "kind": "Storage"
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "name": "[variables('web-farm-name')]",
+      "apiVersion": "[variables('web-farm-version')]",
+      "location": "[resourceGroup().location]",
+      "sku": {"name": "S1"},
+      "properties": { }
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "name": "[variables('web-site-name')]",
+      "apiVersion": "[variables('web-site-version')]",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [ 
+        "[variables('web-farm-id')]",
+        "[variables('storage-id')]"
+      ],
+      "properties": {
+        "serverFarmId": "[variables('web-farm-id')]"
+      },
+      "resources": [
+        {
+          "type": "siteextensions", 
+          "name": "python353x64",          
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/sites', variables('web-site-name'))]"
+          ],          
+          "properties": { }
+        },        
+        {
+          "type": "config",
+          "name": "web",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [ 
+            "[variables('web-site-id')]",
+            "[resourceId('Microsoft.Web/sites/extensions', variables('web-site-name'), 'MSDeploy')]"      
+          ],
+          "properties": {
+            "use32BitWorkerProcess": false,
+            "alwaysOn": true,
+            "applicationLogs": {
+              "fileSystem": {
+                "level": "Verbose"
+              }
+            }            
+          }
+        },
+        {
+          "type": "config",
+          "name": "appsettings",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [ 
+            "[variables('web-site-id')]",
+            "[resourceId('Microsoft.Web/sites/extensions', variables('web-site-name'), 'MSDeploy')]"
+          ],
+          "properties": {
+            "BLOB_ACCOUNT": "[variables('storage-name')]",
+            "BLOB_KEY": "[listKeys(variables('storage-id'), variables('storage-version')).keys[0].value]"
+          }
+        },        
+        {
+          "type": "extensions",
+          "name": "MSDeploy",
+          "apiVersion": "[variables('web-site-version')]",
+          "dependsOn": [ 
+            "[variables('web-site-id')]",
+            "[concat('Microsoft.Web/sites/', variables('web-site-name'), '/siteextensions/python353x64')]"        
+          ],
+          "properties": {
+            "packageUri": "[variables('web-app-url')]",
+            "dbType": "None",
+            "connectionString": ""
+          }
+        }      
+
+      ]
+    }
+  ],
+  "outputs": {
+    "storage": {
+      "value": "[reference(variables('storage-name'))]",
+      "type" : "object"
+    },   
+    "webfarm": {
+      "value": "[reference(variables('web-farm-name'))]",
+      "type" : "object"
+    },
+    "siteHostName": {
+      "value": "[reference(variables('web-site-name')).hostNames[0]]",
+      "type": "string"
+    }
+  }
+}
