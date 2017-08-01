@@ -52,7 +52,7 @@ indexes:
     urlSuffix: "solutiondashboard"
     level: 3
   - name: "AzureFunctionApp"
-    urlSuffix: "azurefunctionapp"
+    urlSuffix: "AzureFunctionApp"
     level: 3
         
 ---
