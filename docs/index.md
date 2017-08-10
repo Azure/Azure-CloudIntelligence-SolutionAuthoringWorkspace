@@ -43,7 +43,7 @@ Publishing custom solutions into CIQS is a matter of running a shell command fro
 Finally, I would like to call out several cool things about *SAW*:
 - Full *Git* support in the Web environment (thanks to the *App Service Editor* aka *Visual Studio Online "Monaco"*); this is really great for collaborative solution authoring (example - git clone and then saw deploy)
 - Local SAW environment allows incorporating virtually any tools into the authoring process
-- Self-publishing into *Cortana Intelligence* gallery is going to be available in the near future along with the “Share” feature allowing sharing the solution with a limit audience
+- Self-publishing into *Cortana Intelligence* gallery is going to be available in the near future along with the “Share” feature allowing sharing the solution with a limited audience
 - Fast adoption and lots of new Samples and features coming up
 
 Questions? [Contact us!](mailto:cisauthors@microsoft.com)
