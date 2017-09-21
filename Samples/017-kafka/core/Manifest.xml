@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Template>
-  <Title>Apache Kafka for HDInsight</Title>
+  <Title>Spark with Kafka (preview) on HDInsight</Title>
   <Owner displayname="Darwin Schweitzer" email="darsch@microsoft.com"/>
-  <ImageUrl>{PatternAssetBaseUrl}/kafka.jpg</ImageUrl>
+  <ImageUrl>{PatternAssetBaseUrl}/kafka.png</ImageUrl>
   <Description>Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight.</Description>
   <Summary src="Summary.md" format="markdown"/>
-  <EstimatedTime>20 Minutes</EstimatedTime>
+  <Prerequisites src="Prereqs.md" format="markdown"/>
+  <EstimatedTime>25 Minutes</EstimatedTime>
+  <EstimatedCost daily="$118.67" url="https://azure.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/solution-prices#spark-with-kafka-preview-on-hdinsight" />
+    <Ingredients>
+    <Ingredient>HDInsight</Ingredient>
+    <Ingredient>StorageAccount</Ingredient>
+  </Ingredients>
   <ProvisioningSteps>
-    <ArmDeployment source="create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" title="Creating solution's Azure resources" >
+    <Manual parameterSource="create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" title="Login for Kafka and Spark resources" >
       <Parameters>
         <Parameter name="baseUrl" hidden="true">
           <DefaultValue>{PatternAssetBaseUrl}</DefaultValue>
         </Parameter>
         <Credential type="hdi" username="hdiUserName" password="hdiPassword" />
       </Parameters>
-    </ArmDeployment>
+    </Manual>
+    <Function name="CopyScripts" title="Copy Jupyter Notebook Scripts" >
+      <Parameters>
+        <Parameter hidden="true" name="StorageName" defaultValue="{Outputs.StorageAccountName}"  />
+        <Parameter hidden="true" name="StorageKey" defaultValue="{Outputs.StorageAccountKey}" />
+      </Parameters>
+    </Function>
+    <ArmDeployment source="create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" title="Creating solution's Kafka and Spark resources" autoResolveParameters="true" />
     <Manual title="Done">
       <Instructions src="Instructions.md" format="markdown" />
     </Manual>
