@@ -7,7 +7,6 @@
         },
         "hdiUserName": {
             "type": "string",
-            "defaultValue": "admin",
             "metadata": {
                 "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
             }
@@ -25,10 +24,12 @@
     "location": "[resourceGroup().location]",
     "defaultApiVersion": "2015-05-01-preview",
     "clusterApiVersion": "2015-03-01-preview",
+    "headnodeCount": "2",
     "clusterWorkerNodeCount": "3",
     "disksPerWorkerNode": "2",
+    "zookeepernodeCount": "3",
     "clusterVNetName": "[concat(variables('uniqueNamePrefix'),'-vnet')]",
-    "clusterStorageAccountName": "[concat(variables('uniqueNamePrefix'),'store')]",
+    "clusterStorageAccountName": "[concat(variables('uniqueNamePrefix'),'cl')]",
     "kafkaClusterName": "[concat('kafka-', variables('uniqueNamePrefix'))]",
     "sparkClusterName": "[concat('spark-', variables('uniqueNamePrefix'))]",
     "clusterVNetAddressSpace": "10.0.0.0/16",
@@ -107,7 +108,7 @@
           "roles": [
             {
               "name": "headnode",
-              "targetInstanceCount": "2",
+              "targetInstanceCount": "[variables('headnodeCount')]",
               "hardwareProfile": {
                 "vmSize": "Large"
               },
@@ -146,7 +147,7 @@
             },
             {
               "name": "zookeepernode",
-              "targetInstanceCount": "3",
+              "targetInstanceCount": "[variables('zookeepernodeCount')]",
               "hardwareProfile": {
                 "vmSize": "Medium"
               },
@@ -202,7 +203,7 @@
           "roles": [
             {
               "name": "headnode",
-              "targetInstanceCount": "2",
+              "targetInstanceCount": "[variables('headnodeCount')]",
               "hardwareProfile": {
                 "vmSize": "Standard_D3"
               },
