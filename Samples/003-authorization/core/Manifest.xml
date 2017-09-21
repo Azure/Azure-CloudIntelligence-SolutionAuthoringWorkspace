@@ -9,7 +9,7 @@
     <Summary src="Summary.md" format="markdown"/>
     <EstimatedTime>3 Minutes</EstimatedTime>
     <ProvisioningSteps>
-        <Function name="performAuthorizedOperation" title="Performing an authorized operation">
+        <Function name="performAuthorizedOperation" title="Performing an authorized operation" retriable="true">
             <Parameters>
                 <Parameter name="accessToken" type="string" hidden="true" defaultValue="{Authorization}" />
                 <Parameter name="resourceGroup" type="string" hidden="true" defaultValue="{ResourceGroup.Name}" />

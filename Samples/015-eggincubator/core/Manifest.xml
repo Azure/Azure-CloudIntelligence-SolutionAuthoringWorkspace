@@ -34,7 +34,7 @@
                 <Add key="SexRatio" value="{Inputs.sexRatio}" />
             </AppSettings>            
         </AzureFunctionApp>
-        <Function name="prepsql" title="Preparing the SQL Database">
+        <Function name="prepsql" title="Preparing the SQL Database" retriable="true">
           <Parameters>
             <Parameter hidden="true" name="sqlConnectionString" 
               defaultValue="Server=tcp:{Outputs.sqlServer}.database.windows.net,1433;Database={Outputs.sqlDatabase};User ID={Inputs.sqlServerUsername};Password={Inputs.sqlServerPassword};Trusted_Connection=False;Encrypt=True;Connection Timeout=30" />
