@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Time Series Insights using Twitter</Title>
+  <Owner displayname="Darwin Schweitzer" email="darsch@microsoft.com"/>
+  <ImageUrl>{PatternAssetBaseUrl}/timeseriesinsight.png</ImageUrl>
+  <Description>Analyzing data streams in real-time is a problem that a lot of businesses can relate to. In this fast paced digital era, enterprises depend on insights from Operational Technology like real-time times series analysis to detect changes, monitor, and/or control physical devices, processes, and events in the enterprise..  This tutorial lets you stream data from Twitter using Key Words of your choice including #hashtags and @mentions and use Microsoft's Time Series Insights to monitor those keywords.</Description>
+  <Summary src="Summary.md" format="markdown"/>
+  <EstimatedTime>15 Minutes</EstimatedTime>
+  <EstimatedCost daily="$12.45" url="https://azure.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/solution-prices#time-series-insights-using-twitter" />
+  <Ingredients>
+    <Ingredient>EventHub</Ingredient>
+    <Ingredient>StreamAnalytics</Ingredient>
+    <Ingredient>StorageAccount</Ingredient>
+    <Ingredient>MachineLearning</Ingredient>
+    <Ingredient>Sql</Ingredient>
+    <Ingredient>PowerBi</Ingredient>
+  </Ingredients>
+  <ProvisioningSteps>
+    <Manual parameterSource="CreateResourcesArm.json" title="Setup SQL server account">
+      <Parameters>
+        <Credential type="sql" username="sqlServerUsername" password="sqlServerPassword" />
+        <Parameter name="webServiceApiUrl" hidden="true" />
+        <Parameter name="webServiceApiKey" hidden="true" />
+        <Parameter name="transformQuery" hidden="true">
+          <DefaultValue>
+            SELECT timestamp, topic, Result.[Score] as score, Result.[Sentiment] as sentiment, text, id, retweet_count, time_zone, lang INTO [SQLOutput] FROM
+            (SELECT DATEADD(ms, timestamp_ms, '1970-01-01') as timestamp, Topic as topic, sentiment(text) as Result, Text, id, retweet_count, time_zone, lang FROM [TwitterStream]) TwitterStream;
+            SELECT timestamp, topic, Result.[Score] as score, Result.[Sentiment] as sentiment, text, id, retweet_count, time_zone, lang INTO [ehProcessOutput] FROM
+            (SELECT DATEADD(ms, timestamp_ms, '1970-01-01') as timestamp, Topic as topic, sentiment(text) as Result, Text, id, retweet_count, time_zone, lang FROM [TwitterStream]) TwitterStream;
+            SELECT timestamp, topic, Result.[Score] as score, Result.[Sentiment] as sentiment, text, id, retweet_count, time_zone, lang INTO [StorageOutput] FROM
+            (SELECT DATEADD(ms, timestamp_ms, '1970-01-01') as timestamp, Topic as topic, sentiment(text) as Result, Text, id, retweet_count, time_zone, lang FROM [TwitterStream]) TwitterStream;
+          </DefaultValue>
+        </Parameter>
+      </Parameters>
+    </Manual>
+    <Manual title="Configure Twitter listener">
+      <Parameters>
+        <Parameter name="twitterKeywords" description="Twitter topics"
+          type="string" defaultValue="@Microsoft,@ch9,#msbuild,#Seattle,#devops,#agile,#cloud,#msdev,#developer,#Xamarin,#azure,#startups,#microservices">
+          <ExtraDescription>
+            Comma-separated list of words, phrases, #hashtags and @mentions
+          </ExtraDescription>
+        </Parameter>
+        <Parameter name="oauthConsumerKey" description="Consumer key (API key)" type="string" />
+        <Parameter name="oauthConsumerSecret" description="Consumer secret (API secret)" type="string" />
+        <Parameter name="oauthToken" description="Access token" type="string" />
+        <Parameter name="oauthTokenSecret" description="Access token secret" type="string" />
+      </Parameters>
+    </Manual>
+    <AzureFunctionApp alwaysOn="true">
+      <AppSettings>
+        <Add key="TWITTER_KEYWORDS" value="{Inputs.twitterKeywords}" />
+        <Add key="TWITTER_OAUTH_CONSUMER_KEY" value="{Inputs.oauthConsumerKey}" />
+        <Add key="TWITTER_OAUTH_CONSUMER_SECRET" value="{Inputs.oauthConsumerSecret}" />
+        <Add key="TWITTER_OAUTH_TOKEN" value="{Inputs.oauthToken}" />
+        <Add key="TWITTER_OAUTH_TOKEN_SECRET" value="{Inputs.oauthTokenSecret}" />
+      </AppSettings>
+    </AzureFunctionApp>
+    <AzureMlWebService hiddenParameters ="true">
+      <PackageUrl>https://storage.azureml.net/directories/5067590f26d5412ebf2220a1dacb0f22/items</PackageUrl>
+      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/predictive-mini-twitter-sentiment-analysis-experiment-1</GalleryUrl>
+      <EntityId>Predictive-Experiment-Mini-Twitter-sentiment-analysis-2</EntityId>
+    </AzureMlWebService>
+    <ArmDeployment source="CreateResourcesArm.json" title="Creating solution's Azure resources" autoResolveParameters="true" />
+    <Function name="executeSqlQuery" title="Preparing SQL database">
+      <Parameters>
+        <Parameter hidden="true" name="sqlConnectionString" defaultValue="{Outputs.sqlConnectionString}" />
+        <Parameter hidden="true" name="sqlQuery">
+          <DefaultValue>
+            CREATE TABLE [dbo].[TweetScore]
+            (
+	            [timestamp] [datetime] NOT NULL,
+	            [topic] [nvarchar](100) NOT NULL,	
+	            [score] [float] NOT NULL,
+	            [sentiment] [char](8) NOT NULL,
+	            [text] [nvarchar](200) NOT NULL,
+              [id] [bigint] NOT NULL,
+	            [retweet_count] [int] NULL,
+	            [time_zone] [nvarchar](100) NULL,
+	            [lang] [nvarchar](100) NULL
+            )
+          </DefaultValue>    
+        </Parameter>
+      </Parameters>
+    </Function>
+    <SolutionDashboard>
+      <Parameters>
+        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/StreamingTweetsEmbedded.pbix" />
+        <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServerName}" />
+        <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabaseName}" />
+        <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Inputs.sqlServerUsername}" />
+        <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Inputs.sqlServerPassword}" />
+      </Parameters>
+    </SolutionDashboard>
+    <AzureFunctionApp title="Starting data ingress">
+      <ConnectionStrings>
+        <Add name="EventHubConnectionString" connectionString="{Outputs.eventHubConnectionStringIngest}" />
+      </ConnectionStrings>
+      <DeployWebJobs src="{PatternAssetBaseUrl}/WebJobs.zip" />
+    </AzureFunctionApp>
+    <Function name="startStreamingJob" title="Starting Stream Analytics job">
+      <Parameters>
+        <Parameter hidden="true" name="accessToken" type="string" defaultValue="{Authorization}" /> 
+        <Parameter hidden="true" name="resourceGroupName" type="string" defaultValue="{ResourceGroup.Name}" />
+        <Parameter hidden="true" name="subscriptionId" type="string" defaultValue="{SubscriptionId}" /> 
+        <Parameter hidden="true" name="saJobName" type="string" defaultValue="{Outputs.saName}" /> 
+      </Parameters>
+    </Function>
+    <Manual title="Done">
+      <Instructions src="Instructions.md" format="markdown" />
+    </Manual>
+  </ProvisioningSteps>
+</Template>
