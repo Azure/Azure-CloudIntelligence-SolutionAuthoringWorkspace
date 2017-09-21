@@ -12,7 +12,7 @@
         <ArmDeployment source="arm\documentDb.json" title="Creating a DocumentDB account" />
         <AzureFunctionApp createStorageAccount="false">
             <ConnectionStrings>
-                <Add name="documentDbConnectionString" connectionString="AccountEndpoint={Outputs.documentDbEndpoint}/;AccountKey={Outputs.documentDbPrimaryKey};" />
+                <Add name="DocumentDb" connectionString="AccountEndpoint={Outputs.documentDbEndpoint};AccountKey={Outputs.documentDbPrimaryKey};" />
             </ConnectionStrings>
         </AzureFunctionApp>
         <Function name="createDatabase" title="Creating a DocumentDB database" retriable="true">
