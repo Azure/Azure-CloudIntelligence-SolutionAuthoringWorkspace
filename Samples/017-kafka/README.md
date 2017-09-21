@@ -1,4 +1,4 @@
-### Welcome to the Microsoft Cortana Intelligence Solution Template - Time Series Insights using Twitter
+### Welcome to the Microsoft Cortana Intelligence Solution Template - Spark with Kafka (preview) on HDInsight
 
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://start.cortanaintelligence.com/Deployments/new/kafka)
