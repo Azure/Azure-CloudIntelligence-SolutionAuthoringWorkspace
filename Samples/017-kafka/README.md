@@ -1,7 +1,9 @@
 ### Welcome to the Microsoft Cortana Intelligence Solution Template - Spark with Kafka (preview) on HDInsight
 
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://start.cortanaintelligence.com/Deployments/new/kafka)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://start.cortanaintelligence.com/track/Deployments/new/kafka?source=GitHub)
+
+[View Deployed Solution](https://start.cortanaintelligence.com/Deployments?type=kafka)
 
 ## Architecure
 [![Solution Diagram](assets/kafkaArchitecture.png)](assets/kafkaArchitecture.png)
