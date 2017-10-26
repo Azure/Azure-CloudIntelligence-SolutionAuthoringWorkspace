@@ -1,7 +1,10 @@
 ### Welcome to the Microsoft Cortana Intelligence Solution Template - Time Series Insights using Twitter
 
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://start.cortanaintelligence.com/Deployments/new/twittertimeseriesinsights)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://start.cortanaintelligence.com/track/Deployments/new/twittertimeseriesinsights?source=GitHub)
+
+[View Deployed Solution](https://start.cortanaintelligence.com/Deployments?type=twittertimeseriesinsights)
+
 
 [![Solution Diagram](assets/twittertimeseriesinsights.jpg)](assets/twittertimeseriesinsights.jpg)
 
