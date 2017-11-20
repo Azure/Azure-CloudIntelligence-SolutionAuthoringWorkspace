@@ -84,7 +84,7 @@
       </ConnectionStrings>
       <DeployWebJobs src="{PatternAssetBaseUrl}/WebJobs.zip" />
     </AzureFunctionApp>
-    <Function name="startStreamingJob" title="Starting Stream Analytics job">
+    <Function name="startStreamingJob" title="Starting Stream Analytics job" retriable="true">
       <Parameters>
         <Parameter hidden="true" name="accessToken" type="string" defaultValue="{Authorization}" /> 
         <Parameter hidden="true" name="resourceGroupName" type="string" defaultValue="{ResourceGroup.Name}" />
