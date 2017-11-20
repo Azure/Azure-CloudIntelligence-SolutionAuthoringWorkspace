@@ -33,6 +33,8 @@
     </Manual>
     <AzureFunctionApp alwaysOn="true">
       <AppSettings>
+        <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+        <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />      
         <Add key="TWITTER_KEYWORDS" value="{Inputs.twitterKeywords}" />
         <Add key="TWITTER_OAUTH_CONSUMER_KEY" value="{Inputs.oauthConsumerKey}" />
         <Add key="TWITTER_OAUTH_CONSUMER_SECRET" value="{Inputs.oauthConsumerSecret}" />

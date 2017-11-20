@@ -1,10 +1,12 @@
 #load "..\CiqsHelpers\All.csx"
 
-using Microsoft.Azure;
+using System.Net;
 using Microsoft.Azure.Management.StreamAnalytics;
 using Microsoft.Azure.Management.StreamAnalytics.Models;
+using Microsoft.Rest.Azure.Authentication;
+using Microsoft.Rest;
 
-public static async Task Run(HttpRequestMessage req, TraceWriter log)
+public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 {
     var parametersReader = await CiqsInputParametersReader.FromHttpRequestMessage(req);
     string subscriptionId = parametersReader.GetParameter<string>("subscriptionId");
@@ -12,29 +14,36 @@ public static async Task Run(HttpRequestMessage req, TraceWriter log)
     string resourceGroupName = parametersReader.GetParameter<string>("resourceGroupName");
     string saJobName = parametersReader.GetParameter<string>("saJobName");
 
-    await StartStreamingJob(subscriptionId, authorizationToken, resourceGroupName, saJobName);
+    try
+    {
+        StartStreamingJob(subscriptionId, authorizationToken, resourceGroupName, saJobName);
+    }
+    catch (Exception e)
+    {
+        log.Error("Unable start Stream Analytics Job", e);
+        return req.CreateResponse(
+            HttpStatusCode.BadRequest, 
+            new {
+                Message = $"Unable start Stream Analytics Job {saJobName}. \n\n{e.Message}"
+            });
+    }
+
+    return null;
 }
 
-private static async Task StartStreamingJob(string subscriptionId, string authorizationToken, string resourceGroupName, string jobName)
+private static void StartStreamingJob(string subscriptionId, string authorizationToken, string resourceGroupName, string jobName)
 {
-    TokenCloudCredentials credentials = new TokenCloudCredentials(subscriptionId, authorizationToken);
+    var credentials = new TokenCredentials(authorizationToken);
     using (StreamAnalyticsManagementClient streamClient = new StreamAnalyticsManagementClient(credentials))
     {
-        JobStartParameters jobStartParameters = new JobStartParameters
+        streamClient.SubscriptionId = subscriptionId;
+
+        // Start a streaming job
+        StartStreamingJobParameters jobStartParameters = new StartStreamingJobParameters()
         {
-            OutputStartMode = OutputStartMode.JobStartTime
+            OutputStartMode = OutputStartMode.JobStartTime            
         };
 
-        LongRunningOperationResponse response = streamClient.StreamingJobs.Start(resourceGroupName, jobName, jobStartParameters);        
-        while (response.Status != OperationStatus.Succeeded)
-        {
-            var uri = new Uri(response.OperationStatusLink);            
-            response = await streamClient.GetLongRunningOperationStatusAsync(response.OperationStatusLink);
-            if (response.Status == OperationStatus.Failed)
-            {
-                throw new Exception($"Start SA job: {jobName} failed");
-            }
-            await Task.Delay(1000);
-        }
+        streamClient.StreamingJobs.Start(resourceGroupName, jobName, jobStartParameters);        
     }
 }
