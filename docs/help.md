@@ -5,9 +5,7 @@ navigation_weight: 1
 ---
 ## Frequently Asked Questions
 ### Common Deployment Failures
-This section describes some common CIQS deployment errors you may encounter, and provides information to resolve the errors.
-
-For more information on Azure Resource Management errors, please see [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors).
+This section describes some common CIQS deployment errors you may encounter, and provides information to resolve the errors. For more information on Azure Resource Management errors, please see [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 #### Conflict
 
@@ -20,9 +18,9 @@ Not enough available reserved instance servers to satisfy this request. Currentl
 ```
 
 ##### What should I do?
-- [Contact Azure support]({{ page.url }}#how-to-submit-azure-support-request)
-- [Resolving steps]({{ page.url }}#how-to-resolve-quota-issue)
-- [Contact CIQS support]({{ page.url }}#how-to-contact-CIQS-support)
+- [Contact Azure support](#how-to-submit-azure-support-request)
+- [Resolving quota related issues](#how-to-resolve-quota-issue)
+- [Contact CIQS support](#how-to-contact-CIQS-support)
 
 #### BadRequest
 ##### Common error messages
@@ -34,9 +32,9 @@ The region is not enabled for this subscription, please contact support for more
 ```
 
 ##### What should I do?
-- [Contact Azure support](help.md#how-to-submit-azure-support-request)
-- [Resolving steps]({{ page.url }}#how-to-resolve-quota-issue)
-- [Contact CIQS support]({{ page.url }}#how-to-contact-CIQS-support)
+- [Contact Azure support](#how-to-submit-azure-support-request)
+- [Resolving quota related issues](#how-to-resolve-quota-issue)
+- [Contact CIQS support](#how-to-contact-CIQS-support)
 
 #### ExceededMaxAccountCount
 
