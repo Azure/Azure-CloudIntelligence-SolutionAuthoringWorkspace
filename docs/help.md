@@ -1,4 +1,8 @@
-
+---
+layout: default
+title: FAQ
+navigation_weight: 1
+---
 ## Frequently Asked Questions
 ### Common Deployment Failures
 This section describes some common CIQS deployment errors you may encounter, and provides information to resolve the errors.
