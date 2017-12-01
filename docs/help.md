@@ -15,12 +15,8 @@ This error code indicating that ARM pre-flight validation fails.
 
 | Common error message | Mitigation/Resolution |
 | ------------ | ------------- |
-| *The maximum number of Free ServerFarms allowed in a Subscription is 10.* | Quota related issue. You can follow the instructions on [How to resolve quota issues](#how-to-resolve-quota-issue). If the problem persists, please [contact CIQS support](#how-to-contact-CIQS-support).
-
-Once the issue is resolved, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step). |
-| *Not enough available reserved instance servers to satisfy this request. Currently 0 instances are available.* | Quota related issue. You can follow the instructions on [How to resolve quota issues](#how-to-resolve-quota-issue). If the problem persists, please [contact CIQS support](#how-to-contact-CIQS-support).
-
-Once the issue is resolved, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step). |
+| *The maximum number of Free ServerFarms allowed in a Subscription is 10.* | Quota related issue. You can follow the instructions on [How to resolve quota issues](#how-to-resolve-quota-issue). If the problem persists, please [contact CIQS support](#how-to-contact-CIQS-support). Once the issue is resolved, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step). |
+| *Not enough available reserved instance servers to satisfy this request. Currently 0 instances are available.* | Quota related issue. You can follow the instructions on [How to resolve quota issues](#how-to-resolve-quota-issue). If the problem persists, please [contact CIQS support](#how-to-contact-CIQS-support). Once the issue is resolved, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step). |
 
 ### BadRequest
 
