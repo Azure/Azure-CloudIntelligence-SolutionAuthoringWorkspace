@@ -86,9 +86,9 @@ For errors not listed in the table, please [contact CIQS support](#how-to-contac
 ### Invalid useruser or password
 | Error Code | Detailed Message | Mitigation/Resolution |
 | -------- | ------------ | ------------- |
-| *15021* | *Invalid value given for parameter Password. Specify a valid parameter value. (Code: 15021, ResourceType: Microsoft.Sql/servers, ResourceName: resourceName)* | <ul><li>[Contact CIQS support](#how-to-contact-ciqs-support)</li></ul> |
-| *40616* | *'admin' is not a valid login name in this version of SQL Server.* | <ul><li>[Contact CIQS support](#how-to-contact-ciqs-support)</li></ul> |
-| *BadRequest* | *Uppercase characters in cluster username are not allowed for version 3.5.* | <ul><li>[Contact CIQS support](#how-to-contact-ciqs-support)</li></ul> |
+| *15021* | *Invalid value given for parameter Password. Specify a valid parameter value. (Code: 15021, ResourceType: Microsoft.Sql/servers, ResourceName: resourceName)* | [Contact CIQS support](#how-to-contact-ciqs-support) |
+| *40616* | *'admin' is not a valid login name in this version of SQL Server.* | [Contact CIQS support](#how-to-contact-ciqs-support) |
+| *BadRequest* | *Uppercase characters in cluster username are not allowed for version 3.5.* | [Contact CIQS support](#how-to-contact-ciqs-support) |
 
 For errors not listed in the table, please [contact CIQS support](#how-to-contact-ciqs-support) for help.
 
@@ -100,10 +100,48 @@ TBA
 
 ### How to submit Azure support request?
 
+In Azure portal (https://portal.azure.com), click "Help + support" from the right panel, and then click on "+ New support request". You can find "Help + support" from the question mark on the top right:
+
+[submit azure support request](images/faq-5.png)
+
+Follow instructions to create a support request. Please see a sample instruction in [How to request quota increase](#how-to-request-quota-increase). ([Example: Resource Manager vCPU core quota increase requests](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request))
+
+[submit azure support request](images/faq-5.png)
+
 ### How to request quota increase?
+
+An example is available here: [Resource Manager vCPU core quota increase requests](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request)
+
+In the case of "[**MaxOnDemandHdiCoresReached**](#maxondemandhdicoresreached)", select issue type 'Quota' and quota type 'Data Factory':
+
+[quota type data factory](images/faq-6.png)
+
+Follow instructions and fill in problem descriptions as detailed as possible and attach files if necessary; Finally, click on "Create":
+
+[create](images/faq-7.png)
 
 ### How to contact CIQS support?
 
+In CIQS gallery home page, you can find "Help & support" from the question mark on the top right.
+
+[support](images/faq-1.png)
+
+In deployment detail page, you can find "Ask for help" link upon deployment failures.
+
+[ask for help](images/faq-2.png)
+
+Describe your issue as detailed as possible in the email body. Our on-call engineers will be ready to help you once we hear from you.
+
+[email](images/faq-3.png)
+
 ### How to contact subscription admin?
 
+In Azure portal (https://portal.azure.com), click "Subscriptions" from the right panel and select your target subscription, and then click on "Access Control(IAM)". From there you will see contact info of the administrator(s) for that subscription.
+
+[admin](images/faq-8.png)
+
 ### How to retry a failed provisioning step?
+
+Retrying a failed provisioning step is easy. In the deployment failure page, click the "retry" button. Before clicking the "retry" button, make sure that the previous failure is resolved or mitigated, such as [the quota limit has been increased](#how-to-request-quota-increase).
+
+[retry](images/faq-4.png)
