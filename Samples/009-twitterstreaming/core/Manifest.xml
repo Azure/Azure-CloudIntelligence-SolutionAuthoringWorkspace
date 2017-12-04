@@ -33,6 +33,8 @@
     </Manual>
     <AzureFunctionApp alwaysOn="true">
       <AppSettings>
+        <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+        <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />      
         <Add key="TWITTER_KEYWORDS" value="{Inputs.twitterKeywords}" />
         <Add key="TWITTER_OAUTH_CONSUMER_KEY" value="{Inputs.oauthConsumerKey}" />
         <Add key="TWITTER_OAUTH_CONSUMER_SECRET" value="{Inputs.oauthConsumerSecret}" />
@@ -82,7 +84,7 @@
       </ConnectionStrings>
       <DeployWebJobs src="{PatternAssetBaseUrl}/WebJobs.zip" />
     </AzureFunctionApp>
-    <Function name="startStreamingJob" title="Starting Stream Analytics job">
+    <Function name="startStreamingJob" title="Starting Stream Analytics job" retriable="true">
       <Parameters>
         <Parameter hidden="true" name="accessToken" type="string" defaultValue="{Authorization}" /> 
         <Parameter hidden="true" name="resourceGroupName" type="string" defaultValue="{ResourceGroup.Name}" />

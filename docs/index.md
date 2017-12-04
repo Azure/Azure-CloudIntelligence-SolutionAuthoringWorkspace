@@ -6,8 +6,6 @@ navigation_weight: 1
 *This is based on my 5 minute CIQS/SAW infomercial at the All Hands on February, 24th. Putting it here as a placeholder for now.* -andrew
 # Hello everybody.
 
-Go to solution authoring in [INT](https://caqsint.azure.net/CustomSolutions) or [PROD](https://start.cortanaintelligence.com/CustomSolutions).
-
 Some of you may have heard about *CIQS* or *Cortana Intelligence Quick Start*, the deployment engine behind *Cortana Intelligence Solutions*. For those who haven't, *CIQS* is the service that orchestrates solution deployment into a customer's *Azure* subscription by performing a series of provisioning activities that generally fall into such categories as
 - Cloud resource creation (essentially, things that can be achieved with ARM templates)
 - Execution of custom provisioning code (things that are not possible to achieve with ARM)
@@ -45,7 +43,7 @@ Publishing custom solutions into CIQS is a matter of running a shell command fro
 Finally, I would like to call out several cool things about *SAW*:
 - Full *Git* support in the Web environment (thanks to the *App Service Editor* aka *Visual Studio Online "Monaco"*); this is really great for collaborative solution authoring (example - git clone and then saw deploy)
 - Local SAW environment allows incorporating virtually any tools into the authoring process
-- Self-publishing into *Cortana Intelligence* gallery is going to be available in the near future along with the “Share” feature allowing sharing the solution with a limit audience
+- Self-publishing into *Cortana Intelligence* gallery is going to be available in the near future along with the “Share” feature allowing sharing the solution with a limited audience
 - Fast adoption and lots of new Samples and features coming up
 
 Questions? [Contact us!](mailto:cisauthors@microsoft.com)

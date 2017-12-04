@@ -1,4 +1,14 @@
-﻿This Tutorial demonstrates how to use Spark with Kafka (preview) on HDInsight
+### Welcome to the Microsoft Cortana Intelligence Solution Template - Spark with Kafka (preview) on HDInsight
+
+
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://start.cortanaintelligence.com/track/Deployments/new/kafka?source=GitHub)
+
+[View Deployed Solution](https://start.cortanaintelligence.com/Deployments?type=kafka)
+
+## Architecure
+[![Solution Diagram](assets/kafkaArchitecture.png)](assets/kafkaArchitecture.png)
+
+This Tutorial demonstrates how to use Spark with Kafka (preview) on HDInsight
 
 While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use a Cortana Intelligence Solution Template which deploys the clusters using an Azure Resource Manager template and Azure Functions. 
 Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
@@ -18,8 +28,5 @@ Spark structured streaming is a stream processing engine built on Spark SQL. It 
 3. Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka on HDInsight using DStreams. This example uses a Jupyter notebook that runs on the Spark cluster.
 
 	[Apache Spark streaming (DStream) example with Kafka (preview) on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-with-kafka#a-idkafkahostsakafka-host-information)
-
-## Architecure
-[![Solution Diagram]({PatternAssetBaseUrl}/kafkaArchitecture.png)]({PatternAssetBaseUrl}/kafkaArchitecture.png)
 
 [Apache Hadoop®](http://hadoop.apache.org/) and associated open source project names are trademarks of [The Apache Software Foundation](http://apache.org/).

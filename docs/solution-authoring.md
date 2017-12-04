@@ -6,6 +6,9 @@ indexes:
   - name: "Solution manifest"
     urlSuffix: "solution-manifest"
     level: 1
+  - name: "Owner(s)"
+    urlSuffix: "owners"
+    level: 2
   - name: "LocationsToExclude"
     urlSuffix: "locationstoexclude"
     level: 2
@@ -58,6 +61,23 @@ indexes:
 ---
 # Solution authoring
 ## Solution manifest
+
+### Owner(s)
+__&lt;Owners/&gt;__ tag specifies a list of __&lt;Owner/&gt;__ of the solution. As a solution owner, you will be able to:
+-	Publish/Modify/Update the solution in CIQS curated gallery;
+-	Change/Transfer ownership of the solution;
+
+To use this feature, please specify `<Owners/>` within `<Template/>` in your solution **Manifest.xml**.
+
+Here is an example of how it is used:
+```xml
+<Template>
+  <Owners>
+    <Owner displayname="Don John" email="donjohn@microsoft.com" />
+    <Owner displayname="Boken Henry" email="bokeh@microsoft.com" />
+  </Owners>
+</Template>
+```
 
 ### LocationsToExclude
 __&lt;LocationsToExclude/&gt;__ tag allows pattern authors to hide locations from CIQS location dropdown. This is very useful especially when some region(**s**) is known to cause deployment failures.

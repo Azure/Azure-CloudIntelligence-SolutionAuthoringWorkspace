@@ -10,16 +10,11 @@
     <EstimatedTime>3 Minutes</EstimatedTime>
     <ProvisioningSteps>
         <ArmDeployment source="arm\documentDb.json" title="Creating a DocumentDB account" />
-        <ArmDeployment source="arm\publishConnectionStrings.json" title="Publishing DocumentDB connection string">
-            <Parameters>
-                <Parameter name="functionAppName" hidden="true">
-                    <DefaultValue>{Outputs.functionAppName}</DefaultValue>
-                </Parameter>
-                <Parameter name="documentDbConnectionString" hidden="true">
-                    <DefaultValue>AccountEndpoint={Outputs.documentDbEndpoint}/;AccountKey={Outputs.documentDbPrimaryKey};</DefaultValue>
-                </Parameter>
-            </Parameters>
-        </ArmDeployment>
+        <AzureFunctionApp createStorageAccount="false">
+            <ConnectionStrings>
+                <Add name="DocumentDb" connectionString="AccountEndpoint={Outputs.documentDbEndpoint};AccountKey={Outputs.documentDbPrimaryKey};" />
+            </ConnectionStrings>
+        </AzureFunctionApp>
         <Function name="createDatabase" title="Creating a DocumentDB database" retriable="true">
             <Parameters>
                 <Parameter name="databaseName" hidden="true">
