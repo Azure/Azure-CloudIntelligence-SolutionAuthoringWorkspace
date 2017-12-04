@@ -1,0 +1,104 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "loginServer": {
+            "type": "string",
+            "metadata": {
+                "description": "Container repository login server"
+            }
+        },
+        "dockerRegistryUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "Container repository username"
+            }
+        },
+        "dockerRegistryPassword": {
+            "type": "string",
+            "metadata": {
+                "description": "Container repository password"
+            }
+        },
+        "repository": {
+            "type": "string",
+            "metadata": {
+                "description": "Repository"
+            }
+        },
+        "tag" : {
+            "type" : "string",
+            "metadata": {
+                "description": "Repository tag"
+            }
+        }
+    },
+    "variables": {
+        "uniqueNamePrefix": "[toLower(concat(resourceGroup().name, uniqueString(subscription().subscriptionId)))]",
+        "location": "[resourceGroup().location]",
+        "name": "[concat(variables('uniqueNamePrefix'), 'ws')]",
+        "hostingPlanName": "[concat(variables('uniqueNamePrefix'), 'hostingplan')]",
+        "hostingEnvironment": "",
+        "sku": "Standard",
+        "skuCode": "S1",
+        "workerSize":"0",
+        "dockerRegistryUrl": "[concat('https://', parameters('loginServer'))]",
+        "linuxFxVersion": "[concat('DOCKER|', parameters('loginServer'), '/', parameters('repository'), ':', parameters('tag'))]"
+	},
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites",
+            "name": "[variables('name')]",
+            "apiVersion": "2016-03-01",
+            "location": "[variables('location')]",
+            "properties": {
+                "name": "[variables('name')]",
+                "siteConfig": {
+                    "appSettings": [
+                        {
+                            "name": "DOCKER_REGISTRY_SERVER_URL",
+                            "value": "[variables('dockerRegistryUrl')]"
+                        },
+                        {
+                            "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                            "value": "[parameters('dockerRegistryUsername')]"
+                        },
+                        {
+                            "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                            "value": "[parameters('dockerRegistryPassword')]"
+                        },
+                        {
+                            "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                            "value": "false"
+                        }
+                    ],
+                    "appCommandLine": "",
+                    "linuxFxVersion": "[variables('linuxFxVersion')]"
+                },
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+                "hostingEnvironment": "[variables('hostingEnvironment')]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "Tier": "[variables('sku')]",
+                "Name": "[variables('skuCode')]"
+            },
+            "kind": "linux",
+            "name": "[variables('hostingPlanName')]",
+            "apiVersion": "2016-09-01",
+            "location": "[variables('location')]",
+            "properties": {
+                "name": "[variables('hostingPlanName')]",
+                "workerSizeId": "[variables('workerSize')]",
+                "reserved": true,
+                "numberOfWorkers": "1",
+                "hostingEnvironment": "[variables('hostingEnvironment')]"
+            }
+        }
+    ]
+}

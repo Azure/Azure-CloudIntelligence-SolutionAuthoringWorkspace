@@ -9,6 +9,12 @@
     <Summary src="Summary.md" format="markdown"/>
     <EstimatedTime>3 Minutes</EstimatedTime>
     <ProvisioningSteps>
+        <AzureFunctionApp>
+            <AppSettings>
+                <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+                <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+            </AppSettings>            
+        </AzureFunctionApp>
         <Function name="greet" title="Calling a function" retriable="true">
             <Parameters>
                 <Parameter name="name" type="string" description="What's your name?" />
