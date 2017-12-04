@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+    <Title>Operationalizing Machine Learning Model</Title>
+    <Owner displayname="Andrew Ivanov" email="anivan@microsoft.com"/>
+    <ImageUrl>{PatternAssetBaseUrl}/vienna.png</ImageUrl>
+    <Description>Deploying Machine Learning model to App Service on Linux.</Description>
+    <Summary src="Summary.md" format="markdown"/>
+    <EstimatedTime>1 Minute</EstimatedTime>
+    <ProvisioningSteps>
+        <ArmDeployment source="resources.json" title="Operationalizing model" />
+    </ProvisioningSteps>
+</Template>
