@@ -64,6 +64,12 @@ For errors not listed in the table, please [contact CIQS support](#how-to-contac
 
 For errors not listed in the table, please [contact CIQS support](#how-to-contact-ciqs-support) for help.
 
+### MissingRegistrationForLocation
+
+| Common error message | Mitigation or resolution |
+| ------------ | ------------- |
+| *The subscription is not registered for the resource type 'components' in the location 'brazilsouth'. Please re-register for this provider in order to have access to this location. (Code: MissingRegistrationForLocation)* | <ul><li>[Register Azure resource provider manually](#how-to-register-azure-resource-provider)</li><li>[Contact Azure support](#how-to-submit-azure-support-request)</li><li>[Contact your subscription admin](#how-to-contact-subscription-admin)</li></ul> |
+
 ### SkuNotAvailable
 
 | Common error message | Mitigation or resolution |
@@ -144,6 +150,10 @@ Describe your issue as detailed as possible in the email body. Our on-call engin
 In Azure portal (https://portal.azure.com), click "Subscriptions" from the right panel and select your target subscription, and then click on "Access Control(IAM)". From there you will see contact info of the administrator(s) for that subscription.
 
 ![](images/faq-8.png)
+
+### How to register Azure resource provider?
+
+TBA
 
 ### How to retry a failed provisioning step?
 
