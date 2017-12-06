@@ -61,6 +61,12 @@ For errors not listed in the table, please [contact CIQS support](#how-to-contac
 
 For errors not listed in the table, please [contact CIQS support](#how-to-contact-ciqs-support) for help.
 
+### AccountLimitReached
+
+| Common error message | Mitigation or resolution |
+| ------------ | ------------- |
+| *The maximum number of allowed accounts was reached. (Code: AccountLimitReached, ResourceType: Sendgrid.Email/accounts, ResourceName: emailaccountname)* | <ul><li>If you are aware of the service type, you can delete unused accounts from Azure portal to release some quota</li><li>You can follow the instructions to [request quota increase](#how-to-request-quota-increase). Once the quota is increased, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li><li>If the problem persists, please [contact CIQS support](#how-to-contact-ciqs-support)</li></ul> |
+
 ### OperationNotAllowed
 
 | Common error message | Mitigation or resolution |
