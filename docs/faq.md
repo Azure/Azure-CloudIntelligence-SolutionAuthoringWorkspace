@@ -17,7 +17,7 @@ This error code indicates that ARM pre-flight validation fails. ARM pre-flight v
 | -------- | ------------ | ------------- |
 | *QuotaExceeded* | *Operation results in exceeding quota limits of Core. Maximum allowed: 100, Current in use: 86, Additional requested: 18. Please read more about quota increase at http://aka.ms/corequotaincrease.* | <ul><li>If you are aware of the service type, you can delete some unused service from the Azure portal to release some quota</li><li>If you would like to increase the quota, you can follow the instructions to [request quota increase](#how-to-request-quota-increase). Once the quota is increased, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li><li>If the problem persists, please [contact CIQS support](#how-to-contact-ciqs-support)</li></ul> |
 | *BadRequest* | *Operation results in exceeding quota limits of Core. Maximum allowed: 20, Current in use: 8, Additional requested: 16.* | <ul><li>If you are aware of the service type, you can delete some unused service from Azure portal to release some quota</li><li>If you would like to increase the quota, you can follow the instructions to [request quota increase](#how-to-request-quota-increase). Once the quota is increased, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li><li>If the problem persists, please [contact CIQS support](#how-to-contact-ciqs-support)</li></ul> |
-| *DisallowedProvider* | *The operation is not permitted for namespace 'Microsoft.Storage'. List of permitted provider namespaces is 'Microsoft.Authorization, Microsoft.Features, Microsoft.insights, Microsoft.NotificationHubs, Microsoft.Resources, Microsoft.Sql'* | <ul><li>This error indicates that your subscription does not have access to the resource 'Microsoft.Storage', or you do not have permission to register 'Microsoft.Storage'. In this case you can ask the subscription admin to register the resource to unblock your deployment</li><li>You can also go to Azure portal (portal.azure.com) -> Subscriptions -> select the subscription -> Resource providers -> Microsoft.Storage to manually register. Once the resource provider is registered, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li></ul> |
+| *DisallowedProvider* | *The operation is not permitted for namespace 'Microsoft.Storage'. List of permitted provider namespaces is 'Microsoft.Authorization, Microsoft.Features, Microsoft.insights, Microsoft.NotificationHubs, Microsoft.Resources, Microsoft.Sql'* | <ul><li>This error indicates that your subscription does not have access to the resource 'Microsoft.Storage', or you do not have permission to register 'Microsoft.Storage'. In this case you can [ask the subscription admin](#how-to-contact-subscription-admin) to [register the resource](#how-to-register-azure-resource-provider) to unblock your deployment</li><li>You can also go to Azure portal (portal.azure.com) -> Subscriptions -> select the subscription -> Resource providers -> Microsoft.Storage to manually register. Once the resource provider is registered, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li></ul> |
 
 For errors not listed in the table, please [contact CIQS support](#how-to-contact-ciqs-support) for help.
 
@@ -179,6 +179,10 @@ In some cases such as [*DisallowedProvider*](#armvalidationfailed) and [*Missing
 From "Resource providers" setting, search for the target resource provider, in this example, "Microsoft.AzureActiveDirectory", and then click "**Register**".
 
 ![](images/register2.png)
+
+If you encountered issues in registering an Azure resource provider, such as "[AuthorizationFailed](#authorizationfailed)", please [contact your subscription admin](##how-to-contact-subscription-admin).
+
+![](images/register3.png)
 
 ### How to retry a failed provisioning step?
 
