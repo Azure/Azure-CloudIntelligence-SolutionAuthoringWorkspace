@@ -2,6 +2,13 @@
 ## Common Deployment Failures
 This section describes some common CIQS deployment errors you may encounter, and provides information to resolve the errors. For more information on Azure Resource Management (ARM) errors, please see [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors) for more details.
 
+### AuthorizationFailed
+
+| Common error message | Mitigation or resolution |
+| ------------ | ------------- |
+| AuthorizationFailed: The client 'bekeh@contoso.com' with object id 'eac01513-cbdf-42a6-8b81-ba4ed3eb6414' does not have authorization to perform action 'Microsoft.Resources/subscriptions/resourcegroups/write' over scope '/subscriptions/abcd1234-ef56-ghijklm78901/resourcegroups/bokehrg'. | <ul><li>[Contact your subscription admin](#how-to-contact-subscription-admin)</li><li>Once you are granted proper authorization, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li></ul> |
+
+
 ### ArmValidationFailed
 This error code indicates that ARM pre-flight validation fails. ARM pre-flight validation could fail for various reasons: Some of them are actionable/retriable, such as [quota exceeded](#how-to-request-quota-increase); Some of them are non-recoverable; in this case, please [contact Azure support](#how-to-submit-azure-support-request) or [contact CIQS support](#how-to-contact-ciqs-support).
 
