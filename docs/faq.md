@@ -3,6 +3,7 @@
 This section describes some common CIQS deployment errors you may encounter, and provides information to resolve the errors. For more information on Azure Resource Management (ARM) errors, please see [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors) for more details.
 
 ### AuthorizationFailed
+### Unauthorized
 
 | Common error message | Mitigation or resolution |
 | ------------ | ------------- |
