@@ -172,7 +172,13 @@ In Azure portal (https://portal.azure.com), click "Subscriptions" from the right
 
 ### How to register Azure resource provider?
 
-TBA
+In some cases such as [*DisallowedProvider*](#armvalidationfailed) and [*MissingRegistrationForLocation*](#missingregistrationforlocation), you will need to register Azure resource provider manually in Azure portal (https://portal.azure.com). To register an resource provider, in Azure portal, (1) click on "Subscriptions" from the right panel and (2) select your target subscription. Then (3) click on "Resource providers".
+
+![](images/register.png)
+
+From "Resource providers" setting, search for the resource provider, for example, "Microsoft.AzureActiveDirectory" and click "**Register**".
+
+![](images/register2.png)
 
 ### How to retry a failed provisioning step?
 
