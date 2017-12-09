@@ -129,7 +129,6 @@ TBA
 TBA
 
 ### How to submit Azure support request?
-
 In Azure portal (https://portal.azure.com), click "Help + support" from the right panel, and then click on "+ New support request". You can find "Help + support" from the question mark on the top right:
 
 ![](images/faq-5.png)
@@ -180,7 +179,7 @@ From "Resource providers" setting, search for the target resource provider, in t
 
 ![](images/register2.png)
 
-If you encountered issues in registering an Azure resource provider, such as "[AuthorizationFailed](#authorizationfailed)", please [contact your subscription admin](##how-to-contact-subscription-admin).
+If you encountered issues in registering an Azure resource provider, such as "[AuthorizationFailed](#authorizationfailed)", please [contact your subscription admin](#how-to-contact-subscription-admin).
 
 ![](images/register3.png)
 
