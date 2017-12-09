@@ -108,7 +108,7 @@ Code '45120' usually indicates resource naming conflicts. The table lists common
 
 | Common error message | Mitigation or resolution |
 | ------------ | ------------- |
-| *The name 'churn.database.windows.net' already exists. Choose a different name.  (Code: 45120, ResourceType: Microsoft.Sql/servers, ResourceName: churn)* | This usually indicates a solution bug, please [contact CIQS support](#how-to-contact-ciqs-support) for help |
+| *The name 'churn.database.windows.net' already exists. Choose a different name.  (Code: 45120, ResourceType: Microsoft.Sql/servers, ResourceName: churn)* | <ul><li>This usually indicates a solution bug, please [contact CIQS support](#how-to-contact-ciqs-support) for help</li><li>To mitigate the issue and unblock your deployment, you can re-deploy with another name or delete the existing instance if unused</li></ul> |
 | *Deployment abcd1234-ef56-ghijklm78901 failed at becuase of The name 'servernamesrv' already exists. Choose a different name. (Code: 45120, ResourceType: Microsoft.Sql/servers, ResourceName: servernamesrv).* | <ul><li>From Azure portal (https://portal.azure.com), delete the existing resource 'servernamesrv', and then [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li><li>Create a new deployment with a different name</li><li>If the problem persists, please [contact CIQS support](#how-to-contact-ciqs-support)</li></ul> |
 
 For errors not listed in the table, please [contact CIQS support](#how-to-contact-ciqs-support) for help.
