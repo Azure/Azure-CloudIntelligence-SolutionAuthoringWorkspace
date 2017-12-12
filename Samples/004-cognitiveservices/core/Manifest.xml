@@ -10,6 +10,11 @@
     <EstimatedTime>3 Minutes</EstimatedTime>
     <ProvisioningSteps>
         <ArmDeployment source="arm\createCognitiveServicesAccount.json" title="Creating a free Cognitive Services account"/>
+        <AzureFunctionApp>
+            <AppSettings>
+                <Add key="CognitiveServicesAccountKey" value="{Outputs.cognitiveServicesAccountKey}" />
+            </AppSettings>
+        </AzureFunctionApp>
         <Function name="createWebsite" title="Creating a website" retriable="true">
             <Parameters>
                 <Parameter name="templateUrl" type="string" hidden="true">
@@ -26,16 +31,6 @@
                 </Parameter>
             </Parameters>
         </Function>
-        <ArmDeployment source="arm\publishConnectionStrings.json" title="Adding Cognitive Services account key to FunctionApp's connection strings">
-            <Parameters>
-                <Parameter name="functionAppName" hidden="true">
-                    <DefaultValue>{Outputs.functionAppName}</DefaultValue>
-                </Parameter>
-                <Parameter name="cognitiveServicesAccountKey" hidden="true">
-                    <DefaultValue>{Outputs.cognitiveServicesAccountKey}</DefaultValue>
-                </Parameter>
-            </Parameters>
-        </ArmDeployment>
         <ArmDeployment source="arm\setupCors.json" title="Modifyng FunctionApp's CORS settings">
             <Parameters>
                 <Parameter name="functionAppName" hidden="true">
