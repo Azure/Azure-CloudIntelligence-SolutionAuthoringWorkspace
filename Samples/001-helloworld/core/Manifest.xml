@@ -9,6 +9,8 @@
     <EstimatedTime>1 Minute</EstimatedTime>
     <ProvisioningSteps>
         <ArmDeployment source="blank.json" title="Deploying a blank ARM template" />
-        <ArmDeployment source="blank.json" title="Deploying a blank ARM template again" />
+        <Manual title="Done">
+          <Instructions src="Instructions.md" format="markdown" />
+        </Manual>
     </ProvisioningSteps>
 </Template>
