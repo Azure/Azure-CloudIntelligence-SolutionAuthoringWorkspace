@@ -8,8 +8,8 @@ using Microsoft.ProjectOxford.Face;
 
 public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 {
-    var cognitiveServicesConnectionString = ConfigurationManager.ConnectionStrings["CognitiveServicesAccountKey"];    
-    IFaceServiceClient faceServiceClient = new FaceServiceClient(cognitiveServicesConnectionString.ToString());
+    var cognitiveServicesAccountKey = ConfigurationManager.AppSettings["CognitiveServicesAccountKey"];    
+    IFaceServiceClient faceServiceClient = new FaceServiceClient(cognitiveServicesAccountKey);
     
     string data = await req.Content.ReadAsStringAsync();
     var dataUrlSplit = data.Split(',');

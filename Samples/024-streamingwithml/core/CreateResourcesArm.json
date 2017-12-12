@@ -1,0 +1,171 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerUsername": {
+            "metadata": {
+                "description": "SQL server admin username"
+            },
+            "type": "string"
+        },
+        "sqlServerPassword": {
+            "metadata": {
+                "description": "SQL server admin password"
+            },
+            "type": "securestring"
+        },
+        "mlEndpoint": {
+            "type": "string",
+            "metadata": {
+                "description": "ML Web service endpoint"
+            }
+        }
+    },
+    "variables": {
+        "sqlVersion": "2014-04-01",
+        "sqlServerName": "[concat(variables('uniqueNamePrefix'),'srv')]",
+        "sqlDatabaseName": "[concat(variables('uniqueNamePrefix'),'db')]",
+        "sqlServerUsername": "[parameters('sqlServerUsername')]",
+        "sqlServerVersion": "12.0",
+        "startIpAddress": "0.0.0.0",
+        "endIpAddress": "255.255.255.255",
+        "edition": "Standard",
+        "databaseTier": "S0",
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "maxSizeBytes": "2147483648",
+        "sqlServerResourceId": "[resourceId('Microsoft.Sql/servers', variables('sqlServerName'))]",
+        "namePrefix": "[resourceGroup().name]",
+        "uniqueNamePrefix": "[toLower(concat(resourceGroup().name, uniqueString(subscription().subscriptionId)))]",
+        "location": "[resourceGroup().location]",
+        "sbVersion": "2014-09-01",
+        "sbName": "[concat(variables('uniqueNamePrefix'), 'servicebus')]",
+        "sbKeyName": "RootManageSharedAccessKey",
+        "sbResourceId": "[resourceId('Microsoft.Eventhub/namespaces/authorizationRules', variables('sbName'), variables('sbKeyName'))]",
+        "ehInName": "ehin",
+        "ehSendPolicyKeyName": "SendPolicy",
+        "ehSendPolicyResourceId": "[resourceId('Microsoft.EventHub/namespaces/eventHubs/authorizationRules', variables('sbName'), variables('ehInName'), variables('ehSendPolicyKeyName'))]",
+        "ehResourceId": "[concat(concat(concat('Microsoft.Eventhub/namespaces/', variables('sbName')), '/eventHubs/'), variables('ehInName'))]",
+        "ehSendPolicyName": "[concat(variables('sbName'), concat('/', concat(variables('ehInName'), concat('/', variables('ehSendPolicyKeyName')))))]",
+        "sfVersion": "2016-03-01",
+        "storageName": "[concat('stg', variables('uniqueNamePrefix'))]",
+        "storageResourceId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]",
+        "storageVersion": "2015-06-15"    
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "apiVersion": "[variables('storageVersion')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+              "accountType": "Standard_LRS"
+            }
+          },      
+        {
+        "name": "[variables('sqlServerName')]",
+        "type": "Microsoft.Sql/servers",
+        "location": "[variables('location')]",
+        "apiVersion": "[variables('sqlVersion')]",
+        "properties": {
+            "administratorLogin": "[parameters('sqlServerUsername')]",
+            "administratorLoginPassword": "[parameters('sqlServerPassword')]",
+            "version": "[variables('sqlServerVersion')]"
+        },
+        "resources": [{
+            "name": "[variables('sqlDatabaseName')]",
+            "type": "databases",
+            "location": "[variables('location')]",
+            "apiVersion": "[variables('sqlVersion')]",
+            "dependsOn": [
+                "[variables('sqlServerResourceId')]"
+            ],
+            "properties": {
+                "edition": "[variables('edition')]",
+                "requestedServiceObjectiveName": "[variables('databaseTier')]",
+                "collation": "[variables('collation')]",
+                "maxSizeBytes": "[variables('maxSizeBytes')]"
+            }
+        }, {
+            "apiVersion": "[variables('sqlVersion')]",
+            "type": "firewallrules",
+            "location": "[variables('location')]",
+            "name": "AllowAllWindowsAzureIps",
+            "dependsOn": [
+                "[variables('sqlServerResourceId')]"
+            ],
+            "properties": {
+                "startIpAddress": "[variables('startIpAddress')]",
+                "endIpAddress": "[variables('endIpAddress')]"
+            }
+        }]
+    }, {
+        "apiVersion": "[variables('sbVersion')]",
+        "name": "[variables('sbName')]",
+        "type": "Microsoft.Eventhub/namespaces",
+        "location": "[variables('location')]",
+        "properties": {
+            "region": "[variables('location')]"
+        },
+        "resources": [{
+            "apiVersion": "[variables('sbVersion')]",
+            "name": "[variables('ehInName')]",
+            "type": "eventHubs",
+            "location": "[variables('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Eventhub/namespaces/', variables('sbName'))]"
+            ],
+            "properties": {
+                "path": "[variables('ehInName')]"
+            },
+            "resources": [{
+                "apiVersion": "2015-08-01",
+                "name": "[variables('ehSendPolicyKeyName')]",
+                "type": "authorizationRules",
+                "location": "[variables('location')]",
+                "dependsOn": [
+                    "[variables('ehResourceId')]"
+                ],
+                "properties": {
+                    "rights": [
+                        "Send",
+                        "Listen"
+                    ]
+                }
+            }]
+        }]
+    }],
+    "outputs": {
+        "ehName": {
+            "type": "string",
+            "value": "[variables('ehInName')]"
+        },
+        "eventHubConnectionString": {
+            "type": "string",
+            "value": "[listkeys(variables('ehSendPolicyResourceId'), variables('sbVersion')).primaryConnectionString]"
+        },
+        "sqlServerName": {
+            "type": "string",
+            "value": "[variables('sqlServerName')]"
+        },
+        "sqlDatabaseName": {
+            "type": "string",
+            "value": "[variables('sqlDatabaseName')]"
+        },
+        "sqlServerUsername": {
+            "type": "string",
+            "value": "[variables('sqlServerUsername')]"
+        },
+        "sqlConnectionString": {
+            "type": "string",
+            "value": "[concat('Server=tcp:',variables('sqlServerName'),'.database.windows.net,1433;Database=',variables('sqlDatabaseName'),';User ID=',parameters('sqlServerUsername'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
+        },
+        "storageAccountName": {
+            "type": "string",
+            "value": "[variables('storageName')]"
+        },
+        "storageAccountKey": {
+            "type": "string",
+            "value": "[listKeys(variables('storageResourceId'), variables('storageVersion')).key1]"
+        }      
+    }
+}
