@@ -1,0 +1,13 @@
+{
+    "bindings": [
+      {
+        "type": "eventHubTrigger",
+        "name": "eventHubMessage",
+        "direction": "in",
+        "path": "ehin",
+        "connection": "EventHubConnectionString",
+        "consumerGroup": "$Default"
+      }
+    ],
+    "disabled": false
+}

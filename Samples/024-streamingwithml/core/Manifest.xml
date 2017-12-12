@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Template>
+  <Title>Streaming with ML</Title>
+  <Owner displayname="Darwin Schweitzer" email="darsch@microsoft.com"/>
+  <ImageUrl>{PatternAssetBaseUrl}/image.png</ImageUrl>
+  <ProvisioningSteps>
+    <ArmDeployment source="CreateResourcesArm.json" title="Creating solution's Azure resources">
+      <Parameters>
+        <Credential type="sql" username="sqlServerUsername" password="sqlServerPassword" />        
+      </Parameters>
+    </ArmDeployment>
+    <AzureFunctionApp alwaysOn="true" createStorageAccount="false">
+      <AppSettings>
+        <Add key="AzureWebJobsStorage" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />
+        <Add key="AzureWebJobsDashboard" value="DefaultEndpointsProtocol=https;AccountName={Outputs.storageAccountName};AccountKey={Outputs.storageAccountKey}" />      
+        <Add key="EventHubConnectionString" value="{Outputs.eventHubConnectionString}" />
+        <Add key="MLEndpoint" value="{Inputs.mlEndpoint}" />
+      </AppSettings>
+      <ConnectionStrings>
+        <Add name="SqlConnectionString" connectionString="{Outputs.sqlConnectionString}" />
+      </ConnectionStrings>
+    </AzureFunctionApp>
+    <Function name="executeSqlQuery" title="Preparing SQL database" />
+    <SolutionDashboard>
+      <Parameters>
+        <Parameter hidden="true" name="pbixFileUrl" defaultValue="{PatternAssetBaseUrl}/dashboards/StreamingTweetsEmbedded.pbix" />
+        <Parameter hidden="true" name="sqlServer" defaultValue="{Outputs.sqlServerName}" />
+        <Parameter hidden="true" name="sqlDatabase" defaultValue="{Outputs.sqlDatabaseName}" />
+        <Parameter hidden="true" name="sqlServerUsername" defaultValue="{Inputs.sqlServerUsername}" />
+        <Parameter hidden="true" name="sqlServerPassword" defaultValue="{Inputs.sqlServerPassword}" />
+      </Parameters>
+    </SolutionDashboard>
+    <Manual title="Done">
+      <Instructions src="Instructions.md" format="markdown" />
+    </Manual>
+  </ProvisioningSteps>
+</Template>

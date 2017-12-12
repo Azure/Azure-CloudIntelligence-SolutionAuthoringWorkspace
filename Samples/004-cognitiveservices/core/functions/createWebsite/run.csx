@@ -11,10 +11,10 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     string storageAccountName = parametersReader.GetParameter<string>("storageAccountName");
     string storageAccountKey = parametersReader.GetParameter<string>("storageAccountKey");
     string apiEndpoint = parametersReader.GetParameter<string>("apiEndpoint");
-    string storageContainerName = "site";
+    string storageContainerName = "$root";
     string storageBlobName = "index.html";
     
-    string websiteUrl = $"https://{storageAccountName}.blob.core.windows.net/{storageContainerName}/{storageBlobName}";
+    string websiteUrl = $"https://{storageAccountName}.blob.core.windows.net/{storageBlobName}";
 
     WebClient client = new WebClient();
     var stream = client.OpenRead(templateUrl);

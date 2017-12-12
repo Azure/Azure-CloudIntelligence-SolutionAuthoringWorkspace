@@ -36,15 +36,14 @@
     }
     
     .face-rectangle .age {
-        font-size: 2em;
         font-weight: bold;
         text-align: right;
-        margin-right: 5px;
-        margin-bottom: -5px;
-        color: yellowgreen;
+        margin-bottom: -14%;
+        color: mintcream;
         position: absolute;
         bottom: 0px;
         right: 0px;
+        text-shadow: 1px 1px 3px #000;
     }
 </style>
 </head>
@@ -76,7 +75,11 @@
                             height: faceRectangle.Height * scale
                         });
 
-                    var ageElement = $('<div class="age">').text(age);
+                    var ageElement = $('<div class="age">')
+                        .text(age)
+                        .css({
+                            "font-size": (faceRectangle.Height * scale * 0.4) + "px"
+                        });
                     faceRectangleElement.append(ageElement);
                     
                     imageWrapper.append(faceRectangleElement);                    

@@ -1,5 +1,6 @@
 ### Your soon-to-be viral APP is ready!
 
-[Open the web site in a new tab]({Outputs.websiteUrl})
+Congrats! A [demo single-page application]({Outputs.websiteUrl}) connected to the *Cognitive Services Face API* has been successfully created. Needless to say, it can be modified, augmented or completely replaced with something more imaginative.
 
-<iframe src="{Outputs.websiteUrl}" width="100%" height="500" frameborder="0"></iframe>
+**URL**: [{Outputs.websiteUrl}]({Outputs.websiteUrl})
+

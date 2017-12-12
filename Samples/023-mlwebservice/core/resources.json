@@ -100,5 +100,11 @@
                 "hostingEnvironment": "[variables('hostingEnvironment')]"
             }
         }
-    ]
+    ],
+    "outputs": {
+        "endpoint": {
+            "type": "string",
+            "value": "[concat('https://', variables('name'), '.azurewebsites.net/score')]"
+        }
+    }
 }
