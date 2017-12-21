@@ -113,6 +113,11 @@ Code '45120' usually indicates resource naming conflicts. The table lists common
 
 For errors not listed in the table, please [contact CIQS support](#how-to-contact-ciqs-support) for help.
 
+### 45122
+| Sample messages | Mitigation or resolution |
+| ------------ | ------------- |
+| *Australia East, Japan West, West India and France regions do not support Data Warehouse provisioning. Please try another region. For more information, please contact Microsoft support.* | <ul><li>Create a new deployment with another region.</li><li>[Contact Azure support](#how-to-submit-azure-support-request)</li></ul> |
+
 ### Invalid useruser or password
 | Error code | Sample messages | Mitigation or resolution |
 | -------- | ------------ | ------------- |
