@@ -182,7 +182,7 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 > **Note**: It is **NOT** recommended to relay an input parameter as an output without any change in ARM templates; _**{Inputs.`ParameterName`}**_ variable offers you the flexibility to use any input value in subsequent steps within the solution.
 
 #### Credential
-`Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc.
+`Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc. You can also specify default username value, to reduce user inputs during deployment provisioning.
 
 > Solutions that ask for user name and password inputs are **highly recommended** to use `Credential` to wrap the credential inputs.
 
@@ -197,6 +197,7 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 | *type*: `string` | The credential type. The current supported types are: `sql`, `sqlwithoutodbc`, `linuxvm`, `windowsvm`, `hdi`, **AND** any combination of them seperated by "`,`" |
 | *username*: `string` | **The name of** the username parameter defined in the provision step |
 | *password*: `string` | **The name of** the password parameter defined in the provision step |
+| *defaultUsername*: `string` | **The default value** to be assigned to the **username** |
 
 > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
 
@@ -204,10 +205,10 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
 ##### **Examples**
 
-A simple use case would be specifying the credential with a single type:
+A simple use case would be specifying the credential with a single type, **with** default username value specified:
 ```xml
 <Parameters>
-  <Credential type="sql" username="sqlServerUserName" password="sqlServerPassword" />
+  <Credential type="sql" username="sqlServerUserName" defaultUsername="adminuser" password="sqlServerPassword" />
 </Parameters>
 ```
 

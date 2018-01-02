@@ -18,7 +18,7 @@
         <Parameter name="baseUrl" hidden="true">
           <DefaultValue>{PatternAssetBaseUrl}</DefaultValue>
         </Parameter>
-        <Credential type="hdi" username="hdiUserName" password="hdiPassword" />
+        <Credential type="linuxvm,hdi" username="hdiUserName" password="hdiPassword" />
       </Parameters>
     </Manual>
     <Function name="CopyScripts" title="Copy Jupyter Notebook Scripts" >
