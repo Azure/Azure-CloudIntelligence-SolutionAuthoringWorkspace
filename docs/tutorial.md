@@ -39,7 +39,7 @@ Now the solution is ready to be deployed! Clicking the **Deploy** link on its th
 
 Each CIQS deployment (even the simplest one we just kicked off) can be broken down into 3 main stages.
 
-#### 1. Deployment creation
+#### Deployment creation
   
 This is where you choose deployment's name, subscription and location. The name of the deployment corresponds to the name of the resource group that is created in the selected subscription/location immediately after clicking **Create**.
 ![]({{ site.baseurl }}/images/helloworld-create.jpg)
@@ -122,13 +122,13 @@ Let's exampine two samples and learn how to execute custom provisioning code via
 ### Solution dashboard ([008-solutiondashboard](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/008-solutiondashboard))
 
 ## Chicken and egg on steroids (hands-on exercise)
-#### 1. Copy 011-chickenandegg sample into the Solutions directory
+#### Copy 011-chickenandegg sample into the Solutions directory
 Optionally, rename it and replace the image.
 
-#### 2. Update ```<Title>``` and ```<Description>```
+#### Update ```<Title>``` and ```<Description>```
 Refer to [the diff below](#manifestxml-changes-diff) for some ideas.
 
-#### 3. Update the first ```<Manual>``` step
+#### Update the first ```<Manual>``` step
 * edit parameter descriptions
 * add a new parameter with the name ```experimentCount```; this parameter will determine the number of generated daily data points
 
@@ -141,17 +141,17 @@ E.g.:
   ![]({{ site.baseurl }}/images/incubator.jpg)
   ```
 
-#### 4. Remove the second ```<AzureFunctionApp>``` provisioning step from the ```Manifest```
+#### Remove the second ```<AzureFunctionApp>``` provisioning step from the ```Manifest```
 We will be using a SQL database to store the solution data, so AppSettings are no longer needed.
 
-#### 5. Incorporate (and slightly tweak) stuff from 008-solutiondashboard into your new solution
+#### Incorporate (and slightly tweak) stuff from 008-solutiondashboard into your new solution
 
 * copy ```sqlserver.json``` into the ```core``` directory of the new solution
 * copy ```prepsql``` function as is under ```core/functions```
 * open the .sql file included with the ```prepsql``` function and remove the entire ```INSERT``` statement along with everything underneath it (we will be generating our own data instead)
 * copy the ```<ArmDeployment>```, ```<Function>``` and ```<SolutionDashboard>``` provisioning steps into the ```Manifest``` of the new solution (again, refer to [the diff](#manifestxml-changes-diff) if not sure where to place them, but it's also fine to use your *best* judgement and even make mistakes)
 
-#### 6. Modify the ```hatch``` function to hatch eggs into the SQL database
+#### Modify the ```hatch``` function to hatch eggs into the SQL database
 
 * copy ```project.json``` from ```prepsql``` to make sure SQL dependencies are available
 * create a new C# file (.csx) inside the ```hatch``` function and give it the name ```SolutionDataTable.csx```; copy [this code](#solutiondatatablecsx) into the new file
@@ -159,7 +159,7 @@ We will be using a SQL database to store the solution data, so AppSettings are n
 * make sure ```experimentCount``` and ```sqlConnectionString``` are passed as parameters to the ```hatch``` function (see the diff if need a hint)
 * make changes to ```run.csx``` to read the input parameters, hatch eggs on a daily basis and write the counts in the the database table  via ```SolutionDataTable``` (see [sugested changes](#functionshatchruncsx-changes-diff)).
 
-#### 7. Final touches
+#### Final touches
 
 * create a solution dashboard (.pbix) file.
 > For now, you can take [this one](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/015-eggincubator/assets/dashboard.pbix) and upload put it inside the ```assets``` directory of your new solution.
