@@ -6,8 +6,7 @@
       {% for p in navigation_pages %}
       {% if p.navigation_weight %}
       <li{% if p.url == page.url %} class="active"{% endif %}>
-        {% capture real_page_url %}{{ include.root_path | '.' }}{{ p.url }}{% endcapture %}
-        <a href="{{ real_page_url }}">
+        <a href="{{ site.baseurl }}{{ p.url }}">
           {{ p.title }}
         </a>
       </li>
