@@ -3,25 +3,30 @@ layout: default
 title: Tutorial
 navigation_weight: 2
 ---
+{:.no_toc}
+# Tutorial
 
-# Learning objectives
+1. TOC
+{:toc}
+
+## Learning objectives
 
 * Create an authoring account and learn how to use SAW
 * Explore the [Samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples) and get familiar with the essential components of a CIQS Solution
 * Build a new Solution by reusing the code from multiple SAW samples
 
-# Before we begin
+## Before we begin
 
 If you don't have an authoring account yet, please create one following [these instructions](getting-started.html). For the remainder of this tutorial, we will be using the [in-browser solution authoring environment](getting-started.html#package-1-in-browser-solution-authoring-environment). Of course, [local environment](getting-started.html#package-2-local-solution-development-on-windows) can be used as well.
 
-# The Samples
+## The Samples
 
 SAW comes with a collection of Samples. Most of them (with a few exceptions) aren't full-fledged solutions, but rather small reusable pieces that come in handy when building something *real*.
 
 In your in-browser environment, expand the **Samples** directory and take a quick look at what's available.
 ![]({{ site.baseurl }}/images/samples.jpg)
 
-# Trying out a sample
+### Trying out a sample
 
 Say, you want to create a solution from a sample. Since this is our first solution, **001-helloworld** seems like a good choice.
 
@@ -30,22 +35,22 @@ Copy the sample into the **Solutions** directory and run **saw push** in the con
 
 Now the solution is ready to be deployed! Clicking the **Deploy** link on its thumbnail will initiate a CIQS deployment.
 
-## What happens during a CIQS deployment?
+### What happens during a CIQS deployment?
 
 Each CIQS deployment (even the simplest one we just kicked off) can be broken down into 3 main stages.
 
-### 1. Deployment creation
+#### 1. Deployment creation
   
 This is where you choose deployment's name, subscription and location. The name of the deployment corresponds to the name of the resource group that is created in the selected subscription/location immediately after clicking **Create**.
 ![]({{ site.baseurl }}/images/helloworld-create.jpg)
 
-### Resource provisioning
+#### Resource provisioning
 
 This is a sequence of fully automated provisioning steps, which sometimes (quite rarely) may be interrupted by manual steps if automation is not possible (we try *really hard* to avoid disruptive manual steps).
 
 ![]({{ site.baseurl }}/images/helloworld-deployment.jpg)
 
-### Post-deployment instructions
+#### Post-deployment instructions
 
 Technically, this is optional, but hardly any solution goes without it.
 
@@ -56,7 +61,7 @@ Clicking the **Resource group** link opens the resource group created during the
 
 The "Hello World" deployment didn't create any resources, which can be seen in the snapshot above. However, a resource group with the same name as the CIQS deployment (**test01**) has been created. In addition, there was also one successful *Azure Resource Manager* (ARM) deployment into this resource group. Now, it's a good time to find out what triggered that ARM deployment.
 
-# Essential components of a CIQS solution
+## Essential components of a CIQS solution
 
 Let's take a look inside the solution we just deployed, the **001-helloworld** sample.
 
@@ -108,15 +113,15 @@ Hello world!
 
 Needless to say, a solution can have as many provisioning steps as necessary. We have already seen ```<ArmDeployment>``` and ```<Manual>```. Let's examine a couple of slightly more complex samples and discover more!
 
-# Deep dive
+## Deep dive
 
 Let's exampine two samples and learn how to execute custom provisioning code via *Azure Functions* (```<Function>```), configure Azure Function App (App Service) with the management provisioning step ```<AzureFunctionApp>``` and, finally, how to incorporate a *Power BI* dashboard into a solution.
 
-## Chicken and egg ([011-chickenandegg](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/011-chickenandegg))
+### Chicken and egg ([011-chickenandegg](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/011-chickenandegg))
 
-## Solution dashboard ([008-solutiondashboard](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/008-solutiondashboard))
+### Solution dashboard ([008-solutiondashboard](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/008-solutiondashboard))
 
-# Chicken and egg on steroids (hands-on exercise)
+## Chicken and egg on steroids (hands-on exercise)
 #### 1. Copy 011-chickenandegg sample into the Solutions directory
 Optionally, rename it and replace the image.
 
@@ -162,9 +167,9 @@ We will be using a SQL database to store the solution data, so AppSettings are n
 
   ```You can see your dashboard [here]({Outputs.solutionDashboardUrl}).```
 
-# Appendix
+## Appendix
 
-## Manifest.xml changes (diff)
+### Manifest.xml changes (diff)
 
 ```diff
  <?xml version="1.0" encoding="utf-8"?>
@@ -234,7 +239,7 @@ We will be using a SQL database to store the solution data, so AppSettings are n
          ...
 ```
 
-## SolutionDataTable.csx
+### SolutionDataTable.csx
 
 ```csharp
 using Microsoft.SqlServer.Management.Smo;
@@ -305,7 +310,7 @@ public class SolutionDataTable
 }
 ```
 
-## functions/hatch/run.csx changes (diff)
+### functions/hatch/run.csx changes (diff)
 
 ```diff
 +#load "..\CiqsHelpers\All.csx"

@@ -382,3 +382,21 @@ footer {
     color:#444;
   }
 }
+
+/* Table of contents */
+
+#markdown-toc::before {
+  content: "Contents";
+  font-weight: bold;
+}
+
+
+// Using numbers instead of bullets for listing
+#markdown-toc ul {
+}
+
+#markdown-toc {
+  padding: 1.5em;
+  //list-style: decimal;
+  display: inline-block;
+}
