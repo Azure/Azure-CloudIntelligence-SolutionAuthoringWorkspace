@@ -3,9 +3,13 @@ layout: default
 title: Getting started
 navigation_weight: 2
 ---
+{:.no_toc}
 # Getting started
 
 Let's get this straight: we really strive to help you be as efficient as possible when building Solutions. That was and still remains the primary goal of the *Solution Authoring Workspace* (aka *SAW*).
+
+1. TOC
+{:toc}
 
 ## Wait! What *exactly* is *SAW*?
 
@@ -46,16 +50,6 @@ We provide two options: latest stable release and latest build. The latter may b
 Launch either one directly from the Setup page. (If you use *Chrome* or *Firefox*, make sure to follow the instructions from the [section below](#one-time-setup-for-chrome-and-firefox).) A working shortcut will also be created on your Desktop.
 
 ![]({{ site.baseurl }}/images/sawlocal.png)
-
-#### One-time setup for Chrome and Firefox
-
-SAW local is implemented as a ClickOnce Windows application. This means you will automatically get latest updates.
-
-To make sure the application receives all necessarly configuration upon its initial launch, proper ClickOnce support needs to be enabled in *Chrome* and *Firefox*. (It works out of the box in *Edge* and *IE*.)
-
-There are various third-party plugins that add ClickOnce support to these browsers. We had success with [Meta4 ClickOnce Launcher](https://chrome.google.com/webstore/detail/meta4-clickonce-launcher/jkncabbipkgbconhaajbapbhokpbgkdc) (*Chrome*) and [FxClickOnce](https://addons.mozilla.org/en-US/firefox/addon/fxclickonce/) (*Firefox*). Note: These plug-ins are not maintained, vetted, or endorsed by Microsoft and are only suggested for convienence of installing SAW locally.
-
-
 
 ## Configuration
 

@@ -2,65 +2,15 @@
 layout: default
 title: Solution authoring
 navigation_weight: 3
-indexes:
-  - name: "Solution manifest"
-    urlSuffix: "solution-manifest"
-    level: 1
-  - name: "Owner(s)"
-    urlSuffix: "owners"
-    level: 2
-  - name: "LocationsToExclude"
-    urlSuffix: "locationstoexclude"
-    level: 2
-  - name: "Parameters"
-    urlSuffix: "parameters"
-    level: 2
-  - name: "Parameter"
-    urlSuffix: "parameter"
-    level: 3
-  - name: "Parameter resolver"
-    urlSuffix: "parameter-resolver"
-    level: 3
-  - name: "Credential"
-    urlSuffix: "credential"
-    level: 3
-  - name: "Guide"
-    urlSuffix: "guide"
-    level: 2
-  - name: "Ingredients"
-    urlSuffix: "ingredients"
-    level: 2
-  - name: "Provisioning steps"
-    urlSuffix: "provisioning-steps"
-    level: 2
-  - name: "ArmDeployment"
-    urlSuffix: "armdeployment"
-    level: 3
-  - name: "LocationProvidedFor"
-    urlSuffix: "locationprovidedfor"
-    level: 4
-  - name: "Manual"
-    urlSuffix: "manual"
-    level: 3
-  - name: "Function"
-    urlSuffix: "function"
-    level: 3
-  - name: "WebJob"
-    urlSuffix: "webjob"
-    level: 3
-  - name: "Azure ML Web Service"
-    urlSuffix: "azuremlwebservice"
-    level: 3
-  - name: "Solution Dashboard"
-    urlSuffix: "solutiondashboard"
-    level: 3
-  - name: "AzureFunctionApp"
-    urlSuffix: "AzureFunctionApp"
-    level: 3
         
 ---
+{:.no_toc}
 # Solution authoring
-## Solution manifest
+
+1. TOC
+{:toc}
+
+## Manifest metadata
 
 ### Owner(s)
 __&lt;Owners/&gt;__ tag specifies a list of __&lt;Owner/&gt;__ of the solution. As a solution owner, you will be able to:
@@ -103,8 +53,6 @@ Parameters is a property of [ProvisioningStep]({{ page.url }}#provisioning-steps
 
 #### Parameter
 
-##### **Documentation**
-
 **Attributes**
 
 | Name | Description |
@@ -125,7 +73,7 @@ Parameters is a property of [ProvisioningStep]({{ page.url }}#provisioning-steps
 | *DefaultValue*: `string` | Default value of the parameter |
 | *ExtraDescription*: `string` | Extra Description which will be displayed on the deployment UX |
 
-##### **Example**
+##### Example
 
 A sample parameter with *defaultValue* and and *hidden* properties set in a [Function]({{ page.url }}#function) step:
 ```xml
@@ -188,8 +136,6 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 
 To use this feature,  please specify `<Credential/>` within `<Parameters/>` in your pattern **Manifest.xml**.
 
-##### **Documentation**
-
 **Attributes**
 
 | Name | Description |
@@ -203,7 +149,7 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
 > **Note**: Depending on the osType of underlying clusters, `hdi` **MUST** come with either `windowsvm` or `linuxvm`. Otherwise, some invalid usernames/passwords will be overlooked.
 
-##### **Examples**
+##### Examples
 
 A simple use case would be specifying the credential with a single type, **with** default username value specified:
 ```xml
@@ -222,7 +168,7 @@ A more complex use case is to combine multiple type of credentials together; It 
 ### Guide
 `<Guide>` tag allows pattern authors to use the content (`README.md`) in their "Solution How To Guide" without duplicating the same information in the  `Manifest.xml` and `Summary.md`. When using `<Guide>` tag in the Manifest.xml, CIQS will parse the pre-defined tags in the md file (specified by “src” attribute) to grab the content that used to be grabbed from the Prerequisites \ EstimatedTime \ Summary …etc. tags in the `Manifest.xml`. That is to say, `<Guide>` tag is used in both `Manifest.xml` and markdown files for different purposes with different syntaxes.
 
-##### **Usage in Manifest.xml**
+##### Usage in Manifest.xml
 
 A typical use case would be specifying the raw markdown url in the "Solution How To Guide":
 ```xml
@@ -234,7 +180,7 @@ It's also possible to specify a markdown file in the `core` folder in case the c
 <Guide src="README.md" format="markdown"/>
 ```
 
-##### **Supported types in markdown file (README.md)**
+##### Supported types in markdown file (README.md)
 
 In markdown file (README.md) – *tags around sections*:
 
@@ -247,7 +193,7 @@ In markdown file (README.md) – *tags around sections*:
 | PostDeploymentGuidance | N | `<Guide type=”PostDeploymentGuidance” url=”[POST_DEPLOYMENT_GUIDANCE_URL]”/>` | N/A |
 | Disclaimer | N – will default to standard disclaimer | `<Guide type="Disclaimer"></Guide>` | N/A |
 
-##### **Supported sections in Post Deployment Guidance md file**
+##### Supported sections in Post Deployment Guidance md file
 
 > Post Deployment Guidance will be generated as links in the deployment "Done" step.
 
@@ -260,7 +206,7 @@ In Post Deployment Guidance md file – *tags around sections*:
 | Scaling | N | `# Scaling` |
 | Security | N | `# Security` |
 
-##### **Examples**
+##### Examples
 
 [Main README.md](https://github.com/Azure/cortana-intelligence-energy-demand-forecasting/blob/master/Automated%20Deployment%20Guide/README.md)
 
@@ -317,8 +263,6 @@ Please contact [CIQS On-Call](mailto:ciqsoncall@microsoft.com) if you want to pu
 ### ArmDeployment
 CIQS relies on ARM (Azure Resource Management) to provision Azure resources into users' private subscription on behalf of the user. ArmDeployment steps enable solution authors to easily deploy an ARM template (json) with a set of input parameters.
 
-##### **Documentation**
-
 **Attributes**
 
 | Name | Description |
@@ -335,7 +279,7 @@ CIQS relies on ARM (Azure Resource Management) to provision Azure resources into
 | *Parameters*: `array` | An array of `Parameter`s consumed by the target ARM template. See details [here]({{ page.url }}#parameters). |
 | *LocationProvidedFor*: `array` | An array of **ResourceType**s whose locations are _provided_ in the ARM template. This signifies CIQS that these **resourceType** has hardcoded locations. See details [here]({{ page.url }}#locationprovidedfor). |
 
-##### **Examples**
+##### Examples
 
 Here is one comprehensive exmaple showcasing some of the snippets:
 
@@ -577,9 +521,7 @@ will have a request body of:
 ```
 [More details here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-test-a-function).
 
-### WebJob
 ### AzureMLWebService
-#### Summary
 
 AzureMlWebService is a first-party provisioning step that empowers solution authors provisioning an Azure Machine Learning experiment from gallery and then deploying as a web service easily. This feature empowers pattern authors to:
 
@@ -591,8 +533,7 @@ AzureMlWebService is a first-party provisioning step that empowers solution auth
 
 - Create high-throughput Azure ML web service as an option.
 
-#### Documentation
-##### __&lt;AzureMlWebService/&gt;__
+#### &lt;AzureMlWebService/&gt;
 
 To use this feature, please specify `<AzureMlWebService/>` within `<ProvisioningSteps/>` in your solution **Manifest.xml**.
 
@@ -612,7 +553,7 @@ To use this feature, please specify `<AzureMlWebService/>` within `<Provisioning
 | *HighThroughputEndpoint (Optional)*: `object` | Allows users to create a high-throughput Web service endpoint |
 | *ModifyExperimentGraph (Optional)*: `object` | Allows users to plug-in a custom function to modify the experiment graph of the provisioned experiment |
 
-##### __&lt;Outputs/&gt;__ (*Optional*)
+#### &lt;Outputs/&gt; (*Optional*)
 
 This tag is used to **overwrite** the default output names, so that outputs from multiple *AzureMlWebService* provisionings will not overwrite each other.
 
@@ -629,7 +570,7 @@ All properties below can be used as attributes in **Camel Case**. Please see a G
 | *WebServiceApiKey*: `string` | Overwriting the output name of the Azure ML web service api key |
 | *WebServiceHelpUrl*: `string` | Overwriting the output name of the Azure ML web service help url |
 
-##### __&lt;HighThroughputEndpoint/&gt;__ (*Optional*)
+#### &lt;HighThroughputEndpoint/&gt; (*Optional*)
 
 This tag is used to create a high-throughput Web service endpoint as a result of this provisioning step.
 
@@ -645,7 +586,7 @@ All properties below can be used as attributes in **Camel Case**. Please see a G
 | *ThrottleLevel*: `string` | Allowed values: `High` or `Low`; If not specified, the default value is `Low` |
 | *MaxConcurrentCalls*: `int` | The maximum concurrent calls for Azure ML Web service is between 1 and 200. See [here](https://github.com/hning86/azuremlps#new-amlwebservice) for details; If not specified, the default value is `4` |
 
-##### __&lt;ModifyExperimentGraph/&gt;__ (*Optional*)
+#### &lt;ModifyExperimentGraph/&gt; (*Optional*)
 
 This tag is used to plug-in a customized function to modify the experiment graph of the provisioned experiment.
 

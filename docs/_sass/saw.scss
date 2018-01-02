@@ -382,3 +382,15 @@ footer {
     color:#444;
   }
 }
+
+/* Table of contents */
+
+#markdown-toc::before {
+  content: "Contents";
+  font-weight: bold;
+}
+
+#markdown-toc {
+  padding: 1.5em;
+  display: inline-block;
+}

@@ -1,49 +1,13 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"
-    <meta name="Description" content="{{ site.description | default: site.github.project_tagline }}">
-  </head>
+  {% include head.html %}
   <body>
     <div class="wrapper">
-      <header>
-        <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
-        <nav class="main-nav">
-          <ul>
-            {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
-            {% for p in navigation_pages %}
-              {% if p.navigation_weight and p.title != 'FAQ' %}
-                <li{% if p.url == page.url %} class="active"{% endif %}>
-                  {% capture real_page_url %}.{{ p.url }}{% endcapture %}
-                  <a href="{{ real_page_url }}">
-                    {{ p.title }}
-                  </a>
-				  {% if p.indexes %}
-					<ul>
-					  {% for index in p.indexes %}
-					    <li {% if index.level == 1 %}style="padding-left: 10px;"{% elsif index.level == 2 %}style="padding-left: 20px;"{% elsif index.level == 3 %}style="padding-left: 30px;"{% else %}style="padding-left: 40px;"{% endif %}">
-						  <a href="{{ real_page_url }}#{{ index.urlSuffix}}">
-							{{ index.name }}
-						  </a>
-						</li>
-					  {% endfor %}
-					</ul>
-				  {% endif %}
-                </li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </nav>
-      </header>
+      {% include header.html %}
       <section>
         {{ content }}
       </section>
-      <footer>
-      </footer>
+      {% include footer.html %}
     </div>
   </body>
 </html>
