@@ -61,6 +61,7 @@ Parameters is a property of [ProvisioningStep]({{ page.url }}#provisioning-steps
 | *type*: `string` | The type of the parameter |
 | *description*: `string` | Descriptions which will be displayed on the deployment UX |
 | *defaultValue*: `string` | Default value of the parameter |
+| *allowedValues*: `string` | [Dynamic allowed values](#auto-generated-allowed-values) which will be resolved by CIQS; This attribute supports [CIQS parameter resolving](#parameter-resolver) syntax |
 | *regex*: `string` | A single regular expression for parameter input validation |
 | *hidden*: `bool` | "true" if the parameter is correctly resolved or assigned, therefore user input is needed; "false" if the parameter should be a user input value. |
 
@@ -128,6 +129,23 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 ```
 
 > **Note**: It is **NOT** recommended to relay an input parameter as an output without any change in ARM templates; _**{Inputs.`ParameterName`}**_ variable offers you the flexibility to use any input value in subsequent steps within the solution.
+
+#### Auto-generated Allowed Values
+There is a special type of parameter variables in CIQS, which will be resolved as an available set of allowed values for the designated parameter. Currently we only support one dynamic variable: _{VirtualMachineSkus}_.
+
+| Dynamic Variable Name | Description |
+| ------------ | ------------- |
+| _{VirtualMachineSkus}_ | The available set of virtual machine SKUs based on the user's selection of subscription and location |
+
+Here is a sample use case of _{VirtualMachineSkus}_ in `<Parameter/>`.
+
+```xml
+<Parameter name="clusterNodeSize" allowedValues="{VirtualMachineSkus}" defaultValue="Standard_D3_v2" description="Size of both the HeadNode and the WorkerNode in the HDInsight Cluster" />
+```
+
+The rendered UX looks like:
+
+![dynamic skus]({{ site.baseurl }}\images\skus-dynamic.PNG)
 
 #### Credential
 `Credential` is a special type of `Parameter` in CIQS. It wires up different set of rules so that corresponding credential rules are applied to corresponding provisioned Azure resources, such as SQL Server/Datawarehouse, Virtual Machine, HDInsight clusters, etc. You can also specify default username value, to reduce user inputs during deployment provisioning.
