@@ -73,8 +73,8 @@ Estimated (mimimun) cost for running this technical pattern
 **Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost**
 --------------------- | --------------------- | --------------------- | -------------------------------------- | -------------:
 Virtual Machines  |	Virtual Machines   |	West US |	1 D4 v3 (4 vCPU(s), 16 GB RAM) x 730 Hours; Linux – Ubuntu; Pay as you go; 0 managed OS disks – S4 |	$170.82
-IoT Hub	| West US | S1: Unlimited devices, 400,000 msgs/day, $50.00/mo, 0 Units |	$0.00
-Time Series Insights | West US | S1 tier: 1 unit(s) |	$150.00
+IoT Hub	| IoT Hub	| West US | S1: Unlimited devices, 400,000 msgs/day, $50.00/mo, 0 Units |	$0.00
+Time Series Insights | Time Series Insights | West US | S1 tier: 1 unit(s) |	$150.00
  | | | **Monthly Total** | **$320.82**
  | | | **Daily Estimate** | **$10.69**
  | | | **Annual Total** | **$3,849.84**
