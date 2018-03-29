@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: Solution authoring
 navigation_weight: 3
@@ -171,6 +171,23 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 
 > **Note**: Depending on the osType of underlying clusters, `hdi` **MUST** come with either `windowsvm` or `linuxvm`. Otherwise, some invalid usernames/passwords will be overlooked.
 
+##### Examples
+
+A simple use case would be specifying the credential with a single type, **with** default username value specified:
+```xml
+<Parameters>
+  <Credential type="sql" username="sqlServerUserName" defaultUsername="adminuser" password="sqlServerPassword" />
+</Parameters>
+```
+
+A more complex use case is to combine multiple type of credentials together; It is used when the credential is applied to more than one Azure resources:
+```xml
+<Parameters>
+  <Credential type="sql,linuxvm,hdi" username="userName" password="password" />
+</Parameters>
+```
+
+
 #### VmSku
 `VmSku` is a special type of `Parameter` in CIQS. It provides a way to let the user select a SKU for use within their deployment.
 
@@ -189,23 +206,6 @@ To use this feature,  please specify `<VmSku/>` within `<Parameters/>` in your p
 | *instanceCount*: `integer` | The default instance count provisioned for this VM. This value is used to perform quota check during deployment |
 
 > **Note**: If the VmSku parameter is attributed with hidden="true" and the SKU provided for DefaultValue is not available for the user, the next one that fits requirements is automatically picked.
-
-
-##### Examples
-
-A simple use case would be specifying the credential with a single type, **with** default username value specified:
-```xml
-<Parameters>
-  <Credential type="sql" username="sqlServerUserName" defaultUsername="adminuser" password="sqlServerPassword" />
-</Parameters>
-```
-
-A more complex use case is to combine multiple type of credentials together; It is used when the credential is applied to more than one Azure resources:
-```xml
-<Parameters>
-  <Credential type="sql,linuxvm,hdi" username="userName" password="password" />
-</Parameters>
-```
 
 ### Guide
 `<Guide>` tag allows pattern authors to use the content (`README.md`) in their "Solution How To Guide" without duplicating the same information in the  `Manifest.xml` and `Summary.md`. When using `<Guide>` tag in the Manifest.xml, CIQS will parse the pre-defined tags in the md file (specified by “src” attribute) to grab the content that used to be grabbed from the Prerequisites \ EstimatedTime \ Summary …etc. tags in the `Manifest.xml`. That is to say, `<Guide>` tag is used in both `Manifest.xml` and markdown files for different purposes with different syntaxes.
