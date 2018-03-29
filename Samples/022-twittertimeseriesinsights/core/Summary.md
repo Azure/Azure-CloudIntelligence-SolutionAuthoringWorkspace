@@ -10,7 +10,7 @@ This solution sets up the infrastructure in the diagram above. The various steps
 
 ## Video
 
-[Video](https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Twitter-Sentiment-Analysis-using-the-Cortana-Intelligence-Gallery) on how to do use this Solution Template to do Twitter Sentiment Analysis using the Cortana Intelligence Gallery by Chris Testa-O'Neill
+[Video](https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Twitter-Sentiment-Analysis-using-the-Cortana-Intelligence-Gallery) on how to do use this Solution Template to do Twitter Sentiment Analysis using the Cloud Intelligence Gallery by Chris Testa-O'Neill
 
 
 ## Prerequisites

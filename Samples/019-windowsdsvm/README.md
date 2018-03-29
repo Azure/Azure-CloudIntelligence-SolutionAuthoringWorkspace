@@ -1,9 +1,9 @@
-### Welcome to the Microsoft Cortana Intelligence Solution Template - Windows Data Science Virtual Machine (DSVM)
+### Welcome to the Microsoft Cloud Intelligence Solution Template - Windows Data Science Virtual Machine (DSVM)
 
 
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://start.cortanaintelligence.com/track/Deployments/new/datasciencevm?source=GitHub)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://quickstart.azure.ai/track/Deployments/new/datasciencevm?source=GitHub)
 
-[View Deployed Solution](https://start.cortanaintelligence.com/Deployments?type=datasciencevm)
+[View Deployed Solution](https://quickstart.azure.ai/Deployments?type=datasciencevm)
 
 
 > **STOP before you proceed**  You need to accept the Terms of Use of the Data Science Virtual Machine (DSVM) - Windows 2016 on your Azure Subscription before you deploy this VM the first time by clicking [here](https://portal.azure.com/#blade/Microsoft_Azure_Marketplace/LegalTermsSkuProgrammaticAccessBlade/legalTermsSkuProgrammaticAccessData/%7B%22product%22%3A%7B%22publisherId%22%3A%22microsoft-ads%22%2C%22offerId%22%3A%22windows-data-science-vm%22%2C%22planId%22%3A%22windows2016%22%7D%7D). 

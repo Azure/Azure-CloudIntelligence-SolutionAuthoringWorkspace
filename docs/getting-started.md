@@ -20,7 +20,7 @@ Good question!
 - Documentation
   <br>You are reading it now. It will be getting better. We promise.
   
-- [Samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples)
+- [Samples](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples)
   <br>They are simple and immediately deployable. Samples can serve as building blocks for the *real stuff* you have in mind.
   
 - Tools
@@ -30,7 +30,7 @@ Good question!
 
 They come in two packages. Pick whichever you like, or both!
 
-But first, navigate to  [https://start.cortanaintelligence.com/](https://start.cortanaintelligence.com/) and, with the flip of a switch, become a Solution Author. (It's as easy as 1-2-3.)
+But first, navigate to  [https://quickstart.azure.ai/](https://quickstart.azure.ai/) and, with the flip of a switch, become a Solution Author. (It's as easy as 1-2-3.)
 
 ![Enabling authoring features]({{ site.baseurl }}\images\switch.png)
 

@@ -1,9 +1,9 @@
-### Welcome to the Microsoft Cortana Intelligence Solution Template - Linux Data Science Virtual Machine (DSVM)
+### Welcome to the Microsoft Cloud Intelligence Solution Template - Linux Data Science Virtual Machine (DSVM)
 
 
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://start.cortanaintelligence.com/track/Deployments/new/linuxdatasciencevm?source=GitHub)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://quickstart.azure.ai/track/Deployments/new/linuxdatasciencevm?source=GitHub)
 
-[View Deployed Solution](https://start.cortanaintelligence.com/Deployments?type=linuxdatasciencevm)
+[View Deployed Solution](https://quickstart.azure.ai/Deployments?type=linuxdatasciencevm)
 
 
 

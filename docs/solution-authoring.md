@@ -2,7 +2,7 @@
 layout: default
 title: Solution authoring
 navigation_weight: 3
-        
+
 ---
 {:.no_toc}
 # Solution authoring
@@ -63,7 +63,7 @@ Parameters is a property of [ProvisioningStep]({{ page.url }}#provisioning-steps
 | *defaultValue*: `string` | Default value of the parameter |
 | *allowedValues*: `string` | [Dynamic allowed values](#auto-generated-allowed-values) which will be resolved by CIQS; This attribute supports [CIQS parameter resolving](#parameter-resolver) syntax |
 | *regex*: `string` | A single regular expression for parameter input validation |
-| *hidden*: `bool` | "true" if the parameter is correctly resolved or assigned, therefore user input is needed; "false" if the parameter should be a user input value. |
+| *hidden*: `bool` | "true" if the parameter is correctly resolved or assigned, therefore user input is not needed; "false" if the parameter should be a user input value. |
 
 > **Note**: Currently, only `string` typed parameters are recognized; integer and boolean type are specificied as string format.
 
@@ -112,6 +112,10 @@ In CIQS solution source files, text enclosed with `{` and `}` will be interprete
 | _{UserId}_ | User ID, e.g. johnjames@contoso.com |
 | _{UserDisplayName}_ | User displayed name, e.g. John James |
 | _{SubscriptionId}_ | Subscription ID |
+| _{TenantId}_ | Tenant ID |
+| _{Authorization}_ | The user's authorization token which can be used for calling Azure services |
+| _{GraphAuthorization}_ | The user's authorization token which can be used for calling Microsoft's graph APIs |
+| _{PowerBIAuthorization}_ | The user's authorization token that can be used for calling Power BI APIs |
 | _{Location}_ | Location as string, e.g. West US |
 | _{Inputs.`ParameterName`}_ | Resolved as the value of the input parameter named `ParameterName` from previous provisioning steps |
 | _{Outputs.`ParameterName`}_ | Resolved as the value of the output parameter named `ParameterName` from previous provisioning steps |
@@ -166,6 +170,26 @@ To use this feature,  please specify `<Credential/>` within `<Parameters/>` in y
 > According to [ODBC 3.0 spec](https://msdn.microsoft.com/en-us/library/ms161962.aspx), `[ ] { } ( ) , ; ? * ! @ \ | ' " = :` and **space character** are not permitted in SqlClient, OLE DB or ODBC connection strings; By default, ODBC rules are enforced with `sql` type, because ODBC connections are widely used in CIQS solutions. To ignore ODBC restriction in `sql` inputs, please use **`sqlwithoutodbc`** instead.
 
 > **Note**: Depending on the osType of underlying clusters, `hdi` **MUST** come with either `windowsvm` or `linuxvm`. Otherwise, some invalid usernames/passwords will be overlooked.
+
+#### VmSku
+`VmSku` is a special type of `Parameter` in CIQS. It provides a way to let the user select a SKU for use within their deployment.
+
+> Solutions that use virtual machines or an HDI cluster are suggested to use this.
+
+To use this feature,  please specify `<VmSku/>` within `<Parameters/>` in your pattern **Manifest.xml**.
+
+**Attributes**
+
+| Name | Description |
+| ------------ | ------------- |
+| *minCores*: `integer` | The minimum number of CPU cores that the VM should support |
+| *minMemoryInMB*: `integer` | The minimum amount of memory in megabytes that the VM should support |
+| *minDiskCount*: `integer` | The minimum number of data disks that the VM should support |
+| *minDiskSizeInMB*: `integer` | The minimum amount of disk space in megabytes that the VM should support |
+| *instanceCount*: `integer` | The default instance count provisioned for this VM. This value is used to perform quota check during deployment |
+
+> **Note**: If the VmSku parameter is attributed with hidden="true" and the SKU provided for DefaultValue is not available for the user, the next one that fits requirements is automatically picked.
+
 
 ##### Examples
 
@@ -316,13 +340,13 @@ Here is one comprehensive exmaple showcasing some of the snippets:
 </ArmDeployment>
 ```
 
-Please also explore Github samples [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples).
+Please also explore Github samples [here](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples).
 
 ##### How do I get started with my first ARM template?
 
 There are plenty of Azure quickstart templates available [here](https://github.com/Azure/azure-quickstart-templates).
 
-Noteably, here are some sample patterns commonly seen in a Cortana Intelligence solution:
+Noteably, here are some sample patterns commonly seen in a Cloud Intelligence solution:
 
 - Create a Storage Account [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)]
 
@@ -334,7 +358,7 @@ Noteably, here are some sample patterns commonly seen in a Cortana Intelligence 
 
 - HDInsight Spark Cluster [[here](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-spark-linux)]
 
-In addition, you may want to discover more composite solution samples [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples), to explore how these services are wired together in ARM templates.
+In addition, you may want to discover more composite solution samples [here](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples), to explore how these services are wired together in ARM templates.
 
 ##### References
 
@@ -349,7 +373,7 @@ In CIQS deployment creation page, users are asked to select one location/region 
 
 ![Select location for CIQS deployment]({{ site.baseurl }}\images\location.png)
 
-> **Note**: The set of locations for a particular solution is computed as the **intersection** of available regions for each comprised Azure resources. 
+> **Note**: The set of locations for a particular solution is computed as the **intersection** of available regions for each comprised Azure resources.
 
 The selected location is used by the Resource Group creation and most of the time, is also used for underlying Azure resources provisioned with `[resourceGroup().location]` signature in ARM templates. For example:
 
@@ -411,7 +435,7 @@ If no **parameterSource** attribute is provided, all parameters need to be defin
 <Manual title="Configure Twitter listener">
   <Parameters>
     <Parameter name="twitterKeywords" description="Twitter topics" type="string"
-      defaultValue="@MicrosoftR,@OpenAtMicrosoft,@Azure,#CortanaIntelligence">
+      defaultValue="@MicrosoftR,@OpenAtMicrosoft,@Azure,#CloudIntelligence">
       <ExtraDescription>
         Comma-separated list of words, phrases, #hashtags and @mentions
       </ExtraDescription>
@@ -429,25 +453,25 @@ Finally, if all parameters required to perform an ARM deployment are already pre
 <ArmDeployment source="armTemplate.json" autoResolveParameters="true" title="Deploying..." />
 ```
 
-A demonstration of this technique can be found in the [twitterstreaming](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/009-twitterstreaming) SAW sample.
+A demonstration of this technique can be found in the [twitterstreaming](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/009-twitterstreaming) SAW sample.
 
 ### Function
-Below is a quick overview on things you need to do in order to move your web-jobs into Azure functions on CIS. The high-level steps are as follows: 
+Below is a quick overview on things you need to do in order to move your web-jobs into Azure functions on CIS. The high-level steps are as follows:
 - Create a ```functions``` folder in ```core``` folder of your solution.
-- Create an individual folder for each function that can be invoked. 
+- Create an individual folder for each function that can be invoked.
 - Each function folder will contain a projects.json & a run.csx (for C#).
-    - The ```projects.json``` is used to indicate Nuget packages that you will be consuming as part of the function. 
-    - The ```run.csx``` file will be the entry point when your function is invoked and will contain all your source. 
+    - The ```projects.json``` is used to indicate Nuget packages that you will be consuming as part of the function.
+    - The ```run.csx``` file will be the entry point when your function is invoked and will contain all your source.
 The next few sections highlight typical scenarios to consider while migrating your source over to functions.
 
 #### Referencing App Settings or Passing Arguments to your Function
-You might have parts of your webjob that references app settings that you loaded with any run-time arguments that you might have needed as part of the webjob. The good news is that you no longer have to store these in app settings and you can simply pass it as arguments when invoking the function via CIS. 
+You might have parts of your webjob that references app settings that you loaded with any run-time arguments that you might have needed as part of the webjob. The good news is that you no longer have to store these in app settings and you can simply pass it as arguments when invoking the function via CIS.
 
-When migrating the web job source over, you might find blocks like the following: 
+When migrating the web job source over, you might find blocks like the following:
 ```csharp
 string sqlServer = ConfigurationManager.AppSettings["SqlDwServerName"];
 ```
-Instead of reading these arguments from the app settings, read them from the incoming ```HttpRequestMessage``` passed in as part of invoking the function. i.e. 
+Instead of reading these arguments from the app settings, read them from the incoming ```HttpRequestMessage``` passed in as part of invoking the function. i.e.
 ```csharp
 string sqlServer = parametersReader.GetParameter<string>("SqlDwServerName");
 ```
@@ -455,20 +479,20 @@ Also, be sure to pass in the relevant string as an argument when invoking the fu
 ```xml
 <Function name="initStoredProcs" title="Initialize stored procedures">
   <Parameters>
-    <Parameter hidden="true" name="SqlDwServerName" type="string" defaultValue="{Outputs.SqlDwServerName}" /> 
+    <Parameter hidden="true" name="SqlDwServerName" type="string" defaultValue="{Outputs.SqlDwServerName}" />
   </Parameters>
 </Function>
 ```
-You might need to surface the relevant parameters up as an ARM output if these are generated by a previous ARM template. 
+You might need to surface the relevant parameters up as an ARM output if these are generated by a previous ARM template.
 
 #### Referencing Resource files from your function
-If you have files stored as resources within your webjob, you can safely migrate these over to functions by moving the files/folders contained in your webjob project to the root of your function's folder. For eg. if you had files a.txt, b.csv & c.dat under a Resources folder in your webjob project for webjob "A", the path would like the following: 
+If you have files stored as resources within your webjob, you can safely migrate these over to functions by moving the files/folders contained in your webjob project to the root of your function's folder. For eg. if you had files a.txt, b.csv & c.dat under a Resources folder in your webjob project for webjob "A", the path would like the following:
 ```bash
 A\Resources\a.txt
 A\Resources\b.csv
 A\Resources\c.dat
 ```
-To migrate these to functions, simply move this entire folder over to the folder for your specific function. i.e. 
+To migrate these to functions, simply move this entire folder over to the folder for your specific function. i.e.
 ```bash
 core\functions\A\Resources\a.txt
 core\functions\A\Resources\b.csv
@@ -516,16 +540,16 @@ would map to:
 }
 ```
 #### FAQs
-##### How do I view logs for function invocations ? 
+##### How do I view logs for function invocations ?
 - Go to your function app under the resource group.
-- Select the function you wish to debug. 
-- Go to ```Monitor``` to view past HTTP requests and their trace logs. 
+- Select the function you wish to debug.
+- Go to ```Monitor``` to view past HTTP requests and their trace logs.
 - **Note that none of this will be visible until you pass the storage account into the AzureFunctionApp tag in the Manifest**. [Refer here for details on settings this up](#add-reference-to-storage-account-in-function-app-declaration).
 
-##### How do I debug a function ? 
+##### How do I debug a function ?
 - Go to your function app under the resource group.
-- Select the function you wish to debug. 
-- On the right pane, select ```Test``` and enter a ```Request Body```. The request body is a json object holding parameters for your function. For eg. invoking function A with parameters : 
+- Select the function you wish to debug.
+- On the right pane, select ```Test``` and enter a ```Request Body```. The request body is a json object holding parameters for your function. For eg. invoking function A with parameters :
 ```chsarp
 A(string v, string t, string m);
 ```
@@ -543,7 +567,7 @@ will have a request body of:
 
 AzureMlWebService is a first-party provisioning step that empowers solution authors provisioning an Azure Machine Learning experiment from gallery and then deploying as a web service easily. This feature empowers pattern authors to:
 
-- Provision an Azure ML experiment from [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/experiments) by simply providing the `GalleryUrl`;
+- Provision an Azure ML experiment from [Cloud Intelligence Gallery](https://gallery.azure.ai/experiments) by simply providing the `GalleryUrl`;
 
 - Modify the **Experiment Graph** of the provisioned Azure ML experiment with a customized funciton plug-in;
 
@@ -560,13 +584,13 @@ To use this feature, please specify `<AzureMlWebService/>` within `<Provisioning
 | Name    | Description |
 | ------------ | -------------|
 | *title*: `string` | The title to be displayed in CIQS deployment page |
-| *hiddenParameters*: `boolean` | Set to `true` if this step is supposed to be automated; otherwise `false` | 
+| *hiddenParameters*: `boolean` | Set to `true` if this step is supposed to be automated; otherwise `false` |
 
 **Properties**
 
 | Name | Description |
 | ------------ | ------------- |
-| *GalleryUrl*: `string` | The url of the experiment to be provisioned on Gallery, such as: https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2 |
+| *GalleryUrl*: `string` | The url of the experiment to be provisioned on Gallery, such as: https://gallery.azure.ai/Details/nyc-taxi-binary-classification-scoring-exp-2 |
 | *Outputs (Optional)*: `object` | Allows users to overwrite the outputs; This is useful when provisioning more than one Azure ML experiments so that the outputs of each other will not collide |
 | *HighThroughputEndpoint (Optional)*: `object` | Allows users to create a high-throughput Web service endpoint |
 | *ModifyExperimentGraph (Optional)*: `object` | Allows users to plug-in a custom function to modify the experiment graph of the provisioned experiment |
@@ -577,7 +601,7 @@ This tag is used to **overwrite** the default output names, so that outputs from
 
 **Attributes**
 
-All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
+All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
 
 **Properties**
 
@@ -594,7 +618,7 @@ This tag is used to create a high-throughput Web service endpoint as a result of
 
 **Attributes**
 
-All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
+All properties below can be used as attributes in **Camel Case**. Please see a Github sample [here](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/013-mlwebsvcs/core/Manifest.xml).
 
 **Properties**
 
@@ -625,7 +649,7 @@ This tag is used to plug-in a customized function to modify the experiment graph
 The sample code in **Manifest.xml**:
 ```xml
 <AzureMlWebService title="Creating Energy Forecasting ML Web service" hiddenParameter="true">
-  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/975ed028d71b490b9268d35094138358</GalleryUrl>
+  <GalleryUrl>https://gallery.azure.ai/Details/975ed028d71b490b9268d35094138358</GalleryUrl>
   <ModifyExperimentGraph name="<Custom_function_name>">
     <Parameters>
       <Parameter type="string" name="sqlServer" defaultValue="{Outputs.sqlServerName}" description="SQL Server Name"/>
@@ -655,10 +679,10 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
     dynamic graphJsonObject = serializer.Deserialize<object>(parametersReader.GetParameter<string>("graphJsonObject"));
 
     /* Do whatever is needed on the graph JsonObject and return the graph JsonObject */
-    string sqlServerName = parametersReader.GetParameter<string>("sqlServer") + ".database.windows.net,1433"; 
-    string sqlServerUserName = parametersReader.GetParameter<string>("sqlUser"); 
-    string sqlServerPassword = parametersReader.GetParameter<string>("sqlPassword"); 
-    string databaseName = parametersReader.GetParameter<string>("sqlDatabase"); 
+    string sqlServerName = parametersReader.GetParameter<string>("sqlServer") + ".database.windows.net,1433";
+    string sqlServerUserName = parametersReader.GetParameter<string>("sqlUser");
+    string sqlServerPassword = parametersReader.GetParameter<string>("sqlPassword");
+    string databaseName = parametersReader.GetParameter<string>("sqlDatabase");
     var moduleNodes = graphJsonObject["ModuleNodes"];
     foreach (var moduleNode in moduleNodes)
     {
@@ -683,7 +707,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
             }
         }
     }
-    
+
     /* Return the modified graph JsonObject as the function output */
     return graphJsonObject;
 }
@@ -700,19 +724,19 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
   | *mlListExperimentsUrl*: `string` | The Azure ML experiments list url |
 
 #### Examples
-  
-Please see a Github sample [here](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/013-mlwebsvcs).
+
+Please see a Github sample [here](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/013-mlwebsvcs).
 
 The simplest use case would be provisioning a single Azure ML experiment and deploying a default Web service endpoint:
 ```xml
 <AzureMlWebService title="Copying and experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
+  <GalleryUrl>https://gallery.azure.ai/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
 </AzureMlWebService>
 ```
 A slightly more complex use case would be creating a high-throughput Web service endpoint for the experiment:
 ```xml
 <AzureMlWebService title="Copying and experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
+  <GalleryUrl>https://gallery.azure.ai/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
   <HighThroughputEndpoint>
     <EndpointName>HighThroughputEndpoint</EndpointName>
     <ThrottleLevel>High</ThrottleLevel>
@@ -723,11 +747,11 @@ A slightly more complex use case would be creating a high-throughput Web service
 Another common use case would be provisioning multiple Azure ML experiments, with output overwritten to avoid conflicts:
 ```xml
 <AzureMlWebService title="Copying NYC taxi xperiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
+  <GalleryUrl>https://gallery.azure.ai/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
   <Outputs experimentUrl="mlFunctionEndpoint1" webServiceApiUrl="mlFunctionApiUrl1" webServiceApiKey="mlFunctionApiKey1" />
 </AzureMlWebService>
 <AzureMlWebService title="Copying connected car Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/connected-cars-aml-v2-noreader-scoring-exp-2</GalleryUrl>
+  <GalleryUrl>https://gallery.azure.ai/Details/connected-cars-aml-v2-noreader-scoring-exp-2</GalleryUrl>
   <Outputs>
     <ExperimentUrl>mlFunctionEndpoint2</ExperimentUrl>
     <WebServiceApiUrl>mlFunctionApiUrl2</WebServiceApiUrl>
@@ -736,7 +760,7 @@ Another common use case would be provisioning multiple Azure ML experiments, wit
   </Outputs>
 </AzureMlWebService>
 <AzureMlWebService title="Copying predictive maintenance Experiment from Gallery and deploy as Web Service" hiddenParameters ="true">
-  <GalleryUrl>https://gallery.cortanaintelligence.com/Details/bcae226bc74a4cbbb0ff700ac97448bf</GalleryUrl>
+  <GalleryUrl>https://gallery.azure.ai/Details/bcae226bc74a4cbbb0ff700ac97448bf</GalleryUrl>
 </AzureMlWebService>
 ```
 

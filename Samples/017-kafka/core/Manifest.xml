@@ -7,7 +7,7 @@
   <Summary src="Summary.md" format="markdown"/>
   <Prerequisites src="Prereqs.md" format="markdown"/>
   <EstimatedTime>25 Minutes</EstimatedTime>
-  <EstimatedCost daily="$118.67" url="https://azure.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/solution-prices#spark-with-kafka-preview-on-hdinsight" />
+  <EstimatedCost daily="$118.67" url="https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/solution-prices#spark-with-kafka-preview-on-hdinsight" />
     <Ingredients>
     <Ingredient>HDInsight</Ingredient>
     <Ingredient>StorageAccount</Ingredient>

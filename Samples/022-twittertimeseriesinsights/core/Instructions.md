@@ -23,7 +23,7 @@
 
 #### Video
 
-[Video](https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Twitter-Sentiment-Analysis-using-the-Cortana-Intelligence-Gallery) on how to do use this Solution Template to do Twitter Sentiment Analysis using the Cortana Intelligence Gallery by Chris Testa-O'Neill
+[Video](https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Twitter-Sentiment-Analysis-using-the-Cortana-Intelligence-Gallery) on how to do use this Solution Template to do Twitter Sentiment Analysis using the Cloud Intelligence Gallery by Chris Testa-O'Neill
 
 **Connecting Power BI Desktop to Azure SQL Database**
 * Open the Power BI Desktop report and choose **Edit Queries** > **Data Source Settings** > **Change Source** and then paste the Server and Database names from the information below and Click **OK**

@@ -3,7 +3,7 @@
 ## Background
 The documentation is hosted on [GitHub pages](https://help.github.com/categories/github-pages-basics/) using [Jekyll](https://help.github.com/articles/about-github-pages-and-jekyll/) as a static site generator.
 
-The website automatically created from the sources files found in this directory is available at [https://azure.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/](https://azure.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/).
+The website automatically created from the sources files found in this directory is available at [https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/](https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/).
 
 ### Documentation pages
 
@@ -21,7 +21,7 @@ Set **Source** to **master branch /docs folder**:
 
 ![](images/github-pages-settings.jpg)
 
-This will result in the creation of a private SAW Documentation website (e.g., https://wdecay.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/).
+This will result in the creation of a private SAW Documentation website (e.g., https://wdecay.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/).
 
 ### 3. Edit existing or add new Markdown files
 
@@ -48,7 +48,7 @@ GitHub provides instructions on [setting up your GitHub pages site locally with 
 #### Prerequisites
 
 1. [Bash on Ubuntu on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about) running or [upgraded](https://blogs.msdn.microsoft.com/commandline/2016/10/19/wsl-adds-ubuntu-16-04-xenial-support/) to Ubuntu 16.04 (Xenial). Ubuntu 14.04 shipped before the Windows 10 Creators Update will not work!
-2. Your private SAW repository cloned to a Windows drive (e.g., **C:\work\Azure-CortanaIntelligence-SolutionAuthoringWorkspace**).
+2. Your private SAW repository cloned to a Windows drive (e.g., **C:\work\Azure-CloudIntelligence-SolutionAuthoringWorkspace**).
 
 
 #### Setup
@@ -61,12 +61,12 @@ GitHub provides instructions on [setting up your GitHub pages site locally with 
     $ sudo gem install bundler
     ```
 
-2. Locate the **Azure-CortanaIntelligence-SolutionAuthoringWorkspace/docs** directory in the Linux filesystem.
+2. Locate the **Azure-CloudIntelligence-SolutionAuthoringWorkspace/docs** directory in the Linux filesystem.
     
-    Assuming the corresponding Windows location is **C:\work\Azure-CortanaIntelligence-SolutionAuthoringWorkspace\docs**, that can be achieved with the following command:
+    Assuming the corresponding Windows location is **C:\work\Azure-CloudIntelligence-SolutionAuthoringWorkspace\docs**, that can be achieved with the following command:
 
     ```
-    $ cd /mnt/c/work/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/docs
+    $ cd /mnt/c/work/Azure-CloudIntelligence-SolutionAuthoringWorkspace/docs
     ```
 
 3. From the **docs** directory in the Bash shell, run:
