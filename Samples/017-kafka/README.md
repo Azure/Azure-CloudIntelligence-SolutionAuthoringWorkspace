@@ -1,16 +1,16 @@
-### Welcome to the Microsoft Cortana Intelligence Solution Template - Spark with Kafka (preview) on HDInsight
+### Welcome to the Microsoft Cloud Intelligence Solution Template - Spark with Kafka (preview) on HDInsight
 
 
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://start.cortanaintelligence.com/track/Deployments/new/kafka?source=GitHub)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://quickstart.azure.ai/track/Deployments/new/kafka?source=GitHub)
 
-[View Deployed Solution](https://start.cortanaintelligence.com/Deployments?type=kafka)
+[View Deployed Solution](https://quickstart.azure.ai/Deployments?type=kafka)
 
 ## Architecure
 [![Solution Diagram](assets/kafkaArchitecture.png)](assets/kafkaArchitecture.png)
 
 This Tutorial demonstrates how to use Spark with Kafka (preview) on HDInsight
 
-While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use a Cortana Intelligence Solution Template which deploys the clusters using an Azure Resource Manager template and Azure Functions. 
+While you can create an Azure virtual network, Kafka, and Spark clusters manually, it's easier to use a Cloud Intelligence Solution Template which deploys the clusters using an Azure Resource Manager template and Azure Functions. 
 Use the following steps to deploy an Azure virtual network, Kafka, and Spark clusters to your Azure subscription.
 
 The tutorial involves the following steps:

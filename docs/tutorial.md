@@ -12,7 +12,7 @@ navigation_weight: 2
 ## Learning objectives
 
 * Create an authoring account and learn how to use SAW
-* Explore the [Samples](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples) and get familiar with the essential components of a CIQS Solution
+* Explore the [Samples](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples) and get familiar with the essential components of a CIQS Solution
 * Build a new Solution by reusing the code from multiple SAW samples
 
 ## Before we begin
@@ -117,9 +117,9 @@ Needless to say, a solution can have as many provisioning steps as necessary. We
 
 Let's exampine two samples and learn how to execute custom provisioning code via *Azure Functions* (```<Function>```), configure Azure Function App (App Service) with the management provisioning step ```<AzureFunctionApp>``` and, finally, how to incorporate a *Power BI* dashboard into a solution.
 
-### Chicken and egg ([011-chickenandegg](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/011-chickenandegg))
+### Chicken and egg ([011-chickenandegg](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/011-chickenandegg))
 
-### Solution dashboard ([008-solutiondashboard](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/008-solutiondashboard))
+### Solution dashboard ([008-solutiondashboard](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/tree/master/Samples/008-solutiondashboard))
 
 ## Chicken and egg on steroids (hands-on exercise)
 #### Copy 011-chickenandegg sample into the Solutions directory
@@ -162,7 +162,7 @@ We will be using a SQL database to store the solution data, so AppSettings are n
 #### Final touches
 
 * create a solution dashboard (.pbix) file.
-> For now, you can take [this one](https://github.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/015-eggincubator/assets/dashboard.pbix) and upload put it inside the ```assets``` directory of your new solution.
+> For now, you can take [this one](https://github.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/blob/master/Samples/015-eggincubator/assets/dashboard.pbix) and upload put it inside the ```assets``` directory of your new solution.
 * add the dashboard link to the post-deployment instructions; e.g.:
 
   ```You can see your dashboard [here]({Outputs.solutionDashboardUrl}).```

@@ -1,9 +1,9 @@
-### Welcome to the Microsoft Cortana Intelligence Solution Template - Time Series Insights using Twitter
+### Welcome to the Microsoft Cloud Intelligence Solution Template - Time Series Insights using Twitter
 
 
-[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://start.cortanaintelligence.com/track/Deployments/new/twittertimeseriesinsights?source=GitHub)
+[![Deploy to Azure](https://raw.githubusercontent.com/Azure/Azure-CloudIntelligence-SolutionAuthoringWorkspace/master/docs/images/DeployToAzure.PNG)](https://quickstart.azure.ai/track/Deployments/new/twittertimeseriesinsights?source=GitHub)
 
-[View Deployed Solution](https://start.cortanaintelligence.com/Deployments?type=twittertimeseriesinsights)
+[View Deployed Solution](https://quickstart.azure.ai/Deployments?type=twittertimeseriesinsights)
 
 
 [![Solution Diagram](assets/twittertimeseriesinsights.jpg)](assets/twittertimeseriesinsights.jpg)
@@ -13,12 +13,12 @@ This solution sets up the infrastructure in the diagram above. The various steps
 * Setting up an Azure WebJob to collect Twitter data based on user specified keywords.
 * Pumping ingested tweets into Azure Event Hub which can accept millions of events per second.
 * Processing incoming tweets with an Azure Stream Analytics job that stores the raw data in Azure Blob Storage and Azure SQL Database.
-* The Stream Analytics job calls an Azure Machine Learning web service to determine the sentiment of each tweet. 
+* The Stream Analytics job calls an Azure Machine Learning web service to determine the sentiment of each tweet.
 * Visualizing real-time metrics about inferred sentiment using Time Series Insights for Operational Technology real-time monitoring and Power BI for Information Technology reporting and analysis.
 
 ## Video
 
-[Video](https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Twitter-Sentiment-Analysis-using-the-Cortana-Intelligence-Gallery) on how to do use this Solution Template to do Twitter Sentiment Analysis using the Cortana Intelligence Gallery by Chris Testa-O'Neill
+[Video](https://channel9.msdn.com/Shows/Cortana-Intelligence-Corner/Twitter-Sentiment-Analysis-using-the-Cortana-Intelligence-Gallery) on how to do use this Solution Template to do Twitter Sentiment Analysis using the Cloud Intelligence Gallery by Chris Testa-O'Neill
 
 
 ## Prerequisites

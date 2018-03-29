@@ -1,6 +1,6 @@
 # Azure Cloud Intelligence Solution Authoring Workspace (SAW)
 
-This repository contains a community-driven and constantly expanding collection of samples and resources that help shape ideas into ready-to-deploy customizable solutions powered by *Azure* and *Cortana Intelligence Services*.
+This repository contains a community-driven and constantly expanding collection of samples and resources that help shape ideas into ready-to-deploy customizable solutions powered by *Azure* and *Cloud Intelligence Services*.
 
 *SAW* was built as a development tool to complement the *Cloud Intelligence Solutions* (aka *CIQS*) platform by streamlining the authoring process from the conception of an idea and initial prototyping, to the shipping of a finished product to the end customer.
 

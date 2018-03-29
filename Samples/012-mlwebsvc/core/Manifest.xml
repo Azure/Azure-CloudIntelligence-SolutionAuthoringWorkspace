@@ -4,7 +4,7 @@
   <Owner displayname="Bolun Huang" email="bohuan@microsoft.com"/>
   <PublishedOn>12/28/2016</PublishedOn>
   <ImageUrl>{PatternAssetBaseUrl}/MlWebSvcPattern.JPG</ImageUrl>
-  <Description>Create a Machine Learning Workspace, copy an Experiment from Cortana Intelligence Gallery to the workspace and deploy a Web service.</Description>
+  <Description>Create a Machine Learning Workspace, copy an Experiment from Cloud Intelligence Gallery to the workspace and deploy a Web service.</Description>
   <Summary src="MlWebSvcSummary.md" format="markdown"/>
   <EstimatedTime>6 Minutes</EstimatedTime>
   <Ingredients>
@@ -14,7 +14,7 @@
   </Ingredients>
   <ProvisioningSteps>
     <AzureMlWebService title="Copy an Experiment from Gallery and deploy as Web Service" hiddenParameters ="false">
-      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
+      <GalleryUrl>https://gallery.azure.ai/Details/nyc-taxi-binary-classification-scoring-exp-2</GalleryUrl>
     </AzureMlWebService>
     <Manual title="Done">
       <Instructions src="MlWebSvcInstructions.md" format="markdown"/>

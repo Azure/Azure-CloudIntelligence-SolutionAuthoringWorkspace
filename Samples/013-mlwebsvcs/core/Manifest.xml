@@ -4,7 +4,7 @@
   <Owner displayname="Bolun Huang" email="bohuan@microsoft.com"/>
   <PublishedOn>02/28/2017</PublishedOn>
   <ImageUrl>{PatternAssetBaseUrl}/MlWebSvcPattern.JPG</ImageUrl>
-  <Description>Create a Machine Learning Workspace, copy multiple Experiment from Cortana Intelligence Gallery to the workspace and deploy as Web services. It show-cases the syntax of: 0) provisioning a default ML Web service endpoint; 1) provisioning multiple ML Web services; 2) overwriting default outputs; and 3) provisioning a high-throughput ML Web service endpoint.</Description>
+  <Description>Create a Machine Learning Workspace, copy multiple Experiment from Cloud Intelligence Gallery to the workspace and deploy as Web services. It show-cases the syntax of: 0) provisioning a default ML Web service endpoint; 1) provisioning multiple ML Web services; 2) overwriting default outputs; and 3) provisioning a high-throughput ML Web service endpoint.</Description>
   <Summary src="MlWebSvcSummary.md" format="markdown"/>
   <EstimatedTime>6 Minutes</EstimatedTime>
   <Ingredients>
@@ -15,9 +15,9 @@
   <ProvisioningSteps>
     <Manual title="Enter gallery urls">
       <Parameters>
-        <Parameter name="galleryUrl1" description="Gallery Url 1" type="string" defaultValue="https://gallery.cortanaintelligence.com/Details/nyc-taxi-binary-classification-scoring-exp-2" />
-        <Parameter name="galleryUrl2" description="Gallery Url 2" type="string" defaultValue="https://gallery.cortanaintelligence.com/Details/connected-cars-aml-v2-noreader-scoring-exp-2" />
-        <Parameter name="galleryUrl3" description="Gallery Url 3" type="string" defaultValue="https://gallery.cortanaintelligence.com/Details/bcae226bc74a4cbbb0ff700ac97448bf" />
+        <Parameter name="galleryUrl1" description="Gallery Url 1" type="string" defaultValue="https://gallery.azure.ai/Details/nyc-taxi-binary-classification-scoring-exp-2" />
+        <Parameter name="galleryUrl2" description="Gallery Url 2" type="string" defaultValue="https://gallery.azure.ai/Details/connected-cars-aml-v2-noreader-scoring-exp-2" />
+        <Parameter name="galleryUrl3" description="Gallery Url 3" type="string" defaultValue="https://gallery.azure.ai/Details/bcae226bc74a4cbbb0ff700ac97448bf" />
       </Parameters>
     </Manual>
     <AzureMlWebService title="Copying the first Experiment from Gallery and deploy as a high-throughput Web Service" hiddenParameters ="true">

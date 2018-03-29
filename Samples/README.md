@@ -34,7 +34,7 @@ A demonstration of how to create a SQL database with an ARM template.
 Showcases framework features allowing effortless Azure FunctionApp (App Service) provisioning and configuration.
 
 ### [Deploying a Machine Learning Web service](012-mlwebsvc)
-Copying an Experiment from Cortana Intelligence Gallery into a new Machine Learning Workspace, and deploying it as a Machine Learning Web service (in just 3 lines of code).
+Copying an Experiment from Cloud Intelligence Gallery into a new Machine Learning Workspace, and deploying it as a Machine Learning Web service (in just 3 lines of code).
 
 ### [Deploying multiple Machine Learning Web services](013-mlwebsvcs)
 Similar to the previous sample, but with multiple Machine Learning Web services.

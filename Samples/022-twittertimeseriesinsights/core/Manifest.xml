@@ -6,7 +6,7 @@
   <Description>Analyzing data streams in real-time is a problem that a lot of businesses can relate to. In this fast paced digital era, enterprises depend on insights from Operational Technology like real-time times series analysis to detect changes, monitor, and/or control physical devices, processes, and events in the enterprise..  This tutorial lets you stream data from Twitter using Key Words of your choice including #hashtags and @mentions and use Microsoft's Time Series Insights to monitor those keywords.</Description>
   <Summary src="Summary.md" format="markdown"/>
   <EstimatedTime>15 Minutes</EstimatedTime>
-  <EstimatedCost daily="$12.45" url="https://azure.github.io/Azure-CortanaIntelligence-SolutionAuthoringWorkspace/solution-prices#time-series-insights-using-twitter" />
+  <EstimatedCost daily="$12.45" url="https://azure.github.io/Azure-CloudIntelligence-SolutionAuthoringWorkspace/solution-prices#time-series-insights-using-twitter" />
   <Ingredients>
     <Ingredient>EventHub</Ingredient>
     <Ingredient>StreamAnalytics</Ingredient>
@@ -60,7 +60,7 @@
     </AzureFunctionApp>
     <AzureMlWebService hiddenParameters ="true">
       <PackageUrl>https://storage.azureml.net/directories/5067590f26d5412ebf2220a1dacb0f22/items</PackageUrl>
-      <GalleryUrl>https://gallery.cortanaintelligence.com/Details/predictive-mini-twitter-sentiment-analysis-experiment-1</GalleryUrl>
+      <GalleryUrl>https://gallery.azure.ai/Details/predictive-mini-twitter-sentiment-analysis-experiment-1</GalleryUrl>
       <EntityId>Predictive-Experiment-Mini-Twitter-sentiment-analysis-2</EntityId>
     </AzureMlWebService>
     <ArmDeployment source="CreateResourcesArm.json" title="Creating solution's Azure resources" autoResolveParameters="true" />
