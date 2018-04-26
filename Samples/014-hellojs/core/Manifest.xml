@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Template>
-    <Category>DesignPattern</Category>
+    <Category>Internal</Category>
     <Title>Greeting from a NodeJS function</Title>
     <Owner displayname="John Doe" email="john.doe@contoso.com"/>
     <PublishedOn>12/31/2016</PublishedOn>
