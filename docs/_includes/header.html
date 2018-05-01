@@ -1,5 +1,5 @@
 <header>
-  <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
+  <h2 class="header">{{ site.title | default: site.github.repository_name }}</h2>
   <nav class="main-nav">
     <ul>
       {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}

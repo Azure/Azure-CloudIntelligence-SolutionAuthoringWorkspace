@@ -4,7 +4,7 @@ title: Getting started
 navigation_weight: 2
 ---
 {:.no_toc}
-## Getting started
+# Getting started
 
 Let's get this straight: we really strive to help you be as efficient as possible when building Solutions. That was and still remains the primary goal of the *Solution Authoring Workspace* (aka *SAW*).
 
