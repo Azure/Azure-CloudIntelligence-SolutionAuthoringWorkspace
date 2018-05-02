@@ -8,7 +8,7 @@ navigation_weight: 8
 
 ## PowerShell
 
-```
+```powershell
 param (
     [Parameter(Mandatory = $true)]
     [string]$template,
