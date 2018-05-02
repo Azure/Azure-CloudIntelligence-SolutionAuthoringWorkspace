@@ -136,9 +136,9 @@ PS F:\> Login-AzureRmAccount
 
 Environment           : AzureCloud
 Account               : anivan@microsoft.com
-TenantId              : 72f988bf-86f1-41af-91ab-2d7cd011db47
-SubscriptionId        : 1a827f48-3a3d-40a1-a669-0de4d9ac9c00
-SubscriptionName      : Microsoft Azure Internal Consumption
+TenantId              : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+SubscriptionId        : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+SubscriptionName      : My Subscription
 CurrentStorageAccount :
 
 
