@@ -1,3 +1,9 @@
+---
+layout: default
+title: REST API
+navigation_weight: 8
+---
+
 # Programmatic REST API solution deployments
 
 ## PowerShell
