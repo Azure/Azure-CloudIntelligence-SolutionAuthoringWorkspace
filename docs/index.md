@@ -31,7 +31,7 @@ The in-browser environment comes with a set of Samples that are ready to be cons
 
 To create a new Custom Solution and publish it into CIQS, put the source code into the Solution directory (for instance, let's take the cognitive services sample mentioned earlier).
 
-Users can publish custom solutions into CIQS by running a shell command from the Windows console. The command is: saw deploy (If local installation is used, it would be available in the regular windows command prompt and the rest is the same.) After it completes, the solutions are immediately available for deployment and can be found in the *My Solutions* section.
+Users can publish custom solutions into CIQS by running a shell command from the Windows console. The command is: saw push (If local installation is used, it would be available in the regular windows command prompt and the rest is the same.) After it completes, the solutions are immediately available for deployment and can be found in the *My Solutions* section.
 
 Notable *SAW* features include:
 - Full *Git* support in the Web environment (thanks to the *App Service Editor* aka *Visual Studio Online "Monaco"*); this is really great for collaborative solution authoring (example - git clone and then saw deploy)
