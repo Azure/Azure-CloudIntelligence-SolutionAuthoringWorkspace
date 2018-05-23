@@ -10,6 +10,9 @@ This section describes some common CIQS deployment errors you may encounter, and
 | AuthorizationFailed: The client 'bekeh@contoso.com' with object id 'eac01513-cbdf-42a6-8b81-ba4ed3eb6414' does not have authorization to perform action 'Microsoft.Resources/subscriptions/resourcegroups/write' over scope '/subscriptions/abcd1234-ef56-ghijklm78901/resourcegroups/bokehrg'. | <ul><li>[Contact your subscription admin](#how-to-contact-subscription-admin)</li><li>Once you are granted proper authorization, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li></ul> |
 | RequestDisallowedByPolicy: Resource 'ivrbottevbe7nvhqta2' was disallowed by policy. Policy identifiers: "policyDefinitionId":"/providers/Microsoft.Authorization/policyDefinitions/..." | <ul><li>[Contact your subscription admin](#how-to-contact-subscription-admin)</li><li>Once you are granted proper authorization, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li></ul> |
 
+### DeploymentInterrupted
+"DeploymentInterrupted" is a CIQS failure code, indicating a catastrophic human intevention is detected during the automatic provisionings, causing solution deployment to fail. If this is the case, please consider to [contact CIQS support](#how-to-contact-ciqs-support).
+
 ### ResourceGroupNotFound
 ### ResourceGroupBeingDeleted
 "ResourceGroupNotFound" and "ResourceGroupBeingDeleted" happen when someone manual deletes the resource group from Azure portal in the middle of solution provisioning. In this case, the CIQS solution deployment status will be signified as "Interrupted". For more information, please see [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors).
