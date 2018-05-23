@@ -10,6 +10,13 @@ This section describes some common CIQS deployment errors you may encounter, and
 | AuthorizationFailed: The client 'bekeh@contoso.com' with object id 'eac01513-cbdf-42a6-8b81-ba4ed3eb6414' does not have authorization to perform action 'Microsoft.Resources/subscriptions/resourcegroups/write' over scope '/subscriptions/abcd1234-ef56-ghijklm78901/resourcegroups/bokehrg'. | <ul><li>[Contact your subscription admin](#how-to-contact-subscription-admin)</li><li>Once you are granted proper authorization, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li></ul> |
 | RequestDisallowedByPolicy: Resource 'ivrbottevbe7nvhqta2' was disallowed by policy. Policy identifiers: "policyDefinitionId":"/providers/Microsoft.Authorization/policyDefinitions/..." | <ul><li>[Contact your subscription admin](#how-to-contact-subscription-admin)</li><li>Once you are granted proper authorization, you can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step)</li></ul> |
 
+### ResourceGroupNotFound
+### ResourceGroupBeingDeleted
+"ResourceGroupNotFound" and "ResourceGroupBeingDeleted" happen when someone manual deletes the resource group from Azure portal in the middle of solution provisioning. In this case, the CIQS solution deployment status will be signified as "Interrupted". For more information, please see [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors).
+
+### StorageAccountOperationInProgress
+This error indicates a write operation for the storage account is in progress. In this case, the CIQS solution deployment status will be signified as "Interrupted". You can [retry the provisioning step](#how-to-retry-a-failed-provisioning-step); if it doesn't help, please consider [contact CIQS support](#how-to-contact-ciqs-support) or [contact Azure support](#how-to-submit-azure-support-request). For more information on Storage Resource Manager, please see [Common Error Codes for Storage Resource Manager](https://docs.microsoft.com/en-us/rest/api/storagerp/srp_error_codes_common).
+
 ### ArmValidationFailed
 This error code indicates that ARM pre-flight validation fails. ARM pre-flight validation could fail for various reasons: Some of them are actionable/retriable, such as [quota exceeded](#how-to-request-quota-increase); Some of them are non-recoverable; in this case, please [contact Azure support](#how-to-submit-azure-support-request) or [contact CIQS support](#how-to-contact-ciqs-support).
 
