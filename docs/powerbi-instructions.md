@@ -1,6 +1,6 @@
 # How to connect to data source in Power BI desktop?
 ## Step 1
-Download and open the sample **pbix** file. You can download Power BI desktop from [here](https://powerbi.microsoft.com/en-us/desktop/) to a Windows desktop if you don’t have one.
+Download and open the sample **pbix** file. You can download Power BI desktop from [**here**](https://powerbi.microsoft.com/en-us/desktop/) to a Windows desktop if you don’t have one.
 ## Step 2
 **Close** any prompted dialog if you are asked for data credential, because in this tutorial we are going to change the data source and credential away from default configuration to what you have just provisioned.
 ## Step 3
@@ -25,16 +25,16 @@ Navigate again to the data source settings dialog by clicking "**Edit Queries**"
 In the "**Edit Permissions...**" popup, within the "**Credentials**" section, click the "**Edit...**" button.
 ![](images/pbi8.png)
 ## Step 9
-From the "**Credentials**" popup, choose "**Database**" and type in the "**User name**" and "**Password” as instructed.
+From the "**Credentials**" popup, choose "**Database**" and type in the "**User name**" and "**Password**" as instructed.
 ![](images/pbi9.png)
 The "**User name**" and "**Password**" are the ones you were asked to provide in the middle of the provisioning workflow (Remember? 😊).
 ![](images/pbi9-2.png)
 ## Step 10
 Click "**Save**" to finish configuring the "**Credentials**" and click "**OK**" to finish editing the permissions. Leave other settings as default and click "**Close**" to complete the "**Data source settings**".
 ## Step 11
-Finally, click "Refresh" button or the "Apply changes" button to load data from the data source into your report; Power BI report views with real-time streaming data is ready for you!
+Finally, click "**Refresh**" button or the "**Apply changes**" button to load data from the data source into your report; Power BI report views with real-time streaming data is ready for you!
 ![](images/pbi11.png)
 You can always create your own custom views in Power BI reports. More details about Report View in Power BI desktop is available [**here**](https://docs.microsoft.com/en-us/power-bi/desktop-report-view).
 Below is a sample output from [**Twitter Streaming with Azure Machine Learning**](https://gallery.azure.ai/Solution/Twitter-Stream-Analysis-with-Azure-Machine-Learning) solution template.
 ![](images/pbi11-2.png)
-If you have any question or feedback, please [contact us](mailto:ciqsoncall@microsoft.com). Enjoy and have fun!
+If you have any question or feedback, please [**contact us**](mailto:ciqsoncall@microsoft.com). Enjoy and have fun!
