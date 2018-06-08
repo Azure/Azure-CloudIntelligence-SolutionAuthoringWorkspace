@@ -32,7 +32,9 @@ The "**User name**" and "**Password**" are the ones you were asked to provide in
 ## Step 10
 Click "**Save**" to finish configuring the "**Credentials**" and click "**OK**" to finish editing the permissions. Leave other settings as default and click "**Close**" to complete the "**Data source settings**".
 ## Step 11
+Finally, click "Refresh" button or the "Apply changes" button to load data from the data source into your report; Power BI report views with real-time streaming data is ready for you!
+![](images/pbi11.png)
 You can always create your own custom views in Power BI reports. More details about Report View in Power BI desktop is available [**here**](https://docs.microsoft.com/en-us/power-bi/desktop-report-view).
 Below is a sample output from [**Twitter Streaming with Azure Machine Learning**](https://gallery.azure.ai/Solution/Twitter-Stream-Analysis-with-Azure-Machine-Learning) solution template.
-![](images/pbi11.png)
+![](images/pbi11-2.png)
 If you have any question or feedback, please [contact us](mailto:ciqsoncall@microsoft.com). Enjoy and have fun!
