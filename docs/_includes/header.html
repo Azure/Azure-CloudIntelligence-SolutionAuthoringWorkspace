@@ -9,6 +9,7 @@
         <a href="{{ site.baseurl }}{{ p.url }}">
           {{ p.title }}
         </a>
+        {% if p.url == page.url %}<span class="sr-only">Active</span>{% endif %}
       </li>
       {% endif %}
       {% endfor %}
