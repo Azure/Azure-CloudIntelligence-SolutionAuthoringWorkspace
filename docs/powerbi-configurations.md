@@ -1,6 +1,6 @@
 # How to connect to data source in Power BI desktop?
 ## Step 1
-Download and open the sample **pbix** file. You can download Power BI desktop from [**here**](https://powerbi.microsoft.com/en-us/desktop/) to a Windows desktop if you don’t have one.
+Download and open the sample **pbix** file. You can download Power BI desktop from [**here**](https://powerbi.microsoft.com/en-us/desktop/) to a Windows desktop or a Windows (Virtual Machine](https://azure.microsoft.com/en-us/services/virtual-machines/) if you don’t have one.
 ## Step 2
 **Close** any prompted dialog if you are asked for data credential, because in this tutorial we are going to change the data source and credential away from default configuration to what you have just provisioned.
 ## Step 3
