@@ -764,5 +764,4 @@ Another common use case would be provisioning multiple Azure ML experiments, wit
 </AzureMlWebService>
 ```
 
-### SolutionDashboard
 ### AzureFunctionApp
