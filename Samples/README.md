@@ -21,9 +21,6 @@ A simple Web App is being deploying into a newly created instsance of the Azure 
 ### [Uploading a blob into a Storage account](007-blobupload)
 Creating a blob in a Storage account with Azure Functions.
 
-### [Embedded Power BI dashboard](008-solutiondashboard)
-Embedding a Power BI dashboard into a solution to monitor most important data, at a glance.
-
 ### [Analyzing streaming data with Machine Learning](009-twitterstreaming-dev)
 This is an example of comprehensive solution that performs Machine Learning powered sentiment analysis of streaming data coming from a Twitter connector.
 
