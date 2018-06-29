@@ -50,6 +50,8 @@ For errors not listed in the table, please [contact CIQS support](#how-to-contac
 | *The region is not enabled for this subscription, please contact support for more information.* | <ul><li>[Contact Azure support](#how-to-submit-azure-support-request)</li><li>[Contact your subscription admin](#how-to-contact-subscription-admin)</li></ul> |
 | *RegionCapabilityNotAvailable, Region capability not available for region 'West Central US' and Subscription ID 'abcd1234-ef56-ghijklm78901'. (Code: BadRequest, ResourceType: Microsoft.HDInsight/clusters, ResourceName: hdicluster)* | <ul><li>This is a similar issue to [SkuNotAvailable](#skunotavailable), in which case the underlying compute sku is not available for some region in that subscription</li></ul> |
 | *MarketplacePurchaseEligibilityFailed, Marketplace is not available in your Subscription/Azure account's regions: VN. Please switch to an Azure account from an allowed region. (Code: BadRequest, Offer with PublisherId: microsoft-ads, OfferId: windows-data-science-vm)* | <ul><li>This is also similar to [SkuNotAvailable](#skunotavailable), the region used is not allowed to deploy certain VM images.</li></ul> |
+| *Version capability not available for version '3.5' and Subscription ID 'c918e7a1-fd55-4518-96fd-4888ede29012'. (Code: BadRequest, ResourceType: Microsoft.HDInsight/clusters,ResourceName: sparkx65lgl)* | <ul><li>This is subscription specific error, please [contact your subscription admin](#how-to-contact-subscription-admin) for help. If the problem persists, please [contact CIQS support](#how-to-contact-ciqs-support).</li></ul> |
+
 
 For errors not listed in the table, please [contact CIQS support](#how-to-contact-ciqs-support) for help.
 
