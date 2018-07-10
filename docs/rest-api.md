@@ -98,7 +98,7 @@ if ($solutionStorageConnectionString) {
 Write-Host "Creating new CIQS deployment of ${template} into ${resourceGroup}..."
 
 $body = $payload | ConvertTo-Json
-$deployment = Invoke-RestMethod "${endpoint}api/deployments" -Headers $header -Method POST -Body $body -ContentType "application/json"
+$deployment = Invoke-RestMethod "${endpoint}api/deployments/${subscription}/${template}" -Headers $header -Method POST -Body $body -ContentType "application/json"
 
 Write-Host "New deployment:"
 $deployment
