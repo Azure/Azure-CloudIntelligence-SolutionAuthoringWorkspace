@@ -29,6 +29,46 @@ Here is an example of how it is used:
 </Template>
 ```
 
+### Disabled
+__&lt;Disabled/&gt;__ tag allows template owner(s) to temporarily disable a solution for maintenance, with customized message and estimated time of solution readiness (ETA).
+
+**Attributes**
+
+| Name | Description |
+| ------------ | ------------- |
+| *Message* (optional): `string` | The custom message to be shown to solution users. If not present, a default message will be added by CIQS. |
+| *ETA* (optional): `string` | The estimated time (UTC) of solution readiness in the format of '*MM/dd/yyyy*'. It must not be a date earlier than DateTime.UtcNow. If not set, the day will be set to the date a week after DateTime.UtcNow. For example, if today is '07/18/2018'(UTC), by default the ETA will be '07/25/2018' (a week after). |
+
+**Attributes**
+
+| Name | Description |
+| ------------ | ------------- |
+| *message* (optional): `string` | The custom message to be shown to solution users. If not present, a default message will be added by CIQS. |
+| *ETA* (optional): `string` | The estimated time (UTC) of solution readiness in the format of '*MM/dd/yyyy*'. It must not be a date earlier than DateTime.UtcNow. If not set, the day will be set to the date a week after DateTime.UtcNow. For example, if today is '07/18/2018'(UTC), by default the ETA will be '07/25/2018' (a week after). |
+
+**Examples**
+```xml
+  <Disabled />
+```
+With the above configuration, a default message will be returned to users:
+
+```
+{This solution is disabled for maintenance}. Please come check back after {07/25/2018}. For more information, please contact cisolutions@microsoft.com.
+```
+
+```xml
+  <Disabled>
+    <Message>Vehicle Telemetry solution is temporarily disabled for maintenance. We are ugrading underlying services for this solution. Sorry about the inconvenience.</Message>
+	<ETA>01/01/2019</ETA>
+  </Disabled>
+```
+
+With the above configuration, a custom message will be returned to users:
+
+```
+{Vehicle Telemetry solution is temporarily disabled for maintenance. We are ugrading underlying services for this solution. Sorry about the inconvenience.}. Please come check back after {01/01/2019}. For more information, please contact cisolutions@microsoft.com.
+```
+
 ### LocationsToExclude
 __&lt;LocationsToExclude/&gt;__ tag allows pattern authors to hide locations from CIQS location dropdown. This is very useful especially when some region(**s**) is known to cause deployment failures.
 
