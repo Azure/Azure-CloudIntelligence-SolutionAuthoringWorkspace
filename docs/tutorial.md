@@ -6,8 +6,42 @@ navigation_weight: 2
 {:.no_toc}
 # Tutorial
 
-1. TOC
-{:toc}
+<ol id="markdown-toc">
+  <li><a href="#learning-objectives" id="markdown-toc-learning-objectives" aria-label="1. Learning objectives">Learning objectives</a></li>
+  <li><a href="#before-we-begin" id="markdown-toc-before-we-begin" aria-label="2. Before we begin">Before we begin</a></li>
+  <li><a href="#the-samples" id="markdown-toc-the-samples" aria-label="3. The Samples">The Samples</a>    <ol>
+      <li><a href="#trying-out-a-sample" id="markdown-toc-trying-out-a-sample" aria-label="3(1). Trying out a sample">Trying out a sample</a></li>
+      <li><a href="#what-happens-during-a-ciqs-deployment" id="markdown-toc-what-happens-during-a-ciqs-deployment" aria-label="3(2). What happens during a CIQS deployment?">What happens during a CIQS deployment?</a>        <ol>
+          <li><a href="#deployment-creation" id="markdown-toc-deployment-creation" aria-label="3(2)(1). Deployment creation">Deployment creation</a></li>
+          <li><a href="#resource-provisioning" id="markdown-toc-resource-provisioning" aria-label="3(2)(2). Resource provisioning">Resource provisioning</a></li>
+          <li><a href="#post-deployment-instructions" id="markdown-toc-post-deployment-instructions" aria-label="3(2)(3). Post-deployment instructions">Post-deployment instructions</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#essential-components-of-a-ciqs-solution" id="markdown-toc-essential-components-of-a-ciqs-solution" aria-label="4. Essential components of a CIQS solution">Essential components of a CIQS solution</a></li>
+  <li><a href="#deep-dive" id="markdown-toc-deep-dive" aria-label="5. Deep dive">Deep dive</a>    <ol>
+      <li><a href="#chicken-and-egg-011-chickenandegg" id="markdown-toc-chicken-and-egg-011-chickenandegg" aria-label="5(1). Chicken and egg (011-chickenandegg)">Chicken and egg (011-chickenandegg)</a></li>
+      <li><a href="#solution-dashboard-008-solutiondashboard" id="markdown-toc-solution-dashboard-008-solutiondashboard" aria-label="5(2). Solution dashboard (008-solutiondashboard)">Solution dashboard (008-solutiondashboard)</a></li>
+    </ol>
+  </li>
+  <li><a href="#chicken-and-egg-on-steroids-hands-on-exercise" id="markdown-toc-chicken-and-egg-on-steroids-hands-on-exercise" aria-label="6. Chicken and egg on steroids (hands-on exercise)">Chicken and egg on steroids (hands-on exercise)</a>    <ol>
+      <li><a href="#copy-011-chickenandegg-sample-into-the-solutions-directory" id="markdown-toc-copy-011-chickenandegg-sample-into-the-solutions-directory" aria-label="6(1). Copy 011-chickenandegg sample into the Solutions directory">Copy 011-chickenandegg sample into the Solutions directory</a></li>
+      <li><a href="#update-title-and-description" id="markdown-toc-update-title-and-description" aria-label="6(2). Update <Title> and <Description>">Update <code class="highlighter-rouge">&lt;Title&gt;</code> and <code class="highlighter-rouge">&lt;Description&gt;</code></a></li>
+      <li><a href="#update-the-first-manual-step" id="markdown-toc-update-the-first-manual-step" aria-label="6(3). Update the first <Manual> step">Update the first <code class="highlighter-rouge">&lt;Manual&gt;</code> step</a></li>
+      <li><a href="#remove-the-second-azurefunctionapp-provisioning-step-from-the-manifest" id="markdown-toc-remove-the-second-azurefunctionapp-provisioning-step-from-the-manifest" aria-label="6(4). Remove the second <AzureFunctionApp> provisioning step from the Manifest">Remove the second <code class="highlighter-rouge">&lt;AzureFunctionApp&gt;</code> provisioning step from the <code class="highlighter-rouge">Manifest</code></a></li>
+      <li><a href="#incorporate-and-slightly-tweak-stuff-from-008-solutiondashboard-into-your-new-solution" id="markdown-toc-incorporate-and-slightly-tweak-stuff-from-008-solutiondashboard-into-your-new-solution" aria-label="6(5). Incorporate (and slightly tweak) stuff from 008-solutiondashboard into your new solution">Incorporate (and slightly tweak) stuff from 008-solutiondashboard into your new solution</a></li>
+      <li><a href="#modify-the-hatch-function-to-hatch-eggs-into-the-sql-database" id="markdown-toc-modify-the-hatch-function-to-hatch-eggs-into-the-sql-database" aria-label="6(6). Modify the hatch function to hatch eggs into the SQL database">Modify the <code class="highlighter-rouge">hatch</code> function to hatch eggs into the SQL database</a></li>
+      <li><a href="#final-touches" id="markdown-toc-final-touches" aria-label="6(7). Final touches">Final touches</a></li>
+    </ol>
+  </li>
+  <li><a href="#appendix" id="markdown-toc-appendix" aria-label="7. Appendix">Appendix</a>    <ol>
+      <li><a href="#manifestxml-changes-diff" id="markdown-toc-manifestxml-changes-diff" aria-label="7(1). Manifest.xml changes (diff)">Manifest.xml changes (diff)</a></li>
+      <li><a href="#solutiondatatablecsx" id="markdown-toc-solutiondatatablecsx" aria-label="7(2). SolutionDataTable.csx">SolutionDataTable.csx</a></li>
+      <li><a href="#functionshatchruncsx-changes-diff" id="markdown-toc-functionshatchruncsx-changes-diff" aria-label="7(3). functions/hatch/run.csx changes (diff)">functions/hatch/run.csx changes (diff)</a></li>
+    </ol>
+  </li>
+</ol>
 
 ## Learning objectives
 
