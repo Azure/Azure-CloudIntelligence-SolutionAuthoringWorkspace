@@ -1,12 +1,12 @@
 <header>
   <h2 class="header">{{ site.title | default: site.github.repository_name }}</h2>
   <nav class="main-nav">
-    <ul>
+    <ul role="tablist">
       {% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %}
       {% for p in navigation_pages %}
       {% if p.navigation_weight %}
       <li{% if p.url == page.url %} class="active"{% endif %}>
-        <a href="{{ site.baseurl }}{{ p.url }}" {% if p.url == page.url %}aria-label= "{{p.title}} active"{% endif %}>
+        <a href="{{ site.baseurl }}{{ p.url }}" {% if p.url == page.url %}aria-label= "{{p.title}} active"{% endif %} role="tab">
           {{ p.title }}
         </a>
       </li>
