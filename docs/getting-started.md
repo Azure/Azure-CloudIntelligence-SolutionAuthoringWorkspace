@@ -8,8 +8,17 @@ navigation_weight: 2
 
 Let's get this straight: we really strive to help you be as efficient as possible when building Solutions. That was and still remains the primary goal of the *Solution Authoring Workspace* (aka *SAW*).
 
-1. TOC
-{:toc}
+<ol id="markdown-toc">
+  <li><a href="#wait-what-exactly-is-saw" id="markdown-toc-wait-what-exactly-is-saw" aria-label="1. Wait! What exactly is SAW?">Wait! What <em>exactly</em> is <em>SAW</em>?</a></li>
+  <li><a href="#hmm-okay-and-what-are-those-tools" id="markdown-toc-hmm-okay-and-what-are-those-tools" aria-label="2. Hmm… Okay. And what are those tools?">Hmm… Okay. And what are those tools?</a></li>
+  <li><a href="#that-was-easy-now-what" id="markdown-toc-that-was-easy-now-what" aria-label="3. That was easy! Now what?">That was easy! Now what?</a>   
+    <ol>
+      <li><a href="#package-1-in-browser-solution-authoring-environment" id="markdown-toc-package-1-in-browser-solution-authoring-environment" aria-label="3(1). Package 1: In-browser Solution authoring environment">Package 1: In-browser Solution authoring environment</a></li>
+      <li><a href="#package-2-local-solution-development-on-windows" id="markdown-toc-package-2-local-solution-development-on-windows" aria-label="3(2). Package 2: Local Solution development on Windows">Package 2: Local Solution development on Windows</a></li>
+    </ol>
+  </li>
+  <li><a href="#configuration" id="markdown-toc-configuration" aria-label="4. Configuration">Configuration</a></li>
+</ol>
 
 ## Wait! What *exactly* is *SAW*?
 
