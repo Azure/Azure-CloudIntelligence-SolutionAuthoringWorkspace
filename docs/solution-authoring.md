@@ -609,7 +609,7 @@ AzureMlWebService is a first-party provisioning step that empowers solution auth
 
 - Provision an Azure ML experiment from [Cloud Intelligence Gallery](https://gallery.azure.ai/experiments) by simply providing the `GalleryUrl`;
 
-- Modify the **Experiment Graph** of the provisioned Azure ML experiment with a customized funciton plug-in;
+- Modify the **Experiment Graph** of the provisioned Azure ML experiment with a customized function plug-in;
 
 - Deploy multiple Azure ML web services;
 
